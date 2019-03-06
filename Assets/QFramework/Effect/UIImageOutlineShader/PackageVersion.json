@@ -1,0 +1,16 @@
+{
+  "Version": "v0.0.2",
+  "Type": 1,
+  "AccessRight": 0,
+  "DownloadUrl": "http://liangxiegame.com/media/UIImageOutline_v0.0.0_E85OTfB.unitypackage",
+  "InstallPath": "Assets/QFramework/Effect/UIImageOutlineShader/",
+  "Readme": {
+    "version": "v0.0.2",
+    "content": "更改类型",
+    "author": "凉鞋的MacBook Pro (2)",
+    "date": "2018-12-16"
+  },
+  "Name": "UIImageOutlineShader",
+  "VersionNumber": 2,
+  "FileName": "UIImageOutlineShader_v0.0.2.unitypackage"
+}

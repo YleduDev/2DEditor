@@ -1,0 +1,16 @@
+{
+  "Version": "v0.0.3",
+  "Type": 1,
+  "AccessRight": 0,
+  "DownloadUrl": null,
+  "InstallPath": "Assets/QFramework/Effect/UIImageReflectionShader/",
+  "Readme": {
+    "version": "v0.0.3",
+    "content": "更改类型",
+    "author": "凉鞋的MacBook Pro (2)",
+    "date": "2018-12-16"
+  },
+  "Name": "UIImageReflectionShader",
+  "VersionNumber": 3,
+  "FileName": "UIImageReflectionShader_v0.0.3.unitypackage"
+}

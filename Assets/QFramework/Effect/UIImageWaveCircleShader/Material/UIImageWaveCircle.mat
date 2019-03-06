@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: UIImageWaveCircle
+  m_Shader: {fileID: 4800000, guid: 02a969b5a5e9a466a83c94696cf0d824, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AdaptedLum: 0.45
+    - _BlurBlendFactor: 1.088
+    - _BlurDistance: 0.0093
+    - _BlurSampleLevel: 2.13
+    - _CenterX: 0.501
+    - _CenterY: 0.551
+    - _ColorMask: 15
+    - _FlowOutward: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    - _WaveAmplitude: 0.051
+    - _WaveLength: 0.07
+    - _WavePhase: 0.099
+    - _WaveSpeed: 5.7
+    m_Colors: []
