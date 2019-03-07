@@ -38,7 +38,7 @@ namespace TDE
         public FontAlignMentType fontAlignMentType;
         public ParagraphAlignMentType paragraphAlignMentType;
 
-       
+        public new GraphicType graphicType = GraphicType.Text;
 
     }
 }

@@ -7,6 +7,13 @@ namespace TDE
     /// 2维编辑中图像图像文本的基类
     /// Model
     /// </summary>
+ public enum GraphicType
+    {
+        Image,
+        Text,
+        Line
+    }
+
 public class T_Graphic
 {
         public Vector3 localPos;
@@ -21,6 +28,7 @@ public class T_Graphic
         //是否框选
         public bool isSelected;
 
+        public GraphicType graphicType= GraphicType .Image;
        
         //删除自身
         public virtual void DeleteSelf()

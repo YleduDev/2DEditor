@@ -5,6 +5,6 @@ namespace TDE
 {
     public class T_Line : T_Graphic
     {
-
+        public new GraphicType graphicType = GraphicType.Line;
     }
 }

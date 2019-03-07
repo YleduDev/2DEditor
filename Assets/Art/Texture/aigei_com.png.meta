@@ -1,0 +1,6357 @@
+fileFormatVersion: 2
+guid: b606820cad8b2884b8bcffd8dedd9f56
+timeCreated: 1551925069
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: aigei_com_0
+    21300002: aigei_com_1
+    21300004: aigei_com_2
+    21300006: aigei_com_3
+    21300008: aigei_com_4
+    21300010: aigei_com_5
+    21300012: aigei_com_6
+    21300014: aigei_com_7
+    21300016: aigei_com_8
+    21300018: aigei_com_9
+    21300020: aigei_com_10
+    21300022: aigei_com_11
+    21300024: aigei_com_12
+    21300026: aigei_com_13
+    21300028: aigei_com_14
+    21300030: aigei_com_15
+    21300032: aigei_com_16
+    21300034: aigei_com_17
+    21300036: aigei_com_18
+    21300038: aigei_com_19
+    21300040: aigei_com_20
+    21300042: aigei_com_21
+    21300044: aigei_com_22
+    21300046: aigei_com_23
+    21300048: aigei_com_24
+    21300050: aigei_com_25
+    21300052: aigei_com_26
+    21300054: aigei_com_27
+    21300056: aigei_com_28
+    21300058: aigei_com_29
+    21300060: aigei_com_30
+    21300062: aigei_com_31
+    21300064: aigei_com_32
+    21300066: aigei_com_33
+    21300068: aigei_com_34
+    21300070: aigei_com_35
+    21300072: aigei_com_36
+    21300074: aigei_com_37
+    21300076: aigei_com_38
+    21300078: aigei_com_39
+    21300080: aigei_com_40
+    21300082: aigei_com_41
+    21300084: aigei_com_42
+    21300086: aigei_com_43
+    21300088: aigei_com_44
+    21300090: aigei_com_45
+    21300092: aigei_com_46
+    21300094: aigei_com_47
+    21300096: aigei_com_48
+    21300098: aigei_com_49
+    21300100: aigei_com_50
+    21300102: aigei_com_51
+    21300104: aigei_com_52
+    21300106: aigei_com_53
+    21300108: aigei_com_54
+    21300110: aigei_com_55
+    21300112: aigei_com_56
+    21300114: aigei_com_57
+    21300116: aigei_com_58
+    21300118: aigei_com_59
+    21300120: aigei_com_60
+    21300122: aigei_com_61
+    21300124: aigei_com_62
+    21300126: aigei_com_63
+    21300128: aigei_com_64
+    21300130: aigei_com_65
+    21300132: aigei_com_66
+    21300134: aigei_com_67
+    21300136: aigei_com_68
+    21300138: aigei_com_69
+    21300140: aigei_com_70
+    21300142: aigei_com_71
+    21300144: aigei_com_72
+    21300146: aigei_com_73
+    21300148: aigei_com_74
+    21300150: aigei_com_75
+    21300152: aigei_com_76
+    21300154: aigei_com_77
+    21300156: aigei_com_78
+    21300158: aigei_com_79
+    21300160: aigei_com_80
+    21300162: aigei_com_81
+    21300164: aigei_com_82
+    21300166: aigei_com_83
+    21300168: aigei_com_84
+    21300170: aigei_com_85
+    21300172: aigei_com_86
+    21300174: aigei_com_87
+    21300176: aigei_com_88
+    21300178: aigei_com_89
+    21300180: aigei_com_90
+    21300182: aigei_com_91
+    21300184: aigei_com_92
+    21300186: aigei_com_93
+    21300188: aigei_com_94
+    21300190: aigei_com_95
+    21300192: aigei_com_96
+    21300194: aigei_com_97
+    21300196: aigei_com_98
+    21300198: aigei_com_99
+    21300200: aigei_com_100
+    21300202: aigei_com_101
+    21300204: aigei_com_102
+    21300206: aigei_com_103
+    21300208: aigei_com_104
+    21300210: aigei_com_105
+    21300212: aigei_com_106
+    21300214: aigei_com_107
+    21300216: aigei_com_108
+    21300218: aigei_com_109
+    21300220: aigei_com_110
+    21300222: aigei_com_111
+    21300224: aigei_com_112
+    21300226: aigei_com_113
+    21300228: aigei_com_114
+    21300230: aigei_com_115
+    21300232: aigei_com_116
+    21300234: aigei_com_117
+    21300236: aigei_com_118
+    21300238: aigei_com_119
+    21300240: aigei_com_120
+    21300242: aigei_com_121
+    21300244: aigei_com_122
+    21300246: aigei_com_123
+    21300248: aigei_com_124
+    21300250: aigei_com_125
+    21300252: aigei_com_126
+    21300254: aigei_com_127
+    21300256: aigei_com_128
+    21300258: aigei_com_129
+    21300260: aigei_com_130
+    21300262: aigei_com_131
+    21300264: aigei_com_132
+    21300266: aigei_com_133
+    21300268: aigei_com_134
+    21300270: aigei_com_135
+    21300272: aigei_com_136
+    21300274: aigei_com_137
+    21300276: aigei_com_138
+    21300278: aigei_com_139
+    21300280: aigei_com_140
+    21300282: aigei_com_141
+    21300284: aigei_com_142
+    21300286: aigei_com_143
+    21300288: aigei_com_144
+    21300290: aigei_com_145
+    21300292: aigei_com_146
+    21300294: aigei_com_147
+    21300296: aigei_com_148
+    21300298: aigei_com_149
+    21300300: aigei_com_150
+    21300302: aigei_com_151
+    21300304: aigei_com_152
+    21300306: aigei_com_153
+    21300308: aigei_com_154
+    21300310: aigei_com_155
+    21300312: aigei_com_156
+    21300314: aigei_com_157
+    21300316: aigei_com_158
+    21300318: aigei_com_159
+    21300320: aigei_com_160
+    21300322: aigei_com_161
+    21300324: aigei_com_162
+    21300326: aigei_com_163
+    21300328: aigei_com_164
+    21300330: aigei_com_165
+    21300332: aigei_com_166
+    21300334: aigei_com_167
+    21300336: aigei_com_168
+    21300338: aigei_com_169
+    21300340: aigei_com_170
+    21300342: aigei_com_171
+    21300344: aigei_com_172
+    21300346: aigei_com_173
+    21300348: aigei_com_174
+    21300350: aigei_com_175
+    21300352: aigei_com_176
+    21300354: aigei_com_177
+    21300356: aigei_com_178
+    21300358: aigei_com_179
+    21300360: aigei_com_180
+    21300362: aigei_com_181
+    21300364: aigei_com_182
+    21300366: aigei_com_183
+    21300368: aigei_com_184
+    21300370: aigei_com_185
+    21300372: aigei_com_186
+    21300374: aigei_com_187
+    21300376: aigei_com_188
+    21300378: aigei_com_189
+    21300380: aigei_com_190
+    21300382: aigei_com_191
+    21300384: aigei_com_192
+    21300386: aigei_com_193
+    21300388: aigei_com_194
+    21300390: aigei_com_195
+    21300392: aigei_com_196
+    21300394: aigei_com_197
+    21300396: aigei_com_198
+    21300398: aigei_com_199
+    21300400: aigei_com_200
+    21300402: aigei_com_201
+    21300404: aigei_com_202
+    21300406: aigei_com_203
+    21300408: aigei_com_204
+    21300410: aigei_com_205
+    21300412: aigei_com_206
+    21300414: aigei_com_207
+    21300416: aigei_com_208
+    21300418: aigei_com_209
+    21300420: aigei_com_210
+    21300422: aigei_com_211
+    21300424: aigei_com_212
+    21300426: aigei_com_213
+    21300428: aigei_com_214
+    21300430: aigei_com_215
+    21300432: aigei_com_216
+    21300434: aigei_com_217
+    21300436: aigei_com_218
+    21300438: aigei_com_219
+    21300440: aigei_com_220
+    21300442: aigei_com_221
+    21300444: aigei_com_222
+    21300446: aigei_com_223
+    21300448: aigei_com_224
+    21300450: aigei_com_225
+    21300452: aigei_com_226
+    21300454: aigei_com_227
+    21300456: aigei_com_228
+    21300458: aigei_com_229
+    21300460: aigei_com_230
+    21300462: aigei_com_231
+    21300464: aigei_com_232
+    21300466: aigei_com_233
+    21300468: aigei_com_234
+    21300470: aigei_com_235
+    21300472: aigei_com_236
+    21300474: aigei_com_237
+    21300476: aigei_com_238
+    21300478: aigei_com_239
+    21300480: aigei_com_240
+    21300482: aigei_com_241
+    21300484: aigei_com_242
+    21300486: aigei_com_243
+    21300488: aigei_com_244
+    21300490: aigei_com_245
+    21300492: aigei_com_246
+    21300494: aigei_com_247
+    21300496: aigei_com_248
+    21300498: aigei_com_249
+    21300500: aigei_com_250
+    21300502: aigei_com_251
+    21300504: aigei_com_252
+    21300506: aigei_com_253
+    21300508: aigei_com_254
+    21300510: aigei_com_255
+    21300512: aigei_com_256
+    21300514: aigei_com_257
+    21300516: aigei_com_258
+    21300518: aigei_com_259
+    21300520: aigei_com_260
+    21300522: aigei_com_261
+    21300524: aigei_com_262
+    21300526: aigei_com_263
+    21300528: aigei_com_264
+    21300530: aigei_com_265
+    21300532: aigei_com_266
+    21300534: aigei_com_267
+    21300536: aigei_com_268
+    21300538: aigei_com_269
+    21300540: aigei_com_270
+    21300542: aigei_com_271
+    21300544: aigei_com_272
+    21300546: aigei_com_273
+    21300548: aigei_com_274
+    21300550: aigei_com_275
+    21300552: aigei_com_276
+    21300554: aigei_com_277
+    21300556: aigei_com_278
+    21300558: aigei_com_279
+    21300560: aigei_com_280
+    21300562: aigei_com_281
+    21300564: aigei_com_282
+    21300566: aigei_com_283
+    21300568: aigei_com_284
+    21300570: aigei_com_285
+    21300572: aigei_com_286
+    21300574: aigei_com_287
+    21300576: aigei_com_288
+    21300578: aigei_com_289
+    21300580: aigei_com_290
+    21300582: aigei_com_291
+    21300584: aigei_com_292
+    21300586: aigei_com_293
+    21300588: aigei_com_294
+    21300590: aigei_com_295
+    21300592: aigei_com_296
+    21300594: aigei_com_297
+    21300596: aigei_com_298
+    21300598: aigei_com_299
+    21300600: aigei_com_300
+    21300602: aigei_com_301
+    21300604: aigei_com_302
+    21300606: aigei_com_303
+    21300608: aigei_com_304
+    21300610: aigei_com_305
+    21300612: aigei_com_306
+    21300614: aigei_com_307
+    21300616: aigei_com_308
+    21300618: aigei_com_309
+    21300620: aigei_com_310
+    21300622: aigei_com_311
+    21300624: aigei_com_312
+    21300626: aigei_com_313
+    21300628: aigei_com_314
+    21300630: aigei_com_315
+    21300632: aigei_com_316
+    21300634: aigei_com_317
+    21300636: aigei_com_318
+    21300638: aigei_com_319
+    21300640: aigei_com_320
+    21300642: aigei_com_321
+    21300644: aigei_com_322
+    21300646: aigei_com_323
+    21300648: aigei_com_324
+    21300650: aigei_com_325
+    21300652: aigei_com_326
+    21300654: aigei_com_327
+    21300656: aigei_com_328
+    21300658: aigei_com_329
+    21300660: aigei_com_330
+    21300662: aigei_com_331
+    21300664: aigei_com_332
+    21300666: aigei_com_333
+    21300668: aigei_com_334
+    21300670: aigei_com_335
+    21300672: aigei_com_336
+    21300674: aigei_com_337
+    21300676: aigei_com_338
+    21300678: aigei_com_339
+    21300680: aigei_com_340
+    21300682: aigei_com_341
+    21300684: aigei_com_342
+    21300686: aigei_com_343
+    21300688: aigei_com_344
+    21300690: aigei_com_345
+    21300692: aigei_com_346
+    21300694: aigei_com_347
+    21300696: aigei_com_348
+    21300698: aigei_com_349
+    21300700: aigei_com_350
+    21300702: aigei_com_351
+    21300704: aigei_com_352
+    21300706: aigei_com_353
+    21300708: aigei_com_354
+    21300710: aigei_com_355
+    21300712: aigei_com_356
+    21300714: aigei_com_357
+    21300716: aigei_com_358
+    21300718: aigei_com_359
+    21300720: aigei_com_360
+    21300722: aigei_com_361
+    21300724: aigei_com_362
+    21300726: aigei_com_363
+    21300728: aigei_com_364
+    21300730: aigei_com_365
+    21300732: aigei_com_366
+    21300734: aigei_com_367
+    21300736: aigei_com_368
+    21300738: aigei_com_369
+    21300740: aigei_com_370
+    21300742: aigei_com_371
+    21300744: aigei_com_372
+    21300746: aigei_com_373
+    21300748: aigei_com_374
+    21300750: aigei_com_375
+    21300752: aigei_com_376
+    21300754: aigei_com_377
+    21300756: aigei_com_378
+    21300758: aigei_com_379
+    21300760: aigei_com_380
+    21300762: aigei_com_381
+    21300764: aigei_com_382
+    21300766: aigei_com_383
+    21300768: aigei_com_384
+    21300770: aigei_com_385
+    21300772: aigei_com_386
+    21300774: aigei_com_387
+    21300776: aigei_com_388
+    21300778: aigei_com_389
+    21300780: aigei_com_390
+    21300782: aigei_com_391
+    21300784: aigei_com_392
+    21300786: aigei_com_393
+    21300788: aigei_com_394
+    21300790: aigei_com_395
+    21300792: aigei_com_396
+    21300794: aigei_com_397
+    21300796: aigei_com_398
+    21300798: aigei_com_399
+    21300800: aigei_com_400
+    21300802: aigei_com_401
+    21300804: aigei_com_402
+    21300806: aigei_com_403
+    21300808: aigei_com_404
+    21300810: aigei_com_405
+    21300812: aigei_com_406
+    21300814: aigei_com_407
+    21300816: aigei_com_408
+    21300818: aigei_com_409
+    21300820: aigei_com_410
+    21300822: aigei_com_411
+    21300824: aigei_com_412
+    21300826: aigei_com_413
+    21300828: aigei_com_414
+    21300830: aigei_com_415
+    21300832: aigei_com_416
+    21300834: aigei_com_417
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: aigei_com_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1992
+        width: 268
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_1
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 1998
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_2
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1998
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_3
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 1998
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_4
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 2012
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_5
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 1998
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_6
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1996
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_7
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 1992
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_8
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 1992
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_9
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 1995
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_10
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 1992
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_11
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 2000
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_12
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 2006
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_13
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 2006
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_14
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 2006
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_15
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 2006
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_16
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 2006
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_17
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 2006
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_18
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 2006
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_19
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 2006
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_20
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 2006
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_21
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 2011
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_22
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 2011
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_23
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 1964
+        width: 39
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_24
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 1984
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_25
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1976
+        width: 65
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_26
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 1999
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_27
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 1992
+        width: 53
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_28
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 1986
+        width: 55
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_29
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 1987
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1983
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_31
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1986
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_32
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 1944
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_33
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 2016
+        width: 69
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_34
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 2013
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_35
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 2015
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_36
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1891
+        width: 92
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_37
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1872
+        width: 108
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_38
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 1940
+        width: 58
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_39
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1973
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_40
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 1972
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_41
+      rect:
+        serializedVersion: 2
+        x: 1531
+        y: 1924
+        width: 94
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_42
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 1936
+        width: 95
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_43
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 1858
+        width: 154
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_44
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1960
+        width: 278
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_45
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 1893
+        width: 389
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_46
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1867
+        width: 268
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_47
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 1924
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_48
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1946
+        width: 277
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_49
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 1923
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_50
+      rect:
+        serializedVersion: 2
+        x: 1342
+        y: 1931
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_51
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 1926
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_52
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 1926
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_53
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 1926
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_54
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1930
+        width: 365
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_55
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 1873
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_56
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1870
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_57
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1870
+        width: 45
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_58
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1826
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_59
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 1878
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_60
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1811
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_61
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 1874
+        width: 110
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_62
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1881
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_63
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 1787
+        width: 114
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_64
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 1880
+        width: 38
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_65
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 1879
+        width: 20
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_66
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 1879
+        width: 29
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_67
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 1879
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_68
+      rect:
+        serializedVersion: 2
+        x: 1787
+        y: 1879
+        width: 33
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_69
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1859
+        width: 5
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_70
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 1859
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_71
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1868
+        width: 21
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_72
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1868
+        width: 21
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_73
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 1828
+        width: 372
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_74
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 1792
+        width: 98
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_75
+      rect:
+        serializedVersion: 2
+        x: 1636
+        y: 1828
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_76
+      rect:
+        serializedVersion: 2
+        x: 1674
+        y: 1828
+        width: 29
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_77
+      rect:
+        serializedVersion: 2
+        x: 1710
+        y: 1830
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_78
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 1828
+        width: 30
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_79
+      rect:
+        serializedVersion: 2
+        x: 1783
+        y: 1829
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_80
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1830
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_81
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1830
+        width: 48
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_82
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1830
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_83
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1804
+        width: 123
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_84
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 1804
+        width: 49
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_85
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1791
+        width: 356
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_86
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 1799
+        width: 98
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_87
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 1799
+        width: 95
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_88
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 1804
+        width: 143
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_89
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 1765
+        width: 372
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_90
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 1784
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_91
+      rect:
+        serializedVersion: 2
+        x: 1678
+        y: 1793
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_92
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 1793
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_93
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1793
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_94
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 1705
+        width: 68
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_95
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1697
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_96
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1697
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_97
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1697
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_98
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 1697
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_99
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 1778
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_100
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 1751
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_101
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 1768
+        width: 36
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_102
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1752
+        width: 35
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_103
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 1663
+        width: 126
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_104
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 1752
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_105
+      rect:
+        serializedVersion: 2
+        x: 1816
+        y: 1752
+        width: 32
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_106
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1744
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_107
+      rect:
+        serializedVersion: 2
+        x: 1927
+        y: 1736
+        width: 57
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_108
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 1736
+        width: 57
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_109
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 1751
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_110
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1700
+        width: 59
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_111
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1696
+        width: 68
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_112
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1710
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_113
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 1711
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_114
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 1556
+        width: 138
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_115
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 1719
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_116
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 1726
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_117
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 1732
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_118
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1732
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_119
+      rect:
+        serializedVersion: 2
+        x: 1546
+        y: 1731
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_120
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 1703
+        width: 45
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_121
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1728
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_122
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 1720
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_123
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1688
+        width: 62
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_124
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 1698
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_125
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1700
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_126
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 1704
+        width: 57
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_127
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 1712
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_128
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 1722
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_129
+      rect:
+        serializedVersion: 2
+        x: 1816
+        y: 1722
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_130
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1655
+        width: 43
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_131
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 1656
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_132
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1664
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_133
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 1668
+        width: 84
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_134
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 1670
+        width: 13
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_135
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 1670
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_136
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 1670
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_137
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 1670
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_138
+      rect:
+        serializedVersion: 2
+        x: 1519
+        y: 1670
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_139
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1670
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_140
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 1670
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_141
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 1668
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_142
+      rect:
+        serializedVersion: 2
+        x: 1616
+        y: 1670
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_143
+      rect:
+        serializedVersion: 2
+        x: 1641
+        y: 1670
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_144
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 1692
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_145
+      rect:
+        serializedVersion: 2
+        x: 1816
+        y: 1692
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_146
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 763
+        width: 116
+        height: 954
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_147
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1634
+        width: 67
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_148
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1670
+        width: 32
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_149
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 1622
+        width: 64
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_150
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 1652
+        width: 65
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_151
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 1652
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_152
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1652
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_153
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1675
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_154
+      rect:
+        serializedVersion: 2
+        x: 1786
+        y: 1662
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_155
+      rect:
+        serializedVersion: 2
+        x: 1817
+        y: 1663
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_156
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1615
+        width: 105
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_157
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1624
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_158
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1620
+        width: 104
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_159
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1656
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_160
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1556
+        width: 53
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_161
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 1555
+        width: 56
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_162
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1628
+        width: 175
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_163
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1552
+        width: 169
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_164
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 1588
+        width: 149
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_165
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 1536
+        width: 87
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_166
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1596
+        width: 36
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_167
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 1596
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_168
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1609
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_169
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1609
+        width: 66
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_170
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 1605
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_171
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 1600
+        width: 39
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_172
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1558
+        width: 50
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_173
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1558
+        width: 50
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_174
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 1559
+        width: 50
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_175
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 1582
+        width: 174
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_176
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 1288
+        width: 143
+        height: 364
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_177
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1550
+        width: 136
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_178
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1587
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_179
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 1555
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_180
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 1582
+        width: 90
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_181
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 1512
+        width: 76
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_182
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1535
+        width: 150
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_183
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 1554
+        width: 91
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_184
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 1496
+        width: 75
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_185
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1536
+        width: 175
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_186
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1491
+        width: 130
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_187
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1491
+        width: 169
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_188
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 1524
+        width: 77
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_189
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 1506
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_190
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 1506
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_191
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 1504
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_192
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 1451
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_193
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 1478
+        width: 71
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_194
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 1441
+        width: 99
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_195
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 1464
+        width: 30
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_196
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1456
+        width: 77
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_197
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 1503
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_198
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1504
+        width: 38
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_199
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1445
+        width: 64
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_200
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 1448
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_201
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1491
+        width: 174
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_202
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1442
+        width: 199
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_203
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 1491
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_204
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 1491
+        width: 38
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_205
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 1419
+        width: 69
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_206
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 1484
+        width: 88
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_207
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1436
+        width: 81
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_208
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 1436
+        width: 232
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_209
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 1411
+        width: 71
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_210
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 1447
+        width: 176
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_211
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1380
+        width: 136
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_212
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1376
+        width: 71
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_213
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 1384
+        width: 94
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_214
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1406
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_215
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 1411
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_216
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1411
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_217
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1391
+        width: 280
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_218
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 1338
+        width: 216
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_219
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1303
+        width: 11
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_220
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 1276
+        width: 202
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_221
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 1308
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_222
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 1309
+        width: 123
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_223
+      rect:
+        serializedVersion: 2
+        x: 1465
+        y: 1308
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_224
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 1306
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_225
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1375
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_226
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1396
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_227
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1328
+        width: 139
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_228
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 1329
+        width: 172
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_229
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1329
+        width: 172
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_230
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1319
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_231
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 1308
+        width: 73
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_232
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1077
+        width: 187
+        height: 241
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_233
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1041
+        width: 112
+        height: 277
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_234
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1059
+        width: 95
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_235
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 1059
+        width: 95
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_236
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 1059
+        width: 95
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_237
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 1059
+        width: 95
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_238
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1059
+        width: 95
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_239
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 1063
+        width: 92
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_240
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 1280
+        width: 47
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_241
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 1280
+        width: 48
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_242
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 1280
+        width: 80
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_243
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 1280
+        width: 47
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_244
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 1280
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_245
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 1279
+        width: 80
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_246
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 1276
+        width: 80
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_247
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1062
+        width: 39
+        height: 183
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_248
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1134
+        width: 35
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_249
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 1240
+        width: 35
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_250
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 1212
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_251
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 1213
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_252
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 1207
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_253
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1194
+        width: 72
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_254
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1194
+        width: 71
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_255
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 1196
+        width: 133
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_256
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 1202
+        width: 84
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_257
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 996
+        width: 11
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_258
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 1213
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_259
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1213
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_260
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 1212
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_261
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 1172
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_262
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 1179
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_263
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 1172
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_264
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 1139
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_265
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 1140
+        width: 95
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_266
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 1144
+        width: 88
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_267
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 1129
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_268
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 1085
+        width: 208
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_269
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1071
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_270
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 1057
+        width: 64
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_271
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 1107
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_272
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 1100
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_273
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 1088
+        width: 74
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_274
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 1089
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_275
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 1089
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_276
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 1089
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_277
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 1089
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_278
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 1089
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_279
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 1089
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_280
+      rect:
+        serializedVersion: 2
+        x: 1674
+        y: 1089
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_281
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 1089
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_282
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 1089
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_283
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 1089
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_284
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 1036
+        width: 170
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_285
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 1016
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_286
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 1015
+        width: 38
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_287
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 946
+        width: 217
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_288
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 1026
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_289
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 1021
+        width: 53
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_290
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 1021
+        width: 52
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_291
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1020
+        width: 52
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_292
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1020
+        width: 53
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_293
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 1020
+        width: 52
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_294
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 1020
+        width: 53
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_295
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 1020
+        width: 53
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_296
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 772
+        width: 262
+        height: 309
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_297
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 1037
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_298
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 1037
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_299
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 1037
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_300
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 1037
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_301
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 1037
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_302
+      rect:
+        serializedVersion: 2
+        x: 1557
+        y: 1037
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_303
+      rect:
+        serializedVersion: 2
+        x: 1587
+        y: 1037
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_304
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1037
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_305
+      rect:
+        serializedVersion: 2
+        x: 1658
+        y: 1037
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_306
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 1030
+        width: 167
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_307
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 793
+        width: 244
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_308
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 900
+        width: 192
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_309
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 986
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_310
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 986
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_311
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 986
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_312
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 902
+        width: 75
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_313
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 933
+        width: 73
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_314
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 932
+        width: 66
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_315
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 981
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_316
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 984
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_317
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 932
+        width: 69
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_318
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 981
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_319
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 984
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_320
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 937
+        width: 42
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_321
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 956
+        width: 51
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_322
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 956
+        width: 63
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_323
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 955
+        width: 54
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_324
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 957
+        width: 57
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_325
+      rect:
+        serializedVersion: 2
+        x: 1796
+        y: 979
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_326
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 903
+        width: 135
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_327
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 896
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_328
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 898
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_329
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 896
+        width: 78
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_330
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 880
+        width: 206
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_331
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 893
+        width: 104
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_332
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 904
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_333
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 889
+        width: 121
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_334
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 825
+        width: 119
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_335
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 851
+        width: 69
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_336
+      rect:
+        serializedVersion: 2
+        x: 1847
+        y: 753
+        width: 30
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_337
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 753
+        width: 30
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_338
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 840
+        width: 161
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_339
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 868
+        width: 648
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_340
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 771
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_341
+      rect:
+        serializedVersion: 2
+        x: 1506
+        y: 780
+        width: 94
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_342
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 827
+        width: 119
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_343
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 676
+        width: 254
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_344
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 794
+        width: 414
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_345
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 725
+        width: 53
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_346
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 718
+        width: 68
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_347
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 706
+        width: 88
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_348
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 711
+        width: 425
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_349
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 762
+        width: 198
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_350
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 620
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_351
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 621
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_352
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 703
+        width: 198
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_353
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 672
+        width: 186
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_354
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 526
+        width: 126
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_355
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 643
+        width: 353
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_356
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 536
+        width: 348
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_357
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 599
+        width: 84
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_358
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 535
+        width: 68
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_359
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 552
+        width: 162
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_360
+      rect:
+        serializedVersion: 2
+        x: 1691
+        y: 581
+        width: 105
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_361
+      rect:
+        serializedVersion: 2
+        x: 1932
+        y: 558
+        width: 105
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_362
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 591
+        width: 349
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_363
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 579
+        width: 303
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_364
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 484
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_365
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 484
+        width: 128
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_366
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 86
+        width: 50
+        height: 555
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_367
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 86
+        width: 50
+        height: 555
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_368
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 508
+        width: 84
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_369
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 540
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_370
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 89
+        width: 40
+        height: 489
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_371
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 89
+        width: 40
+        height: 489
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_372
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 6
+        width: 115
+        height: 546
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_373
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 10
+        width: 98
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_374
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 317
+        width: 181
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_375
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 317
+        width: 170
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_376
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 478
+        width: 526
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_377
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 447
+        width: 55
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_378
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 436
+        width: 56
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_379
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 436
+        width: 56
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_380
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 91
+        width: 50
+        height: 443
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_381
+      rect:
+        serializedVersion: 2
+        x: 1637
+        y: 91
+        width: 50
+        height: 443
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_382
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 260
+        width: 307
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_383
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 400
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_384
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 442
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_385
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 400
+        width: 130
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_386
+      rect:
+        serializedVersion: 2
+        x: 1291
+        y: 401
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_387
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 400
+        width: 185
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_388
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 314
+        width: 50
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_389
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 314
+        width: 50
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_390
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 399
+        width: 127
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_391
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 399
+        width: 117
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_392
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 403
+        width: 34
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_393
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 90
+        width: 50
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_394
+      rect:
+        serializedVersion: 2
+        x: 1521
+        y: 91
+        width: 50
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_395
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 262
+        width: 406
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_396
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 371
+        width: 82
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_397
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 362
+        width: 46
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_398
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 360
+        width: 64
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_399
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 360
+        width: 60
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_400
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 362
+        width: 118
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_401
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 182
+        width: 50
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_402
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 182
+        width: 50
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_403
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 276
+        width: 50
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_404
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 276
+        width: 50
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_405
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 268
+        width: 294
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_406
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 240
+        width: 518
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_407
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 10
+        width: 166
+        height: 235
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_408
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 179
+        width: 50
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_409
+      rect:
+        serializedVersion: 2
+        x: 1098
+        y: 179
+        width: 50
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_410
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 177
+        width: 294
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_411
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 6
+        width: 592
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_412
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 126
+        width: 297
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_413
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 124
+        width: 190
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_414
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 71
+        width: 507
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_415
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 38
+        width: 410
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_416
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 8
+        width: 597
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: aigei_com_417
+      rect:
+        serializedVersion: 2
+        x: 1511
+        y: 11
+        width: 410
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
