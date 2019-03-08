@@ -21,10 +21,12 @@ namespace QFramework.TDE
     {
         public UITextItem UITextItem;
         public UIImageItem UIImageItem;
-        public UITItem(UITextItem UITextItem, UIImageItem UIImageItem)
+        public UILineItem UILineItem;
+        public UITItem(UITextItem UITextItem, UIImageItem UIImageItem, UILineItem UILineItem)
         {
             this.UIImageItem = UIImageItem;
             this.UITextItem = UITextItem;
+            this.UILineItem = UILineItem;
         }
     }
 
@@ -45,7 +47,7 @@ namespace QFramework.TDE
         {
             mData = uiData as UIShowPanelData ?? new UIShowPanelData();
             // please add init code here
-            UITItem UITItem = new UITItem(UITextItem,UIImageItem);
+            UITItem UITItem = new UITItem(UITextItem,UIImageItem,UILineItem);
             UIImageContent.GenerateGraphicItem(mData.model, UITItem);
 
         }

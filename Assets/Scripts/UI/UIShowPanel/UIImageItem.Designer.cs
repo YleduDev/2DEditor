@@ -10,13 +10,13 @@ namespace QFramework.TDE
 {
 	public partial class UIImageItem
 	{
-		[SerializeField] public Image UILineSwitch;
 		[SerializeField] public UIImageEditorBox UIImageEditorBox;
+		[SerializeField] public UILineSwitch UILineSwitch;
 
 		public void Clear()
 		{
-			UILineSwitch = null;
 			UIImageEditorBox = null;
+			UILineSwitch = null;
 		}
 
 		public override string ComponentName

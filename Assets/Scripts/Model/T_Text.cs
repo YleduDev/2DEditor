@@ -31,14 +31,14 @@ namespace TDE
         FontRight,
     }
     public class T_Text : T_Graphic
-    {
+    {      
         public int fontSize;
         public Font font;
         public FontStyle fontStyle;
         public FontAlignMentType fontAlignMentType;
         public ParagraphAlignMentType paragraphAlignMentType;
-
-        public new GraphicType graphicType = GraphicType.Text;
+        
+        public T_Text():base() { graphicType = GraphicType.Text; }
 
     }
 }

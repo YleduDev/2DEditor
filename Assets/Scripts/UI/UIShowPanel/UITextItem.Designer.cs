@@ -1,4 +1,4 @@
-/****************************************************************************
+﻿/****************************************************************************
  * 2019.3 LAPTOP-R0ONNKOC
  ****************************************************************************/
 
@@ -10,10 +10,12 @@ namespace QFramework.TDE
 {
 	public partial class UITextItem
 	{
+		[SerializeField] public UITextEditorBox UITextEditorBox;
 		[SerializeField] public RectTransform Text;
 
 		public void Clear()
 		{
+			UITextEditorBox = null;
 			Text = null;
 		}
 

@@ -8,24 +8,16 @@ using QFramework;
 
 namespace QFramework.TDE
 {
-	public partial class UIImageContent
+	public partial class UITextRotate
 	{
-		[SerializeField] public Button BGButton;
-		[SerializeField] public RectTransform LineParent;
-		[SerializeField] public RectTransform TextParent;
-		[SerializeField] public RectTransform ImageParent;
 
 		public void Clear()
 		{
-			BGButton = null;
-			LineParent = null;
-			TextParent = null;
-			ImageParent = null;
 		}
 
 		public override string ComponentName
 		{
-			get { return "UIImageContent";}
+			get { return "UITextRotate";}
 		}
 	}
 }

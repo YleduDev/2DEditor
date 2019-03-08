@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 namespace TDE
 {
     /// <summary>
@@ -16,17 +17,20 @@ namespace TDE
 
 public class T_Graphic
 {
-        public Vector3 localPos;
+        public Vector2ReactiveProperty  localPos;
         public Vector3 locaEulerAngle;
         public Vector3 localScale;
 
+        public FloatReactiveProperty widht;
+        public FloatReactiveProperty height;
+
         //选中
-        public bool isCheck;
+        public BoolReactiveProperty isSelected=new BoolReactiveProperty(false);
         public Color mainColor;
         //渲染层级（0->n）
         public int siblingIndex;
         //是否框选
-        public bool isSelected;
+        public BoolReactiveProperty isChecking=new BoolReactiveProperty(false);
 
         public GraphicType graphicType= GraphicType .Image;
        

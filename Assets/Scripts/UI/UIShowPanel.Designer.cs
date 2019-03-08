@@ -24,6 +24,9 @@ namespace QFramework.TDE
         public const string NAME = "UIShowPanel";
         
         [SerializeField()]
+        public UILineItem UILineItem;
+        
+        [SerializeField()]
         public UITextItem UITextItem;
         
         [SerializeField()]
@@ -49,6 +52,7 @@ namespace QFramework.TDE
         
         protected override void ClearUIComponents()
         {
+            UILineItem = null;
             UITextItem = null;
             UIImageItem = null;
             UIImageContent = null;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using QFramework;
 using QFramework.TDE;
+using UniRx;
 namespace TDE
 {
     /// <summary>
@@ -14,9 +15,30 @@ namespace TDE
         {
             //test Êý¾Ý
             TSceneData model = new TSceneData();
-            model.graphicDataList = new List<T_Graphic>(2);
-            model.graphicDataList.Add(new T_Graphic() { graphicType = GraphicType.Text, localScale=Vector3.one, localPos = new Vector3(-645f, 395f, 0) });
-            model.graphicDataList.Add (new T_Graphic() { graphicType = GraphicType.Image, localScale = Vector3.one, localPos = new Vector3(776f, -374f, 0) });
+            model.graphicDataList = new List<T_Graphic>(3);
+            model.graphicDataList.Add(new T_Text() {
+                graphicType = GraphicType.Text,
+                localScale =Vector3.one,
+                localPos = new Vector2ReactiveProperty(new Vector2(-645f, 395f)),
+                widht = new FloatReactiveProperty(100f),
+                height = new FloatReactiveProperty(100f)
+            });
+
+            model.graphicDataList.Add (new T_Image() {
+                graphicType = GraphicType.Image,
+                localScale = Vector3.one,
+                localPos = new Vector2ReactiveProperty(new Vector2(776f, -374f)),
+                widht = new FloatReactiveProperty(100f),
+                height = new FloatReactiveProperty(100f)
+            });
+
+            model.graphicDataList.Add(new T_Line() {
+                graphicType = GraphicType.Line,
+                localScale = Vector3.one,
+                localPos = new Vector2ReactiveProperty( new Vector2(169.8f, 83.2f)),
+                widht =new FloatReactiveProperty( 110f),
+                height = new FloatReactiveProperty(3f)
+            });
 
             ResMgr.Init();
             UIMgr.SetResolution(1920, 1080, 0);
