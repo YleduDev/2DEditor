@@ -2,7 +2,8 @@
     "name": "QFramework.Core.Editor",
     "references": [
         "QFramework.Core.Runtime",
-        "UniRx"
+        "UniRx",
+        "Zenject"
     ],
     "includePlatforms": [
         "Editor"

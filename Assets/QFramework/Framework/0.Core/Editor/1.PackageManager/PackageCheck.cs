@@ -109,7 +109,7 @@ namespace QFramework.Editor
                         return;
                     }
 
-                    if (FrameworkPMView.VersionCheck)
+                    if (PackageManagerView.VersionCheck)
                     {
 	                    CheckNewVersionDialog(packageDatas, PackageInfosRequestCache.Get().PackageDatas);
                     }

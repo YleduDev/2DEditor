@@ -1,42 +1,30 @@
-﻿using QFramework.GraphDesigner;
-using Invert.Data;
-using QFramework;
+﻿using Invert.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using QFramework.Json;
-using UnityEngine;
+
 namespace QFramework.GraphDesigner
 {
     public class InvertGraph : IGraphData, IItem, IJsonTypeResolver, IDataRecordRemoved, ITreeItem
     {
-
-
         private List<IDiagramNode> _nodes = new List<IDiagramNode>();
 
         private string _identifier;
 
         //private FilterState _filterState = new FilterState();
 
-        private IGraphFilter _rootFilter;
-        private bool _errors;
+        private IGraphFilter         _rootFilter;
+        private bool                 _errors;
         private List<ConnectionData> _connections;
-        private string _ns;
-        private IGraphFilter[] _filterStack;
-        private string _rootFilterId;
-        private bool _expanded;
+        private string               _ns;
+        private IGraphFilter[]       _filterStack;
+        private string               _rootFilterId;
+        private bool                 _expanded;
         private uFrameDatabaseConfig _config;
-        private bool _isDirty;
+        private bool                 _isDirty;
 
-        //#if !UNITY_EDITOR
-        //    public FileInfo GraphFileInfo { get; set; }
-
-        //    public InvertGraph(FileInfo graphFile)
-        //    {
-        //        GraphFileInfo = graphFile;
-        //    }
-        //#endif
 
         public InvertGraph()
         {
@@ -61,10 +49,10 @@ namespace QFramework.GraphDesigner
             get
             {
                 return _filterStack ?? (_filterStack = Repository.All<FilterStackItem>()
-                  .Where(p => p.GraphId == this.Identifier)
-                  .OrderByDescending(p => p.Index)
-                  .Select(p => p.Filter).ToArray()
-                  );
+                           .Where(p => p.GraphId == this.Identifier)
+                           .OrderByDescending(p => p.Index)
+                           .Select(p => p.Filter).ToArray()
+                       );
             }
             set { _filterStack = value; }
         }
@@ -93,7 +81,8 @@ namespace QFramework.GraphDesigner
         public void PopFilter()
         {
             if (FilterStack.Length > 0)
-                Repository.RemoveAll<FilterStackItem>(p => p.GraphId == this.Identifier && p.FilterId == CurrentFilter.Identifier);
+                Repository.RemoveAll<FilterStackItem>(p =>
+                    p.GraphId == this.Identifier && p.FilterId == CurrentFilter.Identifier);
 
             _filterStack = null;
         }
@@ -113,7 +102,8 @@ namespace QFramework.GraphDesigner
                     if (item != filter1)
                     {
                         var item1 = item;
-                        Repository.RemoveAll<FilterStackItem>(p => p.GraphId == this.Identifier && p.FilterId == item1.Identifier);
+                        Repository.RemoveAll<FilterStackItem>(p =>
+                            p.GraphId == this.Identifier && p.FilterId == item1.Identifier);
                     }
                 }
             }
@@ -135,6 +125,7 @@ namespace QFramework.GraphDesigner
                 {
                     return RootFilter;
                 }
+
                 return FilterStack.First();
             }
         }
@@ -162,11 +153,10 @@ namespace QFramework.GraphDesigner
         {
             get
             {
-                return null;// Path.Combine(Application.dataPath, AssetPath.Substring(7)).Replace("\\", "/").ToLower(); 
+                return
+                    null; // Path.Combine(Application.dataPath, AssetPath.Substring(7)).Replace("\\", "/").ToLower(); 
             }
-            set
-            {
-            }
+            set { }
         }
 
         //[JsonProperty]
@@ -178,6 +168,7 @@ namespace QFramework.GraphDesigner
                 {
                     return RootFilter.Name;
                 }
+
                 return "Problem with:" + this.Identifier;
             }
             set
@@ -218,10 +209,7 @@ namespace QFramework.GraphDesigner
 
         public string SystemDirectory
         {
-            get
-            {
-                return Path.GetDirectoryName(SystemPath);
-            }
+            get { return Path.GetDirectoryName(SystemPath); }
         }
 
         [JsonProperty]
@@ -252,10 +240,7 @@ namespace QFramework.GraphDesigner
         public string RootFilterId
         {
             get { return _rootFilterId; }
-            set
-            {
-                this.Changed("RootFilterId", ref _rootFilterId, value);
-            }
+            set { this.Changed("RootFilterId", ref _rootFilterId, value); }
         }
 
         public virtual IGraphFilter RootFilter
@@ -267,6 +252,7 @@ namespace QFramework.GraphDesigner
                 {
                     return _rootFilter;
                 }
+
                 if (!string.IsNullOrEmpty(RootFilterId))
                 {
                     _rootFilter = Repository.GetById<IGraphFilter>(RootFilterId);
@@ -275,6 +261,7 @@ namespace QFramework.GraphDesigner
                     {
                         asNode.GraphId = this.Identifier;
                     }
+
                     if (_rootFilter == null)
                     {
                         _rootFilter = CreateDefaultFilter(RootFilterId);
@@ -285,6 +272,7 @@ namespace QFramework.GraphDesigner
                 {
                     RootFilter = CreateDefaultFilter();
                 }
+
                 return _rootFilter;
             }
             set
@@ -294,6 +282,7 @@ namespace QFramework.GraphDesigner
                 {
                     RootFilterId = value.Identifier;
                 }
+
                 var asNode = value as IDiagramNode;
                 if (asNode != null)
                 {
@@ -305,10 +294,7 @@ namespace QFramework.GraphDesigner
 
         public string Title
         {
-            get
-            {
-                return Name;
-            }
+            get { return Name; }
         }
 
         public string Group
@@ -318,10 +304,7 @@ namespace QFramework.GraphDesigner
 
         public string SearchTag
         {
-            get
-            {
-                return Name;
-            }
+            get { return Name; }
         }
 
         public string Description { get; set; }
@@ -341,13 +324,11 @@ namespace QFramework.GraphDesigner
         {
             get { return _config ?? (_config = Repository.GetSingle<uFrameDatabaseConfig>()); }
         }
+
         [InspectorProperty("All the code generated for this graph will be placed inside this namespace.")]
         public string Namespace
         {
-            get
-            {
-                return Config.Namespace;
-            }
+            get { return Config.Namespace; }
             set { Config.Namespace = value; }
         }
 
@@ -363,10 +344,7 @@ namespace QFramework.GraphDesigner
 
         public string AssetPath
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
         }
 
         public string AssetDirectory
@@ -390,7 +368,7 @@ namespace QFramework.GraphDesigner
             //File.WriteAllText(Path, Serialize().ToString());
         }
 
-    
+
 
 
         public virtual IGraphFilter CreateDefaultFilter(string identifier = null)
@@ -402,11 +380,13 @@ namespace QFramework.GraphDesigner
         {
 
         }
+
         [Obsolete]
         public void AddNode(IDiagramNode data)
         {
 
         }
+
         [Obsolete]
         public void RemoveNode(IDiagramNode node, bool removePositionData = true)
         {
@@ -427,6 +407,7 @@ namespace QFramework.GraphDesigner
             {
                 ClearOutput(output);
             }
+
             if (!input.AllowMultipleInputs)
             {
                 ClearInput(input);
@@ -460,7 +441,8 @@ namespace QFramework.GraphDesigner
         {
             if (output == null) throw new ArgumentNullException("output");
             if (input == null) throw new ArgumentNullException("input");
-            Repository.RemoveAll<ConnectionData>(p => p != null && p.OutputIdentifier == output.Identifier && p.InputIdentifier == input.Identifier);
+            Repository.RemoveAll<ConnectionData>(p =>
+                p != null && p.OutputIdentifier == output.Identifier && p.InputIdentifier == input.Identifier);
 
             output.OnOutputConnectionRemoved(input);
             input.OnInputConnectionRemoved(output);
@@ -528,7 +510,7 @@ namespace QFramework.GraphDesigner
             }
         }
 
-  
+
 
         public virtual Type FindType(string clrTypeString)
         {
@@ -537,6 +519,7 @@ namespace QFramework.GraphDesigner
             {
                 return InvertApplication.FindType(name);
             }
+
             return null;
             return null;
         }
@@ -556,26 +539,19 @@ namespace QFramework.GraphDesigner
 
         public virtual IEnumerable<IItem> Children
         {
-            get
-            {
-
-                return NodeItems.OfType<IItem>();
-            }
+            get { return NodeItems.OfType<IItem>(); }
         }
 
         [JsonProperty]
         public bool Expanded
         {
             get { return _expanded; }
-            set
-            {
-                this.Changed("Expanded", ref _expanded, value);
-            }
+            set { this.Changed("Expanded", ref _expanded, value); }
         }
 
         public IEnumerable<IDataRecord> ChildRecords
         {
-	        get { return NodeItems.OfType<IDataRecord>(); }
+            get { return NodeItems.OfType<IDataRecord>(); }
         }
     }
 }

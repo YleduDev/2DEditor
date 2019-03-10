@@ -23,6 +23,7 @@
  * THE SOFTWARE.
  ****************************************************************************/
 
+using Invert.Common.UI;
 using UnityEditorUI;
 using UnityEngine;
 
@@ -57,53 +58,56 @@ namespace QFramework.Editor
 		{
 			base.OnGUI();
 
-			GUILayout.Space(10);
+				
 			mRootLayout.OnGUI();
 
-			GUILayout.Label("User Info:");
-			GUILayout.BeginVertical("box");
-
-			if (User.Token.Value.IsNullOrEmpty())
+			if (GUIHelpers.DoToolbarEx("User Info"))
 			{
-				User.Username.Value = EditorGUIUtils.GUILabelAndTextField("username:", User.Username.Value);
-				User.Password.Value = EditorGUIUtils.GUILabelAndPasswordField("password:", User.Password.Value);
 
-				if (!inRegisterView && GUILayout.Button("登录"))
+				GUILayout.BeginVertical("box");
+
+				if (User.Token.Value.IsNullOrEmpty())
 				{
-					GetTokenAction.DoGetToken(User.Username.Value, User.Password.Value, token =>
+					User.Username.Value = EditorGUIUtils.GUILabelAndTextField("username:", User.Username.Value);
+					User.Password.Value = EditorGUIUtils.GUILabelAndPasswordField("password:", User.Password.Value);
+
+					if (!inRegisterView && GUILayout.Button("登录"))
 					{
-						User.Token.Value = token;
-						User.Save();
-					});
-				}
-
-				if (!inRegisterView && GUILayout.Button("注册"))
-				{
-					inRegisterView = true;
-				}
-
-				if (inRegisterView)
-				{
-					if (GUILayout.Button("注册"))
-					{
-
+						GetTokenAction.DoGetToken(User.Username.Value, User.Password.Value, token =>
+						{
+							User.Token.Value = token;
+							User.Save();
+						});
 					}
 
-					if (GUILayout.Button("返回注册"))
+					if (!inRegisterView && GUILayout.Button("注册"))
 					{
-						inRegisterView = false;
+						inRegisterView = true;
+					}
+
+					if (inRegisterView)
+					{
+						if (GUILayout.Button("注册"))
+						{
+
+						}
+
+						if (GUILayout.Button("返回注册"))
+						{
+							inRegisterView = false;
+						}
 					}
 				}
-			}
-			else
-			{
-				if (GUILayout.Button("注销"))
+				else
 				{
-					User.Clear();
+					if (GUILayout.Button("注销"))
+					{
+						User.Clear();
+					}
 				}
-			}
 
-			GUILayout.EndVertical();
+				GUILayout.EndVertical();
+			}
 		}
 	}
 }

@@ -18,18 +18,6 @@ namespace QFramework.GraphDesigner
 
         }
 
-        public override void Refresh(IPlatformDrawer platform)
-        {
-            base.Refresh(platform);
-        }
-
-        public override void Refresh(IPlatformDrawer platform, Vector2 position, bool hardRefresh = true)
-        {
-            base.Refresh(platform, position, hardRefresh);
-
-
-        }
-
         protected override void DrawBeforeBackground(IPlatformDrawer platform, Rect boxRect)
         {
             base.DrawBeforeBackground(platform, boxRect);

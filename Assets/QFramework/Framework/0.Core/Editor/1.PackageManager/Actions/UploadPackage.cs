@@ -58,7 +58,7 @@ namespace QFramework.Editor
             EditorUtility.DisplayProgressBar("插件上传", "打包中...", 0.1f);
 
             var fileName = packageVersion.Name + "_" + packageVersion.Version + ".unitypackage";
-            var fullpath = FrameworkPMView.ExportPaths(fileName, packageVersion.InstallPath);
+            var fullpath = PackageManagerView.ExportPaths(fileName, packageVersion.InstallPath);
             var file = File.ReadAllBytes(fullpath);
 
             var form = new WWWForm();

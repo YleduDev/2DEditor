@@ -31,15 +31,16 @@ namespace QFramework.GraphDesigner
         }
     }
 
+    /// <summary>
+    /// 所有节点的渲染应该用的都是这个
+    /// </summary>
     public abstract class DiagramNodeDrawer : Drawer, INodeDrawer, IDisposable
     {
-
-        private string _cachedLabel;
-        private string[] _cachedTags;
-        private string _cachedTag;
-        private ErrorInfo[] _cachedIssues;
-        private object _headerStyle;
-
+        private string mCachedLabel;
+        private string[] mCachedTags;
+        private string mCachedTag;
+        private ErrorInfo[] mCachedIssues;
+        private object mHeaderStyle;
 
         [Inject]
         public IQFrameworkContainer Container { get; set; }
@@ -58,8 +59,8 @@ namespace QFramework.GraphDesigner
         protected override void DataContextChanged()
         {
             base.DataContextChanged();
-            _cachedTag = null;
-            _cachedTags = null;
+            mCachedTag = null;
+            mCachedTags = null;
             Children.Clear();
             // Anything after its initialized will be manually done
             //Refresh(InvertGraphEditor.Platform);
@@ -96,9 +97,7 @@ namespace QFramework.GraphDesigner
             {
                 Children.RemoveAll(p => changeArgs.OldItems.Contains(p.ViewModelObject));
             }
-            //_cachedTags = null;
-            //_cachedTag = null;
-            //_cachedTag = string.Join(" | ", ViewModel.Tags.ToArray());
+            
             Refresh(InvertGraphEditor.PlatformDrawer);
         }
    
@@ -219,14 +218,12 @@ namespace QFramework.GraphDesigner
 
         public override void Draw(IPlatformDrawer platform, float scale)
         {
-
+            var width = platform.CalculateTextSize(mCachedTag, CachedStyles.Tag1).x;
             
-
-            var width = platform.CalculateTextSize(_cachedTag, CachedStyles.Tag1).x;
             var labelRect =
                 new Rect((Bounds.x + (Bounds.width / 2)) - (width / 2), Bounds.y - (16f), width, 15f).Scale(Scale);
-            if (!string.IsNullOrEmpty(_cachedTag))
-            platform.DrawLabel(labelRect, _cachedTag, CachedStyles.Tag1, DrawingAlignment.MiddleCenter);
+            if (!string.IsNullOrEmpty(mCachedTag))
+            platform.DrawLabel(labelRect, mCachedTag, CachedStyles.Tag1, DrawingAlignment.MiddleCenter);
 
 #if UNITY_EDITOR || USE_IMAGES
             var adjustedBounds = new Rect(Bounds.x - 9, Bounds.y + 1, Bounds.width + 19, Bounds.height + 9);
@@ -236,19 +233,11 @@ namespace QFramework.GraphDesigner
             var boxRect = adjustedBounds.Scale(Scale);
 
             DrawBeforeBackground(platform,boxRect);
-
- 
             
             platform.DrawStretchBox(boxRect, CachedStyles.NodeBackground, 18);
 
-            //if (ViewModel.IsSelected || ViewModel.IsMouseOver)
-            //{
-            //    platform.DrawStretchBox(boxRect, CachedStyles.NodeBackground, 20);
-
-            //}
             if (ViewModel.AllowCollapsing && ShowHeader)
             {
-
                 var rect = new Rect((Bounds.x + (Bounds.width / 2f)) - 21f,
                     Bounds.y + Bounds.height - 1f, 42f, 18f);
                 var style = ViewModel.IsCollapsed
@@ -265,9 +254,9 @@ namespace QFramework.GraphDesigner
                 });
             }
 
-
             DrawChildren(platform, scale);
-            bool hasErrors = ViewModel.Issues != null && ViewModel.Issues.Length > 0;
+            
+            var hasErrors = ViewModel.Issues != null && ViewModel.Issues.Length > 0;
             if (hasErrors)
             {
                 platform.DrawStretchBox(boxRect, CachedStyles.BoxHighlighter6, 20);
@@ -300,8 +289,8 @@ namespace QFramework.GraphDesigner
                 {
                     var keyValuePair = ViewModel.Issues[index];
                     var w = platform.CalculateTextSize(keyValuePair.Message, CachedStyles.DefaultLabel).x;//EditorStyles.label.CalcSize(new GUIContent(keyValuePair.Key)).x);
-                    var x = (Bounds.x + (Bounds.width / 2f)) - (w / 2f);
-                    var rect = new Rect(x, (Bounds.y + Bounds.height + 18) + (40f * (index)), w + 20f, 40);
+                    var x = Bounds.x + Bounds.width / 2f - w / 2f;
+                    var rect = new Rect(x, Bounds.y + Bounds.height + 18 + 40f * index, w + 20f, 40);
                     platform.DrawWarning(rect, keyValuePair.Message);
                     if (keyValuePair.AutoFix != null)
                     {
@@ -315,6 +304,7 @@ namespace QFramework.GraphDesigner
                                 
                             });
                     }
+                    
                     hasErrors = true;
                 }
             }
@@ -328,15 +318,8 @@ namespace QFramework.GraphDesigner
 
         protected virtual void DrawChildren(IPlatformDrawer platform, float scale)
         {
-            
-            for (int index = 0; index < Children.Count; index++)
+            foreach (var item in Children)
             {
-                var item = Children[index];
-//if (item.Dirty)
-                //{
-                //    Refresh((IPlatformDrawer)platform,item.Bounds.position,false);
-                //    item.Dirty = false;
-                //}
                 item.Draw(platform, scale);
             }
         }
@@ -380,58 +363,13 @@ namespace QFramework.GraphDesigner
 
         protected virtual object HeaderStyle
         {
-            get { return _headerStyle ?? (_headerStyle = GetNodeColorStyle()); }
+            get { return mHeaderStyle ?? (mHeaderStyle = GetNodeColorStyle()); }
         }
 
         protected virtual object GetHighlighter()
         {
             return CachedStyles.BoxHighlighter4;
         }
-
-        //protected virtual void DrawItem(IDiagramNodeItem item, ElementsDiagram diagram, bool importOnly)
-        //{
-        //    if (item.IsSelected && item.IsSelectable && !importOnly)
-        //    {
-        //        var rect = new Rect(item.Position).Scale(Scale);
-        //        //rect.y += ItemHeight;
-        //        //rect.height -= ItemHeight;
-        //        //rect.height += ItemExpandedHeight;
-        //        GUI.Box(rect, string.Empty, SelectedItemStyle);
-        //        GUILayout.BeginArea(rect);
-        //        EditorGUI.BeginChangeCheck();
-        //        EditorGUILayout.BeginHorizontal();
-
-        //        DrawSelectedItem(item, diagram);
-        //        EditorGUILayout.EndHorizontal();
-        //        GUILayout.EndArea();
-        //    }
-        //    else
-        //    {
-
-        //        GUI.Box(item.Position.Scale(Scale), string.Empty, item.IsSelected ? SelectedItemStyle : ItemStyle);
-
-        //        DrawItemLabel(item);
-
-        //    }
-        //    if (!string.IsNullOrEmpty(item.Highlighter))
-        //    {
-        //        var highlighterPosition = new Rect(item.Position);
-        //        highlighterPosition.width = 4;
-        //        highlighterPosition.y += 2;
-        //        highlighterPosition.x += 2;
-        //        highlighterPosition.height = ItemHeight - 6;
-        //        GUI.Box(highlighterPosition.Scale(Scale), string.Empty, ElementDesignerStyles.GetHighlighter(item.Highlighter));
-        //    }
-        //}
-
-        //protected virtual void DrawItemLabel(IDiagramNodeItem item)
-        //{
-        //    var style = new GUIStyle(ItemStyle);
-        //    style.normal.textColor = BackgroundStyle.normal.textColor;
-        //    GUI.Label(item.Position.Scale(Scale), item.Label, style);
-
-
-        //}
 
         public override void OnMouseDown(MouseEvent mouseEvent)
         {
@@ -449,13 +387,6 @@ namespace QFramework.GraphDesigner
                 }
 
             }
-        }
-
-        public override void OnMouseDoubleClick(MouseEvent mouseEvent)
-        {
-            base.OnMouseDoubleClick(mouseEvent);
-            
-
         }
 
         public override void OnMouseMove(MouseEvent e)
@@ -485,10 +416,7 @@ namespace QFramework.GraphDesigner
                     ParentDrawer = this
                 });
             }
-            //if (!ViewModel.IsCollapsed)
-            //{
-            //    //GetContentDrawers(drawers);
-            //}
+
             Children = drawers;
         }
 
@@ -504,26 +432,20 @@ namespace QFramework.GraphDesigner
         public override void Refresh(IPlatformDrawer platform, Vector2 position, bool hardRefresh = true)
         {
         
-            _headerStyle = null;
-            if (_cachedIssues == null)
+            mHeaderStyle = null;
+            if (mCachedIssues == null)
             {
-                _cachedIssues = new ErrorInfo[] {};// ViewModel.Issues.ToArray();
+                mCachedIssues = new ErrorInfo[] {};// ViewModel.Issues.ToArray();
                 
             }
-            _cachedTag = string.Join(" | ", ViewModel.Tags.ToArray());
-            //if (Children == null || Children.Count < 1)
-            //{
-            // //Children.Clear();
-            //   RefreshContent();
-            
-            //}
+            mCachedTag = string.Join(" | ", ViewModel.Tags.ToArray());
 
             var startY = ViewModel.Position.y;
             // Now lets stretch all the content drawers to the maximum width
-            var minWidth = Math.Max(120f, platform.CalculateTextSize(_cachedTag, CachedStyles.Tag1).x);
+            var minWidth = Math.Max(120f, platform.CalculateTextSize(mCachedTag, CachedStyles.Tag1).x);
             var height = LayoutChildren(platform, startY, ref minWidth, hardRefresh);
 
-            _cachedLabel = ViewModel.Label;
+            mCachedLabel = ViewModel.Label;
 
             if (!ViewModel.IsCollapsed)
             {
@@ -564,12 +486,6 @@ namespace QFramework.GraphDesigner
                     
                     if (previous != null)
                     {
-                        //var newWidth = currentX - this.ViewModel.Position.x;
-                        //if (newWidth > minWidth)
-                        //{
-                        //    minWidth = newWidth;
-                        //}
-
                         currentY += previous.Bounds.height;
                         height += previous.Bounds.height;
                     }
@@ -617,72 +533,9 @@ namespace QFramework.GraphDesigner
 
         public bool IsExternal { get; set; }
 
-
         public void Dispose()
         {
             ViewModel.ContentItems.CollectionChanged -= ContentItemsOnCollectionChangedWith;
         }
     }
-
-    //public class InspectorDrawer : Drawer<DiagramNodeViewModel>
-    //{
-
-    //    public PropertyFieldDrawer[] Drawers { get; set; }
-    //    public override void Refresh(IPlatformDrawer platform, Vector2 position, bool hardRefresh = true)
-    //    {
-    //        base.Refresh(platform, position, hardRefresh);
-    //        InspectorOptions = new List<ViewModel>();
-    //        ViewModel.GetInspectorOptions(InspectorOptions);
-    //        Drawers = InspectorOptions.OfType<PropertyFieldViewModel>().Select(_ => new PropertyFieldDrawer(_)).ToArray();
-            
-    //        var height = 0f;
-    //        var width = 0f;
-    //        foreach (var drawer in Drawers)
-    //        {
-    //            drawer.Refresh(platform, position, hardRefresh);
-    //            height += drawer.Bounds.height;
-    //            if (width < drawer.Bounds.width)
-    //            {
-    //                width = drawer.Bounds.width;
-    //            }
-    //        }
-
-    //        var x = position.x;
-    //        var y = position.y;
-
-    //        this.Bounds = new Rect(x,y,width,height);
-
-
-
-
-    //    }
-
-    //    public List<ViewModel> InspectorOptions { get; set; }
-
-    //    public override void Draw(IPlatformDrawer platform, float scale)
-    //    {
-    //        base.Draw(platform, scale);
-
-    //        foreach (var item in Drawers)
-    //        {
-    //            item.Draw(platform,1f);
-    //        }
-
-    //    }
-
-    //    public InspectorDrawer(GraphItemViewModel viewModelObject) : base(viewModelObject)
-    //    {
-    //    }
-
-    //    public InspectorDrawer(DiagramNodeViewModel viewModelObject) : base(viewModelObject)
-    //    {
-    //    }
-    //}
-    
-    //public class BulletPointDrawer : Drawer<BulletPointViewModel>
-    //{
-
-    //}
-
-
 }

@@ -2,14 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
-using QFramework.GraphDesigner;
-using QFramework.GraphDesigner.Unity;
 using Invert.Data;
-using QFramework;
-using QFramework;
 using QFramework.Json;
 using UnityEngine;
 
@@ -37,7 +32,7 @@ namespace QFramework.GraphDesigner
         IExecuteCommand<EditDatabaseCommand>
         
     {
-        private Dictionary<string, uFrameDatabaseConfig> _configurations;
+        private Dictionary<string, uFrameDatabaseConfig> mConfigurations;
 
         public uFrameDatabaseConfig CurrentConfiguration { get; set; }
 
@@ -146,8 +141,8 @@ namespace QFramework.GraphDesigner
 
         public Dictionary<string, uFrameDatabaseConfig> Configurations
         {
-            get { return _configurations ?? (_configurations = new Dictionary<string, uFrameDatabaseConfig>()); }
-            set { _configurations = value; }
+            get { return mConfigurations ?? (mConfigurations = new Dictionary<string, uFrameDatabaseConfig>()); }
+            set { mConfigurations = value; }
         }
 
         public void RecordInserted(IDataRecord record)
@@ -461,8 +456,7 @@ namespace QFramework.GraphDesigner
 
         public void QueryImportList(List<FileInfo> files)
         {
-            var directory = new DirectoryInfo(Application.dataPath);
-
+            new DirectoryInfo(Application.dataPath);
         }
 
         public void Execute(ExportGraphCommand command)

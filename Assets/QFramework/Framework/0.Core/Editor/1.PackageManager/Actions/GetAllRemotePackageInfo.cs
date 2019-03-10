@@ -76,6 +76,7 @@ namespace QFramework
 					    packageDatas.Add(package);
 				    }
 
+				    var id = packageInfo["id"].Value<string>();
 				    var version = packageInfo["version"].Value<string>();
 				    var url = packageInfo["file"].Value<string>(); // download_url
 				    var installPath = packageInfo["install_path"].Value<string>();
@@ -120,6 +121,7 @@ namespace QFramework
 
 				    package.PackageVersions.Add(new PackageVersion()
 				    {
+					    Id = id,
 					    Version = version,
 					    DownloadUrl = url,
 					    InstallPath = installPath,

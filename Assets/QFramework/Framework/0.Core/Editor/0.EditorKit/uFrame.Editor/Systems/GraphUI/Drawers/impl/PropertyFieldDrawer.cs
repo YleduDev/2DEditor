@@ -11,29 +11,19 @@ namespace QFramework.GraphDesigner
 
         public IInspectorPropertyDrawer CustomDrawer { get; set; }
 
-
         public override object TextStyle
         {
             get { return CachedStyles.DefaultLabel; }
         }
-        private string _left;
-        private string _right;
-        private Vector2 _leftSize;
-        private Vector2 _rightSize;
-        //public override void Refresh(IPlatformDrawer platform, Vector2 position, bool hardRefresh = true)
-        //{
-        //    base.Refresh(platform, position, hardRefresh);
-        //    if (hardRefresh)
-        //    {
-              
-        //    }
 
+        private string  mLeft;
+        private string  mRight;
+        private Vector2 mLeftSize;
+        private Vector2 mRightSize;
 
-        //    Bounds = new Rect(position.x + 10, position.y, _leftSize.x + 5 + _rightSize.x + 40, 18);
-        //}
         public override void Refresh(IPlatformDrawer platform, Vector2 position, bool hardRefresh = true)
         {
-            base.Refresh(platform, position,hardRefresh);
+            base.Refresh(platform, position, hardRefresh);
             if (hardRefresh)
             {
                 ViewModel.CachedValue = ViewModel.Getter();
@@ -44,7 +34,7 @@ namespace QFramework.GraphDesigner
                 CustomDrawer = (IInspectorPropertyDrawer) Activator.CreateInstance(ViewModel.CustomDrawerType);
             }
 
-            
+
             if (CustomDrawer != null)
             {
                 CustomDrawer.Refresh(platform, position, this);
@@ -52,30 +42,29 @@ namespace QFramework.GraphDesigner
             }
             else
             {
-               
+
                 var bounds = new Rect(Bounds) {x = position.x, y = position.y};
                 var labelSize = platform.CalculateTextSize(ViewModel.Name, CachedStyles.HeaderStyle);
                 bounds.width = labelSize.x * 3;
-                if (ViewModel.Type == typeof(Vector2) || ViewModel.Type == typeof(Vector3))// || ViewModel.Type == typeof(Quaternion))
+                if (ViewModel.Type == typeof(Vector2) || ViewModel.Type == typeof(Vector3)
+                ) // || ViewModel.Type == typeof(Quaternion))
                 {
                     bounds.height *= 2f;
                 }
+
                 bounds.x += 3;
                 Bounds = bounds;
 
-                if (ViewModel.InspectorType == InspectorType.GraphItems)
+                switch (ViewModel.InspectorType)
                 {
-                    Bounds= Bounds.WithHeight(30);
+                    case InspectorType.GraphItems:
+                        Bounds = Bounds.WithHeight(30);
+                        break;
+                    case InspectorType.TextArea:
+                        Bounds = Bounds.WithHeight(60);
+                        break;
                 }
-                else if (ViewModel.InspectorType == InspectorType.TextArea)
-                {
-                    Bounds = Bounds.WithHeight(60);
-                }
-                //
             }
-            
-            
-   
         }
 
         public override void Draw(IPlatformDrawer platform, float scale)
@@ -99,10 +88,9 @@ namespace QFramework.GraphDesigner
                 {
                     inspBounds = Bounds.WithHeight(17).CenterInsideOf(Bounds);
                 }
+
                 platform.DrawPropertyField(inspBounds.Pad(7, 0, 14, 0), this.ViewModel, scale);
             }
         }
-
-        
     }
 }

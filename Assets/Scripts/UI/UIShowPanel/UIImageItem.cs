@@ -14,10 +14,12 @@ namespace QFramework.TDE
 {
 	public partial class UIImageItem : UIElement,IPointerEnterHandler,IPointerExitHandler,IDragHandler,IBeginDragHandler,IPointerClickHandler
     {
+        Vector2 offset;
+        Vector2 localPoint;
+        RectTransform canvasRT;
+
+        public Texture2D hand;
         public T_Image model;
-        private Vector3 offset;
-        Vector3 worldPoint;
-        public Texture2D hand; 
         private void Awake()
 		{
 		}
@@ -29,6 +31,7 @@ namespace QFramework.TDE
         internal void Init(T_Graphic graphicItem,Transform parent)
         {
             model = graphicItem as T_Image;
+            canvasRT = UIManager.Instance.RootCanvas.transform as RectTransform;
             this.transform.Parent(parent)
                 .Show()
                 .LocalPosition(graphicItem.localPos.Value)
@@ -37,17 +40,15 @@ namespace QFramework.TDE
         }
         public void OnBeginDrag(PointerEventData eventData)
         {
-            //(1)将光标的屏幕坐标转换为世界坐标
-            RectTransformUtility.ScreenPointToWorldPointInRectangle(transform as RectTransform, eventData.position, eventData.pressEventCamera, out worldPoint);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRT, eventData.position, eventData.pressEventCamera, out localPoint);
             //(2)记录偏移量
-            offset = transform.position - worldPoint;
+            offset = (Vector2)transform.localPosition - localPoint;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            RectTransformUtility.ScreenPointToWorldPointInRectangle(transform as RectTransform, eventData.position, eventData.pressEventCamera, out worldPoint);
-            //print(rtf + "   eventDataPos:" + eventDataPos+ "    eventData.pressEventCamera"+ eventData.pressEventCamera);
-            transform.position = worldPoint + offset;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRT, eventData.position, eventData.pressEventCamera, out localPoint);
+            model.localPos.Value = localPoint + offset;
         }
 
         public void OnPointerEnter(PointerEventData eventData)

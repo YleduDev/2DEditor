@@ -38,32 +38,32 @@ namespace QFramework.GraphDesigner
 
         private void DrawStateLink(IPlatformDrawer platform, float scale)
         {
-            var _startPos = ViewModel.ConnectorB.Bounds.center;
-            var _endPos = ViewModel.ConnectorA.Bounds.center;
+            var startPos = ViewModel.ConnectorB.Bounds.center;
+            var endPos = ViewModel.ConnectorA.Bounds.center;
 
-            var _startRight = ViewModel.ConnectorA.Direction == ConnectorDirection.Output;
-            var _endRight = ViewModel.ConnectorB.Direction == ConnectorDirection.Output;
+            var startRight = ViewModel.ConnectorA.Direction == ConnectorDirection.Output;
+            var endRight = ViewModel.ConnectorB.Direction == ConnectorDirection.Output;
             //Handles.color = ViewModel.CurrentColor;
             List<Vector2> points = new List<Vector2>();
             Vector2 curr;
-            points.Add(curr = _startPos);
+            points.Add(curr = startPos);
    
-            if (_endPos.x < _startPos.x)
+            if (endPos.x < startPos.x)
             {
                 points.Add(curr = curr + new Vector2(20f, 0f));
-                points.Add(curr = curr + new Vector2(0f, (_endPos.y - _startPos.y)/2f));
-                points.Add(_endPos - new Vector2(20f, (_endPos.y - _startPos.y)/2f));
-                points.Add(_endPos - new Vector2(20f, 0f));
+                points.Add(curr = curr + new Vector2(0f, (endPos.y - startPos.y)/2f));
+                points.Add(endPos - new Vector2(20f, (endPos.y - startPos.y)/2f));
+                points.Add(endPos - new Vector2(20f, 0f));
             }
             else
             {
-                points.Add(curr = _startPos + new Vector2((_endPos.x - _startPos.x)/ 2f,0f));
-                points.Add(new Vector2(curr.x,_endPos.y));
+                points.Add(curr = startPos + new Vector2((endPos.x - startPos.x)/ 2f,0f));
+                points.Add(new Vector2(curr.x,endPos.y));
             }
         
         
     
-            points.Add(_endPos);
+            points.Add(endPos);
             var scaled = points.Select(p => new Vector2(p.x * scale,p.y * scale)).ToArray();
 
             platform.DrawPolyLine(scaled, ViewModel.CurrentColor);

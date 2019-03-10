@@ -3,21 +3,24 @@ using UnityEngine;
 
 namespace QFramework.GraphDesigner
 {
-    public interface IDrawer 
+    /// <summary>
+    /// Drawer 框架
+    /// </summary>
+    public interface IDrawer
     {
         GraphItemViewModel ViewModelObject { get; }
-        Rect Bounds { get; set; }
-        bool Enabled { get; set; }
-        bool IsSelected { get; set; }
-        bool Dirty { get; set; }
-        string ShouldFocus { get; set; }
+        Rect               Bounds          { get; set; }
+        bool               Enabled         { get; set; }
+        bool               IsSelected      { get; set; }
+        bool               Dirty           { get; set; }
+        string             ShouldFocus     { get; set; }
         void Draw(IPlatformDrawer platform, float scale);
         void Refresh(IPlatformDrawer platform);
         void OnLayout();
         void Refresh(IPlatformDrawer platform, Vector2 position, bool hardRefresh = true);
-        int ZOrder { get; }
-        List<IDrawer> Children { get; set; }
-        IDrawer ParentDrawer { get; set; }
+        int           ZOrder       { get; }
+        List<IDrawer> Children     { get; set; }
+        IDrawer       ParentDrawer { get; set; }
 
         void OnDeselecting();
         void OnSelecting();

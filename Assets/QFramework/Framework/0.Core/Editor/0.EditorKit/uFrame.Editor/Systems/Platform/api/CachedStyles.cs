@@ -4,378 +4,378 @@ namespace QFramework.GraphDesigner
 {
     public static class CachedStyles
     {
-        private static object _boxHighlighter5;
-        private static object _boxHighlighter1;
-        private static object _nodeExpand;
-        private static object _item1;
-        private static object _defaultLabel;
-        private static object _nodeBackground;
-        private static object _nodeCollapse;
-        private static object _boxHighlighter2;
-        private static object _boxHighlighter3;
-        private static object _boxHighlighter4;
-        private static object _boxHighlighter6;
-        private static object _nodeHeader1;
-        private static object _nodeHeader2;
-        private static object _nodeHeader3;
-        private static object _nodeHeader4;
-        private static object _nodeHeader5;
-        private static object _nodeHeader6;
-        private static object _nodeHeader7;
-        private static object _nodeHeader8;
-        private static object _nodeHeader9;
-        private static object _nodeHeader10;
-        private static object _nodeHeader11;
-        private static object _nodeHeader12;
-        private static object _nodeHeader13;
-        private static object _itemTextEditingStyle;
-        private static object _addButtonStyle;
-        private static object _headerStyle;
-        private static object _defaultLabelLarge;
-        private static object _clearItemStyle;
-        private static object _viewModelHeaderStyle;
-        private static object _itemStyle;
-        private static object _selectedItemStyle;
-        private static object _item2;
-        private static object _item3;
-        private static object _item4;
-        private static object _item5;
-        private static object _item6;
-        private static object _tag1;
-        private static object _toolbar;
-        private static object _toolbarButton;
-        private static object _toolbarButtonDrop;
-        private static object _graphTitleLabel;
-        private static IConnectorStyleSchema _connectorStyleSchemaTriangle;
-        private static IConnectorStyleSchema _connectorStyleSchemaCircle;
-        private static INodeStyleSchema _nodeStyleSchemaNormal;
-        private static INodeStyleSchema _nodeStyleSchemaMinimalistic;
-        private static INodeStyleSchema _nodeStyleSchemaBold;
-        private static object _nodeBackgroundBorderless;
-        private static object _breadcrumbTitleStyle;
-        private static object _breadcrumbBoxStyle;
-        private static object _breadcrumbBoxActiveStyle;
-        private static IBreadcrumbsStyleSchema _defaultBreadcrumbsStyleSchema;
-        private static object _tabBoxStyle;
-        private static object _tabBoxActiveStyle;
-        private static object _tabTitleStyle;
-        private static object _tabCloseButton;
-        private static object _wizardBoxStyle;
-        private static object _wizardSubBoxStyle;
-        private static object _wizardActionButtonStyle;
-        private static object _wizardActionTitleStyle;
-        private static object _wizardSubBoxTitleStyle;
-        private static object _tooltipBoxStyle;
-        private static object _wizardListItemBoxStyle;
-        private static object _searchBarText;
-        private static object _listItemTitleStyle;
+        private static object mBoxHighlighter5;
+        private static object mBoxHighlighter1;
+        private static object mNodeExpand;
+        private static object mItem1;
+        private static object mDefaultLabel;
+        private static object mNodeBackground;
+        private static object mNodeCollapse;
+        private static object mBoxHighlighter2;
+        private static object mBoxHighlighter3;
+        private static object mBoxHighlighter4;
+        private static object mBoxHighlighter6;
+        private static object mNodeHeader1;
+        private static object mNodeHeader2;
+        private static object mNodeHeader3;
+        private static object mNodeHeader4;
+        private static object mNodeHeader5;
+        private static object mNodeHeader6;
+        private static object mNodeHeader7;
+        private static object mNodeHeader8;
+        private static object mNodeHeader9;
+        private static object mNodeHeader10;
+        private static object mNodeHeader11;
+        private static object mNodeHeader12;
+        private static object mNodeHeader13;
+        private static object mItemTextEditingStyle;
+        private static object mAddButtonStyle;
+        private static object mHeaderStyle;
+        private static object mDefaultLabelLarge;
+        private static object mClearItemStyle;
+        private static object mViewModelHeaderStyle;
+        private static object mItemStyle;
+        private static object mSelectedItemStyle;
+        private static object mItem2;
+        private static object mItem3;
+        private static object mItem4;
+        private static object mItem5;
+        private static object mItem6;
+        private static object mTag1;
+        private static object mToolbar;
+        private static object mToolbarButton;
+        private static object mToolbarButtonDrop;
+        private static object mGraphTitleLabel;
+        private static IConnectorStyleSchema mConnectorStyleSchemaTriangle;
+        private static IConnectorStyleSchema mConnectorStyleSchemaCircle;
+        private static INodeStyleSchema mNodeStyleSchemaNormal;
+        private static INodeStyleSchema mNodeStyleSchemaMinimalistic;
+        private static INodeStyleSchema mNodeStyleSchemaBold;
+        private static object mNodeBackgroundBorderless;
+        private static object mBreadcrumbTitleStyle;
+        private static object mBreadcrumbBoxStyle;
+        private static object mBreadcrumbBoxActiveStyle;
+        private static IBreadcrumbsStyleSchema mDefaultBreadcrumbsStyleSchema;
+        private static object mTabBoxStyle;
+        private static object mTabBoxActiveStyle;
+        private static object mTabTitleStyle;
+        private static object mTabCloseButton;
+        private static object mWizardBoxStyle;
+        private static object mWizardSubBoxStyle;
+        private static object mWizardActionButtonStyle;
+        private static object mWizardActionTitleStyle;
+        private static object mWizardSubBoxTitleStyle;
+        private static object mTooltipBoxStyle;
+        private static object mWizardListItemBoxStyle;
+        private static object mSearchBarText;
+        private static object mListItemTitleStyle;
 
         public static object Item1
         {
-            get { return _item1 ?? (_item1 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item1)); }
+            get { return mItem1 ?? (mItem1 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item1)); }
         }
         public static object Item2
         {
-            get { return _item2 ?? (_item2 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item2)); }
+            get { return mItem2 ?? (mItem2 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item2)); }
         }
         public static object Item3
         {
-            get { return _item3 ?? (_item3 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item3)); }
+            get { return mItem3 ?? (mItem3 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item3)); }
         }
         public static object Item4
         {
-            get { return _item4 ?? (_item4 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item4)); }
+            get { return mItem4 ?? (mItem4 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item4)); }
         }
         public static object Item5
         {
-            get { return _item5 ?? (_item5 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item5)); }
+            get { return mItem5 ?? (mItem5 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item5)); }
         }
         public static object Item6
         {
-            get { return _item6 ?? (_item6 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item6)); }
+            get { return mItem6 ?? (mItem6 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Item6)); }
         }
         public static object DefaultLabel
         {
-            get { return _defaultLabel ?? (_defaultLabel = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.DefaultLabel)); }
+            get { return mDefaultLabel ?? (mDefaultLabel = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.DefaultLabel)); }
         }
         public static object NodeBackground
         {
-            get { return _nodeBackground ?? (_nodeBackground = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeBackground)); }
+            get { return mNodeBackground ?? (mNodeBackground = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeBackground)); }
         }       
         public static object NodeBackgroundBorderless
         {
-            get { return _nodeBackgroundBorderless ?? (_nodeBackgroundBorderless = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeBackgroundBorderless)); }
+            get { return mNodeBackgroundBorderless ?? (mNodeBackgroundBorderless = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeBackgroundBorderless)); }
         }
         public static object NodeExpand
         {
-            get { return _nodeExpand ?? (_nodeExpand = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeExpand)); }
+            get { return mNodeExpand ?? (mNodeExpand = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeExpand)); }
         }
         public static object NodeCollapse
         {
-            get { return _nodeCollapse ?? (_nodeCollapse = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeCollapse)); }
+            get { return mNodeCollapse ?? (mNodeCollapse = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeCollapse)); }
         }
         public static object BoxHighlighter1
         {
-            get { return _boxHighlighter1 ?? (_boxHighlighter1 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter1)); }
+            get { return mBoxHighlighter1 ?? (mBoxHighlighter1 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter1)); }
         }
         public static object BoxHighlighter2
         {
-            get { return _boxHighlighter2 ?? (_boxHighlighter2 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter2)); }
+            get { return mBoxHighlighter2 ?? (mBoxHighlighter2 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter2)); }
         }
         public static object BoxHighlighter3
         {
-            get { return _boxHighlighter3 ?? (_boxHighlighter3 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter3)); }
+            get { return mBoxHighlighter3 ?? (mBoxHighlighter3 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter3)); }
         }
         public static object BoxHighlighter4
         {
-            get { return _boxHighlighter4 ?? (_boxHighlighter4 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter4)); }
+            get { return mBoxHighlighter4 ?? (mBoxHighlighter4 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter4)); }
         }
         public static object BoxHighlighter5
         {
-            get { return _boxHighlighter5 ?? (_boxHighlighter5 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter5)); }
+            get { return mBoxHighlighter5 ?? (mBoxHighlighter5 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter5)); }
         }
         public static object BoxHighlighter6
         {
-            get { return _boxHighlighter6 ?? (_boxHighlighter6 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter6)); }
+            get { return mBoxHighlighter6 ?? (mBoxHighlighter6 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BoxHighlighter6)); }
         }
         public static object NodeHeader1
         {
-            get { return _nodeHeader1 ?? (_nodeHeader1 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader1)); }
+            get { return mNodeHeader1 ?? (mNodeHeader1 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader1)); }
         }
         public static object NodeHeader2
         {
-            get { return _nodeHeader2 ?? (_nodeHeader2 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader2)); }
+            get { return mNodeHeader2 ?? (mNodeHeader2 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader2)); }
         }
         public static object NodeHeader3
         {
-            get { return _nodeHeader3 ?? (_nodeHeader3 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader3)); }
+            get { return mNodeHeader3 ?? (mNodeHeader3 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader3)); }
         }
         public static object NodeHeader4
         {
-            get { return _nodeHeader4 ?? (_nodeHeader4 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader4)); }
+            get { return mNodeHeader4 ?? (mNodeHeader4 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader4)); }
         }
         public static object NodeHeader5
         {
-            get { return _nodeHeader5 ?? (_nodeHeader5 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader5)); }
+            get { return mNodeHeader5 ?? (mNodeHeader5 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader5)); }
         }
         public static object NodeHeader6
         {
-            get { return _nodeHeader6 ?? (_nodeHeader6 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader6)); }
+            get { return mNodeHeader6 ?? (mNodeHeader6 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader6)); }
         }
         public static object NodeHeader7
         {
-            get { return _nodeHeader7 ?? (_nodeHeader7 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader7)); }
+            get { return mNodeHeader7 ?? (mNodeHeader7 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader7)); }
         }
         public static object NodeHeader8
         {
-            get { return _nodeHeader8 ?? (_nodeHeader8 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader8)); }
+            get { return mNodeHeader8 ?? (mNodeHeader8 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader8)); }
         }
         public static object NodeHeader9
         {
-            get { return _nodeHeader9 ?? (_nodeHeader9 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader9)); }
+            get { return mNodeHeader9 ?? (mNodeHeader9 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader9)); }
         }
         public static object NodeHeader10
         {
-            get { return _nodeHeader10 ?? (_nodeHeader10 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader10)); }
+            get { return mNodeHeader10 ?? (mNodeHeader10 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader10)); }
         }
         public static object NodeHeader11
         {
-            get { return _nodeHeader11 ?? (_nodeHeader11 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader11)); }
+            get { return mNodeHeader11 ?? (mNodeHeader11 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader11)); }
         }
         public static object NodeHeader12
         {
-            get { return _nodeHeader12 ?? (_nodeHeader12 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader12)); }
+            get { return mNodeHeader12 ?? (mNodeHeader12 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader12)); }
         }
         public static object NodeHeader13
         {
-            get { return _nodeHeader13 ?? (_nodeHeader13 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader13)); }
+            get { return mNodeHeader13 ?? (mNodeHeader13 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.NodeHeader13)); }
         }
    
         public static object SearchBarText
         {
-            get { return _searchBarText ?? (_searchBarText = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.SearchBarText)); }
+            get { return mSearchBarText ?? (mSearchBarText = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.SearchBarText)); }
         }
 
 
         public static object ItemTextEditingStyle
         {
-            get { return _itemTextEditingStyle ?? (_itemTextEditingStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ItemTextEditingStyle)); }
+            get { return mItemTextEditingStyle ?? (mItemTextEditingStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ItemTextEditingStyle)); }
         }
         public static object AddButtonStyle
         {
-            get { return _addButtonStyle ?? (_addButtonStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.AddButtonStyle)); }
+            get { return mAddButtonStyle ?? (mAddButtonStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.AddButtonStyle)); }
         }
         public static object HeaderStyle
         {
-            get { return _headerStyle ?? (_headerStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.HeaderStyle)); }
+            get { return mHeaderStyle ?? (mHeaderStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.HeaderStyle)); }
         }
         public static object DefaultLabelLarge
         {
-            get { return _defaultLabelLarge ?? (_defaultLabelLarge = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.DefaultLabelLarge)); }
+            get { return mDefaultLabelLarge ?? (mDefaultLabelLarge = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.DefaultLabelLarge)); }
         }
         public static object GraphTitleLabel
         {
-            get { return _graphTitleLabel ?? (_graphTitleLabel = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.GraphTitleLabel)); }
+            get { return mGraphTitleLabel ?? (mGraphTitleLabel = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.GraphTitleLabel)); }
         }
         public static object ClearItemStyle
         {
-            get { return _clearItemStyle ?? (_clearItemStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ClearItemStyle)); }
+            get { return mClearItemStyle ?? (mClearItemStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ClearItemStyle)); }
         }
         public static object ViewModelHeaderStyle
         {
-            get { return _viewModelHeaderStyle ?? (_viewModelHeaderStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ViewModelHeaderStyle)); }
+            get { return mViewModelHeaderStyle ?? (mViewModelHeaderStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ViewModelHeaderStyle)); }
         }
         public static object ItemStyle
         {
-            get { return _itemStyle ?? (_itemStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ItemStyle)); }
+            get { return mItemStyle ?? (mItemStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ItemStyle)); }
         }
         public static object SelectedItemStyle
         {
-            get { return _selectedItemStyle ?? (_selectedItemStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.SelectedItemStyle)); }
+            get { return mSelectedItemStyle ?? (mSelectedItemStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.SelectedItemStyle)); }
         }
         public static object Tag1
         {
-            get { return _tag1 ?? (_tag1 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Tag1)); }
+            get { return mTag1 ?? (mTag1 = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Tag1)); }
         }
         public static object Toolbar
         {
-            get { return _toolbar ?? (_toolbar = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Toolbar)); }
+            get { return mToolbar ?? (mToolbar = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.Toolbar)); }
         }
         public static object ToolbarButton
         {
-            get { return _toolbarButton ?? (_toolbarButton = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ToolbarButton)); }
+            get { return mToolbarButton ?? (mToolbarButton = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ToolbarButton)); }
         }
         public static object ToolbarButtonDrop
         {
-            get { return _toolbarButtonDrop ?? (_toolbarButtonDrop = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ToolbarButtonDown)); }
+            get { return mToolbarButtonDrop ?? (mToolbarButtonDrop = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ToolbarButtonDown)); }
         }
         public static object HeaderTitleStyle
         {
-            get { return _toolbarButtonDrop ?? (_toolbarButtonDrop = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.HeaderTitleStyle)); }
+            get { return mToolbarButtonDrop ?? (mToolbarButtonDrop = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.HeaderTitleStyle)); }
         }
         public static object HeaderSubTitleStyle
         {
-            get { return _toolbarButtonDrop ?? (_toolbarButtonDrop = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.HeaderSubTitleStyle)); }
+            get { return mToolbarButtonDrop ?? (mToolbarButtonDrop = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.HeaderSubTitleStyle)); }
         }
         public static object WizardBoxStyle
         {
-            get { return _wizardBoxStyle ?? (_wizardBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardBox)); }
+            get { return mWizardBoxStyle ?? (mWizardBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardBox)); }
         }
                 
         public static object WizardSubBoxStyle
         {
-            get { return _wizardSubBoxStyle ?? (_wizardSubBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardSubBox)); }
+            get { return mWizardSubBoxStyle ?? (mWizardSubBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardSubBox)); }
         }        
         
         public static object WizardActionButtonStyle
         {
-            get { return _wizardActionButtonStyle ?? (_wizardActionButtonStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardActionButton)); }
+            get { return mWizardActionButtonStyle ?? (mWizardActionButtonStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardActionButton)); }
         }
         
         public static IConnectorStyleSchema ConnectorStyleSchemaTriangle
         {
-            get { return _connectorStyleSchemaTriangle ?? (_connectorStyleSchemaTriangle = InvertGraphEditor.StyleProvider.GetConnectorStyleSchema(ConnectorStyle.Triangle)); }
+            get { return mConnectorStyleSchemaTriangle ?? (mConnectorStyleSchemaTriangle = InvertGraphEditor.StyleProvider.GetConnectorStyleSchema(ConnectorStyle.Triangle)); }
         }
 
         public static IConnectorStyleSchema ConnectorStyleSchemaCircle
         {
-            get { return _connectorStyleSchemaCircle ?? (_connectorStyleSchemaCircle = InvertGraphEditor.StyleProvider.GetConnectorStyleSchema(ConnectorStyle.Circle)); }
+            get { return mConnectorStyleSchemaCircle ?? (mConnectorStyleSchemaCircle = InvertGraphEditor.StyleProvider.GetConnectorStyleSchema(ConnectorStyle.Circle)); }
         }
 
         public static INodeStyleSchema NodeStyleSchemaNormal
         {
-            get { return _nodeStyleSchemaNormal ?? (_nodeStyleSchemaNormal = InvertGraphEditor.StyleProvider.GetNodeStyleSchema(NodeStyle.Normal)); }
-            set { _nodeStyleSchemaNormal = value; }
+            get { return mNodeStyleSchemaNormal ?? (mNodeStyleSchemaNormal = InvertGraphEditor.StyleProvider.GetNodeStyleSchema(NodeStyle.Normal)); }
+            set { mNodeStyleSchemaNormal = value; }
         }
 
         public static INodeStyleSchema NodeStyleSchemaMinimalistic
         {
-            get { return _nodeStyleSchemaMinimalistic ?? (_nodeStyleSchemaMinimalistic = InvertGraphEditor.StyleProvider.GetNodeStyleSchema(NodeStyle.Minimalistic)); }
-            set { _nodeStyleSchemaMinimalistic = value; }
+            get { return mNodeStyleSchemaMinimalistic ?? (mNodeStyleSchemaMinimalistic = InvertGraphEditor.StyleProvider.GetNodeStyleSchema(NodeStyle.Minimalistic)); }
+            set { mNodeStyleSchemaMinimalistic = value; }
         }
 
         public static INodeStyleSchema NodeStyleSchemaBold
         {
-            get { return _nodeStyleSchemaBold ?? (_nodeStyleSchemaBold = InvertGraphEditor.StyleProvider.GetNodeStyleSchema(NodeStyle.Bold)); }
-            set { _nodeStyleSchemaBold = value; }
+            get { return mNodeStyleSchemaBold ?? (mNodeStyleSchemaBold = InvertGraphEditor.StyleProvider.GetNodeStyleSchema(NodeStyle.Bold)); }
+            set { mNodeStyleSchemaBold = value; }
         }
 
         public static IBreadcrumbsStyleSchema DefaultBreadcrumbsStyleSchema
         {
-            get { return _defaultBreadcrumbsStyleSchema ?? (_defaultBreadcrumbsStyleSchema = InvertGraphEditor.StyleProvider.GetBreadcrumbStyleSchema(BreadcrumbsStyle.Default)); }
-            set { _defaultBreadcrumbsStyleSchema = value; }
+            get { return mDefaultBreadcrumbsStyleSchema ?? (mDefaultBreadcrumbsStyleSchema = InvertGraphEditor.StyleProvider.GetBreadcrumbStyleSchema(BreadcrumbsStyle.Default)); }
+            set { mDefaultBreadcrumbsStyleSchema = value; }
         }
 
         public static object BreadcrumbTitleStyle
         {
-            get { return _breadcrumbTitleStyle ?? (_breadcrumbTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BreadcrumbTitleStyle)); }
-            set { _breadcrumbTitleStyle = value; }
+            get { return mBreadcrumbTitleStyle ?? (mBreadcrumbTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BreadcrumbTitleStyle)); }
+            set { mBreadcrumbTitleStyle = value; }
         }      
         
         public static object ListItemTitleStyle
         {
-            get { return _listItemTitleStyle ?? (_listItemTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ListItemTitleStyle)); }
-            set { _listItemTitleStyle = value; }
+            get { return mListItemTitleStyle ?? (mListItemTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.ListItemTitleStyle)); }
+            set { mListItemTitleStyle = value; }
         }
 
         public static object TabBoxStyle
         {
-            get { return _tabBoxStyle ?? (_tabBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.TabBox)); }
-            set { _tabBoxStyle = value; }
+            get { return mTabBoxStyle ?? (mTabBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.TabBox)); }
+            set { mTabBoxStyle = value; }
         }
 
         public static object TabBoxActiveStyle
         {
-            get { return _tabBoxActiveStyle ?? (_tabBoxActiveStyle = InvertGraphEditor.StyleProvider.GetStyle((InvertStyles.TabBoxActive))); }
-            set { _tabBoxActiveStyle = value; }
+            get { return mTabBoxActiveStyle ?? (mTabBoxActiveStyle = InvertGraphEditor.StyleProvider.GetStyle((InvertStyles.TabBoxActive))); }
+            set { mTabBoxActiveStyle = value; }
         }
 
         public static object TabTitleStyle
         {
-            get { return _tabTitleStyle ?? (_tabTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.TabTitle)); }
-            set { _tabTitleStyle = value; }
+            get { return mTabTitleStyle ?? (mTabTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.TabTitle)); }
+            set { mTabTitleStyle = value; }
         }
 
         public static object TabCloseButton
         {
-            get { return _tabCloseButton ?? (_tabCloseButton = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.TabCloseButton)); }
-            set { _tabCloseButton = value; }
+            get { return mTabCloseButton ?? (mTabCloseButton = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.TabCloseButton)); }
+            set { mTabCloseButton = value; }
         }
 
         public static object BreadcrumbBoxStyle
         {
-            get { return _breadcrumbBoxStyle ?? (_breadcrumbBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BreadcrumbBoxStyle) ); }
-            set { _breadcrumbBoxStyle = value; }
+            get { return mBreadcrumbBoxStyle ?? (mBreadcrumbBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BreadcrumbBoxStyle) ); }
+            set { mBreadcrumbBoxStyle = value; }
         }      
         
         public static object BreadcrumbBoxActiveStyle
         {
-            get { return _breadcrumbBoxActiveStyle ?? (_breadcrumbBoxActiveStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BreadcrumbBoxActiveStyle)); }
-            set { _breadcrumbBoxActiveStyle = value; }
+            get { return mBreadcrumbBoxActiveStyle ?? (mBreadcrumbBoxActiveStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.BreadcrumbBoxActiveStyle)); }
+            set { mBreadcrumbBoxActiveStyle = value; }
         }
 
         public static object WizardActionTitleStyle
         {
-            get { return _wizardActionTitleStyle ?? (_wizardActionTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardActionTitle)); ; }
-            set { _wizardActionTitleStyle = value; }
+            get { return mWizardActionTitleStyle ?? (mWizardActionTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardActionTitle)); ; }
+            set { mWizardActionTitleStyle = value; }
         }    
         
         public static object WizardSubBoxTitleStyle
         {
-            get { return _wizardSubBoxTitleStyle ?? (_wizardSubBoxTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardSubBoxTitle)); ; }
-            set { _wizardSubBoxTitleStyle = value; }
+            get { return mWizardSubBoxTitleStyle ?? (mWizardSubBoxTitleStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardSubBoxTitle)); ; }
+            set { mWizardSubBoxTitleStyle = value; }
         }
 
         public static object TooltipBoxStyle
         {
-            get { return _tooltipBoxStyle ?? (_tooltipBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.TooltipBox)); }
-            set { _tooltipBoxStyle = value; }
+            get { return mTooltipBoxStyle ?? (mTooltipBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.TooltipBox)); }
+            set { mTooltipBoxStyle = value; }
         }
 
         public static object WizardListItemBoxStyle
         {
-            get { return _wizardListItemBoxStyle ?? (_wizardListItemBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardListItemBox)); }
-            set { _wizardListItemBoxStyle = value; }
+            get { return mWizardListItemBoxStyle ?? (mWizardListItemBoxStyle = InvertGraphEditor.StyleProvider.GetStyle(InvertStyles.WizardListItemBox)); }
+            set { mWizardListItemBoxStyle = value; }
         }
 
         public static Color GetColor(NodeColor color)
@@ -482,14 +482,10 @@ namespace QFramework.GraphDesigner
                     return new Color32(113,113,198,255);
                 case NodeColor.SgiBrightGrey:
                     return new Color32(197,193,170,255);
-
-
                 default:
                     return default(Color);
                     break;
-
             }
         }
-
     }
 }

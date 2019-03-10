@@ -54,11 +54,11 @@ namespace QFramework.GraphDesigner
         {
             if (FieldType != null)
             {
-                Field = ctx.CurrentDeclaration._private_(ctx.ProcessType(FieldType), "_{0}", ctx.CurrentProperty.Name.Clean());
+                Field = ctx.CurrentDeclaration._private_(ctx.ProcessType(FieldType), "m_{0}", ctx.CurrentProperty.Name.Clean());
             }
             else
             {
-                Field = ctx.CurrentDeclaration._private_(ctx.CurrentProperty.Type, "_{0}", ctx.CurrentProperty.Name.Clean());
+                Field = ctx.CurrentDeclaration._private_(ctx.CurrentProperty.Type, "m_{0}", ctx.CurrentProperty.Name.Clean());
             }
             if (_customAttributes != null)
                 Field.CustomAttributes.AddRange(_customAttributes.Select(p=>new CodeAttributeDeclaration(new CodeTypeReference(p))).ToArray());

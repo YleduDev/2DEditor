@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Invert.Common;
-using QFramework.GraphDesigner;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,12 +8,12 @@ namespace QFramework.GraphDesigner.Unity
 {
     public class UnityDrawer : IPlatformDrawer
     {
-        private UnityStyleProvider _styles;
+        private UnityStyleProvider mStyles;
 
         public UnityStyleProvider Styles
         {
-            get { return _styles ?? (_styles = new UnityStyleProvider()); }
-            set { _styles = value; }
+            get { return mStyles ?? (mStyles = new UnityStyleProvider()); }
+            set { mStyles = value; }
         }
 
         // TODO DRAWER Eliminate Vector3 convertion
@@ -30,23 +29,23 @@ namespace QFramework.GraphDesigner.Unity
             Handles.DrawPolyLine(lines);
         }
 
-        private string currentTooltip;
-        private GUIStyle _textWrappingTextArea;
+        private string mCurrentTooltip;
+        private GUIStyle mTextWrappingTextArea;
 
         public void SetTooltipForRect(Rect rect, string tooltip)
         {
             bool isMouseOver = rect.Contains(Event.current.mousePosition);
-            if (isMouseOver) currentTooltip = tooltip;
+            if (isMouseOver) mCurrentTooltip = tooltip;
         }
 
         public string GetTooltip()
         {
-            return currentTooltip;
+            return mCurrentTooltip;
         }
 
         public void ClearTooltip()
         {
-            currentTooltip = null;
+            mCurrentTooltip = null;
         }
 
 
@@ -210,11 +209,7 @@ namespace QFramework.GraphDesigner.Unity
 
         public void DrawPropertyField(Rect r, PropertyFieldViewModel fieldViewModel, float scale)
         {
-            //base.Draw(scale);
-            //GUILayout.BeginArea(fieldViewModel.Bounds.Scale(scale), ElementDesignerStyles.SelectedItemStyle);
-            //EditorGUIUtility.labelWidth = fieldViewModel.Bounds.width * 0.55f;
             DrawInspector(r, fieldViewModel, new GUIStyle(EditorStyles.boldLabel) { normal = new GUIStyleState() { textColor = new Color(0.77f, 0.77f, 0.77f) } });
-            //GUILayout.EndArea();
         }
 
 
@@ -395,9 +390,9 @@ namespace QFramework.GraphDesigner.Unity
             DiagramDrawer.IsEditingField = true;
             var newName = EditorGUI.TextField(rect, value, (GUIStyle)itemTextEditingStyle);
 
+            valueChangedAction(newName, false);
             //if (EditorGUI.EndChangeCheck() && !string.IsNullOrEmpty(newName))
             //{
-            valueChangedAction(newName, false);
             //}
             if (Event.current.keyCode == KeyCode.Return)
             {
@@ -655,14 +650,14 @@ namespace QFramework.GraphDesigner.Unity
         {
             get
             {
-                if (_textWrappingTextArea == null)
+                if (mTextWrappingTextArea == null)
                 {
-                    _textWrappingTextArea = new GUIStyle(EditorStyles.textArea);
-                    _textWrappingTextArea.wordWrap = true;
+                    mTextWrappingTextArea = new GUIStyle(EditorStyles.textArea);
+                    mTextWrappingTextArea.wordWrap = true;
                 }
-                return _textWrappingTextArea;
+                return mTextWrappingTextArea;
             }
-            set { _textWrappingTextArea = value; }
+            set { mTextWrappingTextArea = value; }
         }
 
         public virtual void DrawInspector(Rect rect, PropertyFieldViewModel d, GUIStyle labelStyle)
@@ -681,7 +676,6 @@ namespace QFramework.GraphDesigner.Unity
                 {
                     text = item.Label;
                 }
-                //GUILayout.BeginHorizontal();
 
                 if (GUI.Button(rect, d.Label + ": " + text, ElementDesignerStyles.ButtonStyle))
                 {
@@ -710,19 +704,10 @@ namespace QFramework.GraphDesigner.Unity
                     }
 
                     InvertApplication.SignalEvent<IShowSelectionMenu>(_ => _.ShowSelectionMenu(menu));
-
-
-
-                    //
-                    //                    InvertGraphEditor.WindowManager.InitItemWindow(items, 
-                    //                        
-                    //                    },true);
-
                 }
                 SetTooltipForRect(rect, d.InspectorTip);
 
                 GUI.color = colorCache;
-                //GUILayout.EndHorizontal();
                 return;
             }
 
@@ -889,7 +874,6 @@ namespace QFramework.GraphDesigner.Unity
             }
 
             GUI.color = colorCache;
-
         }
 
         public void DrawConnector(float scale, ConnectorViewModel viewModel)

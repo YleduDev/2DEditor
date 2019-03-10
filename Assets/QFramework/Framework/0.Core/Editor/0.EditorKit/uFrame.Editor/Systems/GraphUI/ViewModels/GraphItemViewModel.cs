@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Invert.Data;
-using QFramework.MVVM;
 using UnityEngine;
 
 namespace QFramework.GraphDesigner
@@ -13,7 +11,6 @@ namespace QFramework.GraphDesigner
         {
             get { return (TData)DataObject; }
         }
-
     }
 
     public abstract class GraphItemViewModel : ViewModel,IDataRecordInserted, IDataRecordRemoved, IDataRecordPropertyChanged
@@ -250,18 +247,6 @@ namespace QFramework.GraphDesigner
             set { _connectorBounds = value; }
         }
 
-        //public virtual  Func<IDiagramNodeItem, IDiagramNodeItem, bool> InputValidator
-        //{
-        //    get { return _inputValidator; }
-        //    set { _inputValidator = value; }
-        //}
-
-        //public virtual Func<IDiagramNodeItem, IDiagramNodeItem, bool> OutputValidator
-        //{
-        //    get { return _outputValidator; }
-        //    set { _outputValidator = value; }
-        //}
-
         public bool ShowHelp
         {
             get
@@ -312,11 +297,7 @@ namespace QFramework.GraphDesigner
                 fieldViewModel.CustomDrawerType = attribute.CustomDrawerType;
                 fieldViewModel.CachedValue = fieldViewModel.Getter();
                 viewModel.Add(fieldViewModel);
-
             }
-        }
-
-        
+        }   
     }
-
 }

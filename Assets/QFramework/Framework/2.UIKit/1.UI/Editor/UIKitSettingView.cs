@@ -23,6 +23,7 @@
  * THE SOFTWARE.
  ****************************************************************************/
 
+using Invert.Common.UI;
 using QFramework.Editor;
 using UnityEngine;
 
@@ -58,21 +59,25 @@ namespace QFramework
         public override void OnGUI()
         {
             base.OnGUI();
-            GUILayout.Label("UI Kit Settings:");
-            GUILayout.BeginVertical("box");
 
-            mUiKitSettingData.Namespace = EditorGUIUtils.GUILabelAndTextField("Namespace", mUiKitSettingData.Namespace);
-            mUiKitSettingData.UIScriptDir =
-                EditorGUIUtils.GUILabelAndTextField("UI Script Generate Dir", mUiKitSettingData.UIScriptDir);
-            mUiKitSettingData.UIPrefabDir =
-                EditorGUIUtils.GUILabelAndTextField("UI Prefab Dir", mUiKitSettingData.UIPrefabDir);
-			
-            if (GUILayout.Button("Apply"))
+            if (GUIHelpers.DoToolbarEx("UI Kit Settings"))
             {
-                mUiKitSettingData.Save();
+                GUILayout.BeginVertical("box");
+
+                mUiKitSettingData.Namespace =
+                    EditorGUIUtils.GUILabelAndTextField("Namespace", mUiKitSettingData.Namespace);
+                mUiKitSettingData.UIScriptDir =
+                    EditorGUIUtils.GUILabelAndTextField("UI Script Generate Dir", mUiKitSettingData.UIScriptDir);
+                mUiKitSettingData.UIPrefabDir =
+                    EditorGUIUtils.GUILabelAndTextField("UI Prefab Dir", mUiKitSettingData.UIPrefabDir);
+
+                if (GUILayout.Button("Apply"))
+                {
+                    mUiKitSettingData.Save();
+                }
+
+                GUILayout.EndVertical();
             }
-			
-            GUILayout.EndVertical();
         }
     }
 }

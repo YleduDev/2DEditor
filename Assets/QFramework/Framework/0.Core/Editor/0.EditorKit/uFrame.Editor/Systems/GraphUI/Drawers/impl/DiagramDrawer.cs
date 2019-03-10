@@ -1,35 +1,26 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
-using System.Security.AccessControl;
 using Invert.Common;
-using QFramework.GraphDesigner;
-using QFramework.MVVM;
 using UnityEngine;
 using NotifyCollectionChangedEventArgs = QFramework.MVVM.NotifyCollectionChangedEventArgs;
 
 namespace QFramework.GraphDesigner
-{
-
+{    
     public class DiagramDrawer : Drawer, IInputHandler
     {
         public delegate void SelectionChangedEventArgs(IDiagramNode oldData, IDiagramNode newData);
         public event SelectionChangedEventArgs SelectionChanged;
 
-
-        private IDrawer _nodeDrawerAtMouse;
-        private SelectionRectHandler _selectionRectHandler;
-        private IDrawer[] _cachedChildren = new IDrawer[] { };
-        private Dictionary<IGraphFilter, Vector2> _cachedPaths;
-
+        private IDrawer mNodeDrawerAtMouse;
+        private SelectionRectHandler mSelectionRectHandler;
+        private IDrawer[] mCachedChildren = { };
+        private Dictionary<IGraphFilter, Vector2> mCachedPaths;
 
         public static float Scale
         {
             get { return InvertGraphEditor.CurrentDiagramViewModel.Scale; }
         }
-
-
 
         public IDiagramNode CurrentMouseOverNode { get; set; }
 
@@ -133,38 +124,6 @@ namespace QFramework.GraphDesigner
                         if (tab1.CloseAction != null) tab1.CloseAction(m);
                     });
 
-//                    if (GUILayout.Button(tab.Name,
-//                        isCurrent
-//                            ? ElementDesignerStyles.TabBoxStyle
-//                            : ElementDesignerStyles.TabBoxActiveStyle,GUILayout.MinWidth(150)))
-//                    {
-//                        var projectService = InvertGraphEditor.Container.Resolve<WorkspaceService>();
-//                   
-//                        if (Event.current.button == 1)
-//                        {
-//                         
-//                           var isLastGraph = projectService.CurrentWorkspace.Graphs.Count() <= 1;
-//
-//                           if (!isLastGraph)
-//                            {
-//                                var tab1 = tab;
-//                                projectService.Repository.RemoveAll<WorkspaceGraph>(p=>p.WorkspaceId == projectService.CurrentWorkspace.Identifier && p.GraphId == tab1.Identifier);
-//                                var lastGraph = projectService.CurrentWorkspace.Graphs.LastOrDefault();
-//                                if (isCurrent && lastGraph != null)
-//                                {
-//                                    designerWindow.SwitchDiagram(lastGraph);
-//                                }
-//                            
-//                            }
-//                        }
-//                        else
-//                        {
-//                            designerWindow.SwitchDiagram(projectService.CurrentWorkspace.Graphs.FirstOrDefault(p => p.Identifier == tab.Identifier));    
-//                        }
-//                        
-//                    }
-//
-//                    var butRect = GUILayoutUtility.GetLastRect();
                     x += buttonRect.width+2;
                 }
 
@@ -174,13 +133,8 @@ namespace QFramework.GraphDesigner
                 platform.SetTooltipForRect(newTabButtonRect,"Create or import new graphs");
 
                 platform.DoButton(newTabButtonRect,"",ElementDesignerStyles.WizardActionButtonStyleSmall,()=>{ InvertApplication.SignalEvent<INewTabRequested>(_=>_.NewTabRequested());});
-                //platform.DrawImage(newTabButtonRect,"",true);
+                
                 platform.DrawImage(newTabButtonRect.PadSides(6),"PlusIcon_Micro",true);
-
-
-                //   GUILayout.FlexibleSpace();
-                //   GUILayout.EndHorizontal();
-                //   GUILayout.EndArea();
             }
         }
 
@@ -206,33 +160,6 @@ namespace QFramework.GraphDesigner
                     InvertApplication.Execute(new NavigateForwardCommand());
                 });
             platform.DrawImage(forward.PadSides(4),"ForwardIcon",true);
-
-            //var color = new Color(InvertGraphEditor.Settings.BackgroundColor.r * 0.8f, InvertGraphEditor.Settings.BackgroundColor.g * 0.8f, InvertGraphEditor.Settings.BackgroundColor.b * 0.8f, 1f);
-            //platform.DrawRect(rect, color);
-            
-//            var lineRect = new Rect(rect);
-//            lineRect.height = 2;
-//            lineRect.y = y + 38f;
-//            platform.DrawRect(lineRect, new Color(InvertGraphEditor.Settings.BackgroundColor.r * 0.6f, InvertGraphEditor.Settings.BackgroundColor.g * 0.6f, InvertGraphEditor.Settings.BackgroundColor.b * 0.6f, 1f));
-//            
-//            
-//            var first = true;
-//            if (_cachedPaths != null)
-//            foreach (var item in _cachedPaths)
-//            {
-//                var item1 = item;
-//                platform.DoButton(new Rect(x, rect.y + 20 - (item.Value.y / 2), item.Value.x, item.Value.y), first ? item.Key.Name : "< " + item.Key.Name, first ? CachedStyles.GraphTitleLabel : CachedStyles.ItemTextEditingStyle,
-//                    () =>
-//                    {
-//                        InvertApplication.Execute(new LambdaCommand(() =>
-//                        {
-//                            DiagramViewModel.GraphData.PopToFilter(item1.Key);
-//                        }));
-//                    });
-//                x += item.Value.x + 15;
-//                first = false;
-//            }
-
 
             var x = 1f;
 
@@ -297,35 +224,19 @@ namespace QFramework.GraphDesigner
 
         public override void Draw(IPlatformDrawer platform, float scale)
         {
-
-            
-
-
-        
-            //var x = rect.x + 10;
-
-            //foreach (var item in DiagramDrawer.DiagramViewModel.GraphData.GetFilterPath())
-            //{
-            //    var item1 = item;
-            //    var size = drawer.CalculateSize(item.Name, CachedStyles.GraphTitleLabel);
-            //    x += size.x + 10;
-            //}
-            // Make sure they've upgraded to the latest json format
 #if UNITY_EDITOR
             if (UpgradeOldProject()) return;
 #endif
             //// Draw the title box
             //GUI.Box(new Rect(0, 0f, DiagramSize.width, 30f), DiagramViewModel.Title , ElementDesignerStyles.DiagramTitle);
-
             if (DiagramViewModel.LastMouseEvent != null)
             {
                 var handler = DiagramViewModel.LastMouseEvent.CurrentHandler;
                 if (!(handler is DiagramDrawer))
                     handler.Draw(platform, scale);
             }
+            
             // Draw all of our drawers
-
-           
             foreach (var drawer in CachedChildren)
             {
                 if (drawer.Dirty)
@@ -342,49 +253,6 @@ namespace QFramework.GraphDesigner
             DrawErrors();
             DrawHelp();
         }
-//        //TODO move this to platform specific operation
-//#if UNITY_EDITOR
-//        public bool HandleKeyEvent(Event evt, ModifierKeyState keyStates)
-//        {
-//            var bindings = InvertGraphEditor.KeyBindings;
-//            foreach (var keyBinding in bindings)
-//            {
-//                if (keyBinding.Key != evt.keyCode)
-//                {
-//                    continue;
-//                }
-//                if (keyBinding.RequireAlt && !keyStates.Alt)
-//                {
-//                    continue;
-//                }
-//                if (keyBinding.RequireShift && !keyStates.Shift)
-//                {
-//                    continue;
-//                }
-//                if (keyBinding.RequireControl && !keyStates.Ctrl)
-//                {
-//                    continue;
-//                }
-
-//                var command = keyBinding.Command;
-//                if (command != null)
-//                {
-//                    if (command.CanExecute(InvertGraphEditor.DesignerWindow) == null)
-//                    {
-//                        InvertGraphEditor.ExecuteCommand(command);
-//                    }
-//                    else
-//                    {
-//                        return false;
-//                    }
-
-//                    return true;
-//                }
-//                return false;
-//            }
-//            return false;
-//        }
-//#endif
         public override void OnMouseDoubleClick(MouseEvent mouseEvent)
         {
            
@@ -546,8 +414,6 @@ namespace QFramework.GraphDesigner
             }
         }
 
-        //public static MouseEvent LastMouseEvent { get; set; }
-
         public IDrawer[] DrawersAtMouse { get; set; }
 
         public IEnumerable<IDrawer> GetDrawersAtPosition(IDrawer parent, Vector2 point)
@@ -629,7 +495,7 @@ namespace QFramework.GraphDesigner
                 first = false;
             }
                 
-            _cachedPaths = dictionary;
+            mCachedPaths = dictionary;
 
             Children.Clear();
             DiagramViewModel.Load(hardRefresh);
@@ -703,23 +569,10 @@ namespace QFramework.GraphDesigner
 #endif
         }
 
-        //private void DrawSelectionRect(Rect selectionRect)
-        //{
-        //    if (selectionRect.width > 20 && selectionRect.height > 20)
-        //    {
-        //        foreach (var item in Children)
-        //        {
-        //            item.IsSelected = selectionRect.Overlaps(item.Bounds.Scale(Scale));
-        //        }
-        //        InvertGraphEditor.PlatformDrawer.DrawStretchBox(selectionRect,InvertStyles.BoxHighlighter4,12);
-        //        //ElementDesignerStyles.DrawExpandableBox(selectionRect, ElementDesignerStyles.BoxHighlighter4, string.Empty);
-        //    }
-        //}
-
         public SelectionRectHandler SelectionRectHandler
         {
-            get { return _selectionRectHandler ?? (_selectionRectHandler = new SelectionRectHandler(DiagramViewModel)); }
-            set { _selectionRectHandler = value; }
+            get { return mSelectionRectHandler ?? (mSelectionRectHandler = new SelectionRectHandler(DiagramViewModel)); }
+            set { mSelectionRectHandler = value; }
         }
 
         public static bool IsEditingField { get; set; }
@@ -728,17 +581,10 @@ namespace QFramework.GraphDesigner
         {
             get
             {
-                //return Children.OrderBy(p => p.ZOrder);
-                return _cachedChildren;
+                return mCachedChildren;
             }
-            //set { _cachedChildren = value; }
         }
 
-        //    if (CurrentEvent.keyCode == KeyCode.Return)
-        //    {
-        //        if (DiagramViewModel.SelectedNode != null && DiagramViewModel.SelectedNode.IsEditing)
-        //        {
-        //            DiagramViewModel.SelectedNode.EndEditing();
         private void GraphItemsOnCollectionChangedWith(object sender, NotifyCollectionChangedEventArgs e)
         {
             GraphItemsOnCollectionChangedWith(e);
@@ -757,7 +603,7 @@ namespace QFramework.GraphDesigner
        
                     Children.Add(drawer);
 
-                    _cachedChildren = Children.OrderBy(p => p.ZOrder).ToArray();
+                    mCachedChildren = Children.OrderBy(p => p.ZOrder).ToArray();
                     drawer.Refresh((IPlatformDrawer)InvertGraphEditor.PlatformDrawer);
                 
                 }
@@ -768,7 +614,7 @@ namespace QFramework.GraphDesigner
                 var d = Children.Count;
                 if (c != d)
                 {
-                    _cachedChildren = Children.OrderBy(p => p.ZOrder).ToArray();
+                    mCachedChildren = Children.OrderBy(p => p.ZOrder).ToArray();
                 }
             }
         }

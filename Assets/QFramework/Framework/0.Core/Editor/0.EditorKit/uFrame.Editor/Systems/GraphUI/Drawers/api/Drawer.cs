@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace QFramework.GraphDesigner
 {
-    public abstract class Drawer : IDrawer, IItemDrawer
+    public abstract class Drawer : IItemDrawer
     {
 
         private object _dataContext;
@@ -63,12 +63,6 @@ namespace QFramework.GraphDesigner
 
         public virtual void Draw(IPlatformDrawer platform, float scale)
         {
-            //if (ViewModelObject != null && ViewModelObject.IsDirty)
-            //{
-            //    Refresh(platform);
-            //    ViewModelObject.IsDirty = false;
-            //}
-               
         }
 
         public virtual void Refresh(IPlatformDrawer platform)

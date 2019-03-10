@@ -11,19 +11,20 @@ using QFramework.GraphDesigner;
 using QFramework.GraphDesigner.Unity;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
+public class UFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
 {
     public static Dictionary<string, Texture> ImageCache 
     {
-        get { return _imageCache ?? (_imageCache = new Dictionary<string, Texture>()); }
-        set { _imageCache = value; }
+        get { return mImageCache ?? (mImageCache = new Dictionary<string, Texture>()); }
+        set { mImageCache = value; }
     }
 
     public static Dictionary<string, string> ContentCache
     {
-        get { return _contentCache ?? (_contentCache = new Dictionary<string, string>()); }
-        set { _contentCache = value; }
+        get { return mContentCache ?? (mContentCache = new Dictionary<string, string>()); }
+        set { mContentCache = value; }
     }
     public Texture GetImage(string url)
     {
@@ -87,20 +88,23 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         ContentCache[url] = ww.text;
         Repaint();
     }
+    [FormerlySerializedAs("LastPage")]
     [SerializeField]
-    public string LastPage;
-    private static IDocumentationProvider[] _documentationProvider;
-    private static List<DocumentationPage> _pages;
-    private Stack<DocumentationPage> _pageStack;
+    public string lastPage;
+    private static IDocumentationProvider[] mDocumentationProvider;
+    private static List<DocumentationPage> mPages;
+    private Stack<DocumentationPage> mPageStack;
+    [FormerlySerializedAs("_tocScrollPosition")]
     [SerializeField]
-    private Vector2 _tocScrollPosition;
+    private Vector2 tocScrollPosition;
+    [FormerlySerializedAs("_pageScrollPosition")]
     [SerializeField]
-    private Vector2 _pageScrollPosition;
-    private static Dictionary<string, Texture> _imageCache;
-    private static GUIStyle _titleStyle;
-    private static GUIStyle _paragraphStyle;
-    private static Dictionary<string, string> _contentCache;
-    private static GUIStyle _tutorialActionStyle;
+    private Vector2 pageScrollPosition;
+    private static Dictionary<string, Texture> mImageCache;
+    private static GUIStyle mTitleStyle;
+    private static GUIStyle mParagraphStyle;
+    private static Dictionary<string, string> mContentCache;
+    private static GUIStyle mTutorialActionStyle;
 
 
     public static void ShowPage(Type pageType)
@@ -113,12 +117,12 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         ShowWindow(FindPage(Pages, _ => _.Name == name));
     }
 
-    public static uFrameHelp Instance;
+    public static UFrameHelp Instance;
 
     [MenuItem("Window/uFrame/Documentation")]
     public static void ShowWindow()
     {
-        var window = GetWindow<uFrameHelp>();
+        var window = GetWindow<UFrameHelp>();
         //window.minSize = new Vector2(800,500);
         window.title = "uFrame Help";
         Instance = window;
@@ -142,7 +146,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     public static void ShowWindow(DocumentationPage page)
     {
 
-        var window = GetWindow<uFrameHelp>();
+        var window = GetWindow<UFrameHelp>();
         window.title = "uFrame Help";
         window.minSize = new Vector2(1100, 806);
 
@@ -152,7 +156,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     }
     private void ShowPage(DocumentationPage page)
     {
-        LastPage = page.Name;
+        lastPage = page.Name;
         PageStack.Push(page);
     }
 
@@ -160,32 +164,32 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            if (_documentationProvider != null) return _documentationProvider;
+            if (mDocumentationProvider != null) return mDocumentationProvider;
 
 
-            _documentationProvider =
+            mDocumentationProvider =
                 InvertApplication.Container.ResolveAll<IDocumentationProvider>().ToArray();
 
-            return _documentationProvider;
+            return mDocumentationProvider;
         }
-        set { _documentationProvider = value; }
+        set { mDocumentationProvider = value; }
     }
 
     public static List<DocumentationPage> Pages
     {
         get
         {
-            if (_pages == null)
+            if (mPages == null)
             {
-                _pages = new List<DocumentationPage>();
+                mPages = new List<DocumentationPage>();
                 foreach (var provider in DocumentationProvider)
                 {
-                    provider.GetPages(_pages);
+                    provider.GetPages(mPages);
                 }
             }
-            return _pages;
+            return mPages;
         }
-        set { _pages = value; }
+        set { mPages = value; }
     }
 
     public static DocumentationPage FindPage(IEnumerable<DocumentationPage> inside, Predicate<DocumentationPage> predicate)
@@ -282,15 +286,15 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         EditorGUILayout.BeginHorizontal();
         if (EditorPrefs.GetBool("uFrameHelpSidebar", true))
         {
-            _tocScrollPosition = EditorGUILayout.BeginScrollView(_tocScrollPosition, GUILayout.Width(260));
-            EditorGUI.DrawRect(new Rect(_tocScrollPosition.x, _tocScrollPosition.y, Screen.width, Screen.height), new Color(0.3f, 0.3f, 0.4f));
+            tocScrollPosition = EditorGUILayout.BeginScrollView(tocScrollPosition, GUILayout.Width(260));
+            EditorGUI.DrawRect(new Rect(tocScrollPosition.x, tocScrollPosition.y, Screen.width, Screen.height), new Color(0.3f, 0.3f, 0.4f));
             ShowPages(Pages);
             EditorGUILayout.EndScrollView();
         }
 
 
-        _pageScrollPosition = EditorGUILayout.BeginScrollView(_pageScrollPosition);
-        EditorGUI.DrawRect(new Rect(_pageScrollPosition.x, _pageScrollPosition.y, Screen.width, Screen.height), new Color(0.8f, 0.8f, 0.8f));
+        pageScrollPosition = EditorGUILayout.BeginScrollView(pageScrollPosition);
+        EditorGUI.DrawRect(new Rect(pageScrollPosition.x, pageScrollPosition.y, Screen.width, Screen.height), new Color(0.8f, 0.8f, 0.8f));
 
 
         EditorGUILayout.BeginHorizontal();
@@ -359,9 +363,9 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            if (_item4
+            if (mItem4
                 == null)
-                _item4 = new GUIStyle
+                mItem4 = new GUIStyle
                 {
                     normal = { background = ElementDesignerStyles.GetSkinTexture("Item4"), textColor = Color.white },
                     active = { background = ElementDesignerStyles.GetSkinTexture("EventButton"), textColor = Color.white},
@@ -372,7 +376,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
                     alignment = TextAnchor.MiddleLeft
                 }.WithFont("Verdana",12);
 
-            return _item4;
+            return mItem4;
         }
     }
     private void ShowPages(List<DocumentationPage> pages, int indent = 1)
@@ -446,9 +450,9 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         {
             if (PageStack.Count < 1)
             {
-                if (LastPage != null)
+                if (lastPage != null)
                 {
-                    var page = FindPage(Pages, p => p.Name == LastPage);
+                    var page = FindPage(Pages, p => p.Name == lastPage);
                     if (page != null)
                     {
                         return page;
@@ -463,8 +467,8 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     }
     public Stack<DocumentationPage> PageStack
     {
-        get { return _pageStack ?? (_pageStack = new Stack<DocumentationPage>()); }
-        set { _pageStack = value; }
+        get { return mPageStack ?? (mPageStack = new Stack<DocumentationPage>()); }
+        set { mPageStack = value; }
     }
 
     public void BeginArea(string id)
@@ -542,7 +546,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            return _titleStyle ?? (_titleStyle = new GUIStyle()
+            return mTitleStyle ?? (mTitleStyle = new GUIStyle()
                 {
                     normal = new GUIStyleState() { textColor = new Color(0.3f, 0.3f, 0.4f) },
                     fontSize = 12,
@@ -558,7 +562,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            return _tutorialActionStyle ?? (_tutorialActionStyle = new GUIStyle()
+            return mTutorialActionStyle ?? (mTutorialActionStyle = new GUIStyle()
             {
                 normal = new GUIStyleState() { textColor = Color.red },
                 fontSize = 12,
@@ -572,27 +576,27 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            if (_editableParagraphStyle == null)
+            if (mEditableParagraphStyle == null)
             {
-                _editableParagraphStyle = new GUIStyle(EditorStyles.textArea)
+                mEditableParagraphStyle = new GUIStyle(EditorStyles.textArea)
                 {
                    
                     wordWrap = true,
                     margin = new RectOffset(8, 8, 4, 4)
                 }.WithFont("Verdana", 14);
 
-                _editableParagraphStyle.normal.background = null;
-                _editableParagraphStyle.normal.textColor = new Color(0.2f, 0.2f, 0.2f);
+                mEditableParagraphStyle.normal.background = null;
+                mEditableParagraphStyle.normal.textColor = new Color(0.2f, 0.2f, 0.2f);
             }
                
-           return _editableParagraphStyle;
+           return mEditableParagraphStyle;
         }
     }
     public static GUIStyle ParagraphStyle
     {
         get
         {
-            return _paragraphStyle ?? (_paragraphStyle = new GUIStyle()
+            return mParagraphStyle ?? (mParagraphStyle = new GUIStyle()
             {
                 normal = new GUIStyleState() { textColor = new Color(0.2f, 0.2f, 0.2f) },
                 wordWrap = true,
@@ -640,14 +644,14 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     }
 
 
-    private GUIStyle _noteStyle;
+    private GUIStyle mNoteStyle;
 
     public GUIStyle NoteStyle
     {
         get
         {
             var textColor = new Color(0.2f,0.2f,0.2f);
-            return _noteStyle ?? (_noteStyle = new GUIStyle()
+            return mNoteStyle ?? (mNoteStyle = new GUIStyle()
             {
                 wordWrap = true,
                 stretchWidth = true,
@@ -667,7 +671,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         get
         {
             var textColor = new Color(0.2f,0.2f,0.2f);
-            return _noteStyle ?? (_noteStyle = new GUIStyle()
+            return mNoteStyle ?? (mNoteStyle = new GUIStyle()
             {
                 wordWrap = true,
                 stretchWidth = true,
@@ -682,14 +686,14 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         }
     }   
     
-    private GUIStyle _imageStyle;
+    private GUIStyle mImageStyle;
 
     public GUIStyle ImageStyle
     {
         get
         {
             var textColor = new Color(0.2f,0.2f,0.2f);
-            return _imageStyle ?? (_imageStyle = new GUIStyle()
+            return mImageStyle ?? (mImageStyle = new GUIStyle()
             {
                 wordWrap = true,
                 stretchWidth = true,
@@ -703,14 +707,14 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         }
     }
 
-    private GUIStyle _linkStyle;
+    private GUIStyle mLinkStyle;
 
     public GUIStyle LinkStyle
     {
         get
         {
             var textColor = new Color(0.2f,0.2f,0.2f);
-            return _linkStyle ?? (_linkStyle = new GUIStyle()
+            return mLinkStyle ?? (mLinkStyle = new GUIStyle()
             {
                 wordWrap = true,
                 stretchWidth = true,
@@ -839,7 +843,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            return _expandedArea ?? (_expandedArea = new GUIStyle
+            return mExpandedArea ?? (mExpandedArea = new GUIStyle
             {
                 normal =
                 {
@@ -856,7 +860,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
 
                 //padding = new RectOffset(5, 5, 5, 0)
             });}
-        set { _expandedArea = value; }
+        set { mExpandedArea = value; }
     }
 
 
@@ -962,8 +966,8 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         get
         {
             var textColor = Color.white;
-            if (_eventButtonStyleSmall == null)
-                _eventButtonStyleSmall = new GUIStyle
+            if (mEventButtonStyleSmall == null)
+                mEventButtonStyleSmall = new GUIStyle
                 {
                     normal = { background = ElementDesignerStyles.GetSkinTexture("EventButton"), textColor = new Color(0.1f, 0.1f, 0.1f) },
 
@@ -974,15 +978,15 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
                     padding = new RectOffset(25, 0, 5, 5)
                 }.WithFont("Verdana",16);
 
-            return _eventButtonStyleSmall;
+            return mEventButtonStyleSmall;
         }
     }
     public static GUIStyle Item2
     {
         get
         {
-            if (_item2 == null)
-                _item2 = new GUIStyle
+            if (mItem2 == null)
+                mItem2 = new GUIStyle
                 {
                     normal = { background = ElementDesignerStyles.GetSkinTexture("Item2"), textColor = Color.white },
                     stretchHeight = true,
@@ -992,15 +996,15 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
                     padding = new RectOffset(10, 0, 0, 0)
                 }.WithFont("Verdana", 12);
 
-            return _item2;
+            return mItem2;
         }
     }
     public static GUIStyle Item5
     {
         get
         {
-            if (_item5 == null)
-                _item5 = new GUIStyle
+            if (mItem5 == null)
+                mItem5 = new GUIStyle
                 {
                     normal = { background = ElementDesignerStyles.GetSkinTexture("Item5"), textColor = new Color(0.8f, 0.8f, 0.8f) },
                     stretchHeight = false,
@@ -1010,7 +1014,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
                     padding = new RectOffset(10, 0, 0, 0)
                 }.WithFont("Verdana", 12);
 
-            return _item5;
+            return mItem5;
         }
     }
 
@@ -1018,8 +1022,8 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            if (_item1 == null)
-                _item1 = new GUIStyle
+            if (mItem1 == null)
+                mItem1 = new GUIStyle
                 {
                     normal = { background = ElementDesignerStyles.GetSkinTexture("Item1"), textColor = Color.white },
                     stretchHeight = true,
@@ -1031,7 +1035,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
                     padding = new RectOffset(10, 0, 0, 0)
                 }.WithFont("Verdana",14);
 
-            return _item1;
+            return mItem1;
         }
     }
 
@@ -1048,11 +1052,11 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     }
 
 
-    private GUIStyle _showAllStepsToggleStyle;
+    private GUIStyle mShowAllStepsToggleStyle;
 
     public GUIStyle ShowAllStepsToggleStyle
     {
-        get { return _showAllStepsToggleStyle ?? (_showAllStepsToggleStyle = new GUIStyle(ExpandableAreaHeaderCollapsed)
+        get { return mShowAllStepsToggleStyle ?? (mShowAllStepsToggleStyle = new GUIStyle(ExpandableAreaHeaderCollapsed)
         {
             margin = new RectOffset(15,15,15,15)
         }); }
@@ -1178,7 +1182,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            return _tutorialPageStepsContentStyle ?? (_tutorialPageStepsContentStyle = new GUIStyle(NoteStyle)
+            return mTutorialPageStepsContentStyle ?? (mTutorialPageStepsContentStyle = new GUIStyle(NoteStyle)
             {
                 padding = new RectOffset(1,1,1,1),
                 margin = new RectOffset(),
@@ -1187,16 +1191,16 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         }
     }
 
-    public GUIStyle _tutorialStepCompleteHeaderStyle;
-    public GUIStyle _tutorialStepCurrentHeaderStyle;
-    public GUIStyle _tutorialStepLockedHeaderStyle;
+    [FormerlySerializedAs("_tutorialStepCompleteHeaderStyle")] public GUIStyle tutorialStepCompleteHeaderStyle;
+    [FormerlySerializedAs("_tutorialStepCurrentHeaderStyle")] public GUIStyle tutorialStepCurrentHeaderStyle;
+    [FormerlySerializedAs("_tutorialStepLockedHeaderStyle")] public GUIStyle tutorialStepLockedHeaderStyle;
 
     public GUIStyle TutorialStepCurrentHeaderStyle
     {
         get
         {
-            return _tutorialStepCurrentHeaderStyle ??
-                   (_tutorialStepCurrentHeaderStyle = new GUIStyle(TutorialStepCompleteHeaderStyle)
+            return tutorialStepCurrentHeaderStyle ??
+                   (tutorialStepCurrentHeaderStyle = new GUIStyle(TutorialStepCompleteHeaderStyle)
                    {
                    }).WithAllStates("StepCurrentTitleBackground", new Color(1f, 1f, 1f));
         }
@@ -1205,8 +1209,8 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            return _tutorialStepLockedHeaderStyle ??
-                   (_tutorialStepLockedHeaderStyle = new GUIStyle(TutorialStepCompleteHeaderStyle)
+            return tutorialStepLockedHeaderStyle ??
+                   (tutorialStepLockedHeaderStyle = new GUIStyle(TutorialStepCompleteHeaderStyle)
                    {
                    }).WithAllStates("StepLockedTitleBackground", new Color(1f, 1f, 1f));
         }
@@ -1216,7 +1220,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            return _tutorialStepCompleteHeaderStyle ?? (_tutorialStepCompleteHeaderStyle = new GUIStyle(NoteStyle)
+            return tutorialStepCompleteHeaderStyle ?? (tutorialStepCompleteHeaderStyle = new GUIStyle(NoteStyle)
             {
                 padding = new RectOffset(10,3,3,3),
                 margin = new RectOffset(),
@@ -1232,7 +1236,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
     {
         get
         {
-            return _tutorialStepContentStyle ?? (_tutorialStepContentStyle = new GUIStyle()
+            return mTutorialStepContentStyle ?? (mTutorialStepContentStyle = new GUIStyle()
             {
                 padding = new RectOffset(14,14,14,14),
                 margin = new RectOffset(),
@@ -1256,7 +1260,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         get
         {
             Color textColor = new Color(0.2f, 0.2f, 0.2f);
-            return _codeSnippetStyle ?? (_codeSnippetStyle = new GUIStyle()
+            return mCodeSnippetStyle ?? (mCodeSnippetStyle = new GUIStyle()
         {
             border = new RectOffset(5, 5, 5, 5),
             margin = new RectOffset(20, 55, 20, 0),
@@ -1266,7 +1270,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         }).WithFont("Consolas", 12)
         .WithAllStates("InfoBackground",textColor);
         }
-        set { _codeSnippetStyle = value; }
+        set { mCodeSnippetStyle = value; }
     }    
     
     public static GUIStyle GistCodeSnippetStyle
@@ -1274,7 +1278,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         get
         {
             Color textColor = new Color(0.2f, 0.2f, 0.2f);
-            return _gistCodeSnippetStyle ?? (_gistCodeSnippetStyle = new GUIStyle()
+            return mGistCodeSnippetStyle ?? (mGistCodeSnippetStyle = new GUIStyle()
             {
                 border = new RectOffset(5, 5, 5, 5),
                 margin = new RectOffset(20, 55, 0, 0),
@@ -1285,7 +1289,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
             }).WithFont("Consolas", 12)
         .WithAllStates("InfoBackground_TopLeftFill",textColor);
         }
-        set { _gistCodeSnippetStyle = value; }
+        set { mGistCodeSnippetStyle = value; }
     }
 
     public void ToggleContentByNode<TNode>(string name)
@@ -1375,33 +1379,33 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
 
 
 
-    private Action disposer;
-    private static GUIStyle _eventButtonStyleSmall;
-    private Action disposer2;
-    private GUIStyle _expandableAreaHeaderExpandedStyle;
-    private static GUIStyle _item2;
-    private static GUIStyle _item5;
-    private static GUIStyle _item1;
-    private static GUIStyle _item4;
-    private static GUIStyle _codeSnippetStyle;
-    private static GUIStyle _expandedArea;
-    private GUIStyle _expandableAreaHeaderCollapsedStyle;
-    private GUIStyle _toggleAreaOnStyle;
-    private static GUIStyle _gistCodeSnippetStyle;
-    private GUIStyle _toggleAreaOffStyle;
-    private GUIStyle _tutorialPageStepsContentStyle;
-    private GUIStyle _tutorialStepContentStyle;
-    private static GUIStyle _editableParagraphStyle;
+    private Action mDisposer;
+    private static GUIStyle mEventButtonStyleSmall;
+    private Action mDisposer2;
+    private GUIStyle mExpandableAreaHeaderExpandedStyle;
+    private static GUIStyle mItem2;
+    private static GUIStyle mItem5;
+    private static GUIStyle mItem1;
+    private static GUIStyle mItem4;
+    private static GUIStyle mCodeSnippetStyle;
+    private static GUIStyle mExpandedArea;
+    private GUIStyle mExpandableAreaHeaderCollapsedStyle;
+    private GUIStyle mToggleAreaOnStyle;
+    private static GUIStyle mGistCodeSnippetStyle;
+    private GUIStyle mToggleAreaOffStyle;
+    private GUIStyle mTutorialPageStepsContentStyle;
+    private GUIStyle mTutorialStepContentStyle;
+    private static GUIStyle mEditableParagraphStyle;
 
     public void OnDestory()
     {
-        if (disposer != null)
+        if (mDisposer != null)
         {
-            disposer();
+            mDisposer();
         }
-        if (disposer2 != null)
+        if (mDisposer2 != null)
         {
-            disposer2();
+            mDisposer2();
         }
     }
 
@@ -1469,7 +1473,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         get
         {
             Color textColor = new Color(0.2f,0.2f,0.2f);
-            return _expandableAreaHeaderCollapsedStyle ?? (_expandableAreaHeaderCollapsedStyle = new GUIStyle()
+            return mExpandableAreaHeaderCollapsedStyle ?? (mExpandableAreaHeaderCollapsedStyle = new GUIStyle()
         {
             wordWrap = true,
             stretchWidth = true,
@@ -1482,7 +1486,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         }).WithAllStates("InfoBackground",textColor)
         .WithFont("Verdana",12);
         }
-        set { _expandableAreaHeaderCollapsedStyle = value; }
+        set { mExpandableAreaHeaderCollapsedStyle = value; }
     }   
     
     public GUIStyle ExpandableAreaHeaderExpanded
@@ -1490,7 +1494,7 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         get
         {
             Color textColor = new Color(0.2f,0.2f,0.2f);
-            return _expandableAreaHeaderExpandedStyle ?? (_expandableAreaHeaderExpandedStyle = new GUIStyle()
+            return mExpandableAreaHeaderExpandedStyle ?? (mExpandableAreaHeaderExpandedStyle = new GUIStyle()
         {
             wordWrap = true,
             stretchWidth = true,
@@ -1503,6 +1507,6 @@ public class uFrameHelp : EditorWindow, IDocumentationBuilder, INodeItemEvents
         }).WithAllStates("InfoBackground_BottomCutFill",textColor)
          .WithFont("Verdana", 12);
         }
-        set { _expandableAreaHeaderExpandedStyle = value; }
+        set { mExpandableAreaHeaderExpandedStyle = value; }
     }
 }

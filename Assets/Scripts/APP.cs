@@ -13,7 +13,7 @@ namespace TDE
     {
         public void Awake()
         {
-            //test 数据
+            #region test 数据
             TSceneData model = new TSceneData();
             model.graphicDataList = new List<T_Graphic>(3);
             model.graphicDataList.Add(new T_Text() {
@@ -39,7 +39,7 @@ namespace TDE
                 widht =new FloatReactiveProperty( 110f),
                 height = new FloatReactiveProperty(3f)
             });
-
+            #endregion
             ResMgr.Init();
             UIMgr.SetResolution(1920, 1080, 0);
             UIMgr.OpenPanel<UIShowPanel>(new UIShowPanelData() { model=model});

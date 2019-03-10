@@ -32,6 +32,11 @@ namespace QFramework
         {
             get
             {
+                if (version.IsNullOrEmpty())
+                {
+                    return 0;
+                }
+                
                 var numbersStr = version.RemoveString("v").Split('.');
 
                 var retNumber = numbersStr[2].ToInt();

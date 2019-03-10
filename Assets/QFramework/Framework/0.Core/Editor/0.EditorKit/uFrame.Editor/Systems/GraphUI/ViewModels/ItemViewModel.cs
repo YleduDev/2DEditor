@@ -42,18 +42,7 @@ namespace QFramework.GraphDesigner
             set { base.IsNewLine = value; }
         }
 
-
         private bool _isEditable = true;
-
-        //public virtual IEnumerable<string> Tags
-        //{
-        //    get { 
-        //        if (GraphNodeItem == null) yield break;
-        //        foreach (var item in GraphNodeItem.Flags.Select(p=>p.Name)) 
-        //            yield return item;
-        //    }
-        //}
-
    
         public virtual IEnumerable<IFlagItem> ItemFlags
         {

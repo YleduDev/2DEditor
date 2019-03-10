@@ -32,6 +32,11 @@ namespace QFramework
             mChildren.Remove(childView);
         }
 
+        public void RemoveAllChidren()
+        {
+            mChildren.Clear();
+        }
+
         public virtual void OnGUI()
         {
             if (Visible) mChildren.ForEach(childView => childView.OnGUI());

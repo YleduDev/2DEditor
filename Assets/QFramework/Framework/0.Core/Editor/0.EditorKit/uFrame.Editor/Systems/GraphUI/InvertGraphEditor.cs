@@ -1,76 +1,68 @@
-﻿using Invert.Common;
-using Invert.uFrame;
-using Invert.uFrame.Editor;
-using Invert.uFrame.Editor.ViewModels;
-using System;
+﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using QFramework.GraphDesigner;
 using Invert.Data;
-using QFramework;
 using UnityEngine;
+
 namespace QFramework.GraphDesigner
 {
+    /// <summary>
+    /// 这个是 uFrame 中的主要框架
+    /// </summary>
     public static class InvertGraphEditor
     {
-        public const string CURRENT_VERSION = "1.601";
+        public const string CURRENT_VERSION        = "1.601";
         public const double CURRENT_VERSION_NUMBER = 1.601;
-        public const bool REQUIRE_UPGRADE = true;
+        public const bool   REQUIRE_UPGRADE        = true;
+        
+        private static IAssetManager mAssetManager;
+        private static IConnectionStrategy[] mConnectionStrategies;
 
+        private static IGraphEditorSettings mSettings;
 
-        private static IAssetManager _assetManager;
+        private static QFrameworkContainer mTypesContainer;
 
+        private static IWindowManager       mWindowManager;
+        private static MouseEvent           mCurrentMouseEvent;
+        private static IGraphWindow         mDesignerWindow;
+        private static IStyleProvider       mStyleProvider;
+        private static IQFrameworkContainer mUiContainer;
 
-
-        private static IConnectionStrategy[] _connectionStrategies;
-
-
-
-
-
-        private static IGraphEditorSettings _settings;
-
-        private static QFrameworkContainer _TypesContainer;
-
-        private static IWindowManager _windowManager;
-        private static MouseEvent _currentMouseEvent;
-        private static IGraphWindow _designerWindow;
-        private static IStyleProvider _styleProvider;
-        private static IQFrameworkContainer _uiContainer;
-
-        public static IPlatformOperations Platform { get; set; }
-        public static IPlatformPreferences Prefs { get; set; }
+        public static IPlatformOperations  Platform { get; set; }
+        public static IPlatformPreferences Prefs    { get; set; }
 
         public static IStyleProvider StyleProvider
         {
-            get { return _styleProvider ?? (_styleProvider = Container.Resolve<IStyleProvider>()); }
-            set { _styleProvider = value; }
+            get { return mStyleProvider ?? (mStyleProvider = Container.Resolve<IStyleProvider>()); }
+            set { mStyleProvider = value; }
         }
-
-
 
         public static IAssetManager AssetManager
         {
-            get { return _assetManager ?? (_assetManager = Container.Resolve<IAssetManager>()); }
-            set { _assetManager = value; }
+            get { return mAssetManager ?? (mAssetManager = Container.Resolve<IAssetManager>()); }
+            set { mAssetManager = value; }
         }
 
         public static IConnectionStrategy[] ConnectionStrategies
         {
-            get { return _connectionStrategies ?? (_connectionStrategies = Container.ResolveAll<IConnectionStrategy>().ToArray()); }
-            set { _connectionStrategies = value; }
+            get
+            {
+                return mConnectionStrategies ??
+                       (mConnectionStrategies = Container.ResolveAll<IConnectionStrategy>().ToArray());
+            }
+            set { mConnectionStrategies = value; }
         }
 
         public static IQFrameworkContainer Container
         {
             get { return InvertApplication.Container; }
         }
+
         public static IQFrameworkContainer UIContainer
         {
-            get { return _uiContainer ?? (_uiContainer = new QFrameworkContainer()); }
+            get { return mUiContainer ?? (mUiContainer = new QFrameworkContainer()); }
         }
 
 
@@ -83,36 +75,12 @@ namespace QFramework.GraphDesigner
             }
         }
 
-        //public static MouseEvent CurrentMouseEvent
-        //{
-        //    // TODO
-        //    get { return _currentMouseEvent; }
-        //    set { _currentMouseEvent = value; }
-        //}
-
-        //public static IProjectRepository CurrentProject
-        //{
-        //    get { return _currentProject; }
-        //    set
-        //    {
-        //        _currentProject = value;
-        //        if (value != null)
-        //        {
-        //            foreach (var diagram in _currentProject.Graphs)
-        //            {
-        //                diagram.SetProject(value);
-        //            }
-        //        }
-        //    }
-        //}
-
         public static IGraphWindow DesignerWindow
         {
-            get { return _designerWindow; }
+            get { return mDesignerWindow; }
             set
             {
-                _designerWindow = value;
-                //Container.Inject(_designerWindow);
+                mDesignerWindow = value;
             }
         }
 
@@ -121,92 +89,47 @@ namespace QFramework.GraphDesigner
 
         public static IGraphEditorSettings Settings
         {
-            get { return _settings ?? (_settings = Container.Resolve<IGraphEditorSettings>()); }
-            set { _settings = value; }
+            get { return mSettings ?? (mSettings = Container.Resolve<IGraphEditorSettings>()); }
+            set { mSettings = value; }
         }
 
         public static QFrameworkContainer TypesContainer
         {
             get
             {
-                if (_TypesContainer != null) return _TypesContainer;
-                _TypesContainer = new QFrameworkContainer();
-                InitializeTypesContainer(_TypesContainer);
-                return _TypesContainer;
+                if (mTypesContainer != null) return mTypesContainer;
+                mTypesContainer = new QFrameworkContainer();
+                InitializeTypesContainer(mTypesContainer);
+                return mTypesContainer;
             }
-            set { _TypesContainer = value; }
+            set { mTypesContainer = value; }
         }
 
         public static IWindowManager WindowManager
         {
-            get { return _windowManager ?? (_windowManager = Container.Resolve<IWindowManager>()); }
+            get { return mWindowManager ?? (mWindowManager = Container.Resolve<IWindowManager>()); }
         }
 
         public static IPlatformDrawer PlatformDrawer { get; set; }
 
-        public static IQFrameworkContainer Connectable<TSource, TTarget>(this IQFrameworkContainer container, bool oneToMany = true)
+        public static IQFrameworkContainer Connectable<TSource, TTarget>(this IQFrameworkContainer container,
+            bool oneToMany = true)
             where TSource : class, IConnectable
             where TTarget : class, IConnectable
         {
             return Connectable<TSource, TTarget>(container, Color.white, oneToMany);
         }
 
-        public static IQFrameworkContainer Connectable<TSource, TTarget>(this IQFrameworkContainer container, Color color, bool oneToMany = true)
+        public static IQFrameworkContainer Connectable<TSource, TTarget>(this IQFrameworkContainer container,
+            Color color, bool oneToMany = true)
             where TSource : class, IConnectable
             where TTarget : class, IConnectable
         {
-            container.RegisterConnectable<TSource, TTarget>();  //if (oneToMany)
-            //container.RegisterInstance<IConnectionStrategy>(new CustomInputOutputStrategy<TSource, TTarget>(color), typeof(TSource).Name + "_" + typeof(TTarget).Name + "Connection");
-            //else
-            //{
-            //    container.RegisterInstance<IConnectionStrategy>(new OneToOneConnectionStrategy<TSource, TTarget>(), typeof(TSource).Name + "_" + typeof(TTarget).Name + "Connection");
-            //}
+            container.RegisterConnectable<TSource, TTarget>(); //if (oneToMany)
+
             return container;
         }
-        //public static IQFrameworkContainer AddNodeFlag<TSource>(this IQFrameworkContainer container, string flag) where TSource : class, IDiagramNodeItem
-        //{
-        //    container.RegisterInstance<IDiagramNodeCommand>(new GraphItemFlagCommand<TSource>(flag, flag), typeof(TSource).Name + flag + "FlagCommand");
-        //    return container;
-        //}
-        //public static IQFrameworkContainer AddItemFlag<TSource>(this IQFrameworkContainer container, string flag, Color color) where TSource : class, IDiagramNodeItem
-        //{
-        //    var command = new GraphItemFlagCommand<TSource>(flag, flag) { Color = color };
 
-        //    container.RegisterInstance<IDiagramNodeItemCommand>(command, typeof(TSource).Name + flag + "FlagCommand");
-        //    container.RegisterInstance<IFlagCommand>(command, flag);
-        //    return container;
-        //}
-        //public static IEnumerable<IEditorCommand> CreateCommandsFor<T>()
-        //{
-        //    var commands = Container.ResolveAll<T>();
-
-        //    return Enumerable.Where(Commands, p => typeof(T).IsAssignableFrom(p.For));
-        //}
-        //public static TCommandUI CreateCommandUIWithCommands<TCommandUI>(params IEditorCommand[] actions) where TCommandUI : class,ICommandUI
-        //{
-        //    var ui = Container.Resolve<TCommandUI>() as ICommandUI;
-        //    ui.Handler = DesignerWindow;
-        //    foreach (var action in actions)
-        //    {
-        //        if (action.CanExecute(DesignerWindow) == null)
-        //            ui.AddCommand(action);
-        //    }
-        //    return (TCommandUI)ui;
-        //}
-        //public static ToolbarUI CreateToolbarUI()
-        //{
-        //    var ui = Container.Resolve<ToolbarUI>();
-
-        //    ui.Handler = DesignerWindow;
-
-        //    var commands = Container.ResolveAll<IToolbarCommand>();
-        //    InvertApplication.SignalEvent<IToolbarQuery>(_=>_.QueryToolbarCommands(ui));
-        //    foreach (var command in commands)
-        //    {
-        //        ui.AddCommand(command);
-        //    }
-        //    return ui;
-        //}
 
 
         public static void DesignerPluginLoaded()
@@ -215,68 +138,19 @@ namespace QFramework.GraphDesigner
             Settings = Container.Resolve<IGraphEditorSettings>();
             AssetManager = Container.Resolve<IAssetManager>();
             OrganizeFilters();
-            //var commandKeyBindings = new List<IKeyBinding>();
-            //foreach (var item in Container.Instances)
-            //{
-            //    if (typeof(IEditorCommand).IsAssignableFrom(item.Key))
-            //    {
-            //        if (item.Instance != null)
-            //        {
-            //            var command = item.Instance as IEditorCommand;
-            //            if (command != null)
-            //            {
-            //                var keyBinding = command.GetKeyBinding();
-            //                if (keyBinding != null)
-            //                    commandKeyBindings.Add(keyBinding);
-            //            }
-            //        }
-            //    }
-            //}
 
             ConnectionStrategies = Container.ResolveAll<IConnectionStrategy>().ToArray();
 
             KeyBindings = Container.ResolveAll<IKeyBinding>().ToArray();
         }
 
-        //public static void ExecuteCommand(IEditorCommand action)
-        //{
-        //    ExecuteCommand(DesignerWindow, action);
-        //}
-
-        //public static void ExecuteCommand(Action<DiagramViewModel> action, bool recordUndo = false)
-        //{
-        //    ExecuteCommand(DesignerWindow, new SimpleEditorCommand<DiagramViewModel>(action), recordUndo);
-        //}
-
-
-        //private static void ExecuteCommand(this ICommandHandler handler, IEditorCommand command, bool recordUndo = true)
-        //{
-        //    var objs = handler.ContextObjects.ToArray();
-        //    if (recordUndo && DesignerWindow != null && DesignerWindow.DiagramViewModel != null)
-        //    {
-        //        // TODO 2.0 Record Undo
-        //        //DesignerWindow.DiagramViewModel.CurrentRepository.RecordUndo(DesignerWindow.DiagramViewModel.GraphData, command.Name);
-        //    }
-
-        //    command.Execute(handler);
-
-
-        //    if (recordUndo && DesignerWindow != null && DesignerWindow.DiagramViewModel != null)
-        //    {
-        //        DesignerWindow.DiagramViewModel.CurrentRepository.MarkDirty(DesignerWindow.DiagramViewModel.GraphData);
-        //    }
-        //    Container.Resolve<IRepository>().Commit();
-        //    //CurrentProject.MarkDirty(CurrentProject.CurrentGraph);
-        //}
-
-        public static IEnumerable<OutputGenerator> GetAllCodeGenerators(IGraphConfiguration graphConfiguration, IDataRecord[] items, bool includeDisabled = false)
+        public static IEnumerable<OutputGenerator> GetAllCodeGenerators(IGraphConfiguration graphConfiguration,
+            IDataRecord[] items, bool includeDisabled = false)
         {
-
-            // Grab all the code generators
             var graphItemGenerators = Container.ResolveAll<DesignerGeneratorFactory>().ToArray();
 
-
-            foreach (var outputGenerator in GetAllCodeGeneratorsForItems(graphConfiguration, graphItemGenerators, items,includeDisabled))
+            foreach (var outputGenerator in GetAllCodeGeneratorsForItems(graphConfiguration, graphItemGenerators, items,
+                includeDisabled))
                 yield return outputGenerator;
         }
 
@@ -294,7 +168,7 @@ namespace QFramework.GraphDesigner
                         var codeGenerators = generator.GetGenerators(graphConfiguration, item);
                         foreach (var codeGenerator in codeGenerators)
                         {
-                            if ( !includeDisabled && !codeGenerator.IsValid()) continue;
+                            if (!includeDisabled && !codeGenerator.IsValid()) continue;
                             // TODO Had to remove this?
                             //if (!codeGenerator.IsEnabled(prsteroject)) continue;
 
@@ -315,10 +189,11 @@ namespace QFramework.GraphDesigner
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static IEnumerable<OutputGenerator> GetCodeGeneratorsForNode(this IDataRecord node, IGraphConfiguration config)
+        public static IEnumerable<OutputGenerator> GetCodeGeneratorsForNode(this IDataRecord node,
+            IGraphConfiguration config)
         {
 
-            return GetAllCodeGenerators(config, new[] { node }).Where(p => p.ObjectData == node);
+            return GetAllCodeGenerators(config, new[] {node}).Where(p => p.ObjectData == node);
         }
 
         /// <summary>
@@ -326,9 +201,10 @@ namespace QFramework.GraphDesigner
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static IEnumerable<OutputGenerator> GetAllEditableFilesForNode(this IDataRecord node, IGraphConfiguration config)
+        public static IEnumerable<OutputGenerator> GetAllEditableFilesForNode(this IDataRecord node,
+            IGraphConfiguration config)
         {
-            return GetAllCodeGenerators(config, new[] { node }).Where(p => p.ObjectData == node && !p.AlwaysRegenerate);
+            return GetAllCodeGenerators(config, new[] {node}).Where(p => p.ObjectData == node && !p.AlwaysRegenerate);
         }
 
         /// <summary>
@@ -341,14 +217,15 @@ namespace QFramework.GraphDesigner
         /// <param name="node"></param>
         /// <param name="itemFilter"></param>
         /// <returns></returns>
-        public static IEnumerable<TemplateMemberResult> GetEditableOutputMembers(this IDiagramNodeItem node, IGraphConfiguration config, Predicate<IDiagramNodeItem> itemFilter = null)
+        public static IEnumerable<TemplateMemberResult> GetEditableOutputMembers(this IDiagramNodeItem node,
+            IGraphConfiguration config, Predicate<IDiagramNodeItem> itemFilter = null)
         {
 
             foreach (var item in GetAllEditableFilesForNode(node, config).OfType<ITemplateClassGenerator>())
             {
                 var gen = new CodeFileGenerator()
                 {
-                    Generators = new[] { item as OutputGenerator },
+                    Generators = new[] {item as OutputGenerator},
                     SystemPath = string.Empty
                 };
                 gen.Namespace = new CodeNamespace();
@@ -362,7 +239,9 @@ namespace QFramework.GraphDesigner
                 }
             }
         }
-        public static IEnumerable<IClassTemplate> GetTemplates(this IDiagramNodeItem node, IGraphConfiguration config, Predicate<IDiagramNodeItem> itemFilter = null)
+
+        public static IEnumerable<IClassTemplate> GetTemplates(this IDiagramNodeItem node, IGraphConfiguration config,
+            Predicate<IDiagramNodeItem> itemFilter = null)
         {
 
             foreach (var item in node.GetCodeGeneratorsForNode(config).OfType<ITemplateClassGenerator>())
@@ -370,14 +249,17 @@ namespace QFramework.GraphDesigner
                 yield return item.Template;
             }
         }
+
         /// <summary>
         /// Grab all of the output generators that are always regenerated on a node.
         /// </summary>
         /// <param name="node"></param>
         /// <returns></returns>
-        public static IEnumerable<OutputGenerator> GetAllDesignerFilesForNode(this IDiagramNodeItem node, IGraphConfiguration config)
+        public static IEnumerable<OutputGenerator> GetAllDesignerFilesForNode(this IDiagramNodeItem node,
+            IGraphConfiguration config)
         {
-            return GetAllCodeGenerators(config, new IDataRecord[] { node }).Where(p => p.ObjectData == node && p.AlwaysRegenerate);
+            return GetAllCodeGenerators(config, new IDataRecord[] {node})
+                .Where(p => p.ObjectData == node && p.AlwaysRegenerate);
         }
 
         /// <summary>
@@ -389,8 +271,10 @@ namespace QFramework.GraphDesigner
         /// <param name="diagramItemGenerator"></param>
         /// <param name="includeDisabled"></param>
         /// <returns></returns>
-        private static IEnumerable<OutputGenerator> GetCodeGeneratorsForNodes(GeneratorSettings settings, IRepository project,
-            DesignerGeneratorFactory generator, DesignerGeneratorFactory diagramItemGenerator, bool includeDisabled = false)
+        private static IEnumerable<OutputGenerator> GetCodeGeneratorsForNodes(GeneratorSettings settings,
+            IRepository project,
+            DesignerGeneratorFactory generator, DesignerGeneratorFactory diagramItemGenerator,
+            bool includeDisabled = false)
         {
             yield break;
             // TODO 2.0 IMPORANT: Figure out code generators
@@ -431,7 +315,8 @@ namespace QFramework.GraphDesigner
         /// Get all of the merged generators for a project, this will merge any output generators with the same filename into a combined "CodeFileGenerator".
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<CodeFileGenerator> GetAllFileGenerators(IGraphConfiguration config, IDataRecord[] items, bool includeDisabled = false)
+        public static IEnumerable<CodeFileGenerator> GetAllFileGenerators(IGraphConfiguration config,
+            IDataRecord[] items, bool includeDisabled = false)
         {
             if (config == null) throw new ArgumentNullException("config");
             if (items == null) throw new ArgumentNullException("items");
@@ -454,12 +339,14 @@ namespace QFramework.GraphDesigner
         }
 
 
-        public static GraphItemViewModel GetNodeViewModel(this IQFrameworkContainer container, IGraphItem item, DiagramViewModel diagram)
+        public static GraphItemViewModel GetNodeViewModel(this IQFrameworkContainer container, IGraphItem item,
+            DiagramViewModel diagram)
         {
             var vm = InvertApplication.Container.ResolveRelation<ViewModel>(item.GetType(), item, diagram) as
-                           GraphItemViewModel;
+                GraphItemViewModel;
             return vm;
         }
+
         public static IEnumerable<Type> GetAllowedFilterItems(Type filterType)
         {
             return Container.RelationshipMappings.Where(
@@ -482,7 +369,7 @@ namespace QFramework.GraphDesigner
         public static void OrganizeFilters()
         {
             var filterTypes = Container.RelationshipMappings.Where(
-               p => typeof(IGraphFilter).IsAssignableFrom(p.Key.Item1) && p.Key.Item2 == typeof(IDiagramNode));
+                p => typeof(IGraphFilter).IsAssignableFrom(p.Key.Item1) && p.Key.Item2 == typeof(IDiagramNode));
             var filterTypeItems = Container.RelationshipMappings.Where(
                 p => typeof(IGraphFilter).IsAssignableFrom(p.Key.Item1) && p.Key.Item2 == typeof(IDiagramNodeItem));
 
@@ -492,6 +379,7 @@ namespace QFramework.GraphDesigner
                 {
                     FilterExtensions.AllowedFilterNodes.Add(filterMapping.Key.Item1, new List<Type>());
                 }
+
                 FilterExtensions.AllowedFilterNodes[filterMapping.Key.Item1].Add(filterMapping.Value);
             }
 
@@ -501,17 +389,20 @@ namespace QFramework.GraphDesigner
                 {
                     FilterExtensions.AllowedFilterItems.Add(filterMapping.Key.Item1, new List<Type>());
                 }
+
                 FilterExtensions.AllowedFilterItems[filterMapping.Key.Item1].Add(filterMapping.Value);
             }
         }
 
-        public static IQFrameworkContainer RegisterChildGraphItem<TModel, TViewModel>(this IQFrameworkContainer container)
+        public static IQFrameworkContainer RegisterChildGraphItem<TModel, TViewModel>(
+            this IQFrameworkContainer container)
         {
             container.RegisterRelation<TModel, ItemViewModel, TViewModel>();
             return container;
         }
 
-        public static IQFrameworkContainer RegisterCodeTemplate<TFor, TTemplateType>(this IQFrameworkContainer container)
+        public static IQFrameworkContainer RegisterCodeTemplate<TFor, TTemplateType>(
+            this IQFrameworkContainer container)
         {
             container.RegisterRelation<TFor, CodeGenerator, TTemplateType>();
             return container;
@@ -526,21 +417,27 @@ namespace QFramework.GraphDesigner
         {
             container.RegisterRelation<TFilterData, IDiagramNodeItem, TAllowedItem>();
         }
-        public static IQFrameworkContainer RegisterDataViewModel<TModel, TViewModel>(this IQFrameworkContainer container)
+
+        public static IQFrameworkContainer RegisterDataViewModel<TModel, TViewModel>(
+            this IQFrameworkContainer container)
         {
             container.RegisterRelation<TModel, ViewModel, TViewModel>();
             return container;
         }
-        public static IQFrameworkContainer RegisterDataChildViewModel<TModel, TViewModel>(this IQFrameworkContainer container)
+
+        public static IQFrameworkContainer RegisterDataChildViewModel<TModel, TViewModel>(
+            this IQFrameworkContainer container)
         {
             container.RegisterRelation<TModel, ItemViewModel, TViewModel>();
             return container;
         }
 
-        public static IQFrameworkContainer RegisterConnectionStrategy<TConnectionStrategy>(this IQFrameworkContainer container)
+        public static IQFrameworkContainer RegisterConnectionStrategy<TConnectionStrategy>(
+            this IQFrameworkContainer container)
             where TConnectionStrategy : IConnectionStrategy, new()
         {
-            container.RegisterInstance<IConnectionStrategy>(new TConnectionStrategy(), typeof(TConnectionStrategy).Name);
+            container.RegisterInstance<IConnectionStrategy>(new TConnectionStrategy(),
+                typeof(TConnectionStrategy).Name);
             return container;
         }
 
@@ -553,7 +450,7 @@ namespace QFramework.GraphDesigner
         //    container.RegisterInstance<IConnectionStrategy>(new CustomConnectionStrategy<TSource, TTarget>(connectionColor,isConnected,apply,remove), typeof(TSource).Name + "_" + typeof(TTarget).Name + "CustomConnection");
         //    return container;
         //}
-   
+
 
         public static IQFrameworkContainer RegisterGraphItem<TModel, TViewModel>(this IQFrameworkContainer container)
         {
@@ -567,22 +464,27 @@ namespace QFramework.GraphDesigner
         }
 
         public static Dictionary<Type, Type> _drawers;
-        public static IDrawer CreateDrawer<TDrawerBase>(this IQFrameworkContainer container, ViewModel viewModel) where TDrawerBase : IDrawer
+
+        public static IDrawer CreateDrawer<TDrawerBase>(this IQFrameworkContainer container, ViewModel viewModel)
+            where TDrawerBase : IDrawer
         {
             if (_drawers != null)
             {
 
             }
+
             if (viewModel == null)
             {
                 InvertApplication.LogError("Data is null.");
                 return null;
             }
+
             var drawer = container.ResolveRelation<TDrawerBase>(viewModel.GetType(), viewModel);
             if (drawer == null)
             {
                 InvertApplication.Log(String.Format("Couldn't Create drawer for {0}.", viewModel.GetType()));
             }
+
             return drawer;
         }
 
@@ -591,10 +493,10 @@ namespace QFramework.GraphDesigner
         {
             return container.ResolveRelation<ViewModel>(data.GetType(), data, null) as GraphItemViewModel;
         }
+
         private static void InitializeTypesContainer(QFrameworkContainer container)
         {
 
         }
-
     }
 }

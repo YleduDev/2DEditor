@@ -423,6 +423,7 @@ namespace QFramework.GraphDesigner
                 {
                     return editText;
                 }
+                
                 return GraphItemObject.Name;
             }
             set
@@ -539,7 +540,6 @@ namespace QFramework.GraphDesigner
         public void Rename(string newText)
         {
             editText = newText;
-
         }
 
         public void EndEditing()
@@ -618,7 +618,6 @@ namespace QFramework.GraphDesigner
             if (!IsEditable) return;
             editText = GraphItemObject.Name;
             GraphItemObject.BeginEditing();
-
         }
 
         public void Remove()

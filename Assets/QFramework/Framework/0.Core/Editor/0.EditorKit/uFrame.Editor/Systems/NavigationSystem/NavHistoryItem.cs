@@ -110,7 +110,7 @@ namespace QFramework.GraphDesigner
             get {
                 if (string.IsNullOrEmpty(_title))
                 {
-                    _title = "";
+                    _title = "Rename";
                     if (Filter != null)
                     {
                         _title +=  string.Format("{0} @ {1}", Filter.Name, Graph.Name);

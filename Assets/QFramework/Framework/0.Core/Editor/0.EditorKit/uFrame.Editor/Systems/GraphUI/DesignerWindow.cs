@@ -1,18 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using QFramework.GraphDesigner;
-using QFramework.GraphDesigner.Systems.GraphUI.api;
-using QFramework.GraphDesigner.Systems.Wizards.api;
 using Invert.Data;
-using QFramework;
-using JetBrains.Annotations;
 using QFramework.GraphDesigner.Systems.GraphUI;
-using UnityEditor;
 using UnityEngine;
 
 namespace QFramework.GraphDesigner
 {
+    /// <summary>
+    /// 这个应该是主要的设计窗口
+    /// </summary>
     public class DesignerWindow : DiagramPlugin,
         IGraphWindow,
         IDrawUFrameWindow,
@@ -24,11 +21,11 @@ namespace QFramework.GraphDesigner
         IDataRecordManagerRefresh,
         IToolbarQuery
     {
-        private DesignerViewModel _designerViewModel;
+        private DesignerViewModel mDesignerViewModel;
 
-        private bool _drawToolbar = true;
+        private bool mDrawToolbar = true;
         
-        private WorkspaceService _workspaceService;
+        private WorkspaceService mWorkspaceService;
 
         public Toolbars Toolbars
         {
@@ -46,16 +43,16 @@ namespace QFramework.GraphDesigner
             {
                 if (Workspace == null)
                     return null;
-                if (_designerViewModel == null)
+                if (mDesignerViewModel == null)
                 {
-                    _designerViewModel = new DesignerViewModel()
+                    mDesignerViewModel = new DesignerViewModel()
                     {
                         Data = Workspace
                     };
                 }
-                return _designerViewModel;
+                return mDesignerViewModel;
             }
-            set { _designerViewModel = value; }
+            set { mDesignerViewModel = value; }
         }
 
         public DiagramDrawer DiagramDrawer { get; set; }
@@ -73,8 +70,8 @@ namespace QFramework.GraphDesigner
 
         public bool DrawToolbar
         {
-            get { return _drawToolbar; }
-            set { _drawToolbar = value; }
+            get { return mDrawToolbar; }
+            set { mDrawToolbar = value; }
         }
 
 
@@ -100,8 +97,8 @@ namespace QFramework.GraphDesigner
 
         public WorkspaceService WorkspaceService
         {
-            get { return _workspaceService ?? (_workspaceService = InvertGraphEditor.Container.Resolve<WorkspaceService>()); }
-            set { _workspaceService = value; }
+            get { return mWorkspaceService ?? (mWorkspaceService = InvertGraphEditor.Container.Resolve<WorkspaceService>()); }
+            set { mWorkspaceService = value; }
         }
 
         public override void Loaded(QFrameworkContainer container)
@@ -110,11 +107,11 @@ namespace QFramework.GraphDesigner
             InvertGraphEditor.DesignerWindow = this;
         }
 
-        private bool _shouldProcessInputFromDiagram = true;
+        private bool mShouldProcessInputFromDiagram = true;
 
-        private DateTime _lastFpsUpdate;
-        private int _framesLastSec;
-        private int _fpsShown;
+        private DateTime mLastFpsUpdate;
+        private int mFramesLastSec;
+        private int mFpsShown;
         public void Draw(float width, float height, Vector2 scrollPosition, float scale)
         {
             DiagramDrawer.IsEditingField = false;
@@ -131,19 +128,19 @@ namespace QFramework.GraphDesigner
                 var breadCrumbsRect = new Rect(0, tabsRect.y + tabsRect.height, width, 30);
 
                 diagramRect = new Rect(0f, breadCrumbsRect.y + breadCrumbsRect.height, width,
-                    height - ((toolbarTopRect.height * 2)) - breadCrumbsRect.height - 31);
+                    height - (toolbarTopRect.height * 2) - breadCrumbsRect.height - 31);
                 var toolbarBottomRect = new Rect(0f, diagramRect.y + diagramRect.height, width,
                     toolbarTopRect.height);
 
 
-                List<DesignerWindowModalContent> modalItems = new List<DesignerWindowModalContent>();
+                var modalItems = new List<DesignerWindowModalContent>();
                 Signal<IQueryDesignerWindowModalContent>(_ => _.QueryDesignerWindowModalContent(modalItems));
 
-                List<DesignerWindowOverlayContent> overlayItems = new List<DesignerWindowOverlayContent>();
+                var overlayItems = new List<DesignerWindowOverlayContent>();
                 Signal<IQueryDesignerWindowOverlayContent>(_ => _.QueryDesignerWindowOverlayContent(overlayItems));
 
                 //Disable diagram input if any modal content presents or if mouse is over overlay content
-                _shouldProcessInputFromDiagram = !modalItems.Any() && overlayItems.All(i => !i.Drawer.CalculateBounds(diagramRect).Contains(Event.current.mousePosition));
+                mShouldProcessInputFromDiagram = !modalItems.Any() && overlayItems.All(i => !i.Drawer.CalculateBounds(diagramRect).Contains(Event.current.mousePosition));
 
                 Drawer.DrawStretchBox(toolbarTopRect, CachedStyles.Toolbar, 0f);
 
@@ -160,7 +157,7 @@ namespace QFramework.GraphDesigner
                  * Using GUI.color hack to avoid transparent diagram on disabled input (Thanks Unity :( )
                  */
 
-                if (!_shouldProcessInputFromDiagram) Drawer.DisableInput();
+                if (!mShouldProcessInputFromDiagram) Drawer.DisableInput();
 
                 if (DiagramDrawer != null)
                 {
@@ -172,17 +169,17 @@ namespace QFramework.GraphDesigner
 
                 if (ShowFPS)
                 {
-                    if ((DateTime.Now - _lastFpsUpdate).TotalMilliseconds > 1000)
+                    if ((DateTime.Now - mLastFpsUpdate).TotalMilliseconds > 1000)
                     {
-                        _fpsShown = _framesLastSec;
-                        _lastFpsUpdate = DateTime.Now;
-                        _framesLastSec = 0;
+                        mFpsShown = mFramesLastSec;
+                        mLastFpsUpdate = DateTime.Now;
+                        mFramesLastSec = 0;
                     }
                     else
                     {
-                        _framesLastSec++;
+                        mFramesLastSec++;
                     }
-                    Drawer.DrawLabel(fpsCounterRect, string.Format("FPS: {0}", _fpsShown), CachedStyles.WizardSubBoxTitleStyle);
+                    Drawer.DrawLabel(fpsCounterRect, string.Format("FPS: {0}", mFpsShown), CachedStyles.WizardSubBoxTitleStyle);
 
                 }
 
@@ -271,8 +268,7 @@ namespace QFramework.GraphDesigner
                     new Rect().WithSize(37, 37).AlignTopRight(infoRect).AlignHorisonallyByCenter(infoRect).Translate(-10, 0);
 
                 Drawer.DrawStretchBox(infoRect, CachedStyles.TooltipBoxStyle, 13);
-                Drawer.DrawLabel(infoRect.Pad(15, 15, 15 + 41 + 15, 30), tooltip, CachedStyles.ListItemTitleStyle,
-                    DrawingAlignment.MiddleLeft);
+                Drawer.DrawLabel(infoRect.Pad(15, 15, 15 + 41 + 15, 30), tooltip, CachedStyles.ListItemTitleStyle);
                 Drawer.DrawImage(imageRect, "InfoIcon", true);
 
             }
@@ -301,19 +297,15 @@ namespace QFramework.GraphDesigner
 
         public void ProjectChanged(Workspace project)
         {
-            _designerViewModel = null;
+            mDesignerViewModel = null;
 
-            _workspaceService = null;
+            mWorkspaceService = null;
 
             DiagramDrawer = null;
 
             if (project.CurrentGraph != null)
             {
                 LoadDiagram(project.CurrentGraph);
-            }
-            else
-            {
-
             }
         }
 
@@ -353,10 +345,10 @@ namespace QFramework.GraphDesigner
         }
 
 
-        private CachedLineItem[] _cachedLines;
-        private Vector2 _cachedScroll;
-        private Vector2 _cachedScreen;
-        private List<IDataRecord> _changedRecords;
+        private CachedLineItem[] mCachedLines;
+        private Vector2 mCachedScroll;
+        private Vector2 mCachedScreen;
+        private List<IDataRecord> mChangedRecords;
 
         private bool DrawDiagram(IPlatformDrawer drawer, Vector2 scrollPosition, float scale, Rect diagramRect)
         {
@@ -377,7 +369,7 @@ namespace QFramework.GraphDesigner
 
             if (DiagramDrawer != null && DiagramViewModel != null && InvertGraphEditor.Settings.UseGrid)
             {
-                if (_cachedLines == null || _cachedScroll != scrollPosition || _cachedScreen != screen)
+                if (mCachedLines == null || mCachedScroll != scrollPosition || mCachedScreen != screen)
                 {
 
                     var lines = new List<CachedLineItem>();
@@ -431,14 +423,14 @@ namespace QFramework.GraphDesigner
                         y += DiagramViewModel.Settings.SnapSize * scale;
                         every10++;
                     }
-                    _cachedLines = lines.ToArray();
-                    _cachedScreen = screen;
-                    _cachedScroll = scrollPosition;
+                    mCachedLines = lines.ToArray();
+                    mCachedScreen = screen;
+                    mCachedScroll = scrollPosition;
                 }
 
-                for (int i = 0; i < _cachedLines.Length; i++)
+                for (int i = 0; i < mCachedLines.Length; i++)
                 {
-                    Drawer.DrawLine(_cachedLines[i].Lines, _cachedLines[i].Color);
+                    Drawer.DrawLine(mCachedLines[i].Lines, mCachedLines[i].Color);
                 }
 
             }
@@ -449,7 +441,7 @@ namespace QFramework.GraphDesigner
 
                 DiagramDrawer.Draw(drawer, 1f);
 
-                if (_shouldProcessInputFromDiagram) InvertApplication.SignalEvent<IDesignerWindowEvents>(_ => _.ProcessInput());
+                if (mShouldProcessInputFromDiagram) InvertApplication.SignalEvent<IDesignerWindowEvents>(_ => _.ProcessInput());
                 InvertApplication.SignalEvent<IDesignerWindowEvents>(_ => _.AfterDrawGraph(DiagramDrawer.Bounds));
             }
             return false;
@@ -475,8 +467,8 @@ namespace QFramework.GraphDesigner
 
         public List<IDataRecord> ChangedRecords
         {
-            get { return _changedRecords ?? (_changedRecords = new List<IDataRecord>()); }
-            set { _changedRecords = value; }
+            get { return mChangedRecords ?? (mChangedRecords = new List<IDataRecord>()); }
+            set { mChangedRecords = value; }
         }
 
         public void RecordInserted(IDataRecord record)

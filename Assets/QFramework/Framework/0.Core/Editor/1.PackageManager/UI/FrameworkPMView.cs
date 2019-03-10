@@ -26,13 +26,14 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Invert.Common.UI;
 using UnityEditor;
 using UnityEditorUI;
 using UnityEngine;
 
 namespace QFramework.Editor
 {
-    public class FrameworkPMView : GUIView,IPackageKitView
+    public class PackageManagerView : GUIView,IPackageKitView
     {
         private List<PackageData> mPackageDatas = new List<PackageData>();
 
@@ -59,7 +60,7 @@ namespace QFramework.Editor
         }
 
 
-        public FrameworkPMView()
+        public PackageManagerView()
         {
             mPackageDatas = PackageInfosRequestCache.Get().PackageDatas;
 
@@ -138,9 +139,6 @@ namespace QFramework.Editor
         public void Init(IQFrameworkContainer container)
         {
             mRootLayout = new RootLayout();
-            mRootLayout
-                .Label().Text.Value("Framework:").End()
-                .End();
             
             mFrameworkInfoLayout = new RootLayout();
 
@@ -171,112 +169,112 @@ namespace QFramework.Editor
         public override void OnGUI()
         {
             base.OnGUI();
-            
-            mRootLayout.OnGUI();
-            
-            GUILayout.BeginVertical("box");
 
-            mFrameworkInfoLayout.OnGUI();
-
-            // 这里开始具体的内容
-            GUILayout.BeginHorizontal("box");
-            GUILayout.Label("Package", GUILayout.Width(150));
-            GUILayout.Label("Server", GUILayout.Width(80));
-            GUILayout.Label("Local", GUILayout.Width(80));
-            GUILayout.Label("Access Right", GUILayout.Width(80));
-            GUILayout.Label("Doc", new GUIStyle {alignment = TextAnchor.MiddleCenter, fixedWidth = 40f});
-            GUILayout.Label("Action", new GUIStyle {alignment = TextAnchor.MiddleCenter, fixedWidth = 100f});
-            GUILayout.Label("Release Note", new GUIStyle {alignment = TextAnchor.MiddleCenter, fixedWidth = 100f});
-            GUILayout.EndHorizontal();
-
-            GUILayout.BeginVertical("box");
-
-            mScrollPos = GUILayout.BeginScrollView(mScrollPos, false, true, GUILayout.Height(240));
-
-            foreach (var packageData in SelectedPackageType)
+            if (GUIHelpers.DoToolbarEx("Framework Packages"))
             {
-                GUILayout.Space(2);
-                GUILayout.BeginHorizontal();
-                GUILayout.Label(packageData.Name, GUILayout.Width(150));
-                GUILayout.Label(packageData.Version, GUILayout.Width(80));
-                var installedPackage = InstalledPackageVersions.FindVersionByName(packageData.Name);
-                GUILayout.Label(installedPackage != null ? installedPackage.Version : " ", GUILayout.Width(80));
-                GUILayout.Label(packageData.AccessRight.ToString(), GUILayout.Width(80));
+                mRootLayout.OnGUI();
 
-                if (packageData.DocUrl.IsNotNullAndEmpty())
-                {
-                    if (GUILayout.Button("Doc", GUILayout.Width(40)))
-                    {
-                        Application.OpenURL(packageData.DocUrl);
-                    }
-                }
-                else
-                {
-                    GUILayout.Space(40);
-                }
+                GUILayout.BeginVertical("box");
 
-                if (installedPackage == null)
-                {
-                    if (GUILayout.Button("Import", GUILayout.Width(90)))
-                    {
-                        EditorActionKit.ExecuteNode(new InstallPackage(packageData));
+                mFrameworkInfoLayout.OnGUI();
 
-                        PackageApplication.Container.Resolve<PackageKitWindow>().Close();
-
-                    }
-                }
-                else if (installedPackage != null && packageData.VersionNumber > installedPackage.VersionNumber)
-                {
-                    if (GUILayout.Button("Update", GUILayout.Width(90)))
-                    {
-                        var path = Application.dataPath.Replace("Assets", packageData.InstallPath);
-
-                        if (Directory.Exists(path))
-                        {
-                            Directory.Delete(path, true);
-                        }
-
-                        EditorActionKit.ExecuteNode(new InstallPackage(packageData));
-
-                        PackageApplication.Container.Resolve<PackageKitWindow>().Close();
-                    }
-                }
-                else if (installedPackage.IsNotNull() && packageData.VersionNumber == installedPackage.VersionNumber)
-                {
-                    if (GUILayout.Button("Reimport", GUILayout.Width(90)))
-                    {
-                        var path = Application.dataPath.Replace("Assets", packageData.InstallPath);
-
-                        if (Directory.Exists(path))
-                        {
-                            Directory.Delete(path, true);
-                        }
-                        
-                        EditorActionKit.ExecuteNode(new InstallPackage(packageData));
-                        PackageApplication.Container.Resolve<PackageKitWindow>().Close();
-
-                    }
-                }
-                else if (installedPackage != null)
-                {
-                    GUILayout.Space(94);
-                }
-
-                if (GUILayout.Button("Release Notes", GUILayout.Width(100)))
-                {
-                    ReadmeWindow.Init(packageData.readme, packageData.PackageVersions.First());
-                }
-
+                // 这里开始具体的内容
+                GUILayout.BeginHorizontal("box");
+                GUILayout.Label("Package", GUILayout.Width(150));
+                GUILayout.Label("Server", GUILayout.Width(80));
+                GUILayout.Label("Local", GUILayout.Width(80));
+                GUILayout.Label("Access Right", GUILayout.Width(80));
+                GUILayout.Label("Doc", new GUIStyle {alignment = TextAnchor.MiddleCenter, fixedWidth = 40f});
+                GUILayout.Label("Action", new GUIStyle {alignment = TextAnchor.MiddleCenter, fixedWidth = 100f});
+                GUILayout.Label("Release Note", new GUIStyle {alignment = TextAnchor.MiddleCenter, fixedWidth = 100f});
                 GUILayout.EndHorizontal();
+
+                GUILayout.BeginVertical("box");
+
+                mScrollPos = GUILayout.BeginScrollView(mScrollPos, false, true, GUILayout.Height(240));
+
+                foreach (var packageData in SelectedPackageType)
+                {
+                    GUILayout.Space(2);
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label(packageData.Name, GUILayout.Width(150));
+                    GUILayout.Label(packageData.Version, GUILayout.Width(80));
+                    var installedPackage = InstalledPackageVersions.FindVersionByName(packageData.Name);
+                    GUILayout.Label(installedPackage != null ? installedPackage.Version : " ", GUILayout.Width(80));
+                    GUILayout.Label(packageData.AccessRight.ToString(), GUILayout.Width(80));
+
+                    if (packageData.DocUrl.IsNotNullAndEmpty())
+                    {
+                        if (GUILayout.Button("Doc", GUILayout.Width(40)))
+                        {
+                            Application.OpenURL(packageData.DocUrl);
+                        }
+                    }
+                    else
+                    {
+                        GUILayout.Space(40);
+                    }
+
+                    if (installedPackage == null)
+                    {
+                        if (GUILayout.Button("Import", GUILayout.Width(90)))
+                        {
+                            EditorActionKit.ExecuteNode(new InstallPackage(packageData));
+
+                            PackageApplication.Container.Resolve<PackageKitWindow>().Close();
+
+                        }
+                    }
+                    else if (installedPackage != null && packageData.VersionNumber > installedPackage.VersionNumber)
+                    {
+                        if (GUILayout.Button("Update", GUILayout.Width(90)))
+                        {
+                            var path = Application.dataPath.Replace("Assets", packageData.InstallPath);
+
+                            if (Directory.Exists(path))
+                            {
+                                Directory.Delete(path, true);
+                            }
+
+                            EditorActionKit.ExecuteNode(new InstallPackage(packageData));
+
+                            PackageApplication.Container.Resolve<PackageKitWindow>().Close();
+                        }
+                    }
+                    else if (installedPackage.IsNotNull() &&
+                             packageData.VersionNumber == installedPackage.VersionNumber)
+                    {
+                        if (GUILayout.Button("Reimport", GUILayout.Width(90)))
+                        {
+                            var path = Application.dataPath.Replace("Assets", packageData.InstallPath);
+
+                            if (Directory.Exists(path))
+                            {
+                                Directory.Delete(path, true);
+                            }
+
+                            EditorActionKit.ExecuteNode(new InstallPackage(packageData));
+                            PackageApplication.Container.Resolve<PackageKitWindow>().Close();
+
+                        }
+                    }
+                    else if (installedPackage != null)
+                    {
+                        GUILayout.Space(94);
+                    }
+
+                    if (GUILayout.Button("Release Notes", GUILayout.Width(100)))
+                    {
+                        ReadmeWindow.Init(packageData.readme, packageData.PackageVersions.First());
+                    }
+
+                    GUILayout.EndHorizontal();
+                }
+
+                GUILayout.EndScrollView();
+                GUILayout.EndVertical();
+                GUILayout.EndVertical();
             }
-
-            GUILayout.EndScrollView();
-
-            GUILayout.Space(2);
-
-            GUILayout.EndVertical();
-
-            GUILayout.EndVertical();
         }
     }
 }

@@ -33,6 +33,6 @@ public class UnityWindowManager : IWindowManager
 
     public void ShowHelpWindow(string helpProviderName, Type graphItemType)
     {
-        uFrameHelp.ShowWindow(graphItemType);
+        UFrameHelp.ShowWindow(graphItemType);
     }
 }

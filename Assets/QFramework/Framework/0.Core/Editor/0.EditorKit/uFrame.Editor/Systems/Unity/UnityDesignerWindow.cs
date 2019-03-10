@@ -1,9 +1,11 @@
-using QFramework.GraphDesigner;
 using UnityEditor;
 using UnityEngine;
 
 namespace QFramework.GraphDesigner.Unity
 {
+    /// <summary>
+    /// 这个是主要的窗口
+    /// </summary>
     public class UnityDesignerWindow : DiagramPlugin
         , IDesignerWindowEvents
         , IDrawDesignerWindow
@@ -16,16 +18,13 @@ namespace QFramework.GraphDesigner.Unity
         , IQueryDiagramScroll
         , IToolbarQuery
     {
-        private DesignerWindow _designerWindow;
-        private Vector2 _scrollPosition;
+        private DesignerWindow mDesignerWindow;
+        private Vector2        mScrollPosition;
 
         public DesignerWindow DesignerWindow
         {
-            get
-            {
-                return _designerWindow ?? InvertApplication.Container.Resolve<DesignerWindow>();
-            }
-            set { _designerWindow = value; }
+            get { return mDesignerWindow ?? InvertApplication.Container.Resolve<DesignerWindow>(); }
+            set { mDesignerWindow = value; }
         }
 
         public void AfterDrawGraph(Rect diagramRect)
@@ -35,17 +34,18 @@ namespace QFramework.GraphDesigner.Unity
 
         public void BeforeDrawGraph(Rect diagramRect)
         {
-            _scrollPosition = GUI.BeginScrollView(diagramRect, _scrollPosition, DesignerWindow.DiagramViewModel.DiagramBounds.Pad(0,0,15,15));
+            mScrollPosition = GUI.BeginScrollView(diagramRect, mScrollPosition,
+                DesignerWindow.DiagramViewModel.DiagramBounds.Pad(0, 0, 15, 15));
         }
 
         public void AfterDrawDesignerWindow(Rect windowRect)
         {
-            
+
         }
 
         public void DrawComplete()
         {
-          
+
         }
 
         public void ProcessInput()
@@ -56,34 +56,36 @@ namespace QFramework.GraphDesigner.Unity
 
         public void ProcessKeyboardInput()
         {
-            
+
         }
 
         public void HandlePanning(Vector2 delta)
         {
-            _scrollPosition += delta;
-            if (_scrollPosition.x < 0)
-                _scrollPosition.x = 0;
-            if (_scrollPosition.y < 0)
-                _scrollPosition.y = 0;
+            mScrollPosition += delta;
+            if (mScrollPosition.x < 0)
+                mScrollPosition.x = 0;
+            if (mScrollPosition.y < 0)
+                mScrollPosition.y = 0;
 
-            if (_scrollPosition.x > DesignerWindow.DiagramRect.width - DesignerWindow.DiagramRect.x)
+            if (mScrollPosition.x > DesignerWindow.DiagramRect.width - DesignerWindow.DiagramRect.x)
             {
-                _scrollPosition.x = DesignerWindow.DiagramRect.width - DesignerWindow.DiagramRect.x;
+                mScrollPosition.x = DesignerWindow.DiagramRect.width - DesignerWindow.DiagramRect.x;
             }
-            if (_scrollPosition.y > DesignerWindow.DiagramRect.height - DesignerWindow.DiagramRect.y)
+
+            if (mScrollPosition.y > DesignerWindow.DiagramRect.height - DesignerWindow.DiagramRect.y)
             {
-                _scrollPosition.y = DesignerWindow.DiagramRect.height - DesignerWindow.DiagramRect.y;
+                mScrollPosition.y = DesignerWindow.DiagramRect.height - DesignerWindow.DiagramRect.y;
             }
         }
+
         public void DrawDesigner(float width, float height)
         {
             if (EditorApplication.isCompiling)
             {
-                InvertApplication.SignalEvent<ITaskProgressEvent>(_=>_.Progress(99f,"Waiting On Unity...", true));
+                InvertApplication.SignalEvent<ITaskProgressEvent>(_ => _.Progress(99f, "Waiting On Unity...", true));
             }
 
-            InvertApplication.SignalEvent<IDrawUFrameWindow>(_ => _.Draw(width, height, _scrollPosition, 1f));
+            InvertApplication.SignalEvent<IDrawUFrameWindow>(_ => _.Draw(width, height, mScrollPosition, 1f));
         }
 
         public void DesignerWindowLostFocus()
@@ -97,21 +99,22 @@ namespace QFramework.GraphDesigner.Unity
             ElementsDesigner.Instance.Repaint();
 
         }
-        private MouseEvent _event;
 
-        private ModifierKeyState _modifierKeyStates;
-        private Vector2? _forceScrollPosition;
+        private MouseEvent mEvent;
+
+        private ModifierKeyState mModifierKeyStates;
+        private Vector2?         mForceScrollPosition;
 
         public ModifierKeyState ModifierKeyStates
         {
-            get { return _modifierKeyStates ?? (_modifierKeyStates = new ModifierKeyState()); }
-            set { _modifierKeyStates = value; }
+            get { return mModifierKeyStates ?? (mModifierKeyStates = new ModifierKeyState()); }
+            set { mModifierKeyStates = value; }
         }
 
         public MouseEvent MouseEvent
         {
-            get { return _event ?? (_event = new MouseEvent(ModifierKeyStates, DesignerWindow.DiagramDrawer)); }
-            set { _event = value; }
+            get { return mEvent ?? (mEvent = new MouseEvent(ModifierKeyStates, DesignerWindow.DiagramDrawer)); }
+            set { mEvent = value; }
         }
 
         public bool IsMiddleMouseDown { get; set; }
@@ -121,6 +124,7 @@ namespace QFramework.GraphDesigner.Unity
         public Event LastMouseDownEvent { get; set; }
 
         public Vector2 PanStartPosition { get; set; }
+
         private void HandleInput(MouseEvent mouse)
         {
 
@@ -129,70 +133,71 @@ namespace QFramework.GraphDesigner.Unity
             {
                 return;
             }
+
             if (DesignerWindow == null) return;
 
             MouseEvent.DefaultHandler = DesignerWindow.DiagramDrawer;
 
-                var handler = MouseEvent.CurrentHandler;
-                if (handler == null)
-                {
-                    MouseEvent = null;
+            var handler = MouseEvent.CurrentHandler;
+            if (handler == null)
+            {
+                MouseEvent = null;
 
-                    InvertApplication.Log("Handler is null");
-                    return;
-                }
+                InvertApplication.Log("Handler is null");
+                return;
+            }
 
-                if (e.type == EventType.MouseDown)
+            if (e.type == EventType.MouseDown)
+            {
+                mouse.MouseDownPosition = mouse.MousePosition;
+                mouse.IsMouseDown = true;
+                mouse.MouseButton = e.button;
+                mouse.ContextScroll = mScrollPosition;
+                if (e.button == 1)
                 {
-                    mouse.MouseDownPosition = mouse.MousePosition;
-                    mouse.IsMouseDown = true;
-                    mouse.MouseButton = e.button;
-                    mouse.ContextScroll = _scrollPosition;
-                    if (e.button == 1)
-                    {
-                        e.Use();
-                        handler.OnRightClick(mouse);
-                    }
-                    else if (e.clickCount > 1)
-                    {
-                        handler.OnMouseDoubleClick(mouse);
-                        mouse.IsMouseDown = false;
-                    }
-                    else
-                    {
-                        handler.OnMouseDown(mouse);
-                    }
-                    InvertApplication.SignalEvent<IMouseDown>(_=>_.MouseDown(mouse));
-                    LastMouseDownEvent = e;
-                    
+                    e.Use();
+                    handler.OnRightClick(mouse);
                 }
-                if (e.rawType == EventType.MouseUp)
+                else if (e.clickCount > 1)
                 {
-                    mouse.MouseUpPosition = mouse.MousePosition;
+                    handler.OnMouseDoubleClick(mouse);
                     mouse.IsMouseDown = false;
-                    handler.OnMouseUp(mouse);
-                    InvertApplication.SignalEvent<IMouseUp>(_ => _.MouseUp(mouse));
-                }
-                else if (e.rawType == EventType.KeyDown)
-                {
                 }
                 else
                 {
-                    var mp = (e.mousePosition); // * (1f / 1f /* Scale */);
-
-                    mouse.MousePosition = mp;
-                    mouse.MousePositionDelta = mouse.MousePosition - mouse.LastMousePosition;
-                    mouse.MousePositionDeltaSnapped = mouse.MousePosition.Snap(12f*1f /* Scale */) -
-                                                      mouse.LastMousePosition.Snap(12f*1f);
-                    handler.OnMouseMove(mouse);
-                    mouse.LastMousePosition = mp;
-                    if (e.type == EventType.MouseMove)
-                    {
-                        e.Use();
-                        //Signal<IRepaintWindow>(_=>_.Repaint());
-                        //Repaint();
-                    }
+                    handler.OnMouseDown(mouse);
                 }
+
+                InvertApplication.SignalEvent<IMouseDown>(_ => _.MouseDown(mouse));
+                LastMouseDownEvent = e;
+
+            }
+
+            if (e.rawType == EventType.MouseUp)
+            {
+                mouse.MouseUpPosition = mouse.MousePosition;
+                mouse.IsMouseDown = false;
+                handler.OnMouseUp(mouse);
+                InvertApplication.SignalEvent<IMouseUp>(_ => _.MouseUp(mouse));
+            }
+            else if (e.rawType == EventType.KeyDown)
+            {
+            }
+            else
+            {
+                var mp = (e.mousePosition); // * (1f / 1f /* Scale */);
+
+                mouse.MousePosition = mp;
+                mouse.MousePositionDelta = mouse.MousePosition - mouse.LastMousePosition;
+                mouse.MousePositionDeltaSnapped = mouse.MousePosition.Snap(12f * 1f /* Scale */) -
+                                                  mouse.LastMousePosition.Snap(12f * 1f);
+                handler.OnMouseMove(mouse);
+                mouse.LastMousePosition = mp;
+                if (e.type == EventType.MouseMove)
+                {
+                    e.Use();
+                }
+            }
 
             if (LastEvent != null)
             {
@@ -200,7 +205,8 @@ namespace QFramework.GraphDesigner.Unity
                 {
                     if (LastEvent.keyCode == KeyCode.LeftShift || LastEvent.keyCode == KeyCode.RightShift)
                         mouse.ModifierKeyStates.Shift = false;
-                    if (LastEvent.keyCode == KeyCode.LeftControl || LastEvent.keyCode == KeyCode.RightControl || LastEvent.keyCode == KeyCode.LeftCommand || LastEvent.keyCode == KeyCode.RightCommand)
+                    if (LastEvent.keyCode == KeyCode.LeftControl || LastEvent.keyCode == KeyCode.RightControl ||
+                        LastEvent.keyCode == KeyCode.LeftCommand || LastEvent.keyCode == KeyCode.RightCommand)
                         mouse.ModifierKeyStates.Ctrl = false;
                     if (LastEvent.keyCode == KeyCode.LeftAlt || LastEvent.keyCode == KeyCode.RightAlt)
                         mouse.ModifierKeyStates.Alt = false;
@@ -213,19 +219,18 @@ namespace QFramework.GraphDesigner.Unity
                 {
                     if (LastEvent.keyCode == KeyCode.LeftShift || LastEvent.keyCode == KeyCode.RightShift)
                         mouse.ModifierKeyStates.Shift = true;
-                    if (LastEvent.keyCode == KeyCode.LeftControl || LastEvent.keyCode == KeyCode.RightControl || LastEvent.keyCode == KeyCode.LeftCommand || LastEvent.keyCode == KeyCode.RightCommand)
+                    if (LastEvent.keyCode == KeyCode.LeftControl || LastEvent.keyCode == KeyCode.RightControl ||
+                        LastEvent.keyCode == KeyCode.LeftCommand || LastEvent.keyCode == KeyCode.RightCommand)
                         mouse.ModifierKeyStates.Ctrl = true;
                     if (LastEvent.keyCode == KeyCode.LeftAlt || LastEvent.keyCode == KeyCode.RightAlt)
                         mouse.ModifierKeyStates.Alt = true;
                 }
-                // Debug.Log(string.Format("Shift: {0}, Alt: {1}, Ctrl: {2}",ModifierKeyStates.Shift,ModifierKeyStates.Alt,ModifierKeyStates.Ctrl));
             }
 
             LastEvent = Event.current;
-            
+
             if (DiagramDrawer.IsEditingField)
             {
-                // TODO 2.0 Get this out of here
                 if (LastEvent.keyCode == KeyCode.Return)
                 {
                     var selectedGraphItem = DesignerWindow.DiagramViewModel.SelectedGraphItem;
@@ -234,8 +239,10 @@ namespace QFramework.GraphDesigner.Unity
                     {
                         selectedGraphItem.Select();
                     }
+
                     return;
                 }
+
                 return;
             }
 
@@ -262,10 +269,12 @@ namespace QFramework.GraphDesigner.Unity
                 IsMiddleMouseDown = true;
                 PanStartPosition = Event.current.mousePosition;
             }
+
             if (Event.current.button == 2 && Event.current.rawType == EventType.MouseUp && IsMiddleMouseDown)
             {
                 IsMiddleMouseDown = false;
             }
+
             if (IsMiddleMouseDown)
             {
                 var delta = PanStartPosition - Event.current.mousePosition;
@@ -281,38 +290,30 @@ namespace QFramework.GraphDesigner.Unity
         public void Execute(ScrollGraphCommand command)
         {
             //TODO MINOR: enchance logic of calculating the right scrollposition for better user experience
-            _forceScrollPosition = command.Position;
+            mForceScrollPosition = command.Position;
             if (DesignerWindow != null)
             {
-                _forceScrollPosition -= new Vector2(DesignerWindow.DiagramRect.width / 2, DesignerWindow.DiagramRect.height/ 2);
+                mForceScrollPosition -= new Vector2(DesignerWindow.DiagramRect.width / 2,
+                    DesignerWindow.DiagramRect.height / 2);
             }
         }
 
         public void GraphLoaded()
         {
-            if (_forceScrollPosition.HasValue)
+            if (mForceScrollPosition.HasValue)
             {
-                _scrollPosition = _forceScrollPosition.Value;
-                _forceScrollPosition = null;
+                mScrollPosition = mForceScrollPosition.Value;
+                mForceScrollPosition = null;
             }
         }
 
         public void QueryToolbarCommands(ToolbarUI ui)
         {
-            //ui.AddCommand(new ToolbarItem()
-            //{
-            //    Title = "Woop Woop",
-            //    Command = new LambdaCommand("Woop Woop", () =>
-            //    {
-            //        var window = EditorWindow.GetWindow<uFrameInspectorWindow>(typeof(UnityDesignerWindow));
-            //        window.ShowUtility();
-            //    })
-            //});
         }
 
         public void QueryDiagramScroll(ref Vector2 scroll)
         {
-            scroll = _forceScrollPosition ?? _scrollPosition;
+            scroll = mForceScrollPosition ?? mScrollPosition;
         }
     }
 }

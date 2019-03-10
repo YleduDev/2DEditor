@@ -10,16 +10,16 @@ namespace QFramework.GraphDesigner
 
     public class ViewModel : INotifyPropertyChanged
     {
-        private object _dataObject;
+        private object mDataObject;
 
         public virtual object DataObject
         {
-            get { return _dataObject; }
+            get { return mDataObject; }
             set
             {
-                _dataObject = value;
+                mDataObject = value;
                 DataObjectChanged();
-                
+
             }
         }
 
@@ -30,7 +30,7 @@ namespace QFramework.GraphDesigner
 
         public virtual void DataObjectChanged()
         {
-            
+
         }
 
         protected bool SetProperty<T>(ref T backingField, T value, string name)
@@ -45,23 +45,14 @@ namespace QFramework.GraphDesigner
 
             return changed;
         }
-//#if UNITY_EDITOR
-            public event PropertyChangedEventHandler PropertyChanged;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName = null)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-//#else 
-//        public event PropertyChangedEventHandler PropertyChanged;
 
-//        protected virtual void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
-//        {
-//            PropertyChangedEventHandler handler = PropertyChanged;
-//            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-//        }
-//#endif
-      
     }
 }

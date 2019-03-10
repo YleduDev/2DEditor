@@ -117,12 +117,15 @@ namespace QFramework
     [Serializable]
     public class PackageVersion
     {
+        
+        public string Id { get; set; }
+        
         public string Name
         {
             get { return InstallPath.GetLastDirName(); }
         }
         
-        public string Version;
+        public string Version = "v0.0.0";
 
         public PackageType Type;
 

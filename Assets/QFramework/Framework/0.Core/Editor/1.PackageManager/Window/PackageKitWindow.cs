@@ -43,7 +43,7 @@ namespace QFramework.Editor
 			{
 				var frameworkConfigEditorWindow = Create<PackageKitWindow>(true);
 				frameworkConfigEditorWindow.titleContent = new GUIContent("QFramework Settings");
-				frameworkConfigEditorWindow.position = new Rect(100, 100, 690, 460);
+				frameworkConfigEditorWindow.position = new Rect(100, 100, 690, 480);
 				frameworkConfigEditorWindow.Init();
 				frameworkConfigEditorWindow.Show();
 				
@@ -65,6 +65,8 @@ namespace QFramework.Editor
 
 		private void Init()
 		{
+			RemoveAllChidren();
+			
 			PackageApplication.Container
 				.ResolveAll<IPackageKitView>()
 				.OrderBy(view => view.RenderOrder)
