@@ -10,12 +10,22 @@ namespace QFramework.TDE
 {
 	public partial class UITextItem
 	{
-		[SerializeField] public UITextEditorBox UITextEditorBox;
+		[SerializeField] public RectTransform UIEditorBox;
+		[SerializeField] public Image UIRotate;
+		[SerializeField] public Image UILeftUP;
+		[SerializeField] public Image UIRigghtUP;
+		[SerializeField] public Image UIRightDown;
+		[SerializeField] public Image UILeftDown;
 		[SerializeField] public RectTransform Text;
 
 		public void Clear()
 		{
-			UITextEditorBox = null;
+			UIEditorBox = null;
+			UIRotate = null;
+			UILeftUP = null;
+			UIRigghtUP = null;
+			UIRightDown = null;
+			UILeftDown = null;
 			Text = null;
 		}
 

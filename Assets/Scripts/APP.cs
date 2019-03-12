@@ -15,27 +15,29 @@ namespace TDE
         {
             #region test 数据
             TSceneData model = new TSceneData();
-            model.graphicDataList = new List<T_Graphic>(3);
             model.graphicDataList.Add(new T_Text() {
                 graphicType = GraphicType.Text,
-                localScale =Vector3.one,
+                localScale = new Vector3ReactiveProperty(Vector3.one),
                 localPos = new Vector2ReactiveProperty(new Vector2(-645f, 395f)),
+                locaRotation = new QuaternionReactiveProperty(Quaternion.identity),
                 widht = new FloatReactiveProperty(100f),
                 height = new FloatReactiveProperty(100f)
             });
 
             model.graphicDataList.Add (new T_Image() {
                 graphicType = GraphicType.Image,
-                localScale = Vector3.one,
+                localScale =new Vector3ReactiveProperty(Vector3.one),
                 localPos = new Vector2ReactiveProperty(new Vector2(776f, -374f)),
+                locaRotation = new QuaternionReactiveProperty(Quaternion.identity),
                 widht = new FloatReactiveProperty(100f),
                 height = new FloatReactiveProperty(100f)
             });
 
             model.graphicDataList.Add(new T_Line() {
                 graphicType = GraphicType.Line,
-                localScale = Vector3.one,
+                localScale =new Vector3ReactiveProperty(Vector3.one),
                 localPos = new Vector2ReactiveProperty( new Vector2(169.8f, 83.2f)),
+                locaRotation = new QuaternionReactiveProperty(Quaternion.identity),
                 widht =new FloatReactiveProperty( 110f),
                 height = new FloatReactiveProperty(3f)
             });
@@ -49,7 +51,11 @@ namespace TDE
     //场景对象
     public class TSceneData
     {
-        public List<T_Graphic> graphicDataList;
+        public ReactiveCollection<T_Graphic> graphicDataList=new ReactiveCollection<T_Graphic>();
+        public void Add(T_Graphic model)
+        {
+            graphicDataList.Add(model);
+        }
     }
     //所以场景对象
     public class TSceneDataList

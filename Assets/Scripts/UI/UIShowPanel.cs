@@ -17,6 +17,8 @@ namespace QFramework.TDE
     using System.Linq;
     using UnityEngine;
     using UnityEngine.UI;
+    using UniRx;
+
     public class UITItem
     {
         public UITextItem UITextItem;
@@ -47,9 +49,11 @@ namespace QFramework.TDE
         {
             mData = uiData as UIShowPanelData ?? new UIShowPanelData();
             // please add init code here
-            UITItem UITItem = new UITItem(UITextItem,UIImageItem,UILineItem);
-            UIImageContent.GenerateGraphicItem(mData.model, UITItem);
+            UITItem UITItem = new UITItem(UITextItem, UIImageItem, UILineItem);
 
+            UIContent.GenerateGraphicItem(mData.model, UITItem);
+
+            mData.model.graphicDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
         }
         
         protected override void OnOpen(QFramework.IUIData uiData)

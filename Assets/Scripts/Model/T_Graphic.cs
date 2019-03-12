@@ -17,12 +17,12 @@ namespace TDE
 
 public class T_Graphic
 {
-        public Vector2ReactiveProperty  localPos;
-        public Vector3 locaEulerAngle;
-        public Vector3 localScale;
+        public Vector2ReactiveProperty  localPos=new Vector2ReactiveProperty();
+        public QuaternionReactiveProperty locaRotation=new QuaternionReactiveProperty();
+        public Vector3ReactiveProperty localScale=new Vector3ReactiveProperty(Vector3.one);
 
-        public FloatReactiveProperty widht;
-        public FloatReactiveProperty height;
+        public FloatReactiveProperty widht=new FloatReactiveProperty();
+        public FloatReactiveProperty height=new FloatReactiveProperty();
 
         //бЁжа
         public BoolReactiveProperty isSelected=new BoolReactiveProperty(false);

@@ -22,16 +22,15 @@ namespace QFramework.TDE
 		protected override void OnBeforeDestroy()
 		{
 		}
-
         internal void Init(T_Graphic graphicItem, RectTransform parent)
         {
             model = graphicItem as T_Line;
             this.transform.Parent(parent)
                .Show()
                .LocalPosition(model.localPos.Value)
-               .LocalScale(model.localScale)
-               .LocalRotation(Quaternion.Euler(model.locaEulerAngle));
-            RectTransform rect= transform as RectTransform;
+               .LocalScale(model.localScale.Value)
+               .LocalRotation(model.locaRotation.Value);
+            RectTransform rect = transform as RectTransform;
         }
     }
 }

@@ -33,7 +33,7 @@ namespace QFramework.TDE
         public UIImageItem UIImageItem;
         
         [SerializeField()]
-        public UIImageContent UIImageContent;
+        public UIContent UIContent;
         
         private UIShowPanelData mPrivateData = null;
         
@@ -55,7 +55,7 @@ namespace QFramework.TDE
             UILineItem = null;
             UITextItem = null;
             UIImageItem = null;
-            UIImageContent = null;
+            UIContent = null;
             mData = null;
         }
     }

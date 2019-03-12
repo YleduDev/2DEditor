@@ -10,12 +10,22 @@ namespace QFramework.TDE
 {
 	public partial class UIImageItem
 	{
-		[SerializeField] public UIImageEditorBox UIImageEditorBox;
+		[SerializeField] public RectTransform UIEditorBox;
+		[SerializeField] public Image UIRotate;
+		[SerializeField] public Image UILeftUP;
+		[SerializeField] public Image UIRigghtUP;
+		[SerializeField] public Image UIRightDown;
+		[SerializeField] public Image UILeftDown;
 		[SerializeField] public UILineSwitch UILineSwitch;
 
 		public void Clear()
 		{
-			UIImageEditorBox = null;
+			UIEditorBox = null;
+			UIRotate = null;
+			UILeftUP = null;
+			UIRigghtUP = null;
+			UIRightDown = null;
+			UILeftDown = null;
 			UILineSwitch = null;
 		}
 
