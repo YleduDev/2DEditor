@@ -6,6 +6,11 @@ namespace TDE
 {
     public class Global : MonoBehaviour
     {
+        public static float LineHeight = 3f;
+        public static LineBothEndsShape beginShape= LineBothEndsShape.Line;
+        public static LineBothEndsShape endShape = LineBothEndsShape.Line;
+        public static float minLineLength = 10f;
+        public static LineShapeType lineShapeType = LineShapeType.Straight;
         //全局，表示当前选中的图元对象
         public static T_Graphic OnSelectedGraphic;
 

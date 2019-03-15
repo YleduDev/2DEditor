@@ -34,11 +34,7 @@ public class T_Graphic
 
         public GraphicType graphicType= GraphicType .Image;
        
-        //É¾³ý×ÔÉí
-        public virtual void DeleteSelf()
-        {
-
-        }
+       
       
 
     }

@@ -2,62 +2,25 @@
  * 2019.3 LAPTOP-R0ONNKOC
  ****************************************************************************/
 
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using QFramework;
-using UnityEngine.EventSystems;
 using TDE;
+using UnityEngine;
 
 namespace QFramework.TDE
 {
-	public partial class UILineSwitch : UIElement, IPointerEnterHandler, IPointerExitHandler, IDragHandler,IBeginDragHandler
-    {
-        public Texture2D hand;
-        public Texture2D darg;
+    public partial class UILineSwitch : UIElement
+	{
+		private void Awake()
+		{
+		}
 
-        TSceneData model;
-        Transform parent;
-        Vector2 localPoint;
-        private void Awake()
-        {
-            GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
-        }
-        public void Init(TSceneData model,Transform parent)
-        {
-            this.model = model;
-            this.parent = parent;
-        }
-        protected override void OnBeforeDestroy()
-        {
-        }
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                parent as RectTransform,
-                eventData.position, eventData.pressEventCamera, out localPoint);
-            
-            //Éú³ÉÏß¶Î
-            T_Line line = new T_Line();
-            line.height.Value = 3f;
-            line.widht.Value = 100f;
-            line.localPos.Value = localPoint;
-            Debug.Log(eventData.position + "     " + localPoint);
-            model.Add(line);
-        }
-        public void OnDrag(PointerEventData eventData)
-        {
-           
-        }
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            Cursor.SetCursor(hand, new Vector2(hand.width * .5f, hand.height * .5f), CursorMode.Auto);
-        }
+		protected override void OnBeforeDestroy()
+		{
+		}
 
-        public void OnPointerExit(PointerEventData eventData)
+        internal void Init(TSceneData model, RectTransform lineParent, T_Image image)
         {
-            Cursor.SetCursor(darg, new Vector2(darg.width * .5f, darg.height * .5f), CursorMode.Auto);
-        }   
+            UILinePoint[] UILinePoints = GetComponentsInChildren<UILinePoint>();
+            if (UILinePoints.IsNotNull() && UILinePoints.Length > 0) UILinePoints.ForEach(item => item.Init(model, lineParent, image));
+        }
     }
 }

@@ -1,46 +1,62 @@
 /****************************************************************************
  * 2019.3 LAPTOP-R0ONNKOC
  ****************************************************************************/
-
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using QFramework;
 using TDE;
+using UniRx;
+using UnityEngine;
 using UnityEngine.EventSystems;
-
 namespace QFramework.TDE
 {
-	public partial class UIImageItem : UIElement, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IBeginDragHandler, IPointerClickHandler
+    public partial class UIImageItem : UIElement, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IBeginDragHandler, IPointerDownHandler
     {
-
         Vector2 offset;
         Vector2 localPoint;
-        RectTransform canvasRT;
+        RectTransform parentRT;
+        RectTransform rect;
+        TSceneData model;
 
-        public Texture2D hand;
-        public T_Image model;
-        private void Awake()
-		{
-		}
+        public T_Image Image;     
 
-		protected override void OnBeforeDestroy()
-		{
-		}
-
-        internal void Init(T_Graphic graphicItem, Transform parent)
+        internal void Init(TSceneData model,T_Graphic graphicItem, Transform parent,Transform LineParent)
         {
-            model = graphicItem as T_Image;
-            EditorBoxInit(model);
-            canvasRT = UIManager.Instance.RootCanvas.transform as RectTransform;
+            Image = graphicItem as T_Image;
+            parentRT = parent as RectTransform;
+            rect = transform as RectTransform;
             this.transform.Parent(parent)
                 .Show()
-                .LocalPosition(graphicItem.localPos.Value)
-                .LocalScale(graphicItem.localScale.Value)
-                .LocalRotation(graphicItem.locaRotation.Value);
+                .LocalPosition(Image.localPos.Value)
+                .LocalScale(Image.localScale.Value)
+                .LocalRotation(Image.locaRotation.Value);
+            //编辑面板初始化
+            EditorBoxInit(Image);
+            //划线工具初始化
+            UILineSwitch.Init(model, LineParent as RectTransform, Image);
+            ImageSubscribeInit();
         }
 
+        // Model 值订阅
+        void ImageSubscribeInit()
+        {
+            //点击选中
+            this.ApplySelfTo(self => self.Image.isSelected.Subscribe(on =>{
+                 if (on) { UIEditorBox.Show(); UILineSwitch.Show(); }
+                 else { UIEditorBox.Hide(); UILineSwitch.Hide(); }}))
+                //移动
+                .ApplySelfTo(self => self.Image.localPos.Subscribe(
+                 v2 => { self.Image.TransformChange(); rect.LocalPosition(v2); }))
+                //大小
+                .ApplySelfTo(self => self.Image.localScale.Subscribe(
+                 v3 => rect.LocalScale(v3)))
+                //旋转
+                .ApplySelfTo(self => self.Image.locaRotation.Subscribe(
+                 qua => { self.Image.TransformChange(); rect.LocalRotation(qua); }))
+                //宽
+                .ApplySelfTo(self => self.Image.height.Subscribe(
+                 f => { self.Image.TransformChange(); rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, f); }))
+                 //高
+                .ApplySelfTo(self => self.Image.widht.Subscribe(
+                 f => { self.Image.TransformChange(); rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f); }));
+        }
 
         //待优化 设计方式不太理想
         private void EditorBoxInit(T_Graphic model)
@@ -48,50 +64,56 @@ namespace QFramework.TDE
             UIRotate uRot = UIRotate.GetComponent<UIRotate>();
             uRot.Init(model, transform);
 
-            UIDrag LeftDownUIDrag= UILeftDown.GetComponent<UIDrag>();
-            LeftDownUIDrag.Init(model, new Center(UILeftUP.transform, UIRigghtUP.transform
+            UICornerDrag LeftDownUIDrag= UILeftDown.GetComponent<UICornerDrag>();
+            LeftDownUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
                 , UILeftDown.transform, UIRightDown.transform
                 ));
-            UIDrag LeftUpUIDrag = UILeftUP.GetComponent<UIDrag>();
-            LeftUpUIDrag.Init(model, new Center(UILeftUP.transform, UIRigghtUP.transform
+            UICornerDrag LeftUpUIDrag = UILeftUP.GetComponent<UICornerDrag>();
+            LeftUpUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
                 , UILeftDown.transform, UIRightDown.transform
                 ));
-            UIDrag RigghtUpUIDrag = UIRigghtUP.GetComponent<UIDrag>();
-            RigghtUpUIDrag.Init(model, new Center(UILeftUP.transform, UIRigghtUP.transform
+            UICornerDrag RigghtUpUIDrag = UIRigghtUP.GetComponent<UICornerDrag>();
+            RigghtUpUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
                 , UILeftDown.transform, UIRightDown.transform
                 ));
-            UIDrag RightDownUIDrag = UIRightDown.GetComponent<UIDrag>();
-            RightDownUIDrag.Init(model, new Center(UILeftUP.transform, UIRigghtUP.transform
+            UICornerDrag RightDownUIDrag = UIRightDown.GetComponent<UICornerDrag>();
+            RightDownUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
                 , UILeftDown.transform, UIRightDown.transform
                 ));
         }
 
+        #region MonoEvent
         public void OnBeginDrag(PointerEventData eventData)
         {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRT, eventData.position, eventData.pressEventCamera, out localPoint);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRT, eventData.position, eventData.pressEventCamera, out localPoint);
             //(2)记录偏移量
             offset = (Vector2)transform.localPosition - localPoint;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRT, eventData.position, eventData.pressEventCamera, out localPoint);
-            model.localPos.Value = localPoint + offset;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRT, eventData.position, eventData.pressEventCamera, out localPoint);
+            Image.localPos.Value = localPoint + offset;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Cursor.SetCursor(hand, new Vector2(hand.width * .5f, hand.height * .5f), CursorMode.Auto);
-        }
+            UILineSwitch.Show();
+       }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            if(!Image.isSelected.Value)
+            UILineSwitch.Hide();
         }
-
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
-            Global.OnClick(model);
+            Global.OnClick(Image);
         }
+        #endregion
+
+        private void Awake(){}
+
+        protected override void OnBeforeDestroy(){}
     }
 }

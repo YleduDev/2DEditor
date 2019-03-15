@@ -10,9 +10,15 @@ namespace QFramework.TDE
 {
 	public partial class UILineItem
 	{
+		[SerializeField] public LineHead LineHead;
+		[SerializeField] public LineSegment LineSegment;
+		[SerializeField] public LineEnd LineEnd;
 
 		public void Clear()
 		{
+			LineHead = null;
+			LineSegment = null;
+			LineEnd = null;
 		}
 
 		public override string ComponentName

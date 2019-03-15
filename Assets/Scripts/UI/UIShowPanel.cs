@@ -11,12 +11,6 @@
 namespace QFramework.TDE
 {
     using global::TDE;
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Linq;
-    using UnityEngine;
-    using UnityEngine.UI;
     using UniRx;
 
     public class UITItem
@@ -43,17 +37,17 @@ namespace QFramework.TDE
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
         {
            
-        }
-        
+        }       
         protected override void OnInit(QFramework.IUIData uiData)
         {
             mData = uiData as UIShowPanelData ?? new UIShowPanelData();
-            // please add init code here
+
             UITItem UITItem = new UITItem(UITextItem, UIImageItem, UILineItem);
 
             UIContent.GenerateGraphicItem(mData.model, UITItem);
 
             mData.model.graphicDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
+            mData.model.graphicDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
         }
         
         protected override void OnOpen(QFramework.IUIData uiData)

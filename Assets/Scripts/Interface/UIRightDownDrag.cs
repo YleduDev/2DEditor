@@ -9,7 +9,7 @@ namespace TDE
 {
     public class UIRightDownDrag : IUIScaleDrag
     {
-        public void Drag(T_Graphic model, PointerEventData eventData, Center center)
+        public void Drag(T_Graphic model, PointerEventData eventData, Corner center)
         {
             //3¸ö¹Ì¶¨µÄ
             model.localPos.Value += eventData.delta * .5f;

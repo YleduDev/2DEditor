@@ -10,8 +10,24 @@ namespace TDE
         RightUp,
         RightDown
     }
+    
+    public enum LinePointType
+    {
+       Origin,End
+    }
 
+    public enum LineShapeType
+    {
+        Straight,//÷±œﬂ
+        Broken,//’€œﬂ
+        Curve
+    }
     public class TDE_Enum
     {
+    }
+
+    public enum LineBothEndsShape
+    {
+        Line
     }
 }

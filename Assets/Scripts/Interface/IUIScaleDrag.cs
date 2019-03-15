@@ -9,7 +9,7 @@ namespace TDE
     public interface IUIScaleDrag
     {
 
-        void Drag(T_Graphic model, PointerEventData eventData, Center center);
+        void Drag(T_Graphic model, PointerEventData eventData, Corner center);
 
 
     }

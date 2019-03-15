@@ -33,14 +33,16 @@ namespace TDE
                 height = new FloatReactiveProperty(100f)
             });
 
-            model.graphicDataList.Add(new T_Line() {
-                graphicType = GraphicType.Line,
-                localScale =new Vector3ReactiveProperty(Vector3.one),
-                localPos = new Vector2ReactiveProperty( new Vector2(169.8f, 83.2f)),
+            model.graphicDataList.Add(new T_Image()
+            {
+                graphicType = GraphicType.Image,
+                localScale = new Vector3ReactiveProperty(Vector3.one),
+                localPos = new Vector2ReactiveProperty(new Vector2(356f, 88f)),
                 locaRotation = new QuaternionReactiveProperty(Quaternion.identity),
-                widht =new FloatReactiveProperty( 110f),
-                height = new FloatReactiveProperty(3f)
+                widht = new FloatReactiveProperty(100f),
+                height = new FloatReactiveProperty(100f)
             });
+            
             #endregion
             ResMgr.Init();
             UIMgr.SetResolution(1920, 1080, 0);
@@ -55,6 +57,10 @@ namespace TDE
         public void Add(T_Graphic model)
         {
             graphicDataList.Add(model);
+        }
+        public void Remove(T_Graphic model)
+        {
+            graphicDataList.Remove(model);
         }
     }
     //所以场景对象
