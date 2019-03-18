@@ -29,8 +29,10 @@ namespace TDE
         public void OnBeginDrag(PointerEventData eventData)
         {
             line = new T_Line();
-            line.height.Value = Global.LineHeight;
+            line.px.Value = Global.LinePx;
             line.lineShapeType.Value = Global.lineShapeType;
+            line.lineBeginShapeType.Value = Global.beginShape;
+            line.lineEndShapeType.Value = Global.endShape;
             //起点
             line.localOriginPos.Value = image.localPos.Value
             + (Vector2)(image.locaRotation.Value * transform.localPosition);
@@ -63,27 +65,36 @@ namespace TDE
         public void OnEndDrag(PointerEventData eventData)
         {
             //是否符合线段要求
-            if (line.widht.Value<Global.minLineLength) { model.Remove(line); return; }
-
-            image.Add(new BindData()
+            if (line.direction<Global.minLineLength) { model.Remove(line); return; }
+            BindData beiginBind = new BindData()
             {
-                line = line, LinePointType = LinePointType.Origin,
+                line = line,
+                LinePointType = LinePointType.Origin,
                 LocalPointForImage = new Vector2ReactiveProperty(transform.localPosition),
                 width = image.widht.Value,
                 height = image.height.Value
-            });
+            };
+            image.Add(beiginBind);
+
+            line.bindBeginImage = image;
+            line.bindBeginData = beiginBind;
 
             GameObject go = eventData.pointerCurrentRaycast.gameObject;
             if (go && go.tag == "LinePoint" && go != gameObject)
             {
                 T_Image endPointImage = go.GetComponent<UILinePoint>().image;
-                endPointImage.Add(new BindData() {
+                BindData endBind = new BindData()
+                {
                     line = line,
                     LinePointType = LinePointType.End,
                     LocalPointForImage = new Vector2ReactiveProperty(go.transform.localPosition),
                     width = endPointImage.widht.Value,
                     height = endPointImage.height.Value
-                });
+                };
+                endPointImage.Add(endBind);
+
+                line.bindEndImage = endPointImage;
+                line.bindEndData = endBind;
             }
         }
         #region 鼠标图标切换事件

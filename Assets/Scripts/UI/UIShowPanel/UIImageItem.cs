@@ -15,11 +15,11 @@ namespace QFramework.TDE
         RectTransform rect;
         TSceneData model;
 
-        public T_Image Image;     
+        private T_Image Image;     
 
-        internal void Init(TSceneData model,T_Graphic graphicItem, Transform parent,Transform LineParent)
+        internal void Init(TSceneData model, T_Image graphicItem, Transform parent,Transform LineParent)
         {
-            Image = graphicItem as T_Image;
+            Image = graphicItem ;
             parentRT = parent as RectTransform;
             rect = transform as RectTransform;
             this.transform.Parent(parent)

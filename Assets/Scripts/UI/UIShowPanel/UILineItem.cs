@@ -16,8 +16,7 @@ namespace QFramework.TDE
 	{
         public T_Line line;
         RectTransform rect;
-
-        ResLoader loader =  ResLoader.Allocate();
+        
         internal void Init(T_Graphic graphicItem, RectTransform parent)
         {
             line = graphicItem as T_Line;
@@ -27,7 +26,10 @@ namespace QFramework.TDE
                .LocalPosition(line.localPos.Value)
                .LocalScale(line.localScale.Value)
                .LocalRotation(line.locaRotation.Value);
-            
+
+            LineHead.Init(line,parent);
+            LineEnd.Init(line, parent);
+            LineSegment.Init(line, parent);
 
             LineSubscribeInit();
         }
@@ -41,42 +43,52 @@ namespace QFramework.TDE
                 .ApplySelfTo(self => self.line.localPos.Subscribe(v2 => rect.LocalPosition(v2)))
                 //大小
                 .ApplySelfTo(self => self.line.localScale.Subscribe(v3 => rect.LocalScale(v3)))
-                //旋转
-                //.ApplySelfTo(self => self.line.locaRotation.Subscribe(qua => rect.LocalRotation(qua)))
-                //宽
-                // .ApplySelfTo(self => self.line.height.Subscribe(f => rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, f)))
-                //高
-                .ApplySelfTo(self => self.line.widht.Subscribe(f => { }))
+                 //旋转
+                 //.ApplySelfTo(self => self.line.locaRotation.Subscribe(qua => rect.LocalRotation(qua)))
+                 //高
+                 // .ApplySelfTo(self => self.line.height.Subscribe(f => ChangeLine(f)))
+                 //宽
+                 //.ApplySelfTo(self => self.line.widht.Subscribe(f => { }))
+                 .ApplySelfTo(self => self.line.px.Subscribe(_ => ChangeLine()))
                 //线段形状
                 .ApplySelfTo(self => self.line.lineShapeType.Subscribe(type => LineShapeTypeChange(type)))
                 //终点
-                .ApplySelfTo(self => self.line.localEndPos.Subscribe(_ => self.EndPointChange()))
+                .ApplySelfTo(self => self.line.localEndPos.Subscribe(_ => self.PointChange()))
                 //起点
-                .ApplySelfTo(self => self.line.localOriginPos.Subscribe(_ => self.OriginPointChange()))
+                .ApplySelfTo(self => self.line.localOriginPos.Subscribe(_ => self.PointChange()))
                 //线段形状
-                .ApplySelfTo(self => self.line.lineShapeType.Subscribe(e => LineShapeTypeChange(e)));
+                .ApplySelfTo(self => self.line.lineShapeType.Subscribe(e => LineShapeTypeChange(e)))
+                .ApplySelfTo(self => self.line.lineBeginShapeType.Subscribe(_ => ChangeLine()))
+                .ApplySelfTo(self => self.line.lineEndShapeType.Subscribe(_ => ChangeLine()));
+
         }
 
-        internal void EndPointChange()
-        {
-            if (line.lineShapeType.Value == LineShapeType.Straight)
-            {
-                float widht = Vector2.Distance(line.localOriginPos.Value, line.localEndPos.Value);
-                Vector2 tdirection = line.localEndPos.Value - line.localOriginPos.Value;
-                line.locaRotation.Value = Quaternion.FromToRotation(Vector3.right, tdirection);
-            }
-        }
-
-        internal void OriginPointChange()
+        internal void PointChange()
         {
             //直线
             if (line.lineShapeType.Value == LineShapeType.Straight)
             {
+                //设置线段位置
                 line.localPos.Value = line.localOriginPos.Value;
-                float widht = Vector2.Distance(line.localOriginPos.Value, line.localEndPos.Value);
+                //获取长度(因为是直线 所以也是线段的总长)
+                line.direction = Vector2.Distance(line.localOriginPos.Value, line.localEndPos.Value);
+                //获取方向
                 Vector2 tdirection = line.localEndPos.Value - line.localOriginPos.Value;
-                line.locaRotation.Value = Quaternion.FromToRotation(Vector3.right, tdirection);
+
+                // LineHead.LocalPosition(line.localOriginPos.Value);
+                //设置尾坐标
+                LineEnd.LocalPosition(tdirection);
+
+                LineHead.LocalRotation(Quaternion.FromToRotation(Vector3.right, tdirection));
+                LineSegment.LocalRotation(Quaternion.FromToRotation(Vector3.right, tdirection));
+                LineEnd.LocalRotation(Quaternion.FromToRotation(Vector3.right, tdirection));
+                //设置线段坐标
+                LineSegment.LocalPosition(/*line.localOriginPos.Value +*/ (Vector2)(LineHead.transform.localRotation * new Vector2(LineHead.Width, 0)));
+                LineSegment.Width = line.direction - LineHead.Width - LineEnd.Width;
+
             }
+            //折线
+            //曲线
         }
 
         //线段的形状类型改变 直线-折线 -曲线（改变算法）
@@ -86,12 +98,19 @@ namespace QFramework.TDE
 
         }
 
+        internal void ChangeLine()
+        {
+            //头
+            LineHead.ChangeSprite(line);
+            //线
+            LineSegment.ChangeSprite(line);
+            //尾
+            LineEnd.ChangeSprite(line);
+        }
+
         private void Awake(){
         }
 
-        protected override void OnBeforeDestroy(){
-            loader.Recycle2Cache();
-            loader = null;
-        }
+        protected override void OnBeforeDestroy(){}
     }
 }

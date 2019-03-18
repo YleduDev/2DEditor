@@ -26,8 +26,14 @@ namespace TDE
     {
     }
 
-    public enum LineBothEndsShape
+    public enum LineBeginShape
     {
-        Line
+        BeginLine,
+        BeginArrows
+    }
+    public enum LineEndShape
+    {
+        EndLine,
+        EndArrows
     }
 }

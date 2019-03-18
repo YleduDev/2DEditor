@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 namespace TDE
 {
     //×ÖÌå
@@ -30,6 +31,7 @@ namespace TDE
         FontCentre,
         FontRight,
     }
+    //[Serializable]
     public class T_Text : T_Graphic
     {      
         public int fontSize;

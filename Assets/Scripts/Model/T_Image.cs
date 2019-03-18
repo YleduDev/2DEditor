@@ -8,7 +8,7 @@ using QFramework;
 
 namespace TDE
 {
-    [Serializable]
+    //[Serializable]
     public class BindData
     {
         public T_Line line ;
@@ -17,7 +17,7 @@ namespace TDE
         public float width;
         public float height;
     }
-    [Serializable]
+    //[Serializable]
     public class T_Image : T_Graphic
     {
         //°óµã¼¯ºÏ

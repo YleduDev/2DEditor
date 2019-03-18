@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using System;
+using Newtonsoft.Json;
+
 namespace TDE
 {
     /// <summary>
@@ -14,10 +17,10 @@ namespace TDE
         Text,
         Line
     }
-
 public class T_Graphic
 {
         public Vector2ReactiveProperty  localPos=new Vector2ReactiveProperty();
+        [JsonIgnore]
         public QuaternionReactiveProperty locaRotation=new QuaternionReactiveProperty();
         public Vector3ReactiveProperty localScale=new Vector3ReactiveProperty(Vector3.one);
 
@@ -26,7 +29,8 @@ public class T_Graphic
 
         //选中
         public BoolReactiveProperty isSelected=new BoolReactiveProperty(false);
-        public Color mainColor;
+        [JsonIgnore]
+        public ColorReactiveProperty mainColor =new ColorReactiveProperty();
         //渲染层级（0->n）
         public int siblingIndex;
         //是否框选

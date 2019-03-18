@@ -30,8 +30,9 @@ namespace QFramework.TDE
             {
                 case GraphicType.Image:
                     UIImageItem UIImageItem = UITItem.UIImageItem.Instantiate();
+                    T_Image image = graphicItem as T_Image;
                     UIImageItem
-                        .ApplySelfTo(self =>self.Init(model, graphicItem, ImageParent, LineParent))               
+                        .ApplySelfTo(self =>self.Init(model, image, ImageParent, LineParent))               
                         .ApplySelfTo(self =>imageDict.Add(graphicItem, UIImageItem));break;
                 case GraphicType.Text:
                     UITextItem UITextItem = UITItem.UITextItem.Instantiate();
