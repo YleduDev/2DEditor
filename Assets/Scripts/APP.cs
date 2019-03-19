@@ -19,38 +19,6 @@ namespace TDE
         {
             #region test 数据
             model = TSceneData.Load();
-            //model.graphicDataList.Add(new T_Text() {
-            //    graphicType = GraphicType.Text,
-            //    localScale = new Vector3ReactiveProperty(Vector3.one),
-            //    localPos = new Vector2ReactiveProperty(new Vector2(-645f, 395f)),
-            //    locaRotation = new QuaternionReactiveProperty(Quaternion.identity),
-            //    widht = new FloatReactiveProperty(100f),
-            //    height = new FloatReactiveProperty(100f)
-            //});
-
-            //model.graphicDataList.Add (new T_Image() {
-            //    graphicType = GraphicType.Image,
-            //    localScale =new Vector3ReactiveProperty(Vector3.one),
-            //    localPos = new Vector2ReactiveProperty(new Vector2(776f, -374f)),
-            //    locaRotation = new QuaternionReactiveProperty(Quaternion.identity),
-            //    widht = new FloatReactiveProperty(100f),
-            //    height = new FloatReactiveProperty(100f)
-            //});
-
-            //model.graphicDataList.Add(new T_Image()
-            //{
-            //    graphicType = GraphicType.Image,
-            //    localScale = new Vector3ReactiveProperty(Vector3.one),
-            //    localPos = new Vector2ReactiveProperty(new Vector2(356f, 88f)),
-            //    locaRotation = new QuaternionReactiveProperty(Quaternion.identity),
-            //    widht = new FloatReactiveProperty(100f),
-            //    height = new FloatReactiveProperty(100f)
-            //});
-
-            
-
-           
-
             #endregion
             ResMgr.Init();
             UIMgr.SetResolution(1920, 1080, 0);
@@ -67,29 +35,59 @@ namespace TDE
 
     public class TSceneData
     {
-        public ReactiveCollection<T_Graphic> graphicDataList;
+        public ReactiveCollection<T_Line> LineDataList;
+        
+        public ReactiveCollection<T_Image> ImageDataList;
+        
+        public ReactiveCollection<T_Text> TextDataList;
+        
         public void Add(T_Graphic model)
         {
-            graphicDataList.Add(model);
+            if(model.graphicType==  GraphicType.Image)
+                ImageDataList.Add(model as T_Image);
+            if (model.graphicType == GraphicType.Line)
+                LineDataList.Add(model as T_Line);
+            if (model.graphicType == GraphicType.Text)
+                TextDataList.Add(model as T_Text);
         }
-        public void Remove(T_Graphic model)
+        public void Remove(T_Line model)
         {
-            graphicDataList.Remove(model);
+            LineDataList.Remove(model);
+        }
+        public void Remove(T_Image model)
+        {
+            ImageDataList.Remove(model);
+        }
+        public void Remove(T_Text model)
+        {
+            TextDataList.Remove(model);
         }
         public static TSceneData Load()
         {
-            //第一个参数如果没有 返回一个 值为null 的json
-            string json = PlayerPrefs.GetString("Test6", string.Empty);
+            //
+            JsonSerializerSettings seting = new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string json = PlayerPrefs.GetString("Test7", string.Empty);
             if (json.IsNullOrEmpty()) return new TSceneData();
             else
             {
-                return SerializeHelper.FromJson<TSceneData>(json);
+                return JsonConvert.DeserializeObject<TSceneData>(json,seting);
             }
         }
 
         public  void Save()
         {
-            PlayerPrefs.SetString("Test6", this.ToJson());
+            JsonSerializerSettings seting = new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+                TypeNameHandling = TypeNameHandling.All
+            };
+            PlayerPrefs.SetString("Test7", JsonConvert.SerializeObject(this, Formatting.Indented, seting));
         }
     }
     //所以场景对象

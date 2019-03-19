@@ -52,14 +52,14 @@ namespace QFramework.TDE
                  .ApplySelfTo(self => self.line.px.Subscribe(_ => ChangeLine()))
                 //线段形状
                 .ApplySelfTo(self => self.line.lineShapeType.Subscribe(type => LineShapeTypeChange(type)))
-                //终点
-                .ApplySelfTo(self => self.line.localEndPos.Subscribe(_ => self.PointChange()))
-                //起点
-                .ApplySelfTo(self => self.line.localOriginPos.Subscribe(_ => self.PointChange()))
                 //线段形状
                 .ApplySelfTo(self => self.line.lineShapeType.Subscribe(e => LineShapeTypeChange(e)))
                 .ApplySelfTo(self => self.line.lineBeginShapeType.Subscribe(_ => ChangeLine()))
-                .ApplySelfTo(self => self.line.lineEndShapeType.Subscribe(_ => ChangeLine()));
+                .ApplySelfTo(self => self.line.lineEndShapeType.Subscribe(_ => ChangeLine()))
+                //终点
+                .ApplySelfTo(self => self.line.localEndPos.Subscribe(_ => self.PointChange()))
+                //起点
+                .ApplySelfTo(self => self.line.localOriginPos.Subscribe(_ => self.PointChange()));
 
         }
 

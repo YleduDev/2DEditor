@@ -29,7 +29,8 @@
 
 namespace QFramework
 {
-	using System.IO;
+    using System;
+    using System.IO;
 	using System.Xml.Serialization;
     using Newtonsoft.Json;
 
@@ -111,27 +112,58 @@ namespace QFramework
 
 		public static bool SerializeXML(string path, object obj)
 		{
-			if (string.IsNullOrEmpty(path))
-			{
-				Log.W("SerializeBinary Without Valid Path.");
-				return false;
-			}
+            //try
+            //{
+                if (string.IsNullOrEmpty(path))
+                {
+                    Log.W("SerializeBinary Without Valid Path.");
+                    return false;
+                }
 
-			if (obj == null)
-			{
-				Log.W("SerializeBinary obj is Null.");
-				return false;
-			}
+                if (obj == null)
+                {
+                    Log.W("SerializeBinary obj is Null.");
+                    return false;
+                }
 
-			using (var fs = new FileStream(path, FileMode.OpenOrCreate))
-			{
-				var xmlserializer = new XmlSerializer(obj.GetType());
-				xmlserializer.Serialize(fs, obj);
-				return true;
-			}
+                using (var fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    var xmlserializer = new XmlSerializer(obj.GetType());
+                    xmlserializer.Serialize(fs, obj);
+                    return true;
+                }
+            //}
+            //catch (Exception ex)
+            //{
+            //    DumpException(ex);
+            //    return false;
+            //}
+           
 		}
 
-		public static object DeserializeXML<T>(string path)
+        //public static void DumpException(Exception ex)
+        //{
+        //    Console.WriteLine("--------- Outer Exception Data ---------");
+        //    WriteExceptionInfo(ex);
+        //    ex = ex.InnerException;
+        //    if (null != ex)
+        //    {
+        //        Console.WriteLine("--------- Inner Exception Data ---------");
+        //        WriteExceptionInfo(ex.InnerException);
+        //        ex = ex.InnerException;
+        //    }
+        //}
+        //public static void WriteExceptionInfo(Exception ex)
+        //{
+        //    Console.WriteLine("Message: {0}", ex.Message);
+        //    Console.WriteLine("Exception Type: {0}", ex.GetType().FullName);
+        //    Console.WriteLine("Source: {0}", ex.Source);
+        //    Console.WriteLine("StrackTrace: {0}", ex.StackTrace);
+        //    Console.WriteLine("TargetSite: {0}", ex.TargetSite);
+        //}
+
+
+        public static object DeserializeXML<T>(string path)
 		{
 			if (string.IsNullOrEmpty(path))
 			{

@@ -84,7 +84,9 @@ namespace QFramework.TDE
             textDict.Clear();
             lineDict.Clear();
             this.UITItem = UITItem;
-            model.graphicDataList.Where(item=> item.IsNotNull()).ForEach(item => Add(item));
+            model.LineDataList.Where(item=> item.IsNotNull()).ForEach(item => Add(item));
+            model.ImageDataList.Where(item => item.IsNotNull()).ForEach(item => Add(item));
+            model.TextDataList.Where(item => item.IsNotNull()).ForEach(item => Add(item));
         }
 
         protected override void OnBeforeDestroy(){}

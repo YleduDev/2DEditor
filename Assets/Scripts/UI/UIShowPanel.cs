@@ -46,8 +46,14 @@ namespace QFramework.TDE
 
             UIContent.GenerateGraphicItem(mData.model, UITItem);
 
-            mData.model.graphicDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
-            mData.model.graphicDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
+            mData.model.ImageDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
+            mData.model.ImageDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value);});
+
+            mData.model.LineDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
+            mData.model.LineDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
+
+            mData.model.TextDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
+            mData.model.TextDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
         }
         
         protected override void OnOpen(QFramework.IUIData uiData)
