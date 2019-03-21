@@ -45,6 +45,7 @@ namespace QFramework.TDE
             UITItem UITItem = new UITItem(UITextItem, UIImageItem, UILineItem);
 
             UIContent.GenerateGraphicItem(mData.model, UITItem);
+            UIContent.Init();
 
             mData.model.ImageDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
             mData.model.ImageDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value);});
@@ -54,6 +55,9 @@ namespace QFramework.TDE
 
             mData.model.TextDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
             mData.model.TextDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
+
+            mData.model.canvasWidth.Subscribe(f=> { UIContent.SetContentWidth(f);});
+            mData.model.canvasHeight.Subscribe(f => { UIContent.SetContentHeight(f);});
         }
         
         protected override void OnOpen(QFramework.IUIData uiData)

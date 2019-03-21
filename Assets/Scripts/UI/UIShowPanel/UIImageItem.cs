@@ -20,13 +20,14 @@ namespace QFramework.TDE
         internal void Init(TSceneData model, T_Image graphicItem, Transform parent,Transform LineParent)
         {
             Image = graphicItem ;
+            this.model = model;
             parentRT = parent as RectTransform;
             rect = transform as RectTransform;
             this.transform.Parent(parent)
                 .Show()
                 .LocalPosition(Image.localPos.Value)
                 .LocalScale(Image.localScale.Value)
-                .LocalRotation(Image.locaRotation.Value);
+                .LocalRotation(Global.GetquaternionForQS(Image.locaRotation.Value));
             //编辑面板初始化
             EditorBoxInit(Image);
             //划线工具初始化
@@ -49,7 +50,7 @@ namespace QFramework.TDE
                  v3 => rect.LocalScale(v3)))
                 //旋转
                 .ApplySelfTo(self => self.Image.locaRotation.Subscribe(
-                 qua => { self.Image.TransformChange(); rect.LocalRotation(qua); }))
+                 qua => { self.Image.TransformChange(); rect.LocalRotation(Global.GetquaternionForQS(qua)); }))
                 //宽
                 .ApplySelfTo(self => self.Image.height.Subscribe(
                  f => { self.Image.TransformChange(); rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, f); }))
@@ -66,19 +67,19 @@ namespace QFramework.TDE
 
             UICornerDrag LeftDownUIDrag= UILeftDown.GetComponent<UICornerDrag>();
             LeftDownUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
-                , UILeftDown.transform, UIRightDown.transform
+                , UILeftDown.transform, UIRightDown.transform, parentRT
                 ));
             UICornerDrag LeftUpUIDrag = UILeftUP.GetComponent<UICornerDrag>();
             LeftUpUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
-                , UILeftDown.transform, UIRightDown.transform
+                , UILeftDown.transform, UIRightDown.transform, parentRT
                 ));
             UICornerDrag RigghtUpUIDrag = UIRigghtUP.GetComponent<UICornerDrag>();
             RigghtUpUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
-                , UILeftDown.transform, UIRightDown.transform
+                , UILeftDown.transform, UIRightDown.transform, parentRT
                 ));
             UICornerDrag RightDownUIDrag = UIRightDown.GetComponent<UICornerDrag>();
             RightDownUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
-                , UILeftDown.transform, UIRightDown.transform
+                , UILeftDown.transform, UIRightDown.transform, parentRT
                 ));
         }
 
@@ -93,6 +94,7 @@ namespace QFramework.TDE
         public void OnDrag(PointerEventData eventData)
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRT, eventData.position, eventData.pressEventCamera, out localPoint);
+            if (!Global.GetLocalPointOnCanvas(localPoint)) return;
             Image.localPos.Value = localPoint + offset;
         }
 

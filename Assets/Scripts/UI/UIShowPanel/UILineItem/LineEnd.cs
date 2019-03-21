@@ -13,8 +13,8 @@ using UniRx;
 
 namespace QFramework.TDE
 {
-	public partial class LineEnd : UIElement,IBeginDragHandler,IDragHandler,IEndDragHandler
-	{
+	public partial class LineEnd : UIElement,IBeginDragHandler,IDragHandler,IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+    {
         Image endImage;
         RectTransform tf;
         T_Line model;
@@ -37,6 +37,8 @@ namespace QFramework.TDE
                 return tf.rect.height;
             }
         }
+
+        public Texture2D cursorTexture;
 
         ResLoader loader = ResLoader.Allocate();
 
@@ -74,6 +76,10 @@ namespace QFramework.TDE
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 parent,
                 eventData.position, eventData.pressEventCamera, out localPoint);
+
+            Debug.Log(Global.currentCanvasWidth + "  " + Global.currentCanvasheight);
+            
+            if (!Global.GetLocalPointOnCanvas(localPoint)) return;
             model.localEndPos.Value = localPoint;
         }
 
@@ -84,7 +90,7 @@ namespace QFramework.TDE
             {
                 T_Image PointImage = go.GetComponent<UILinePoint>().image;
                 model.localEndPos.Value = PointImage.localPos.Value
-                    + (Vector2)(PointImage.locaRotation.Value * go.transform.localPosition); ;
+                    + (Vector2)(Global.GetquaternionForQS(PointImage.locaRotation.Value) * go.transform.localPosition); ;
                 BindData Bind = new BindData()
                 {
                     line = model,
@@ -98,6 +104,17 @@ namespace QFramework.TDE
                 model.bindEndImage = PointImage;
                 model.bindEndData = Bind;
             }
+        }
+
+
+        public virtual void OnPointerEnter(PointerEventData eventData)
+        {
+            Cursor.SetCursor(cursorTexture, new Vector2(cursorTexture.width * .5f, cursorTexture.height * 0.5f), CursorMode.Auto);
+        }
+
+        public virtual void OnPointerExit(PointerEventData eventData)
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 }

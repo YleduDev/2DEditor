@@ -35,7 +35,7 @@ namespace TDE
             line.lineEndShapeType.Value = Global.endShape;
             //Æðµã
             line.localOriginPos.Value = image.localPos.Value
-            + (Vector2)(image.locaRotation.Value * transform.localPosition);
+            + (Vector2)(Global.GetquaternionForQS(image.locaRotation.Value) * transform.localPosition);
 
             model.Add(line);
         }
@@ -47,11 +47,11 @@ namespace TDE
             {
                 T_Image endPointImage = go.GetComponent<UILinePoint>().image;
                 line.localEndPos.Value = endPointImage.localPos.Value
-                +(Vector2)(endPointImage.locaRotation.Value*go.transform.localPosition);
+                +(Vector2)(Global.GetquaternionForQS(endPointImage.locaRotation.Value)*go.transform.localPosition);
             }
             else if (go && go.tag == "LinePoint" && go == gameObject) {
                 line.localEndPos.Value = image.localPos.Value
-                + (Vector2)(image.locaRotation.Value * transform.localPosition);
+                + (Vector2)(Global.GetquaternionForQS(image.locaRotation.Value) * transform.localPosition);
             }
             else
             {

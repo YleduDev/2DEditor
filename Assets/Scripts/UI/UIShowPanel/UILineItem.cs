@@ -9,10 +9,11 @@ using UnityEngine.UI;
 using QFramework;
 using TDE;
 using UniRx;
+using UnityEngine.EventSystems;
 
 namespace QFramework.TDE
 {
-	public partial class UILineItem : UIElement
+	public partial class UILineItem : UIElement,IPointerDownHandler
 	{
         public T_Line line;
         RectTransform rect;
@@ -25,7 +26,7 @@ namespace QFramework.TDE
                .Show()
                .LocalPosition(line.localPos.Value)
                .LocalScale(line.localScale.Value)
-               .LocalRotation(line.locaRotation.Value);
+               .LocalRotation(Global.GetquaternionForQS(line.locaRotation.Value));
 
             LineHead.Init(line,parent);
             LineEnd.Init(line, parent);
@@ -108,8 +109,12 @@ namespace QFramework.TDE
             LineEnd.ChangeSprite(line);
         }
 
-        private void Awake(){
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            Global.OnClick(line);
         }
+
+        private void Awake(){}
 
         protected override void OnBeforeDestroy(){}
     }

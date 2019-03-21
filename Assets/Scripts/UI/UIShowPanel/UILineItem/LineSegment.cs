@@ -12,7 +12,7 @@ using UnityEngine.EventSystems;
 
 namespace QFramework.TDE
 {
-	public partial class LineSegment : UIElement,IBeginDragHandler,IDragHandler
+	public partial class LineSegment : UIElement,IBeginDragHandler,IDragHandler,IPointerEnterHandler,IPointerExitHandler
 	{
         public Image segmentImage;
         RectTransform tf;
@@ -46,6 +46,7 @@ namespace QFramework.TDE
             }
         }
 
+        public Texture2D cursorTexture;
         internal void Init(T_Line line, RectTransform parent)
         {
             model = line;
@@ -71,16 +72,43 @@ namespace QFramework.TDE
             loader = null;
         }
 
-
-        public void OnBeginDrag(PointerEventData eventData){}
+        Vector2 beginLocalPoint;
+        Vector2 dragLocalPoint;
+        Vector2 beginDragOriginPosValue;
+        Vector2 beginDragEndPosValue;
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, eventData.position,
+                eventData.pressEventCamera,out beginLocalPoint);
+            beginDragOriginPosValue = model.localOriginPos.Value;
+            beginDragEndPosValue = model.localEndPos.Value;
+        }
 
         public void OnDrag(PointerEventData eventData)
         {
             if (model.bindBeginImage.IsNull() && model.bindEndImage.IsNull())
             {
-                model.localOriginPos.Value += eventData.delta;
-                model.localEndPos.Value += eventData.delta;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, eventData.position,
+                eventData.pressEventCamera, out dragLocalPoint);
+
+               if (!Global.GetLocalPointOnCanvas(dragLocalPoint)) return;
+
+                model.localOriginPos.Value = beginDragOriginPosValue + (dragLocalPoint - beginLocalPoint);
+                model.localEndPos.Value = beginDragEndPosValue + (dragLocalPoint - beginLocalPoint);
             }
         }
+
+
+
+        public virtual void OnPointerEnter(PointerEventData eventData)
+        {
+            Cursor.SetCursor(cursorTexture, new Vector2(cursorTexture.width * .4f, cursorTexture.height * 0.14f), CursorMode.Auto);        
+        }
+
+        public virtual void OnPointerExit(PointerEventData eventData)
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+
     }
 }

@@ -963,24 +963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d83f30ba85e054ea2ebb983c448934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image:
-    localPos:
-      value: {x: 0, y: 0}
-    locaRotation:
-      value: {x: 0, y: 0, z: 0, w: 0}
-    localScale:
-      value: {x: 1, y: 1, z: 1}
-    widht:
-      value: 0
-    height:
-      value: 0
-    isSelected:
-      value: 0
-    mainColor: {r: 0, g: 0, b: 0, a: 0}
-    siblingIndex: 0
-    isChecking:
-      value: 0
-    graphicType: 0
   UIEditorBox: {fileID: 224743658344674370}
   UIRotate: {fileID: 114480323735019604}
   UILeftUP: {fileID: 114149093745911428}
@@ -1198,6 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f68c9e7720cf54ebe211d2f9313396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 8b559e8b00d8fc94c86d8afe06d7a6f3, type: 3}
 --- !u!114 &114270585444849714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1278,7 +1261,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7834d23b4d56c8c45ab92b9a20fe9a56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7bfea8b933604b4bbea3b5d29c06f75, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1325,6 +1308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   segmentImage: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: 7b9b5ab79d6f2c44eb68556e95f8fbcd, type: 3}
 --- !u!114 &114312870457936662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1407,25 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc5712d05c804344b5033948a3a3d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image:
-    localPos:
-      value: {x: 0, y: 0}
-    locaRotation:
-      value: {x: 0, y: 0, z: 0, w: 0}
-    localScale:
-      value: {x: 1, y: 1, z: 1}
-    widht:
-      value: 0
-    height:
-      value: 0
-    isSelected:
-      value: 0
-    mainColor: {r: 0, g: 0, b: 0, a: 0}
-    siblingIndex: 0
-    isChecking:
-      value: 0
-    graphicType: 0
-  hand: {fileID: 2800000, guid: 0e6e8753ad28e584ab751813f22f80c4, type: 3}
+  hand: {fileID: 2800000, guid: 71045b1e98d205b44b0e3612c3c491d2, type: 3}
 --- !u!114 &114338555767183746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1451,25 +1417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc5712d05c804344b5033948a3a3d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image:
-    localPos:
-      value: {x: 0, y: 0}
-    locaRotation:
-      value: {x: 0, y: 0, z: 0, w: 0}
-    localScale:
-      value: {x: 1, y: 1, z: 1}
-    widht:
-      value: 0
-    height:
-      value: 0
-    isSelected:
-      value: 0
-    mainColor: {r: 0, g: 0, b: 0, a: 0}
-    siblingIndex: 0
-    isChecking:
-      value: 0
-    graphicType: 0
-  hand: {fileID: 2800000, guid: 0e6e8753ad28e584ab751813f22f80c4, type: 3}
+  hand: {fileID: 2800000, guid: 71045b1e98d205b44b0e3612c3c491d2, type: 3}
 --- !u!114 &114344354696897072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1837,8 +1785,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114303133629882966}
   m_HandleRect: {fileID: 224722089325003440}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.915334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2022,7 +1970,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9857a49246c7c584d8b0d636be9f436e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d03bad28036833a468836beed45ed3b4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2041,25 +1989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc5712d05c804344b5033948a3a3d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image:
-    localPos:
-      value: {x: 0, y: 0}
-    locaRotation:
-      value: {x: 0, y: 0, z: 0, w: 0}
-    localScale:
-      value: {x: 1, y: 1, z: 1}
-    widht:
-      value: 0
-    height:
-      value: 0
-    isSelected:
-      value: 0
-    mainColor: {r: 0, g: 0, b: 0, a: 0}
-    siblingIndex: 0
-    isChecking:
-      value: 0
-    graphicType: 0
-  hand: {fileID: 2800000, guid: 0e6e8753ad28e584ab751813f22f80c4, type: 3}
+  hand: {fileID: 2800000, guid: 71045b1e98d205b44b0e3612c3c491d2, type: 3}
 --- !u!114 &114569406132095830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2106,7 +2036,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a8e19442051452e42bf2b28a9843eaeb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ceac362bf334724791dbe3eb656d35b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2120,7 +2050,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758163374252948}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2260,7 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2502,25 +2432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc5712d05c804344b5033948a3a3d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image:
-    localPos:
-      value: {x: 0, y: 0}
-    locaRotation:
-      value: {x: 0, y: 0, z: 0, w: 0}
-    localScale:
-      value: {x: 1, y: 1, z: 1}
-    widht:
-      value: 0
-    height:
-      value: 0
-    isSelected:
-      value: 0
-    mainColor: {r: 0, g: 0, b: 0, a: 0}
-    siblingIndex: 0
-    isChecking:
-      value: 0
-    graphicType: 0
-  hand: {fileID: 2800000, guid: 0e6e8753ad28e584ab751813f22f80c4, type: 3}
+  hand: {fileID: 2800000, guid: 71045b1e98d205b44b0e3612c3c491d2, type: 3}
 --- !u!114 &114846074679829556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2544,6 +2456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f5b0123ebaeb54d9eb788533e35f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 8b559e8b00d8fc94c86d8afe06d7a6f3, type: 3}
 --- !u!114 &114866541107524636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3288,8 +3201,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 125.824905, y: 0}
-  m_SizeDelta: {x: -251.64981, y: 0}
+  m_AnchoredPosition: {x: 124.999954, y: -75}
+  m_SizeDelta: {x: -250.00009, y: -150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224262127529211246
 RectTransform:
@@ -3590,7 +3503,7 @@ RectTransform:
   m_Father: {fileID: 224162985462456708}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.08466601}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3784,7 +3697,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 8, y: 0}
-  m_SizeDelta: {x: 23.05, y: 5}
+  m_SizeDelta: {x: 202.96, y: 3}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!224 &224841248523077612
 RectTransform:
@@ -3897,7 +3810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.115986, y: 0}
+  m_AnchoredPosition: {x: 37, y: 0}
   m_SizeDelta: {x: 8, y: 15}
   m_Pivot: {x: 1.0144982, y: 0.5}
 --- !u!224 &224958885921429844
@@ -3959,6 +3872,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 103}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1651.3, y: 1063}
   m_Pivot: {x: 0, y: 1}

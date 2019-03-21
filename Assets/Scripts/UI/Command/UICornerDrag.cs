@@ -23,18 +23,25 @@ namespace QFramework.TDE
         public Transform leftDown;
         public Transform rightDown;
 
+        //记录model开始拖拽状态的value
+        public Vector2 beginLocalPosVale;
+        //开始拖拽鼠标的localPos
+        public Vector2 beginDargLocalPoint;
+        
         public Vector3 leftUpPos;
         public Vector3 rightUpPos;
         public Vector3 leftDownPos;
         public Vector3 rightDownPos;
-        public Corner(Transform leftUp, Transform rightUp, Transform leftDown, Transform rightDown)
+        public RectTransform parent;
+        public Corner(Transform leftUp, Transform rightUp, Transform leftDown, Transform rightDown,RectTransform Parent)
         {
             this.leftUp = leftUp;
             this.rightUp = rightUp;
             this.leftDown = leftDown;
             this.rightDown = rightDown;
+            parent = Parent;
         }
-        public void InitValue(T_Graphic model)
+        public void InitValue(T_Graphic model,Vector2 pos)
         {
             leftUpPos = leftUp.position;
             rightUpPos = rightUp.position;
@@ -42,6 +49,8 @@ namespace QFramework.TDE
             rightDownPos = rightDown.position;
             Hbo = (model.height.Value > 0f);
             wbo = (model.widht.Value > 0f);
+            beginDargLocalPoint = pos;
+            beginLocalPosVale = model.localPos.Value;
         }
     }
     public partial class UICornerDrag : MonoBehaviour, IDragHandler,IBeginDragHandler
@@ -55,10 +64,12 @@ namespace QFramework.TDE
             this.model = model;
             this.center = center;
         }
-
+        Vector2 pos;
         public void OnBeginDrag(PointerEventData eventData)
         {
-            center.InitValue(model);       
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(center.parent
+              , eventData.position, eventData.pressEventCamera, out pos);
+            center.InitValue(model, pos);
         }
 
         public void OnDrag(PointerEventData eventData)

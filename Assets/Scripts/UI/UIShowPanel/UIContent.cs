@@ -5,6 +5,8 @@
 using System.Collections.Generic;
 using TDE;
 using System.Linq;
+using UniRx;
+using UnityEngine;
 
 namespace QFramework.TDE
 {
@@ -14,7 +16,8 @@ namespace QFramework.TDE
         private Dictionary<T_Graphic,UIImageItem> imageDict=new Dictionary<T_Graphic, UIImageItem>();
         private Dictionary<T_Graphic, UITextItem> textDict = new Dictionary<T_Graphic, UITextItem>();
         private Dictionary<T_Graphic, UILineItem> lineDict = new Dictionary<T_Graphic, UILineItem>();
-        
+
+        private RectTransform rect;
         private UITItem UITItem;
         private TSceneData model;
     
@@ -89,6 +92,21 @@ namespace QFramework.TDE
             model.TextDataList.Where(item => item.IsNotNull()).ForEach(item => Add(item));
         }
 
+        public void SetContentWidth(float width)
+        {
+            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+            Global.currentCanvasWidth = width;
+        }
+        public void SetContentHeight(float height)
+        {
+            rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+            Global.currentCanvasheight = height;
+        }
+
+        public void Init()
+        {
+            rect = transform as RectTransform;
+        }
         protected override void OnBeforeDestroy(){}
     }
 }

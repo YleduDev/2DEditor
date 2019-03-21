@@ -12,8 +12,8 @@ using UniRx;
 
 namespace QFramework.TDE
 {
-	public partial class LineHead : UIElement,IDragHandler,IBeginDragHandler,IEndDragHandler
-	{
+    public partial class LineHead : UIElement, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+    {
         Image beginImage;
         RectTransform tf;
         T_Line model;
@@ -37,6 +37,8 @@ namespace QFramework.TDE
             }
         }
 
+        public Texture2D cursorTexture;
+
         ResLoader loader = ResLoader.Allocate();
 
         internal void Init(T_Line model, RectTransform parent)
@@ -46,19 +48,19 @@ namespace QFramework.TDE
         }
 
         private void Awake()
-		{
+        {
             beginImage = GetComponent<Image>();
-            
+
         }
 
         public void ChangeSprite(T_Line model)
         {
-            beginImage.sprite= loader.LoadSprite(model.px.Value.ToString() + model.lineBeginShapeType.Value.ToString());
+            beginImage.sprite = loader.LoadSprite(model.px.Value.ToString() + model.lineBeginShapeType.Value.ToString());
             beginImage.SetNativeSize();
         }
 
-		protected override void OnBeforeDestroy()
-		{
+        protected override void OnBeforeDestroy()
+        {
             loader.Recycle2Cache();
             loader = null;
         }
@@ -68,6 +70,7 @@ namespace QFramework.TDE
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 parent,
                 eventData.position, eventData.pressEventCamera, out localPoint);
+            if (!Global.GetLocalPointOnCanvas(localPoint)) return;
             model.localOriginPos.Value = localPoint;
         }
 
@@ -78,7 +81,7 @@ namespace QFramework.TDE
             {
                 T_Image PointImage = go.GetComponent<UILinePoint>().image;
                 model.localOriginPos.Value = PointImage.localPos.Value 
-                    + (Vector2)(PointImage.locaRotation.Value * go.transform.localPosition); ;
+                    + (Vector2)(Global.GetquaternionForQS(PointImage.locaRotation.Value) * go.transform.localPosition); ;
                 BindData Bind = new BindData()
                 {
                     line = model,
@@ -98,6 +101,16 @@ namespace QFramework.TDE
         {
             //½â³ý°ó¶¨
             if (model.bindBeginImage.IsNotNull()) { model.bindBeginImage.Remove(model.bindBeginData); model.bindBeginImage = null; }
-            }
+        }
+
+        public virtual void OnPointerEnter(PointerEventData eventData)
+        {
+            Cursor.SetCursor(cursorTexture, new Vector2(cursorTexture.width * .5f, cursorTexture.height * .5f), CursorMode.Auto);
+        }
+
+        public virtual void OnPointerExit(PointerEventData eventData)
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
     }
 }

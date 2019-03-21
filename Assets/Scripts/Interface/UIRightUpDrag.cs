@@ -8,18 +8,26 @@ namespace TDE
     {
         public void Drag(T_Graphic model, PointerEventData eventData, Corner center)
         {
+            Vector2 LocalPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(center.parent
+                , eventData.position, eventData.pressEventCamera, out LocalPoint);
             //3¸ö¹Ì¶¨µÄ
-            model.localPos.Value += eventData.delta * .5f;
-
             Vector2 leftUpScreenPosition = RectTransformUtility.WorldToScreenPoint(eventData.pressEventCamera, center.leftUpPos);
             Vector2 leftDownScreenPosition = RectTransformUtility.WorldToScreenPoint(eventData.pressEventCamera, center.leftDownPos);
             Vector2 rightDownScreenPosition = RectTransformUtility.WorldToScreenPoint(eventData.pressEventCamera, center.rightDownPos);
 
+            Vector2 leftDownLocalPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(center.parent
+                , leftDownScreenPosition, eventData.pressEventCamera, out leftDownLocalPoint);
+
             Vector2 a = rightDownScreenPosition - leftDownScreenPosition;
-            Vector2 b = eventData.position - leftDownScreenPosition;
+            Vector2 b = eventData.position  - leftDownScreenPosition;
             Vector2 c = leftUpScreenPosition - leftDownScreenPosition;
 
-            float length = b.magnitude;
+            model.localPos.Value = center.beginLocalPosVale + (LocalPoint - center.beginDargLocalPoint) * .5f;
+
+            float length = (LocalPoint - leftDownLocalPoint).magnitude;
+
             float dotForHeight = Vector2.Dot(c.normalized, b.normalized);
             float dotForWidht = Vector2.Dot(a.normalized, b.normalized);
 

@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 
 namespace QFramework.TDE
 {
-    public partial class UITextItem : UIElement, IDragHandler, IBeginDragHandler, IPointerClickHandler
+    public partial class UITextItem : UIElement, IDragHandler, IBeginDragHandler, IPointerDownHandler
     {
         Vector2 offset;
         Vector2 localPoint;
@@ -21,14 +21,14 @@ namespace QFramework.TDE
         internal void Init(T_Graphic graphicItem, Transform parent)
         {
             text = graphicItem as T_Text;
-            EditorBoxInit(text);
             parentRT = parent as RectTransform;
+            EditorBoxInit(text);
             rect = transform as RectTransform;
             this.transform.Parent(parent)
                 .Show()
                 .LocalPosition(graphicItem.localPos.Value)
                 .LocalScale(graphicItem.localScale.Value)
-                .LocalRotation(graphicItem.locaRotation.Value);
+                .LocalRotation(Global.GetquaternionForQS(graphicItem.locaRotation.Value));
             TextSubscribeInit();
         }
 
@@ -43,7 +43,7 @@ namespace QFramework.TDE
                 //大小
                 .ApplySelfTo(self => self.text.localScale.Subscribe(v3 => rect.LocalScale(v3)))
                 //旋转
-                .ApplySelfTo(self => self.text.locaRotation.Subscribe(qua =>rect.LocalRotation(qua)))
+                .ApplySelfTo(self => self.text.locaRotation.Subscribe(qua =>rect.LocalRotation(Global.GetquaternionForQS(qua))))
                 //宽
                 .ApplySelfTo(self => self.text.height.Subscribe(f => rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, f)))
                 //高
@@ -59,19 +59,19 @@ namespace QFramework.TDE
 
             UICornerDrag LeftDownUIDrag = UILeftDown.GetComponent<UICornerDrag>();
             LeftDownUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
-                , UILeftDown.transform, UIRightDown.transform
+                , UILeftDown.transform, UIRightDown.transform,parentRT
                 ));
             UICornerDrag LeftUpUIDrag = UILeftUP.GetComponent<UICornerDrag>();
             LeftUpUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
-                , UILeftDown.transform, UIRightDown.transform
+                , UILeftDown.transform, UIRightDown.transform, parentRT
                 ));
             UICornerDrag RigghtUpUIDrag = UIRigghtUP.GetComponent<UICornerDrag>();
             RigghtUpUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
-                , UILeftDown.transform, UIRightDown.transform
+                , UILeftDown.transform, UIRightDown.transform, parentRT
                 ));
             UICornerDrag RightDownUIDrag = UIRightDown.GetComponent<UICornerDrag>();
             RightDownUIDrag.Init(model, new Corner(UILeftUP.transform, UIRigghtUP.transform
-                , UILeftDown.transform, UIRightDown.transform
+                , UILeftDown.transform, UIRightDown.transform, parentRT
                 ));
 
         }
@@ -88,11 +88,12 @@ namespace QFramework.TDE
         public void OnDrag(PointerEventData eventData)
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRT, eventData.position, eventData.pressEventCamera, out localPoint);
+            if (!Global.GetLocalPointOnCanvas(localPoint)) return;
             text.localPos.Value = localPoint + offset;
         }
 
         //点击选中
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
             Global.OnClick(text);
         }

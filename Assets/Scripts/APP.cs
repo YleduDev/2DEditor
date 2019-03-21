@@ -22,6 +22,7 @@ namespace TDE
             #endregion
             ResMgr.Init();
             UIMgr.SetResolution(1920, 1080, 0);
+            UIMgr.OpenPanel<UIGraphicMenuPanel>(/*new UIShowPanelData() { model = model }*/);
             UIMgr.OpenPanel<UIShowPanel>(new UIShowPanelData() { model=model});
         }
 
@@ -35,6 +36,9 @@ namespace TDE
 
     public class TSceneData
     {
+        public  FloatReactiveProperty canvasWidth = new FloatReactiveProperty(1651);
+        public  FloatReactiveProperty canvasHeight = new FloatReactiveProperty(1063);
+
         public ReactiveCollection<T_Line> LineDataList;
         
         public ReactiveCollection<T_Image> ImageDataList;

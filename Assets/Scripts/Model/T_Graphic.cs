@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
@@ -7,11 +7,33 @@ using Newtonsoft.Json;
 
 namespace TDE
 {
+
+    [Serializable]
+    public struct QuaternionSerializer
+    {
+        public float x;
+        public float y;
+        public float z;
+        public float w;
+        public QuaternionSerializer(Quaternion q)
+        { x = q.x; y = q.y; z = q.z; w = q.w; }
+    }
+
+    [Serializable]
+    public struct ColorSerializer
+    {
+        public float r;
+        public float g;
+        public float b;
+        public float a;
+        public ColorSerializer(Color color)
+        { r = color.r; g = color.g; b = color.b; a = color.a; }
+    }
     /// <summary>
-    /// 2Î¬±à¼­ÖĞÍ¼ÏñÍ¼ÏñÎÄ±¾µÄ»ùÀà
+    /// 
     /// Model
     /// </summary>
- public enum GraphicType
+    public enum GraphicType
     {
         Image,
         Text,
@@ -20,26 +42,24 @@ namespace TDE
 public class T_Graphic
 {
         public Vector2ReactiveProperty  localPos=new Vector2ReactiveProperty();
-        [JsonIgnore]
-        public QuaternionReactiveProperty locaRotation=new QuaternionReactiveProperty();
+        //Unityæœ¬èº«Quatå¯¹è±¡åºåˆ—åŒ–æœ‰è¯¯ï¼Œéœ€è¦å°è£…ä¸€å±‚
+        public ReactiveProperty<QuaternionSerializer> locaRotation=new ReactiveProperty<QuaternionSerializer>();
         public Vector3ReactiveProperty localScale=new Vector3ReactiveProperty(Vector3.one);
 
         public FloatReactiveProperty widht=new FloatReactiveProperty();
         public FloatReactiveProperty height=new FloatReactiveProperty();
 
-        //Ñ¡ÖĞ
+        //é€‰ä¸­
         public BoolReactiveProperty isSelected=new BoolReactiveProperty(false);
-        [JsonIgnore]
-        public ColorReactiveProperty mainColor =new ColorReactiveProperty();
-        //äÖÈ¾²ã¼¶£¨0->n£©
+      
+        public ReactiveProperty<ColorSerializer> mainColor =new ReactiveProperty<ColorSerializer>();
+        //æ¸²æŸ“å±‚çº§
         public int siblingIndex;
-        //ÊÇ·ñ¿òÑ¡
+        //æ¡†é€‰
         public BoolReactiveProperty isChecking=new BoolReactiveProperty(false);
 
         public GraphicType graphicType= GraphicType .Image;
        
-       
       
-
     }
 }

@@ -20,7 +20,7 @@ namespace TDE
         {
             Vector2 curScreenPosition = RectTransformUtility.WorldToScreenPoint(eventData.pressEventCamera, itemTF.position);
             Vector2 directionTo = eventData.position-curScreenPosition;
-            model.locaRotation.Value = Quaternion.LookRotation(transform.forward, directionTo);       
+            model.locaRotation.Value = new QuaternionSerializer(Quaternion.LookRotation(transform.forward, directionTo));       
         }
     }
 }
