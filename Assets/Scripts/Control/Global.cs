@@ -7,10 +7,10 @@ namespace TDE
 {
     public class Global : MonoBehaviour
     {
-        public static int LinePx = 1;
+        public static int LinePx = 3;
         public readonly static float MainScreenWidth = 1920f;
         public readonly static float MainScreenHeight = 1080f;
-        public static LineBeginShape beginShape= LineBeginShape.BeginArrows;
+        public static LineBeginShape beginShape= LineBeginShape.BeginLine;
         public static LineEndShape endShape = LineEndShape.EndArrows;
         public static float minLineLength = 10f;
         public static LineShapeType lineShapeType = LineShapeType.Straight;
@@ -59,6 +59,14 @@ namespace TDE
             float up = currentCanvasheight / 2;
             float donw = -currentCanvasheight / 2;
             return loaclPoint.x > left && loaclPoint.x < right && loaclPoint.y > donw && loaclPoint.y < up;
+        }
+
+        /// ×ª»»ÎªSprite
+        public static Sprite ChangeToSprite(Texture2D tex)
+        {
+            Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+            sprite.name = tex.name;
+            return sprite;
         }
     }
 }

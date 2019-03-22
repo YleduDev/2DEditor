@@ -30,7 +30,13 @@ namespace QFramework.TDE
         public UIGraphicItem UIGraphicItem;
         
         [SerializeField()]
+        public ScrollRect UIGraphicsView;
+        
+        [SerializeField()]
         public UIGraphicControlContent UIGraphicControlContent;
+        
+        [SerializeField()]
+        public Image TitleImg;
         
         [SerializeField()]
         public Button UILocalEditorButton;
@@ -54,7 +60,9 @@ namespace QFramework.TDE
         {
             UIimg = null;
             UIGraphicItem = null;
+            UIGraphicsView = null;
             UIGraphicControlContent = null;
+            TitleImg = null;
             UILocalEditorButton = null;
             mData = null;
         }

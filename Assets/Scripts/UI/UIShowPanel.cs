@@ -44,9 +44,10 @@ namespace QFramework.TDE
 
             UITItem UITItem = new UITItem(UITextItem, UIImageItem, UILineItem);
 
-            UIContent.GenerateGraphicItem(mData.model, UITItem);
             UIContent.Init();
+            UIContent.GenerateGraphicItem(mData.model, UITItem);
 
+            //订阅 model添加
             mData.model.ImageDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
             mData.model.ImageDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value);});
 
@@ -56,6 +57,7 @@ namespace QFramework.TDE
             mData.model.TextDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
             mData.model.TextDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
 
+            //订阅画布大小
             mData.model.canvasWidth.Subscribe(f=> { UIContent.SetContentWidth(f);});
             mData.model.canvasHeight.Subscribe(f => { UIContent.SetContentHeight(f);});
         }

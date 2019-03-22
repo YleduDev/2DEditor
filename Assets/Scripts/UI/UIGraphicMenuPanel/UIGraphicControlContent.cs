@@ -1,94 +1,66 @@
 /****************************************************************************
  * 2019.3 LAPTOP-R0ONNKOC
  ****************************************************************************/
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using System.IO;
+using TDE;
 
 namespace QFramework.TDE
 {
 	public partial class UIGraphicControlContent : UIElement
 	{
-		private void Awake()
-		{
-		}
+		private void Awake(){}
 
-		protected override void OnBeforeDestroy()
-		{
-		}
+		protected override void OnBeforeDestroy(){}
+
+        //存储当前所有的Sprite
+        public static Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+
+        //获取Sprite
+        public static Sprite GetSprite(string key)
+        {
+            key = key.Trim();
+            //int spriteKey;
+            if (sprites != null && sprites.ContainsKey(key)) return sprites[key];
+            return null;
+        }
 
         internal void GenerateUIGrrphicsItem(UIGraphicItem UIGraphicItem,UIimg UIimg)
         {
-            string streamingPath = Application.streamingAssetsPath;
+            string fileName = "2DEditorGraphics";
+            string path = Application.streamingAssetsPath + "/"+ fileName;
 
-            DirectoryInfo dir = new DirectoryInfo(streamingPath + "/2DEditorGraphics");
+           DirectoryInfo dir = new DirectoryInfo(path);
 
-            FileSystemInfo[] file = dir.GetFileSystemInfos();
+            DirectoryInfo[] childDirs = dir.GetDirectories();
 
-            foreach (FileSystemInfo i in file)
+            foreach (DirectoryInfo i in childDirs)
             {
-                if (i is DirectoryInfo)
+                if ( i.Parent.Name.Equals(fileName))
                 {
-                    CreateEditor((DirectoryInfo)i, transform, UIGraphicItem);
+                    UIGraphicItem GraphicItem= CreateGraphicItem(i, transform, UIGraphicItem, UIimg);
+                    GraphicItem.Init(sprites, i, UIimg);
                 }               
             }
         }
-
-
-
-        private void CreateEditor(DirectoryInfo i, Transform parent, UIGraphicItem UIGraphicItem)
+        //生成GraphicItem
+        private UIGraphicItem CreateGraphicItem(DirectoryInfo i, Transform parent, UIGraphicItem UIGraphicItem,UIimg UIimg)
         {
-            UIGraphicItem uiGraphicItem= UIGraphicItem.Instantiate();
-            uiGraphicItem.ApplySelfTo(self => self.transform.SetParent(parent,false))
-                .ApplySelfTo(self => self.name = i.Name).Show();
-
-            Image  tempContent = uiGraphicItem.EditorContent;
-
-            uiGraphicItem.Button.onClick.AddListener(() => {
-                if (tempContent.IsActive()){ tempContent.Hide();tempContent.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 90)));}
-                else {tempContent.Show(); tempContent.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 0))); }});
-
-
-            uiGraphicItem.Text.text = i.Name;
-
-            // GetAllFiles(i, tempContent.transform);
-
-            tempContent.Hide();
+            //生成item
+            return CreateGraphicItem(i.Name, parent, UIGraphicItem);
         }
 
-
-        //private void CreateEditorContent(FileSystemInfo i, Transform parent)
-        //{
-        //    string str = i.FullName;
-
-        //    string path = Application.streamingAssetsPath;
-
-        //    string strType = str.Substring(path.Length);
-
-        //    if (strType.Substring(strType.Length - 3).ToLower() == "png")
-        //    {
-
-        //        if (dic.ContainsKey(strType))
-        //        {
-        //            //dic[strType] = spriteImg;
-        //        }
-        //        else
-        //        {
-
-        //            GameObject img = Resources.Load<GameObject>("Prefabs/Img");
-        //            GameObject tempImg = Instantiate(img, parent);
-
-        //            Image spriteImg = tempImg.GetComponent<Image>();
-
-        //            strType = strType.Replace("\\", "/");
-        //            //Debug.Log(strType);
-        //            dic.Add(strType, spriteImg);
-        //        }
-        //    }
-        //}
+        //生成GraphicItem
+        private UIGraphicItem CreateGraphicItem(String itemName, Transform parent, UIGraphicItem UIGraphicItem)
+        {
+           return  UIGraphicItem.Instantiate()
+            .ApplySelfTo(self => self.transform.SetParent(parent, false))
+            .ApplySelfTo(self => self.name = itemName)
+            .ApplySelfTo(self => self.Show());
+        }     
     }
 }
