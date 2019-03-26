@@ -28,7 +28,8 @@ namespace QFramework.TDE
 
     public class UIShowPanelData : QFramework.UIPanelData
     {
-        public TSceneData model;
+        //new 是为了测试 可以加一些测试数据
+        public TSceneData model=new TSceneData();
     }
     
     public partial class UIShowPanel : QFramework.UIPanel
