@@ -59,6 +59,9 @@ namespace QFramework.TDE
         internal void Remove(T_Graphic value)
         {
             if (value.IsNull()) return;
+
+            //½«Ñ¡ÖÐ×´Ì¬
+            value.Destroy();
             switch (value.graphicType)
             {
                 case GraphicType.Image:

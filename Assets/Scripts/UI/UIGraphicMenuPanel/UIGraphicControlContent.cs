@@ -18,15 +18,13 @@ namespace QFramework.TDE
 
 		protected override void OnBeforeDestroy(){}
 
-      
-
         internal void GenerateUIGrrphicsItem(UIGraphicItem UIGraphicItem,UIimg UIimg,RectTransform Viewport, TSceneData model)
         {
             this.model = model;
             string fileName = Global.allGraphicsFillName;
             string path = Application.streamingAssetsPath + "/"+ fileName;
 
-           DirectoryInfo dir = new DirectoryInfo(path);
+            DirectoryInfo dir = new DirectoryInfo(path);
 
             DirectoryInfo[] childDirs = dir.GetDirectories();
 

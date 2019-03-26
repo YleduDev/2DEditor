@@ -63,6 +63,7 @@ namespace QFramework.TDE
         {
             loader.Recycle2Cache();
             loader = null;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
 
         public void OnDrag(PointerEventData eventData)

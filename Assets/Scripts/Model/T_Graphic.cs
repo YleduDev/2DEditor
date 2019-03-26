@@ -61,7 +61,12 @@ public abstract class T_Graphic
         public BoolReactiveProperty isChecking=new BoolReactiveProperty(false);
 
         public GraphicType graphicType= GraphicType.Image;
-       
-      
+
+
+       public virtual void Destroy()
+        {
+            isSelected.Value=false;
+            isChecking.Value = false;
+        }
     }
 }

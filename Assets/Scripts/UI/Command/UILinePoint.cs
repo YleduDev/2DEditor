@@ -109,6 +109,10 @@ namespace TDE
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
         #endregion
+        private void OnDestroy()
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
         #endregion
     }
 }

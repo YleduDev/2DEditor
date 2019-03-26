@@ -45,8 +45,8 @@ namespace QFramework.TDE
             //点击选中
             this.ApplySelfTo(self => self.Image.isSelected.Subscribe(on =>
             {
-                if (on) { UIEditorBox?.Show(); UILineSwitch?.Show(); Global.OnSelectedGraphic = Image; }
-                else { UIEditorBox?.Hide(); UILineSwitch?.Hide(); }
+                if (on) { self.UIEditorBox?.Show(); self.UILineSwitch?.Show(); Global.OnSelectedGraphic = Image; }
+                else {  self.UIEditorBox.gameObject.Hide(); self.UILineSwitch?.Hide(); }
             }))
                 //移动
                 .ApplySelfTo(self => self.Image.localPos.Subscribe(

@@ -20,6 +20,7 @@ namespace TDE
         //起点和终点的距离
         public float direction; 
 
+        //一下数据后期待优化 TODO
         public T_Image bindBeginImage;
         public T_Image bindEndImage;
         public BindData bindBeginData;
@@ -31,5 +32,29 @@ namespace TDE
             mainColor = new ReactiveProperty<ColorSerializer>(new ColorSerializer(Color.black));
         }
 
+        //后期待优化
+        protected void ClearBind()
+        {
+            //清除t_image 对象绑点数据
+            if (bindBeginImage != null)
+            {
+                bindBeginImage.Remove(bindBeginData);
+            }
+            else if(bindEndImage != null)
+            {
+                bindBeginImage.Remove(bindEndData);
+            }
+
+            bindBeginImage = null;
+            bindEndImage = null;
+            bindBeginData = null;
+            bindEndData = null;
+        }
+
+        public override void Destroy()
+        {
+            base.Destroy();
+            ClearBind();
+        }
     }
 }

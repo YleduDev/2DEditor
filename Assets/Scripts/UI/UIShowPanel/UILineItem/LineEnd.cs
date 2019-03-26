@@ -63,6 +63,7 @@ namespace QFramework.TDE
         {
             loader.Recycle2Cache();
             loader = null;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
 
         public void OnBeginDrag(PointerEventData eventData)
@@ -77,7 +78,7 @@ namespace QFramework.TDE
                 parent,
                 eventData.position, eventData.pressEventCamera, out localPoint);
 
-            Debug.Log(Global.currentCanvasWidth + "  " + Global.currentCanvasheight);
+            //Debug.Log(Global.currentCanvasWidth + "  " + Global.currentCanvasheight);
             
             if (!Global.GetLocalPointOnCanvas(localPoint)) return;
             model.localEndPos.Value = localPoint;

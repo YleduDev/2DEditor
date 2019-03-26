@@ -48,7 +48,7 @@ namespace TDE
     public class TSceneData
     {
         public  FloatReactiveProperty canvasWidth = new FloatReactiveProperty(1651);
-        public  FloatReactiveProperty canvasHeight = new FloatReactiveProperty(1063);
+        public  FloatReactiveProperty canvasHeight = new FloatReactiveProperty(1444);
 
         public ReactiveCollection<T_Line> LineDataList=new ReactiveCollection<T_Line>();
         

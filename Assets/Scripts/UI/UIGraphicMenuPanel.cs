@@ -34,7 +34,7 @@ namespace QFramework.TDE
 
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
         {
-            throw new System.NotImplementedException ();
+            
         }
         
         protected override void OnInit(QFramework.IUIData uiData)
@@ -42,6 +42,8 @@ namespace QFramework.TDE
             mData = uiData as UIGraphicMenuPanelData ?? new UIGraphicMenuPanelData();
             rectGraphicView = UIGraphicsView.transform as RectTransform;
             UIGraphicControlContent.GenerateUIGrrphicsItem(UIGraphicItem,UIimg, rectGraphicView, mData.model);
+
+            //¶©ÔÄtitleImgÏà¹ØÊôÐÔ
             TitleImgLocalPos.Subscribe(TitleImgLocalPosChange);
             TitleImgActive.Subscribe(bo=> { if (bo) TitleImg.Show(); else TitleImg.Hide(); });
             TitleSprite.Subscribe(sprite => TitleImg.sprite = sprite);

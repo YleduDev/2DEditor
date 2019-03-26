@@ -8,7 +8,7 @@ using QFramework;
 
 namespace TDE
 {
-    //[Serializable]
+    //绑点数据（设计方式待优化）
     public class BindData
     {
         public T_Line line ;
@@ -46,6 +46,30 @@ namespace TDE
                 else   data.line.localEndPos.Value = newPos+ localPos.Value;
 
             });
+        }
+        //清除绑点信息
+        protected void ClearBind()
+        {
+            bindDatas.Where(data => data != null).ForEach(data=>
+            {
+                if (data.LinePointType == LinePointType.Origin)
+                {
+                    data.line.bindBeginImage = null;
+                    data.line.bindBeginData = null;
+                }
+                else
+                {
+                    data.line.bindEndImage = null;
+                    data.line.bindEndData = null;
+                }
+            });
+
+            bindDatas.Clear();
+        }
+        public override void Destroy()
+        {
+            ClearBind();
+            base.Destroy();
         }
     }
 }
