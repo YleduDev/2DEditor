@@ -24,6 +24,10 @@ namespace QFramework.TDE
         private void Awake()
 		{
             BGButton.onClick.AddListener(() => Global.OnClick());
+
+            Global.LineParent = LineParent as RectTransform;
+            Global.textParent = TextParent as RectTransform;
+            Global.imageParent = ImageParent as RectTransform;
         }
              
         public void Add(T_Graphic graphicItem)
@@ -35,18 +39,18 @@ namespace QFramework.TDE
                     UIImageItem UIImageItem = UITItem.UIImageItem.Instantiate();
                     T_Image image = graphicItem as T_Image;
                     UIImageItem
-                        .ApplySelfTo(self =>self.Init(model, image, ImageParent, LineParent))               
+                        .ApplySelfTo(self =>self.Init(model, image))               
                         .ApplySelfTo(self =>imageDict.Add(graphicItem, UIImageItem));break;
                 case GraphicType.Text:
                     UITextItem UITextItem = UITItem.UITextItem.Instantiate();
                     UITextItem
-                        .ApplySelfTo(self =>self.Init(graphicItem, TextParent))                     
+                        .ApplySelfTo(self =>self.Init(graphicItem))                     
                         .ApplySelfTo(self =>textDict.Add(graphicItem, UITextItem)); break;
                 case GraphicType.Line:
                     UILineItem UILineItem = UITItem.UILineItem.Instantiate();
                     //³õÊ¼»¯
                     UILineItem
-                        .ApplySelfTo(self => self.Init(graphicItem, LineParent))
+                        .ApplySelfTo(self => self.Init(graphicItem))
                         .ApplySelfTo(self => lineDict.Add(graphicItem, UILineItem)); break;
                 default: break;
             }

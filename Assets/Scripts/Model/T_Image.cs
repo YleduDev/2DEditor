@@ -39,7 +39,7 @@ namespace TDE
                 float wDelte = widht.Value / data.width;
                 float hDelte = height.Value / data.height;
                 
-                Vector2 newPos =Global.GetquaternionForQS(locaRotation.Value)* new Vector2(data.LocalPointForImage.Value.x
+                Vector2 newPos =Global.GetQuaternionForQS(locaRotation.Value)* new Vector2(data.LocalPointForImage.Value.x
                     * wDelte, data.LocalPointForImage.Value.y *hDelte);
                 if (data.LinePointType == LinePointType.Origin) data.line.localOriginPos.Value 
                     = newPos+localPos.Value;

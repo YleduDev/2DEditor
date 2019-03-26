@@ -17,16 +17,19 @@ namespace QFramework.TDE
 	{
         public T_Line line;
         RectTransform rect;
-        
-        internal void Init(T_Graphic graphicItem, RectTransform parent)
+        Image[] UIImages;
+        RectTransform parent;
+        internal void Init(T_Graphic graphicItem)
         {
             line = graphicItem as T_Line;
             rect = transform as RectTransform;
+            parent =Global.LineParent;
             this.transform.Parent(parent)
                .Show()
                .LocalPosition(line.localPos.Value)
                .LocalScale(line.localScale.Value)
-               .LocalRotation(Global.GetquaternionForQS(line.locaRotation.Value));
+               .LocalRotation(Global.GetQuaternionForQS(line.locaRotation.Value))
+               .ApplySelfTo(self=> UIImages = GetComponentsInChildren<Image>());
 
             LineHead.Init(line,parent);
             LineEnd.Init(line, parent);
@@ -60,7 +63,9 @@ namespace QFramework.TDE
                 //终点
                 .ApplySelfTo(self => self.line.localEndPos.Subscribe(_ => self.PointChange()))
                 //起点
-                .ApplySelfTo(self => self.line.localOriginPos.Subscribe(_ => self.PointChange()));
+                .ApplySelfTo(self => self.line.localOriginPos.Subscribe(_ => self.PointChange()))
+                 //颜色
+                .ApplySelfTo(self => self.line.mainColor.Subscribe(color => UIImages.ForEach(item=> item.color= Global.GetColorQS(color))));
 
         }
 

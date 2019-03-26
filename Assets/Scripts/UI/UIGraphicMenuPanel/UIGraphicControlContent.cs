@@ -13,25 +13,17 @@ namespace QFramework.TDE
 {
 	public partial class UIGraphicControlContent : UIElement
 	{
-		private void Awake(){}
+        TSceneData model;
+        private void Awake(){}
 
 		protected override void OnBeforeDestroy(){}
 
-        //存储当前所有的Sprite
-        public static Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+      
 
-        //获取Sprite
-        public static Sprite GetSprite(string key)
+        internal void GenerateUIGrrphicsItem(UIGraphicItem UIGraphicItem,UIimg UIimg,RectTransform Viewport, TSceneData model)
         {
-            key = key.Trim();
-            //int spriteKey;
-            if (sprites != null && sprites.ContainsKey(key)) return sprites[key];
-            return null;
-        }
-
-        internal void GenerateUIGrrphicsItem(UIGraphicItem UIGraphicItem,UIimg UIimg)
-        {
-            string fileName = "2DEditorGraphics";
+            this.model = model;
+            string fileName = Global.allGraphicsFillName;
             string path = Application.streamingAssetsPath + "/"+ fileName;
 
            DirectoryInfo dir = new DirectoryInfo(path);
@@ -43,7 +35,7 @@ namespace QFramework.TDE
                 if ( i.Parent.Name.Equals(fileName))
                 {
                     UIGraphicItem GraphicItem= CreateGraphicItem(i, transform, UIGraphicItem, UIimg);
-                    GraphicItem.Init(sprites, i, UIimg);
+                    GraphicItem.Init( i, UIimg, Viewport, model);
                 }               
             }
         }

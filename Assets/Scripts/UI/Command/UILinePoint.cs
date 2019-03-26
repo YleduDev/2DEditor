@@ -18,11 +18,11 @@ namespace TDE
         Vector2 localPoint;
         T_Line line;
         
-        public void Init(TSceneData model,Transform parent, T_Image image)
+        public void Init(TSceneData model, T_Image image)
         {
             this.model = model;
             this.image = image;
-            this.parent = parent as RectTransform;
+            this.parent = Global.LineParent;
         }
 
         #region MonoEven
@@ -35,7 +35,7 @@ namespace TDE
             line.lineEndShapeType.Value = Global.endShape;
             //Æðµã
             line.localOriginPos.Value = image.localPos.Value
-            + (Vector2)(Global.GetquaternionForQS(image.locaRotation.Value) * transform.localPosition);
+            + (Vector2)(Global.GetQuaternionForQS(image.locaRotation.Value) * transform.localPosition);
 
             model.Add(line);
         }
@@ -47,11 +47,11 @@ namespace TDE
             {
                 T_Image endPointImage = go.GetComponent<UILinePoint>().image;
                 line.localEndPos.Value = endPointImage.localPos.Value
-                +(Vector2)(Global.GetquaternionForQS(endPointImage.locaRotation.Value)*go.transform.localPosition);
+                +(Vector2)(Global.GetQuaternionForQS(endPointImage.locaRotation.Value)*go.transform.localPosition);
             }
             else if (go && go.tag == "LinePoint" && go == gameObject) {
                 line.localEndPos.Value = image.localPos.Value
-                + (Vector2)(Global.GetquaternionForQS(image.locaRotation.Value) * transform.localPosition);
+                + (Vector2)(Global.GetQuaternionForQS(image.locaRotation.Value) * transform.localPosition);
             }
             else
             {

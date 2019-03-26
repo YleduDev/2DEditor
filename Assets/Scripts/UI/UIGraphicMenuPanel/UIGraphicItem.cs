@@ -15,16 +15,20 @@ namespace QFramework.TDE
 {
 	public partial class UIGraphicItem : UIElement
 	{
+        TSceneData model;
         Dictionary<string, Sprite> sprites;
         DirectoryInfo dir;
         UIimg UIimg;
+        RectTransform Viewport;
 
         private void Awake(){}
 
 		protected override void OnBeforeDestroy(){}
 
-        public void Init(Dictionary<string, Sprite> sprites,DirectoryInfo dir,UIimg UIimg)
+        public void Init(DirectoryInfo dir,UIimg UIimg,RectTransform Viewport,TSceneData model)
         {
+            this.Viewport = Viewport;
+            this.model = model;
             //自身及子对象事件注册等
             Image buttonImg = Button.GetComponent<Image>();
             //按钮注册事件
@@ -38,7 +42,7 @@ namespace QFramework.TDE
             EditorContent.Show(); buttonImg?.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 0)));
 
             //初始化Model
-            this.sprites = sprites;
+            sprites = Global.sprites;
             this.dir = dir;
             this.UIimg = UIimg;
 
@@ -57,12 +61,12 @@ namespace QFramework.TDE
             //没个item下生成子对象
             foreach (FileInfo file in files)
             {
-                GenerateUIImg(EditorContent.transform, UIimg, UIGraphicControlContent.GetSprite(file.FullName));
+                GenerateUIImg(EditorContent.transform, UIimg, file.FullName);
             }
         }
 
         //获取 文件目录下的所有png文件并生成sprites存储缓存
-        private void GetTexture(FileInfo[] files/*,String path*/)
+        private void GetTexture(FileInfo[] files)
         {
             foreach (FileInfo file in files)
             {
@@ -74,21 +78,20 @@ namespace QFramework.TDE
                 tex.LoadImage(buffer);
                 tex.Apply();
                 tex.name = file.Name.Replace(".png", "");
-                String key = file.FullName;     
+                String key = file.FullName;
                 //防止字典异常
                 sprites[key]= Global.ChangeToSprite(tex);
             }
         }
        
         //生成UIimg对象
-        private void GenerateUIImg(Transform parent, UIimg UIimg, Sprite sprite)
+        private void GenerateUIImg(Transform parent, UIimg UIimg, string spriteFullName)
         {
              UIimg.Instantiate()
                 .ApplySelfTo(self => self.transform.SetParent(parent, false))
-                .ApplySelfTo(self => self.GetComponent<Image>().sprite = sprite)
-                .ApplySelfTo(self=> self.Init(sprite))
+                .ApplySelfTo(self => self.GetComponent<Image>().sprite = Global.GetSprite(spriteFullName))
+                .ApplySelfTo(self=> self.Init(spriteFullName, Viewport,model))
                 .Show();
         }
-        
     }
 }

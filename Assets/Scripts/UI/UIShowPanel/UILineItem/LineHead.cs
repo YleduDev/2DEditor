@@ -81,7 +81,7 @@ namespace QFramework.TDE
             {
                 T_Image PointImage = go.GetComponent<UILinePoint>().image;
                 model.localOriginPos.Value = PointImage.localPos.Value 
-                    + (Vector2)(Global.GetquaternionForQS(PointImage.locaRotation.Value) * go.transform.localPosition); ;
+                    + (Vector2)(Global.GetQuaternionForQS(PointImage.locaRotation.Value) * go.transform.localPosition); ;
                 BindData Bind = new BindData()
                 {
                     line = model,

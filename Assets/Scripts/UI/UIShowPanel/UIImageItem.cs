@@ -5,6 +5,8 @@ using TDE;
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 namespace QFramework.TDE
 {
     public partial class UIImageItem : UIElement, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IBeginDragHandler, IPointerDownHandler
@@ -14,24 +16,26 @@ namespace QFramework.TDE
         RectTransform parentRT;
         RectTransform rect;
         TSceneData model;
+        Image UIimage;
 
         private T_Image Image;     
 
-        internal void Init(TSceneData model, T_Image graphicItem, Transform parent,Transform LineParent)
+        internal void Init(TSceneData model, T_Image graphicItem)
         {
             Image = graphicItem ;
             this.model = model;
-            parentRT = parent as RectTransform;
+            parentRT = Global.imageParent;
             rect = transform as RectTransform;
-            this.transform.Parent(parent)
+            this.transform.Parent(parentRT)
                 .Show()
                 .LocalPosition(Image.localPos.Value)
                 .LocalScale(Image.localScale.Value)
-                .LocalRotation(Global.GetquaternionForQS(Image.locaRotation.Value));
+                .LocalRotation(Global.GetQuaternionForQS(Image.locaRotation.Value))
+                .ApplySelfTo(self => {UIimage = self.GetComponent<Image>(); });
             //编辑面板初始化
             EditorBoxInit(Image);
             //划线工具初始化
-            UILineSwitch.Init(model, LineParent as RectTransform, Image);
+            UILineSwitch.Init(model, Image);
             ImageSubscribeInit();
         }
 
@@ -39,9 +43,11 @@ namespace QFramework.TDE
         void ImageSubscribeInit()
         {
             //点击选中
-            this.ApplySelfTo(self => self.Image.isSelected.Subscribe(on =>{
-                 if (on) { UIEditorBox.Show(); UILineSwitch.Show(); }
-                 else { UIEditorBox.Hide(); UILineSwitch.Hide(); }}))
+            this.ApplySelfTo(self => self.Image.isSelected.Subscribe(on =>
+            {
+                if (on) { UIEditorBox?.Show(); UILineSwitch?.Show(); Global.OnSelectedGraphic = Image; }
+                else { UIEditorBox?.Hide(); UILineSwitch?.Hide(); }
+            }))
                 //移动
                 .ApplySelfTo(self => self.Image.localPos.Subscribe(
                  v2 => { self.Image.TransformChange(); rect.LocalPosition(v2); }))
@@ -50,13 +56,17 @@ namespace QFramework.TDE
                  v3 => rect.LocalScale(v3)))
                 //旋转
                 .ApplySelfTo(self => self.Image.locaRotation.Subscribe(
-                 qua => { self.Image.TransformChange(); rect.LocalRotation(Global.GetquaternionForQS(qua)); }))
+                 qua => { self.Image.TransformChange(); rect.LocalRotation(Global.GetQuaternionForQS(qua)); }))
                 //宽
                 .ApplySelfTo(self => self.Image.height.Subscribe(
                  f => { self.Image.TransformChange(); rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, f); }))
-                 //高
+                //高
                 .ApplySelfTo(self => self.Image.widht.Subscribe(
-                 f => { self.Image.TransformChange(); rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f); }));
+                 f => { self.Image.TransformChange(); rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f); }))
+                //颜色
+                 .ApplySelfTo(self => self.Image.mainColor.Subscribe(color=> UIimage.color = Global.GetColorQS(color)))
+                 //Sprite
+                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> { UIimage.sprite = Global.GetSprite(spriteName); }));
         }
 
         //待优化 设计方式不太理想

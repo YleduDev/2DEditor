@@ -17,10 +17,10 @@ namespace QFramework.TDE
 		{
 		}
 
-        internal void Init(TSceneData model, RectTransform lineParent, T_Image image)
+        internal void Init(TSceneData model, T_Image image)
         {
             UILinePoint[] UILinePoints = GetComponentsInChildren<UILinePoint>();
-            if (UILinePoints.IsNotNull() && UILinePoints.Length > 0) UILinePoints.ForEach(item => item.Init(model, lineParent, image));
+            if (UILinePoints.IsNotNull() && UILinePoints.Length > 0) UILinePoints.ForEach(item => item.Init(model, image));
         }
     }
 }

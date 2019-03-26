@@ -6,6 +6,7 @@ using TDE;
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace QFramework.TDE
 {
@@ -16,19 +17,20 @@ namespace QFramework.TDE
         RectTransform parentRT;
         RectTransform rect;
         public T_Text text;
- 
+        Image image;
 
-        internal void Init(T_Graphic graphicItem, Transform parent)
+        internal void Init(T_Graphic graphicItem)
         {
             text = graphicItem as T_Text;
-            parentRT = parent as RectTransform;
+            parentRT = Global.textParent;
             EditorBoxInit(text);
             rect = transform as RectTransform;
-            this.transform.Parent(parent)
+            this.transform.Parent(parentRT)
                 .Show()
                 .LocalPosition(graphicItem.localPos.Value)
                 .LocalScale(graphicItem.localScale.Value)
-                .LocalRotation(Global.GetquaternionForQS(graphicItem.locaRotation.Value));
+                .LocalRotation(Global.GetQuaternionForQS(graphicItem.locaRotation.Value))
+                .ApplySelfTo(self => image = GetComponent<Image>());
             TextSubscribeInit();
         }
 
@@ -36,18 +38,24 @@ namespace QFramework.TDE
         void TextSubscribeInit()
         {
             //点击选中
-            this.ApplySelfTo(self => self.text.isSelected.Subscribe(on=>{
-                if (on) UIEditorBox.Show();else UIEditorBox.Hide();}))
+            this.ApplySelfTo(self => self.text.isSelected.Subscribe(on =>
+            {
+                if (on) { UIEditorBox?.Show();Global.OnSelectedGraphic = text; } else UIEditorBox?.Hide();
+            }))
                 //移动
-                .ApplySelfTo(self => self.text.localPos.Subscribe(v2 =>rect.LocalPosition(v2)))
+                .ApplySelfTo(self => self.text.localPos.Subscribe(v2 => rect.LocalPosition(v2)))
                 //大小
                 .ApplySelfTo(self => self.text.localScale.Subscribe(v3 => rect.LocalScale(v3)))
                 //旋转
-                .ApplySelfTo(self => self.text.locaRotation.Subscribe(qua =>rect.LocalRotation(Global.GetquaternionForQS(qua))))
+                .ApplySelfTo(self => self.text.locaRotation.Subscribe(qua => rect.LocalRotation(Global.GetQuaternionForQS(qua))))
                 //宽
                 .ApplySelfTo(self => self.text.height.Subscribe(f => rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, f)))
                 //高
-                .ApplySelfTo(self => self.text.widht.Subscribe(f =>rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f)));
+                .ApplySelfTo(self => self.text.widht.Subscribe(f => rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f)))
+                 //颜色
+                 .ApplySelfTo(self => self.text.mainColor.Subscribe(color => image.color = Global.GetColorQS(color)))
+                
+                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => { image.sprite = Global.GetSprite(spriteName); } ));
         }
 
 

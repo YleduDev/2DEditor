@@ -22,13 +22,24 @@ namespace TDE
             #endregion
             ResMgr.Init();
             UIMgr.SetResolution(1920, 1080, 0);
-            UIMgr.OpenPanel<UIGraphicMenuPanel>(/*new UIShowPanelData() { model = model }*/);
+            UIMgr.OpenPanel<UIGraphicMenuPanel>(new UIGraphicMenuPanelData() { model = model });
             UIMgr.OpenPanel<UIShowPanel>(new UIShowPanelData() { model=model});
         }
 
         private void OnApplicationQuit()
         {
             model.Save();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.Delete))
+            {
+               if (Global.OnSelectedGraphic.IsNotNull())
+                {
+                    model.Remove(Global.OnSelectedGraphic);
+                }
+            }
         }
 
     }
@@ -39,11 +50,11 @@ namespace TDE
         public  FloatReactiveProperty canvasWidth = new FloatReactiveProperty(1651);
         public  FloatReactiveProperty canvasHeight = new FloatReactiveProperty(1063);
 
-        public ReactiveCollection<T_Line> LineDataList;
+        public ReactiveCollection<T_Line> LineDataList=new ReactiveCollection<T_Line>();
         
-        public ReactiveCollection<T_Image> ImageDataList;
+        public ReactiveCollection<T_Image> ImageDataList = new ReactiveCollection<T_Image>();
         
-        public ReactiveCollection<T_Text> TextDataList;
+        public ReactiveCollection<T_Text> TextDataList = new ReactiveCollection<T_Text>();
         
         public void Add(T_Graphic model)
         {
@@ -54,6 +65,23 @@ namespace TDE
             if (model.graphicType == GraphicType.Text)
                 TextDataList.Add(model as T_Text);
         }
+
+        public void Remove(T_Graphic model)
+        {
+            switch (model.graphicType)
+            {
+                case GraphicType.Image:
+                    Remove(model as T_Image);
+                    break;
+                case GraphicType.Text:
+                    Remove (model as T_Text);
+                    break;
+                case GraphicType.Line:
+                    Remove(model as T_Line);
+                    break;
+            }
+        }
+
         public void Remove(T_Line model)
         {
             LineDataList.Remove(model);
@@ -75,7 +103,7 @@ namespace TDE
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 TypeNameHandling = TypeNameHandling.All
             };
-            string json = PlayerPrefs.GetString("Test7", string.Empty);
+            string json = PlayerPrefs.GetString("Test8", string.Empty);
             if (json.IsNullOrEmpty()) return new TSceneData();
             else
             {
@@ -91,7 +119,7 @@ namespace TDE
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 TypeNameHandling = TypeNameHandling.All
             };
-            PlayerPrefs.SetString("Test7", JsonConvert.SerializeObject(this, Formatting.Indented, seting));
+            PlayerPrefs.SetString("Test8", JsonConvert.SerializeObject(this, Formatting.Indented, seting));
         }
     }
     //所以场景对象

@@ -18,7 +18,7 @@ namespace TDE
         //
         public IntReactiveProperty px = new IntReactiveProperty();
         //起点和终点的距离
-        public float direction;
+        public float direction; 
 
         public T_Image bindBeginImage;
         public T_Image bindEndImage;
@@ -28,6 +28,7 @@ namespace TDE
         public T_Line() : base()
         {
             graphicType = GraphicType.Line;
+            mainColor = new ReactiveProperty<ColorSerializer>(new ColorSerializer(Color.black));
         }
 
     }

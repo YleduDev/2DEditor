@@ -8,29 +8,23 @@ namespace TDE
     public class Global : MonoBehaviour
     {
         public static int LinePx = 3;
-        public readonly static float MainScreenWidth = 1920f;
-        public readonly static float MainScreenHeight = 1080f;
         public static LineBeginShape beginShape= LineBeginShape.BeginLine;
         public static LineEndShape endShape = LineEndShape.EndArrows;
         public static float minLineLength = 10f;
         public static LineShapeType lineShapeType = LineShapeType.Straight;
         public static float currentCanvasWidth;
         public static float currentCanvasheight;
+
+        public static RectTransform LineParent;
+        public static RectTransform imageParent;
+        public static RectTransform textParent;
+
+        public static string allGraphicsFillName= "2DEditorGraphics";
+        //配置 文本文件命名中 包含的约定
+        public static string TextItemContainName = "Text";
         //全局，表示当前选中的图元对象
         public static T_Graphic OnSelectedGraphic;
 
-        public static float ScreenWidthForMainScr
-        {
-            get
-            {
-                return MainScreenWidth / (float)Screen.width;
-            }
-        }
-
-        public static float ScreeRatio
-        {
-            get { return Screen.width / Screen.height; }
-        }
         private static Vector2 ratio= Vector2.zero;
         /// <summary>
         /// ShowPanel 图元及面板点击事件
@@ -45,11 +39,25 @@ namespace TDE
                 OnSelectedGraphic = graphic;
             }
         }
+        //存储当前所有的Sprite
+        public static Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
 
+        //获取Sprite
+        public static Sprite GetSprite(string key)
+        {
+            key = key.Trim();
+            //int spriteKey;
+            if (sprites != null && sprites.ContainsKey(key)) return sprites[key];
+            return null;
+        }
 
-        public static Quaternion GetquaternionForQS(QuaternionSerializer data)
+        public static Quaternion GetQuaternionForQS(QuaternionSerializer data)
         {
             return new Quaternion(data.x, data.y, data.z, data.w);
+        }
+        public static Color GetColorQS(ColorSerializer data)
+        {
+            return new Color(data.r, data.g, data.b, data.a);
         }
 
         public  static bool GetLocalPointOnCanvas(Vector2 loaclPoint)

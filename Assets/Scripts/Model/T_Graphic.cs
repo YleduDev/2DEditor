@@ -39,7 +39,7 @@ namespace TDE
         Text,
         Line
     }
-public class T_Graphic
+public abstract class T_Graphic
 {
         public Vector2ReactiveProperty  localPos=new Vector2ReactiveProperty();
         //Unity本身Quat对象序列化有误，需要封装一层
@@ -51,14 +51,16 @@ public class T_Graphic
 
         //选中
         public BoolReactiveProperty isSelected=new BoolReactiveProperty(false);
+
+        public StringReactiveProperty spritrsStr=new StringReactiveProperty();
       
-        public ReactiveProperty<ColorSerializer> mainColor =new ReactiveProperty<ColorSerializer>();
+        public ReactiveProperty<ColorSerializer> mainColor =new ReactiveProperty<ColorSerializer>(new ColorSerializer(Color.white));
         //渲染层级
         public int siblingIndex;
         //框选
         public BoolReactiveProperty isChecking=new BoolReactiveProperty(false);
 
-        public GraphicType graphicType= GraphicType .Image;
+        public GraphicType graphicType= GraphicType.Image;
        
       
     }

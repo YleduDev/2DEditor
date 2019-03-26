@@ -16,15 +16,22 @@ namespace QFramework.TDE
     using System.Linq;
     using UnityEngine;
     using UnityEngine.UI;
-    
-    
+    using UniRx;
+    using global::TDE;
+
     public class UIGraphicMenuPanelData : QFramework.UIPanelData
     {
+        public TSceneData model;
     }
     
     public partial class UIGraphicMenuPanel : QFramework.UIPanel
     {
-        
+        public static  Vector2ReactiveProperty TitleImgLocalPos = new Vector2ReactiveProperty();
+        public static BoolReactiveProperty TitleImgActive = new BoolReactiveProperty(false);
+        public static ReactiveProperty<Sprite> TitleSprite = new ReactiveProperty<Sprite>();
+
+        RectTransform rectGraphicView;
+
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
         {
             throw new System.NotImplementedException ();
@@ -33,9 +40,23 @@ namespace QFramework.TDE
         protected override void OnInit(QFramework.IUIData uiData)
         {
             mData = uiData as UIGraphicMenuPanelData ?? new UIGraphicMenuPanelData();
-            UIGraphicControlContent.GenerateUIGrrphicsItem(UIGraphicItem,UIimg);
+            rectGraphicView = UIGraphicsView.transform as RectTransform;
+            UIGraphicControlContent.GenerateUIGrrphicsItem(UIGraphicItem,UIimg, rectGraphicView, mData.model);
+            TitleImgLocalPos.Subscribe(TitleImgLocalPosChange);
+            TitleImgActive.Subscribe(bo=> { if (bo) TitleImg.Show(); else TitleImg.Hide(); });
+            TitleSprite.Subscribe(sprite => TitleImg.sprite = sprite);
         }
-        
+
+
+
+        void TitleImgLocalPosChange(Vector2 ve)
+        {
+            
+            TitleImg.LocalPosition(ve);
+        }
+
+      
+
         protected override void OnOpen(QFramework.IUIData uiData)
         {
         }
