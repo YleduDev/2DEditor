@@ -77,7 +77,7 @@ namespace TDE
             image.Add(beiginBind);
 
             line.bindBeginImage = image;
-            line.bindBeginData = beiginBind;
+           // line.bindBeginData = beiginBind;
 
             GameObject go = eventData.pointerCurrentRaycast.gameObject;
             if (go && go.tag == "LinePoint" && go != gameObject)
@@ -94,7 +94,7 @@ namespace TDE
                 endPointImage.Add(endBind);
 
                 line.bindEndImage = endPointImage;
-                line.bindEndData = endBind;
+               // line.bindEndData = endBind;
             }
         }
         #region 鼠标图标切换事件

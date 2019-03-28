@@ -27,9 +27,21 @@ namespace TDE
         {
             bindDatas.Add(data);
         }
-        public void Remove(BindData data)
+        public void Remove(T_Line data, LinePointType type)
         {
-            bindDatas.Remove(data);
+            //foreach 不能对集合进行修改
+            //bindDatas.Where(bindData => bindData != null).ForEach( item => { if (data.Equals(item.line) && type == item.LinePointType) bindDatas.Remove(item); });
+            if (bindDatas.IsNull() || bindDatas.Count <= 0) return;
+            for (int i = 0; i < bindDatas.Count; i++)
+            {
+                if (type == bindDatas[i].LinePointType && data.Equals(bindDatas[i].line))
+                    bindDatas.Remove(bindDatas[i]);
+            }
+            
+        }
+        public void Remove(T_Line data)
+        {
+            bindDatas.Where(item => item.Equals(data) ).ForEach(item => bindDatas.Remove(item));
         }
         //image对象矩阵改变
         public void TransformChange()
@@ -50,19 +62,7 @@ namespace TDE
         //清除绑点信息
         protected void ClearBind()
         {
-            bindDatas.Where(data => data != null).ForEach(data=>
-            {
-                if (data.LinePointType == LinePointType.Origin)
-                {
-                    data.line.bindBeginImage = null;
-                    data.line.bindBeginData = null;
-                }
-                else
-                {
-                    data.line.bindEndImage = null;
-                    data.line.bindEndData = null;
-                }
-            });
+            bindDatas.Where(data => data != null).ForEach(data=>data.line.DeleteBindForImageData(this));
 
             bindDatas.Clear();
         }

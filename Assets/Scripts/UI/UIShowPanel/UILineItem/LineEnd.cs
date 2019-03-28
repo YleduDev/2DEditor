@@ -69,7 +69,7 @@ namespace QFramework.TDE
         public void OnBeginDrag(PointerEventData eventData)
         {
             //½â³ý°ó¶¨
-            if (model.bindEndImage.IsNotNull()) { model.bindEndImage.Remove(model.bindEndData); model.bindEndImage = null;}
+            if (model.bindEndImage.IsNotNull()) { model.bindEndImage.Remove(model, LinePointType.End); model.bindEndImage = null;}
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -103,7 +103,7 @@ namespace QFramework.TDE
                 PointImage.Add(Bind);
 
                 model.bindEndImage = PointImage;
-                model.bindEndData = Bind;
+               // model.bindEndData = Bind;
             }
         }
 

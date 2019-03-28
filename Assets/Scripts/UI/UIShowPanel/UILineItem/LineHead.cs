@@ -94,14 +94,14 @@ namespace QFramework.TDE
                 PointImage.Add(Bind);
 
                 model.bindBeginImage = PointImage;
-                model.bindBeginData = Bind;
+               // model.bindBeginData = Bind;
             }
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             //½â³ý°ó¶¨
-            if (model.bindBeginImage.IsNotNull()) { model.bindBeginImage.Remove(model.bindBeginData); model.bindBeginImage = null; }
+            if (model.bindBeginImage.IsNotNull()) { model.bindBeginImage.Remove(model, LinePointType.Origin); model.bindBeginImage = null; }
         }
 
         public virtual void OnPointerEnter(PointerEventData eventData)
