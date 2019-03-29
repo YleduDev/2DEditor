@@ -103,7 +103,7 @@ namespace TDE
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 TypeNameHandling = TypeNameHandling.All
             };
-            string json = PlayerPrefs.GetString("Test8", string.Empty);
+            string json = PlayerPrefs.GetString("Test9", string.Empty);
             if (json.IsNullOrEmpty()) return new TSceneData();
             else
             {
@@ -119,7 +119,7 @@ namespace TDE
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 TypeNameHandling = TypeNameHandling.All
             };
-            PlayerPrefs.SetString("Test8", JsonConvert.SerializeObject(this, Formatting.Indented, seting));
+            PlayerPrefs.SetString("Test9", JsonConvert.SerializeObject(this, Formatting.Indented, seting));
         }
     }
     //所以场景对象

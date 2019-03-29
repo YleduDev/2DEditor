@@ -1,0 +1,77 @@
+ManifestFileVersion: 0
+CRC: 1283084314
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c12d27a123961871b923f732baba22e5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 063d4ded92126b339bdc9b3acc8dec80
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: e7d83f30ba85e054ea2ebb983c448934, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b49812d0fef717b42bb77d63992fcc57, type: 3}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -146154839, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -2061169968, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1367256648, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d9f5b0123ebaeb54d9eb788533e35f31, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b4593b1445e7a414bbba2cf8ae8d96f3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f906b3c46325b4a6ea4aea65a11a7264, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0a7619158aa66c44a9c7ed02afe99fb8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d144d3f579c2d93429e70c33babbe5ae, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e15b4e26c0189054bb90c4b5362a205d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4211833ca4e7a4984b2d973425a62933, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3ce8bd3c243fe3c4191f7da95ae9d069, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fcc5712d05c804344b5033948a3a3d5f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1181544e3705e9947ae65efc6a7e1626, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 04f68c9e7720cf54ebe211d2f9313396, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c6b4baaf062b3de479c8f76fdef2e0f2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/UIPrefab/UIShowPanel.prefab
+Dependencies:
+- E:/UnityProject/2DEditor-master/AssetBundles/Windows/texture

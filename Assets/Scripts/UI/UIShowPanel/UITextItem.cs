@@ -18,6 +18,7 @@ namespace QFramework.TDE
         RectTransform rect;
         public T_Text text;
         Image image;
+        ResLoader loader = ResLoader.Allocate();
 
         internal void Init(T_Graphic graphicItem)
         {
@@ -55,7 +56,7 @@ namespace QFramework.TDE
                  //ÑÕÉ«
                  .ApplySelfTo(self => self.text.mainColor.Subscribe(color => image.color = Global.GetColorQS(color)))
                 
-                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => { image.sprite = Global.GetSprite(spriteName); } ));
+                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => { image.sprite = loader.LoadSprite(spriteName); } ));
         }
 
 
@@ -109,6 +110,9 @@ namespace QFramework.TDE
 
         private void Awake(){ }
 
-        protected override void OnBeforeDestroy(){}
+        protected override void OnBeforeDestroy(){
+            loader.Recycle2Cache();
+            loader = null;
+        }
     }
 }

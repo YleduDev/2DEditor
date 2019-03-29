@@ -26,14 +26,20 @@ namespace QFramework.TDE
         StringReactiveProperty spritrsStr;
 
         T_Graphic T_Graphic = null;
+
+        ResLoader loader = ResLoader.Allocate();
         private void Awake(){}
-		protected override void OnBeforeDestroy(){}
+		protected override void OnBeforeDestroy(){
+
+            loader.Recycle2Cache();
+            loader = null;
+        }
         internal void Init(string spriteFullName,RectTransform Viewport,TSceneData model)
         {
             this.spriteFullName = spriteFullName;
             this.rectGraphicView = Viewport;
             this.model = model;
-            Sprite sprite= Global.GetSprite(spriteFullName);
+            Sprite sprite= loader.LoadSprite(spriteFullName);
             //graghic data Êý¾Ý
             spritrsStr = new UniRx.StringReactiveProperty(spriteFullName);
             widht = new UniRx.FloatReactiveProperty(sprite.rect.width);

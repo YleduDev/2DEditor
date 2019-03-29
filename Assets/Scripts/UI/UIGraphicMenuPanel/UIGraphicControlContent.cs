@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using QFramework;
 using System.IO;
 using TDE;
@@ -14,31 +13,33 @@ namespace QFramework.TDE
 	public partial class UIGraphicControlContent : UIElement
 	{
         TSceneData model;
+        ResLoader loader = ResLoader.Allocate();
         private void Awake(){}
 
-		protected override void OnBeforeDestroy(){}
+		protected override void OnBeforeDestroy(){
+            loader.Recycle2Cache();
+            loader = null;
+        }
 
         internal void GenerateUIGrrphicsItem(UIGraphicItem UIGraphicItem,UIimg UIimg,RectTransform Viewport, TSceneData model)
         {
+           
             this.model = model;
             string fileName = Global.allGraphicsFillName;
-            string path = Application.streamingAssetsPath + "/"+ fileName;
 
-            DirectoryInfo dir = new DirectoryInfo(path);
+            var text= loader.LoadSync<TextAsset>(Global.GraphisMenuConfigPathName);
+            var dict = SerializeHelper.FromJson<Dictionary<string, List<string>>>(text.text);
 
-            DirectoryInfo[] childDirs = dir.GetDirectories();
-
-            foreach (DirectoryInfo i in childDirs)
+            foreach (KeyValuePair<string, List<string>> kv in dict)
             {
-                if ( i.Parent.Name.Equals(fileName))
-                {
-                    UIGraphicItem GraphicItem= CreateGraphicItem(i, transform, UIGraphicItem, UIimg);
-                    GraphicItem.Init( i, UIimg, Viewport, model);
-                }               
+
+                UIGraphicItem GraphicItem = CreateGraphicItem(kv.Key, transform, UIGraphicItem);
+                GraphicItem.Init(kv, UIimg, Viewport, model);
+
             }
         }
         //生成GraphicItem
-        private UIGraphicItem CreateGraphicItem(DirectoryInfo i, Transform parent, UIGraphicItem UIGraphicItem,UIimg UIimg)
+        private UIGraphicItem CreateGraphicItem(DirectoryInfo i, Transform parent, UIGraphicItem UIGraphicItem)
         {
             //生成item
             return CreateGraphicItem(i.Name, parent, UIGraphicItem);

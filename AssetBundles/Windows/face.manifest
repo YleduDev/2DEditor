@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 893559434
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a12198e6dd7d9fade90b546601500a2b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/2DEditorGraphics/Face/Btn_Style1_Normal.png
+- Assets/Res/2DEditorGraphics/Face/Btn_Style1_Disabled.png
+- Assets/Res/2DEditorGraphics/Face/Btn_Close.png
+- Assets/Res/2DEditorGraphics/Face/Btn_Arrow_Down.png
+- Assets/Res/2DEditorGraphics/Face/Btn_Style1_Highlighted.png
+- Assets/Res/2DEditorGraphics/Face/Btn_Arrow_Disable.png
+- Assets/Res/2DEditorGraphics/Face/Btn_Style1_Pressed.png
+Dependencies: []

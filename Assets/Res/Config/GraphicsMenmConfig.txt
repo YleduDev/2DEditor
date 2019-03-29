@@ -1,0 +1,44 @@
+{
+  "Draw": [
+    "BG_001",
+    "BG_002",
+    "BG_003",
+    "BG_004",
+    "BG_005",
+    "BG_006",
+    "BG_007",
+    "BG_008 ",
+    "BG_009",
+    "BG_010_Text",
+    "BG_011",
+    "BG_012",
+    "BG_013"
+  ],
+  "Face": [
+    "Btn_Arrow_Disable",
+    "Btn_Arrow_Down",
+    "Btn_Close",
+    "Btn_Style1_Disabled",
+    "Btn_Style1_Highlighted",
+    "Btn_Style1_Normal",
+    "Btn_Style1_Pressed"
+  ],
+  "Line": [
+    "Ico_Arrows",
+    "Ico_Blood",
+    "Ico_HP",
+    "Ico_HP_BG",
+    "Ico_MP",
+    "Ico_ShaiZi",
+    "Ico_SkillBG",
+    "Ico_SmallMapArr",
+    "Ico_Status",
+    "Ico_TongQian",
+    "Ico_YuanBao",
+    "Ico_YuanBG"
+  ],
+  "Test": [
+    "TitleBG_001",
+    "TitleBG_002"
+  ]
+}

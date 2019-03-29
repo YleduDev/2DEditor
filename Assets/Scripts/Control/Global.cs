@@ -20,6 +20,7 @@ namespace TDE
         public static RectTransform textParent;
 
         public static string allGraphicsFillName= "2DEditorGraphics";
+        public static string GraphisMenuConfigPathName = "GraphicsMenmConfig";
         //配置 文本文件命名中 包含的约定
         public static string TextItemContainName = "Text";
         //全局，表示当前选中的图元对象

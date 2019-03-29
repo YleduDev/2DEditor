@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 2975541915
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9f1817eb013cc106b895d9a106d16a9e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Texture/1/BeginLine1.png
+- Assets/Res/Texture/3/EndArrows3.png
+- Assets/Res/Texture/1/EndArrows1.png
+- Assets/Res/Texture/3/Segment3.png
+- Assets/Res/Texture/5/BeginLine5.png
+- Assets/Res/Texture/5/BeginArrows5.png
+- Assets/Res/Texture/5/EndLine5.png
+- Assets/Res/Texture/5/Segment5.png
+- Assets/Res/Texture/3/BeginLine3.png
+- Assets/Res/Texture/5/EndArrows5.png
+- Assets/Res/Texture/shouzhi.png
+- Assets/Res/Texture/dianjishoushi.png
+- Assets/Res/Texture/1/Segment1.png
+- Assets/Res/Texture/3/EndLine3.png
+- Assets/Res/Texture/3/BeginArrows3.png
+- Assets/Res/Texture/1/BeginArrows1.png
+- Assets/Res/Texture/tuozhuai.png
+- Assets/Res/Texture/aigei_com.png
+- Assets/Res/Texture/tuozhuai1.png
+- Assets/Res/Texture/1/EndLine1.png
+- Assets/Res/Texture/icon_add.png
+Dependencies: []

@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 965858740
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: uishowpanel_prefab
+      Dependencies:
+        Dependency_0: texture
+    Info_1:
+      Name: uigraphicmenupanel_prefab
+      Dependencies: {}
+    Info_2:
+      Name: texture
+      Dependencies: {}
+    Info_3:
+      Name: draw
+      Dependencies: {}
+    Info_4:
+      Name: face
+      Dependencies: {}
+    Info_5:
+      Name: line
+      Dependencies: {}
+    Info_6:
+      Name: test
+      Dependencies: {}
+    Info_7:
+      Name: config
+      Dependencies: {}

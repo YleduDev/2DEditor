@@ -62,7 +62,7 @@ namespace QFramework.TDE
 
         public void ChangeSprite(T_Line model)
         {
-            segmentImage.sprite = loader.LoadSprite(model.px.Value.ToString() + "Segment");
+            segmentImage.sprite = loader.LoadSprite(  "Segment"+ model.px.Value.ToString());
             segmentImage.SetNativeSize();
         }
 

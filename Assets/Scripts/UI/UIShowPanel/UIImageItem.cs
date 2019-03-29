@@ -18,8 +18,8 @@ namespace QFramework.TDE
         TSceneData model;
         Image UIimage;
 
-        private T_Image Image;     
-
+        private T_Image Image;
+        ResLoader loader = ResLoader.Allocate();
         internal void Init(TSceneData model, T_Image graphicItem)
         {
             Image = graphicItem ;
@@ -66,7 +66,7 @@ namespace QFramework.TDE
                 //颜色
                  .ApplySelfTo(self => self.Image.mainColor.Subscribe(color=> UIimage.color = Global.GetColorQS(color)))
                  //Sprite
-                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> { UIimage.sprite = Global.GetSprite(spriteName); }));
+                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> { UIimage.sprite = loader.LoadSprite(spriteName); }));
         }
 
         //待优化 设计方式不太理想
@@ -126,6 +126,9 @@ namespace QFramework.TDE
 
         private void Awake(){}
 
-        protected override void OnBeforeDestroy(){}
+        protected override void OnBeforeDestroy(){
+            loader.Recycle2Cache();
+            loader = null;
+        }
     }
 }

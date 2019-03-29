@@ -55,7 +55,7 @@ namespace QFramework.TDE
 
         public void ChangeSprite(T_Line model)
         {
-            endImage.sprite = loader.LoadSprite(model.px.Value.ToString() + model.lineEndShapeType.Value.ToString());
+            endImage.sprite = loader.LoadSprite( model.lineEndShapeType.Value.ToString() + model.px.Value.ToString());
             endImage.SetNativeSize();
         }
 
