@@ -54,9 +54,9 @@ namespace QFramework.TDE
                 //¸ß
                 .ApplySelfTo(self => self.text.widht.Subscribe(f => rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f)))
                  //ÑÕÉ«
-                 .ApplySelfTo(self => self.text.mainColor.Subscribe(color => image.color = Global.GetColorQS(color)))
+                 .ApplySelfTo(self => self.text.mainColor.Subscribe(color => image.color = Global.GetColorCS(color)))
                 
-                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => { image.sprite = loader.LoadSprite(spriteName); } ));
+                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => { image.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteName)); } ));
         }
 
 

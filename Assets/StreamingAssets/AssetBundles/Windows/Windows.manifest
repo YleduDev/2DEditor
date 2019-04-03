@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 965858740
+CRC: 1782867687
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -13,17 +13,17 @@ AssetBundleManifest:
       Name: texture
       Dependencies: {}
     Info_3:
-      Name: draw
+      Name: config
       Dependencies: {}
     Info_4:
-      Name: face
-      Dependencies: {}
-    Info_5:
-      Name: line
-      Dependencies: {}
-    Info_6:
       Name: test
       Dependencies: {}
+    Info_5:
+      Name: face
+      Dependencies: {}
+    Info_6:
+      Name: draw
+      Dependencies: {}
     Info_7:
-      Name: config
+      Name: line
       Dependencies: {}

@@ -351,9 +351,9 @@ namespace QFramework
         }
 
 
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         private readonly Dictionary<string, Sprite> mCachedSpriteDict = new Dictionary<string, Sprite>();
-#endif
+//#endif
 
         public Sprite LoadSprite(string bundleName, string spriteName)
         {

@@ -55,7 +55,7 @@ namespace QFramework.TDE
 
         public void ChangeSprite(T_Line model)
         {
-            beginImage.sprite = loader.LoadSprite(  model.lineBeginShapeType.Value.ToString()+ model.px.Value.ToString());
+            beginImage.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(  model.lineBeginShapeType.Value.ToString()+ model.px.Value.ToString()));
             beginImage.SetNativeSize();
         }
 

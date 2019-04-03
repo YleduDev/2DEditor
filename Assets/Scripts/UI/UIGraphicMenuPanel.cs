@@ -21,56 +21,6 @@ namespace QFramework.TDE
     using System.Runtime.InteropServices;
     using System.IO;
     //using System.Windows.Forms;
-    #region OpenFileName数据接收类
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-    public class OpenFileName
-    {
-        public int structSize = 0;
-        public IntPtr dlgOwner = IntPtr.Zero;
-        public IntPtr instance = IntPtr.Zero;
-        public String filter = null;
-        public String customFilter = null;
-        public int maxCustFilter = 0;
-        public int filterIndex = 0;
-        public String file = null;
-        public int maxFile = 0;
-        public String fileTitle = null;
-        public int maxFileTitle = 0;
-        public String initialDir = null;
-        public String title = null;
-        public int flags = 0;
-        public short fileOffset = 0;
-        public short fileExtension = 0;
-        public String defExt = null;
-        public IntPtr custData = IntPtr.Zero;
-        public IntPtr hook = IntPtr.Zero;
-        public String templateName = null;
-        public IntPtr reservedPtr = IntPtr.Zero;
-        public int reservedInt = 0;
-        public int flagsEx = 0;
-    }
-    #endregion
-
-    #region 系统函数调用类
-    public class LocalDialog
-    {
-        //链接指定系统函数       打开文件对话框
-        [DllImport("Comdlg32.dll", SetLastError = true, ThrowOnUnmappableChar = true, CharSet = CharSet.Auto)]
-        public static extern bool GetOpenFileName([InAttribute, OutAttribute] OpenFileName ofn);
-        public static bool GetOFN([InAttribute, OutAttribute] OpenFileName ofn)
-        {
-            return GetOpenFileName(ofn);
-        }
-
-        //链接指定系统函数        另存为对话框
-        [DllImport("Comdlg32.dll", SetLastError = true, ThrowOnUnmappableChar = true, CharSet = CharSet.Auto)]
-        public static extern bool GetSaveFileName([InAttribute, OutAttribute] OpenFileName ofn);
-        public static bool GetSFN([InAttribute, OutAttribute] OpenFileName ofn)
-        {
-            return GetSaveFileName(ofn);
-        }
-    }
-    #endregion
     public class UIGraphicMenuPanelData : QFramework.UIPanelData
     {
         public TSceneData model;
@@ -84,12 +34,10 @@ namespace QFramework.TDE
 
         RectTransform rectGraphicView;
         
-
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
         {
             
-        }
-        
+        }    
         protected override void OnInit(QFramework.IUIData uiData)
         {
             mData = uiData as UIGraphicMenuPanelData ?? new UIGraphicMenuPanelData();
@@ -97,20 +45,59 @@ namespace QFramework.TDE
             UIGraphicControlContent.GenerateUIGrrphicsItem(UIGraphicItem,UIimg, rectGraphicView, mData.model);
 
             //订阅titleImg相关属性
-            TitleImgLocalPos.Subscribe(TitleImgLocalPosChange);
+            TitleImgLocalPos.Subscribe(v2=> TitleImg.LocalPosition(v2));
             TitleImgActive.Subscribe(bo=> { if (bo) TitleImg.Show(); else TitleImg.Hide(); });
             TitleSprite.Subscribe(sprite => TitleImg.sprite = sprite);
-            UILocalEditorButton.onClick.AddListener(()=> GetPather(UnityEngine.Application.streamingAssetsPath+Global.allGraphicsFillName));
-        }
+            //更多按钮单击
+            UILocalEditorButton.onClick.AddListener(()=> { });
+        }   
 
-
-
-        void TitleImgLocalPosChange(Vector2 ve)
+        protected override void OnOpen(QFramework.IUIData uiData)
         {
-            
-            TitleImg.LocalPosition(ve);
         }
-
+        
+        protected override void OnShow()
+        {
+        }
+        
+        protected override void OnHide()
+        {
+        }
+        
+        protected override void OnClose()
+        {
+        }
+        #region 弃用
+        /*
+        #region OpenFileName数据接收类
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        public class OpenFileName
+        {
+            public int structSize = 0;
+            public IntPtr dlgOwner = IntPtr.Zero;
+            public IntPtr instance = IntPtr.Zero;
+            public String filter = null;
+            public String customFilter = null;
+            public int maxCustFilter = 0;
+            public int filterIndex = 0;
+            public String file = null;
+            public int maxFile = 0;
+            public String fileTitle = null;
+            public int maxFileTitle = 0;
+            public String initialDir = null;
+            public String title = null;
+            public int flags = 0;
+            public short fileOffset = 0;
+            public short fileExtension = 0;
+            public String defExt = null;
+            public IntPtr custData = IntPtr.Zero;
+            public IntPtr hook = IntPtr.Zero;
+            public String templateName = null;
+            public IntPtr reservedPtr = IntPtr.Zero;
+            public int reservedInt = 0;
+            public int flagsEx = 0;
+        }
+        #endregion
         /// <summary>
         /// 获得路径
         /// </summary>
@@ -132,7 +119,7 @@ namespace QFramework.TDE
 
             if (LocalDialog.GetSaveFileName(openFileName))
             {
-                FileStreamLoadTexture(openFileName.file,path);
+                FileStreamLoadTexture(openFileName.file, path);
             }
             //创建窗口对象
             //OpenFileDialog ofd = new OpenFileDialog();
@@ -184,23 +171,29 @@ namespace QFramework.TDE
             {
                 e.Message.LogInfo();
             }
-           
-        }
 
-        protected override void OnOpen(QFramework.IUIData uiData)
-        {
         }
-        
-        protected override void OnShow()
+        #region 系统函数调用类
+        public class LocalDialog
         {
+            //链接指定系统函数       打开文件对话框
+            [DllImport("Comdlg32.dll", SetLastError = true, ThrowOnUnmappableChar = true, CharSet = CharSet.Auto)]
+            public static extern bool GetOpenFileName([InAttribute, OutAttribute] OpenFileName ofn);
+            public static bool GetOFN([InAttribute, OutAttribute] OpenFileName ofn)
+            {
+                return GetOpenFileName(ofn);
+            }
+
+            //链接指定系统函数        另存为对话框
+            [DllImport("Comdlg32.dll", SetLastError = true, ThrowOnUnmappableChar = true, CharSet = CharSet.Auto)]
+            public static extern bool GetSaveFileName([InAttribute, OutAttribute] OpenFileName ofn);
+            public static bool GetSFN([InAttribute, OutAttribute] OpenFileName ofn)
+            {
+                return GetSaveFileName(ofn);
+            }
         }
-        
-        protected override void OnHide()
-        {
-        }
-        
-        protected override void OnClose()
-        {
-        }
+        #endregion
+    */
+        #endregion
     }
 }

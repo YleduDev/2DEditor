@@ -65,7 +65,7 @@ namespace QFramework.TDE
                 //Æðµã
                 .ApplySelfTo(self => self.line.localOriginPos.Subscribe(_ => self.PointChange()))
                  //ÑÕÉ«
-                .ApplySelfTo(self => self.line.mainColor.Subscribe(color => UIImages.ForEach(item=> item.color= Global.GetColorQS(color))));
+                .ApplySelfTo(self => self.line.mainColor.Subscribe(color => UIImages.ForEach(item=> item.color= Global.GetColorCS(color))));
 
         }
 

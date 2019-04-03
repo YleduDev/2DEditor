@@ -64,9 +64,9 @@ namespace QFramework.TDE
                 .ApplySelfTo(self => self.Image.widht.Subscribe(
                  f => { self.Image.TransformChange(); rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f); }))
                 //颜色
-                 .ApplySelfTo(self => self.Image.mainColor.Subscribe(color=> UIimage.color = Global.GetColorQS(color)))
+                 .ApplySelfTo(self => self.Image.mainColor.Subscribe(color=> UIimage.color = Global.GetColorCS(color)))
                  //Sprite
-                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> { UIimage.sprite = loader.LoadSprite(spriteName); }));
+                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> { UIimage.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteName)); }));
         }
 
         //待优化 设计方式不太理想

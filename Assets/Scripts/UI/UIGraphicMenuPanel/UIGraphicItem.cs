@@ -16,7 +16,6 @@ namespace QFramework.TDE
 	public partial class UIGraphicItem : UIElement
 	{
         TSceneData model;
-        Dictionary<string, Sprite> sprites;
         List<string> imgListNmae;
         UIimg UIimg;
         RectTransform Viewport;
@@ -47,7 +46,6 @@ namespace QFramework.TDE
             EditorContent.Show(); buttonImg?.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 0)));
 
             //³õÊ¼»¯Model
-            sprites = Global.sprites;
 
             this.UIimg = UIimg;
 
@@ -94,7 +92,7 @@ namespace QFramework.TDE
         {
              UIimg.Instantiate()
                 .ApplySelfTo(self => self.transform.SetParent(parent, false))
-                .ApplySelfTo(self => self.GetComponent<Image>().sprite = loader.LoadSprite(spriteFullName))
+                .ApplySelfTo(self => self.GetComponent<Image>().sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteFullName)))
                 .ApplySelfTo(self=> self.Init(spriteFullName, Viewport,model))
                 .Show();
         }

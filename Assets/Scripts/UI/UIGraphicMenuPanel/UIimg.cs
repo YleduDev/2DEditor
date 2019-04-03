@@ -39,7 +39,7 @@ namespace QFramework.TDE
             this.spriteFullName = spriteFullName;
             this.rectGraphicView = Viewport;
             this.model = model;
-            Sprite sprite= loader.LoadSprite(spriteFullName);
+            Sprite sprite= Global.GetSprite(loader.LoadSync<Texture2D>(spriteFullName));
             //graghic data Êý¾Ý
             spritrsStr = new UniRx.StringReactiveProperty(spriteFullName);
             widht = new UniRx.FloatReactiveProperty(sprite.rect.width);
@@ -62,7 +62,7 @@ namespace QFramework.TDE
         public void OnBeginDrag(PointerEventData eventData)
         {
             UIGraphicMenuPanel.TitleImgActive.Value = true;
-            UIGraphicMenuPanel.TitleSprite.Value = Global.GetSprite(spriteFullName);
+            UIGraphicMenuPanel.TitleSprite.Value = Global.GetSprite(loader.LoadSync<Texture2D>(spriteFullName));
             bo = false;
             generateLock = false;
             T_Graphic = null;

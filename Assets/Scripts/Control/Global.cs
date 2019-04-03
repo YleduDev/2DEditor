@@ -41,41 +41,37 @@ namespace TDE
             }
         }
         //存储当前所有的Sprite
-        public static Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+        public static Dictionary<Texture2D, Sprite> sprites = new Dictionary<Texture2D, Sprite>();
 
         //获取Sprite
-        public static Sprite GetSprite(string key)
+        public static Sprite GetSprite(Texture2D tex)
         {
-            key = key.Trim();
             //int spriteKey;
-            if (sprites != null && sprites.ContainsKey(key)) return sprites[key];
-            return null;
+            if (sprites != null && sprites.ContainsKey(tex)) return sprites[tex];
+            Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
+            sprite.name = tex.name;
+            sprites.Add(tex, sprite);
+            return sprite;
         }
 
         public static Quaternion GetQuaternionForQS(QuaternionSerializer data)
         {
             return new Quaternion(data.x, data.y, data.z, data.w);
         }
-        public static Color GetColorQS(ColorSerializer data)
+        public static Color GetColorCS(ColorSerializer data)
         {
             return new Color(data.r, data.g, data.b, data.a);
         }
 
         public  static bool GetLocalPointOnCanvas(Vector2 loaclPoint)
         {
-            float left = -currentCanvasWidth / 2;
-            float right= currentCanvasWidth / 2;
-            float up = currentCanvasheight / 2;
-            float donw = -currentCanvasheight / 2;
+            float left = -currentCanvasWidth *0.5f;
+            float right= currentCanvasWidth * 0.5f;
+            float up = currentCanvasheight * 0.5f;
+            float donw = -currentCanvasheight * 0.5f;
             return loaclPoint.x > left && loaclPoint.x < right && loaclPoint.y > donw && loaclPoint.y < up;
         }
 
-        /// 转换为Sprite
-        public static Sprite ChangeToSprite(Texture2D tex)
-        {
-            Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
-            sprite.name = tex.name;
-            return sprite;
-        }
+       
     }
 }
