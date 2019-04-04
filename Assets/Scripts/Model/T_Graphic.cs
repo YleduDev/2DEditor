@@ -39,7 +39,8 @@ namespace TDE
         Text,
         Line
     }
-public abstract class T_Graphic
+  
+    public abstract class T_Graphic
 {
         public Vector2ReactiveProperty  localPos=new Vector2ReactiveProperty();
         //Unity本身Quat对象序列化有误，需要封装一层
@@ -62,8 +63,9 @@ public abstract class T_Graphic
 
         public GraphicType graphicType= GraphicType.Image;
 
+        public ReactiveProperty<WebSocketMessage> AssetNodeData = new ReactiveProperty<WebSocketMessage>();
 
-       public virtual void Destroy()
+        public virtual void Destroy()
         {
             isSelected.Value=false;
             isChecking.Value = false;

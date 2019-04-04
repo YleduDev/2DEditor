@@ -14,6 +14,8 @@ namespace QFramework.TDE
 	{
 		private void Awake()
 		{
+            //透明不进行检测
+            GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
 		}
 
 		protected override void OnBeforeDestroy()

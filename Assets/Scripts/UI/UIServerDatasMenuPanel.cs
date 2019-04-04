@@ -16,24 +16,39 @@ namespace QFramework.TDE
     using System.Linq;
     using UnityEngine;
     using UnityEngine.UI;
-    
-    
+    using UniRx;
+    using global::TDE;
+
     public class UIServerDatasMenuPanelData : QFramework.UIPanelData
     {
+       public ServerData ServerData;
+        public T_Graphic T_Model;
     }
     
     public partial class UIServerDatasMenuPanel : QFramework.UIPanel
     {
-        
+        public StringReactiveProperty id = new StringReactiveProperty();
+        public ReactiveProperty<WebSocketMessage> Message = new ReactiveProperty<WebSocketMessage>();
+
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
         {
-            throw new System.NotImplementedException ();
+           
         }
         
         protected override void OnInit(QFramework.IUIData uiData)
         {
             mData = uiData as UIServerDatasMenuPanelData ?? new UIServerDatasMenuPanelData();
-            // please add init code here
+
+            UIServerDatasCloseButton.GetComponent<Button>().onClick.AddListener(() =>UIManager.Instance.HideUI<UIServerDatasMenuPanel>());
+
+            UIServerDatasContent_Input.Init(mData.ServerData, UIServerDataItem);
+            UIServerDatasContent_Input.Message.Subscribe(value =>  Message.Value = value );
+
+            UIServerData_InputField.onValueChanged.AddListener(value=> { if (value.IsNotNull()) id.Value = value; });
+
+            id.Subscribe(value =>  UIServerDatasContent_Input.InputDataChange(value) );
+
+            UIConfirmButton.onClick.AddListener(() => { if (mData.T_Model.IsNotNull()) mData.T_Model.AssetNodeData.Value = Message.Value; } );
         }
         
         protected override void OnOpen(QFramework.IUIData uiData)

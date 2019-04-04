@@ -33,6 +33,12 @@ namespace QFramework.TDE
         public UIServerDatasCloseButton UIServerDatasCloseButton;
         
         [SerializeField()]
+        public UIServerDatasContent_Input UIServerDatasContent_Input;
+        
+        [SerializeField()]
+        public InputField UIServerData_InputField;
+        
+        [SerializeField()]
         public RectTransform UIServerDatasContent;
         
         [SerializeField()]
@@ -61,6 +67,8 @@ namespace QFramework.TDE
             UIServerDataItem = null;
             UIServerDataPathItem = null;
             UIServerDatasCloseButton = null;
+            UIServerDatasContent_Input = null;
+            UIServerData_InputField = null;
             UIServerDatasContent = null;
             UIConfirmButton = null;
             UIResetutton = null;

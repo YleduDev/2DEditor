@@ -24,6 +24,7 @@ namespace TDE
             UIMgr.SetResolution(1920, 1080, 0);
             UIMgr.OpenPanel<UIGraphicMenuPanel>(new UIGraphicMenuPanelData() { model = model });
             UIMgr.OpenPanel<UIShowPanel>(new UIShowPanelData() { model=model});
+            UIMgr.OpenPanel<UIServerDatasMenuPanel>();
         }
 
         private void OnApplicationQuit()

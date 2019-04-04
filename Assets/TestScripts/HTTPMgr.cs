@@ -3,11 +3,10 @@ using System.IO;
 using System.Net;
 using System.Net.Security;
 using System.Text;
-using UnityEngine;
 using QFramework;
 namespace XZL
 {
-    public class NetWorkManager : MonoSingleton<NetWorkManager>
+    public class HTTPMgr : MonoSingleton<HTTPMgr>
     {
         #region 请求
         public static string contentType = "application/x-www-form-urlencoded";
@@ -17,7 +16,7 @@ namespace XZL
         public static string userAgent = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)";
 
         public static string accept = "image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, application/x-silverlight-2-b1, */*";
-
+   
         public CookieContainer cookie = new CookieContainer();
 
         /// <summary>
@@ -82,7 +81,7 @@ namespace XZL
             }
             catch (Exception e)
             {
-                Debug.Log("CreateHTTPRequest Error url is:" + url + "   errorMessage:" + e.ToString());
+                Log.I("CreateHTTPRequest Error url is:" + url + "   errorMessage:" + e.ToString());
                 if (response != null) response.Close();
                 if (request != null) request.Abort();
                 return null;
@@ -151,9 +150,12 @@ namespace XZL
                 request = WebRequest.Create(url) as HttpWebRequest;
                 //设置属性
                 request.Method = method;
+                request.CookieContainer = cookie;
                 request.ContentType = contentType;
+                request.KeepAlive = true;
+                request.UserAgent = userAgent;
+                request.Accept = accept;
                 request.ContentLength = data.Length;
-                request.CookieContainer = new CookieContainer();
                 //发送请求
                 Stream newStream = request.GetRequestStream();
                 newStream.Write(data, 0, data.Length);
@@ -184,6 +186,77 @@ namespace XZL
                 return null;
             }
         }
+
+
+        public int PostRequest(string Url, string user, string pwd, string paramData, Encoding MsgEncode)
+        {
+            if (string.IsNullOrEmpty(Url))
+            {
+                throw new ArgumentNullException("Url");
+            }
+            if (MsgEncode == null)
+            {
+                throw new ArgumentNullException("MsgEncoding");
+            }
+
+            string username = user;
+            string password = pwd;
+            string usernamePassword = username + ":" + password;
+            CredentialCache mycache = new CredentialCache();
+            mycache.Add(new Uri(Url), "Digest", new NetworkCredential(username, password));
+
+            Log.I(GetType().ToString(), "PostRequest", "POST HTTP请求,创建短信请求", string.Empty);
+            HttpWebRequest Request = (HttpWebRequest)WebRequest.Create(new Uri(Url));
+            Request.Credentials = mycache;
+            Request.Headers.Add("Authorization", "Digest" + Convert.ToBase64String(MsgEncode.GetBytes(usernamePassword)));
+
+            Request.Method = "POST";
+            //Request.Timeout = 1000;
+            Request.ContentType = "application/x-www-form-urlencoded";
+
+            
+            byte[] byteArray = MsgEncode.GetBytes(paramData);
+            Request.ContentLength = byteArray.Length;
+
+            Stream newStream = Request.GetRequestStream();
+            newStream.Write(byteArray, 0, byteArray.Length);
+            newStream.Close();
+
+            //string ret = string.Empty;
+            Log.I(GetType().ToString(), "PostRequest", "POST HTTP请求,获取短信HTTP请求响应", string.Empty);
+            HttpWebResponse response;
+            try
+            {
+                response = (HttpWebResponse)Request.GetResponse();
+            }
+            catch (WebException ex)
+            {
+                response = (HttpWebResponse)ex.Response;
+            }
+
+            int ret = 0;
+            ret = (int)response.StatusCode;
+            Log.I(GetType().ToString(), "PostRequest", "POST HTTP请求,发送短信请求返回状态码", ret.ToString());
+
+            Stream stream = response.GetResponseStream();
+            byte[] rsByte = new Byte[response.ContentLength];
+            //StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.Default);
+            //ret = sr.ReadToEnd();
+            try
+            {
+                stream.Read(rsByte, 0, (int)response.ContentLength);
+                Log.I(GetType().ToString(), "PostRequest", "POST HTTP请求,发送短信请求返回内容", System.Text.Encoding.UTF8.GetString(rsByte, 0, rsByte.Length).ToString());
+            }
+            catch (Exception ex)
+            {
+                Log.I(GetType().ToString(), "PostRequest", "POST HTTP请求,发送短信请求返回内容异常", ex.ToString());
+            }
+            stream.Close();
+            response.Close();
+
+            return ret;
+        }
+
         #endregion
     }
 }
