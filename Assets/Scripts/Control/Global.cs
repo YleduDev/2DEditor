@@ -1,14 +1,16 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using QFramework;
 using UniRx;
+using System;
+
 namespace TDE
 {
-    public class Global : MonoBehaviour
+    public class Global 
     {
         public static int LinePx = 3;
-        public static LineBeginShape beginShape= LineBeginShape.BeginLine;
+        public static LineBeginShape beginShape = LineBeginShape.BeginLine;
         public static LineEndShape endShape = LineEndShape.EndArrows;
         public static float minLineLength = 10f;
         public static LineShapeType lineShapeType = LineShapeType.Straight;
@@ -19,31 +21,57 @@ namespace TDE
         public static RectTransform imageParent;
         public static RectTransform textParent;
 
-        public static string allGraphicsFillName= "2DEditorGraphics";
+        public static string allGraphicsFillName = "2DEditorGraphics";
         public static string GraphisMenuConfigPathName = "GraphicsMenmConfig";
-        //ÅäÖÃ ÎÄ±¾ÎÄ¼şÃüÃûÖĞ °üº¬µÄÔ¼¶¨
+        //é…ç½® æ–‡æœ¬æ–‡ä»¶å‘½åä¸­ åŒ…å«çš„çº¦å®š
         public static string TextItemContainName = "Text";
-        //È«¾Ö£¬±íÊ¾µ±Ç°Ñ¡ÖĞµÄÍ¼Ôª¶ÔÏó
-        public static T_Graphic OnSelectedGraphic;
+        //å…¨å±€ï¼Œè¡¨ç¤ºå½“å‰é€‰ä¸­çš„å›¾å…ƒå¯¹è±¡
+        public static ReactiveProperty< T_Graphic> OnSelectedGraphic=new ReactiveProperty<T_Graphic>();
 
-        private static Vector2 ratio= Vector2.zero;
+        private static Vector2 ratio = Vector2.zero;
+
+        public static Dictionary<string, ReactiveProperty< WebSocketMessage>> bindDataDict = new Dictionary<string, ReactiveProperty<WebSocketMessage>>();
+
+        public static void AddBindData(ReactiveProperty<WebSocketMessage> data)
+        {
+            if (data.Value!=null&&!bindDataDict.ContainsKey(data.Value.Id))
+            {
+                Log.I("ç»‘ç‚¹æ•°æ®:"+ data.Value.Id);
+                bindDataDict.Add(data.Value.Id,  data);
+            }
+        }
+        public static void RemoveBindData(ReactiveProperty<WebSocketMessage> data)
+        {
+            if (data.Value != null && bindDataDict.ContainsKey(data.Value.Id))
+            {
+                bindDataDict.Remove(data.Value.Id);
+            }
+        }
+
+        public static void UpdataBindData(WebSocketMessage data)
+        {
+            if (data != null && bindDataDict.ContainsKey(data.Id))
+            {
+                bindDataDict[data.Id].Value = data;
+            }
+        }
         /// <summary>
-        /// ShowPanel Í¼Ôª¼°Ãæ°åµã»÷ÊÂ¼ş
+        /// ShowPanel å›¾å…ƒåŠé¢æ¿ç‚¹å‡»äº‹ä»¶
         /// </summary>
         /// <param name="graphic"></param>
-        public static void OnClick(T_Graphic graphic=null)
+        public static void OnClick(T_Graphic graphic = null)
         {
-           if(OnSelectedGraphic.IsNotNull()) OnSelectedGraphic.isSelected.Value = false;
+            if (OnSelectedGraphic.Value.IsNotNull()) OnSelectedGraphic.Value.isSelected.Value = false;
             if (graphic.IsNotNull())
             {
                 graphic.isSelected.Value = true;
-                OnSelectedGraphic = graphic;
+                OnSelectedGraphic.Value = graphic;
             }
         }
-        //´æ´¢µ±Ç°ËùÓĞµÄSprite
+        //å­˜å‚¨å½“å‰æ‰€æœ‰çš„Sprite
         public static Dictionary<Texture2D, Sprite> sprites = new Dictionary<Texture2D, Sprite>();
 
-        //»ñÈ¡Sprite
+        //è·å–Sprite
         public static Sprite GetSprite(Texture2D tex)
         {
             //int spriteKey;
@@ -62,16 +90,29 @@ namespace TDE
         {
             return new Color(data.r, data.g, data.b, data.a);
         }
-
-        public  static bool GetLocalPointOnCanvas(Vector2 loaclPoint)
+        public static ColorSerializer GetColorForState(WebSocketMessage message )
         {
-            float left = -currentCanvasWidth *0.5f;
-            float right= currentCanvasWidth * 0.5f;
+            MessageState State = MessageState.NORMAL;
+            if (!string.IsNullOrEmpty(message.State))
+             State = (MessageState)Enum.Parse(typeof(MessageState), message.State);
+            switch (State)
+            {
+                case MessageState.NORMAL: Log.I("ç»¿"); return new ColorSerializer( Color.green);
+                case MessageState.ERROR: Log.I("çº¢"); return new ColorSerializer(Color.red);
+                case MessageState.WARNING: Log.I("é»„"); return new ColorSerializer(Color.yellow);
+                default: Log.I("ç™½"); return new ColorSerializer(Color.white);
+            }
+        }
+
+        public static bool GetLocalPointOnCanvas(Vector2 loaclPoint)
+        {
+            float left = -currentCanvasWidth * 0.5f;
+            float right = currentCanvasWidth * 0.5f;
             float up = currentCanvasheight * 0.5f;
             float donw = -currentCanvasheight * 0.5f;
             return loaclPoint.x > left && loaclPoint.x < right && loaclPoint.y > donw && loaclPoint.y < up;
         }
 
-       
+
     }
 }

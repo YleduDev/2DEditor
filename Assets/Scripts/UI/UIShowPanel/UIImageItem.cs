@@ -45,7 +45,7 @@ namespace QFramework.TDE
             //点击选中
             this.ApplySelfTo(self => self.Image.isSelected.Subscribe(on =>
             {
-                if (on) { self.UIEditorBox?.Show(); self.UILineSwitch?.Show(); Global.OnSelectedGraphic = Image; }
+                if (on) { self.UIEditorBox?.Show(); self.UILineSwitch?.Show(); Global.OnSelectedGraphic.Value = Image; }
                 else {  self.UIEditorBox.gameObject.Hide(); self.UILineSwitch?.Hide(); }
             }))
                 //移动
@@ -64,9 +64,14 @@ namespace QFramework.TDE
                 .ApplySelfTo(self => self.Image.widht.Subscribe(
                  f => { self.Image.TransformChange(); rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f); }))
                 //颜色
-                 .ApplySelfTo(self => self.Image.mainColor.Subscribe(color=> UIimage.color = Global.GetColorCS(color)))
+                 .ApplySelfTo(self => self.Image.mainColor.Subscribe(color=>  UIimage.color = Global.GetColorCS(color)))
                  //Sprite
-                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> { UIimage.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteName)); }));
+                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> { UIimage.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteName)); }))
+                // .ApplySelfTo(self => self.Image.ColorInit())
+                 //.ApplySelfTo(self => self.Image.AssetNodeData = new ReactiveProperty<WebSocketMessage>())
+                 .ApplySelfTo(self => self.Image.AssetNodeData.Subscribe(data => {
+                     if (data.IsNotNull()) self.Image.mainColor.Value = Global.GetColorForState(data);
+                 }));
         }
 
         //待优化 设计方式不太理想

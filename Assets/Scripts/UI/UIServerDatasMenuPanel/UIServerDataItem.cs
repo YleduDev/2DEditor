@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using QFramework;
 using UniRx;
+using TDE;
 
 namespace QFramework.TDE
 {

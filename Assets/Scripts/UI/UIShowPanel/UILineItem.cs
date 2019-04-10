@@ -64,8 +64,13 @@ namespace QFramework.TDE
                 .ApplySelfTo(self => self.line.localEndPos.Subscribe(_ => self.PointChange()))
                 //起点
                 .ApplySelfTo(self => self.line.localOriginPos.Subscribe(_ => self.PointChange()))
-                 //颜色
-                .ApplySelfTo(self => self.line.mainColor.Subscribe(color => UIImages.ForEach(item=> item.color= Global.GetColorCS(color))));
+                //颜色
+                .ApplySelfTo(self => self.line.mainColor.Subscribe(color => UIImages.ForEach(item => item.color = Global.GetColorCS(color))))
+               // .ApplySelfTo(self => self.line.AssetNodeData=new ReactiveProperty<WebSocketMessage>())
+               // .ApplySelfTo(self => self.line.ColorInit())
+                .ApplySelfTo(self => self.line.AssetNodeData.Subscribe(data=> { if (data.IsNotNull()) self.line.mainColor.Value = Global.GetColorForState(data)
+                        ;
+                    else self.line.ColorInit(); }));
 
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UniRx;
 using System;
 using Newtonsoft.Json;
+using QFramework;
 
 namespace TDE
 {
@@ -63,12 +64,35 @@ namespace TDE
 
         public GraphicType graphicType= GraphicType.Image;
 
-        public ReactiveProperty<WebSocketMessage> AssetNodeData = new ReactiveProperty<WebSocketMessage>();
-
+        public ReactiveProperty<WebSocketMessage> AssetNodeData =new ReactiveProperty<WebSocketMessage>() ;
+   
         public virtual void Destroy()
         {
             isSelected.Value=false;
             isChecking.Value = false;
+            Global.RemoveBindData(AssetNodeData);
         }
+
+        public virtual void ColorInit()
+        {
+            mainColor .Value = new ColorSerializer(Color.white);
+        }
+        public virtual void SetAssetNodeData(WebSocketMessage message)
+        {
+            if (AssetNodeData == null) Log.I("AssetNodeData IS Null");
+             AssetNodeData.Value = message;
+            Global.AddBindData(AssetNodeData);
+        }
+        //public void OnAfterDeserialize()
+        //{
+
+        //    Debug.Log("序列化开始");
+        //}
+
+        //public void OnBeforeSerialize()
+        //{
+        //    Debug.Log("反序列化结束后");
+        //    if (AssetNodeData != null && AssetNodeData.Value != null) Global.AddBindData(AssetNodeData.Value);
+        //}
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using WebSocketSharp;
 using UnityEngine;
 using QFramework;
+using Newtonsoft.Json;
+using TDE;
 
 public class WebSocketInstance : MonoSingleton<WebSocketInstance>
 {
@@ -34,7 +36,9 @@ public class WebSocketInstance : MonoSingleton<WebSocketInstance>
 
     private void UpDateWebSocket_OnMessage(object sender, MessageEventArgs e)
     {
-        Debug.Log("收到推送消息" + e.Data);    
+        Debug.Log("收到推送消息" + e.Data);
+        WebSocketMessage message= JsonConvert.DeserializeObject<WebSocketMessage>(e.Data);
+       if (message != null) Global.UpdataBindData(message);
     }
 
     
@@ -61,6 +65,7 @@ public class WebSocketInstance : MonoSingleton<WebSocketInstance>
 }
 public class WebSocketMessage
 {
+    
     public string Id { set; get; }
     public string Data { set; get; }//valueStr
     public string State { set; get; }

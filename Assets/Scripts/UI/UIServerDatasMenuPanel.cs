@@ -22,7 +22,7 @@ namespace QFramework.TDE
     public class UIServerDatasMenuPanelData : QFramework.UIPanelData
     {
        public ServerData ServerData;
-        public T_Graphic T_Model;
+       public T_Graphic T_Model;
     }
     
     public partial class UIServerDatasMenuPanel : QFramework.UIPanel
@@ -48,11 +48,19 @@ namespace QFramework.TDE
 
             id.Subscribe(value =>  UIServerDatasContent_Input.InputDataChange(value) );
 
-            UIConfirmButton.onClick.AddListener(() => { if (mData.T_Model.IsNotNull()) mData.T_Model.AssetNodeData.Value = Message.Value; } );
+            UIConfirmButton.onClick.AddListener(() => {
+                if (mData.T_Model.IsNotNull() && Message.Value.IsNotNull())
+                {
+                    Log.I(mData.T_Model.localPos);
+                    mData.T_Model.SetAssetNodeData( new WebSocketMessage() { Id =Message.Value .Id,State= Message.Value .State,Data= Message.Value .Data});
+                   UIManager.Instance.HideUI<UIServerDatasMenuPanel>();
+                }
+            } );
         }
         
         protected override void OnOpen(QFramework.IUIData uiData)
         {
+            mData = uiData as UIServerDatasMenuPanelData ?? new UIServerDatasMenuPanelData();
         }
         
         protected override void OnShow()

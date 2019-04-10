@@ -41,7 +41,7 @@ namespace QFramework.TDE
             //点击选中
             this.ApplySelfTo(self => self.text.isSelected.Subscribe(on =>
             {
-                if (on) { UIEditorBox?.Show();Global.OnSelectedGraphic = text; } else UIEditorBox?.Hide();
+                if (on) { UIEditorBox?.Show();Global.OnSelectedGraphic.Value = text; } else UIEditorBox?.Hide();
             }))
                 //移动
                 .ApplySelfTo(self => self.text.localPos.Subscribe(v2 => rect.LocalPosition(v2)))
@@ -56,7 +56,8 @@ namespace QFramework.TDE
                  //颜色
                  .ApplySelfTo(self => self.text.mainColor.Subscribe(color => image.color = Global.GetColorCS(color)))
                 
-                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => { image.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteName)); } ));
+                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => { image.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteName)); } ))
+                 .ApplySelfTo(self => self.text.AssetNodeData.Subscribe(data => { if (data.IsNotNull()) self.text.mainColor.Value = Global.GetColorForState(data); }));
         }
 
 

@@ -36,4 +36,10 @@ namespace TDE
         EndLine,
         EndArrows
     }
+    public enum MessageState
+    {
+        NORMAL,
+        ERROR,
+        WARNING
+    }
 }

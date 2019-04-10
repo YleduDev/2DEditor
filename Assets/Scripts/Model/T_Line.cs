@@ -49,5 +49,9 @@ namespace TDE
             base.Destroy();
             ClearBind();
         }
+        public override void ColorInit()
+        {
+            mainColor .Value = new ColorSerializer(Color.black);
+        }
     }
 }
