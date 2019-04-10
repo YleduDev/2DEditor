@@ -15,7 +15,6 @@ public class CreateOrUpdataGraphicsMenmConfig{
 
 #if UNITY_EDITOR
     [MenuItem("Tools/CreateOrUdateGraphicsMenuConfig")]
-#endif
     private static void MenuClick()
     {
         string fileName =  Global.allGraphicsFillName;
@@ -41,4 +40,5 @@ public class CreateOrUpdataGraphicsMenmConfig{
         }
        File.WriteAllText(Application.dataPath + "/Res/Config/" + Global.GraphisMenuConfigPathName+".txt", GraphicsMenuConfig.ToJson());
     }
+#endif
 }

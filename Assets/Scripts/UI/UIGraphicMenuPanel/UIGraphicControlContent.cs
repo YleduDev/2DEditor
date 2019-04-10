@@ -25,7 +25,6 @@ namespace QFramework.TDE
         {
            
             this.model = model;
-            string fileName = Global.allGraphicsFillName;
 
             var text= loader.LoadSync<TextAsset>(Global.GraphisMenuConfigPathName);
             var dict = SerializeHelper.FromJson<Dictionary<string, List<string>>>(text.text);

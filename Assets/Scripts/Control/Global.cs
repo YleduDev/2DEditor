@@ -10,25 +10,31 @@ namespace TDE
     public class Global 
     {
         public static int LinePx = 3;
+        //线段的起 末
         public static LineBeginShape beginShape = LineBeginShape.BeginLine;
         public static LineEndShape endShape = LineEndShape.EndArrows;
+        //划线时最小有效距离
         public static float minLineLength = 10f;
+        //线段的算法，类型  -- 直线 - 折线 -- 曲线
         public static LineShapeType lineShapeType = LineShapeType.Straight;
+        //画布的宽高
         public static float currentCanvasWidth;
         public static float currentCanvasheight;
 
+        //图元父物体
         public static RectTransform LineParent;
         public static RectTransform imageParent;
         public static RectTransform textParent;
-
+#if UNITY_EDITOR
+        //所有图元存放路径
         public static string allGraphicsFillName = "2DEditorGraphics";
+#endif
+        //所有图元配置文档
         public static string GraphisMenuConfigPathName = "GraphicsMenmConfig";
         //配置 文本文件命名中 包含的约定
         public static string TextItemContainName = "Text";
         //全局，表示当前选中的图元对象
-        public static ReactiveProperty< T_Graphic> OnSelectedGraphic=new ReactiveProperty<T_Graphic>();
-
-        private static Vector2 ratio = Vector2.zero;
+        public static ReactiveProperty< T_Graphic> OnSelectedGraphic=new ReactiveProperty<T_Graphic>();      
 
         public static Dictionary<string, ReactiveProperty< WebSocketMessage>> bindDataDict = new Dictionary<string, ReactiveProperty<WebSocketMessage>>();
 
@@ -104,6 +110,7 @@ namespace TDE
             }
         }
 
+        //获取点位是否在画布内，ture->在画布内
         public static bool GetLocalPointOnCanvas(Vector2 loaclPoint)
         {
             float left = -currentCanvasWidth * 0.5f;
