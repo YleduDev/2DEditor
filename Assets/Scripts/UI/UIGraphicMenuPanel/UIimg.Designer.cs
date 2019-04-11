@@ -1,5 +1,5 @@
 ﻿/****************************************************************************
- * 2019.3 LAPTOP-R0ONNKOC
+ * 2019.4 LAPTOP-R0ONNKOC
  ****************************************************************************/
 
 using UnityEngine;
@@ -10,9 +10,13 @@ namespace QFramework.TDE
 {
 	public partial class UIimg
 	{
+		[SerializeField] public Image Image;
+		[SerializeField] public Text txt;
 
 		public void Clear()
 		{
+			Image = null;
+			txt = null;
 		}
 
 		public override string ComponentName

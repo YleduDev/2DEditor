@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 1782867687
+CRC: 4158344548
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -26,4 +26,11 @@ AssetBundleManifest:
       Dependencies: {}
     Info_7:
       Name: line
+      Dependencies: {}
+    Info_8:
+      Name: uiserverdatasmenupanel_prefab
+      Dependencies:
+        Dependency_0: texture
+    Info_9:
+      Name: uitestpanel_prefab
       Dependencies: {}

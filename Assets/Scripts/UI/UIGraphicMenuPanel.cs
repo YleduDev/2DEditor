@@ -50,10 +50,13 @@ namespace QFramework.TDE
             TitleSprite.Subscribe(sprite => TitleImg.sprite = sprite);
             //更多按钮单击
             UILocalEditorButton.onClick.AddListener(()=> { });
+            
+           UIGraphicMenu_InputField.onValueChanged.AddListener(UIGraphicControlContent.CheckShow);
         }   
 
         protected override void OnOpen(QFramework.IUIData uiData)
         {
+
         }
         
         protected override void OnShow()

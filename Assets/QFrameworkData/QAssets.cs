@@ -36,13 +36,13 @@ namespace QAssetBundle
     public class Face
     {
         public const string BundleName = "face";
-        public const string BTN_ARROW_DISABLE = "btn_arrow_disable";
-        public const string BTN_ARROW_DOWN = "btn_arrow_down";
+        public const string BTN_ARR_DAB = "btn_arr_dab";
+        public const string BTN_ARR_DOWN = "btn_arr_down";
         public const string BTN_CLOSE = "btn_close";
-        public const string BTN_STYLE1_DISABLED = "btn_style1_disabled";
-        public const string BTN_STYLE1_HIGHLIGHTED = "btn_style1_highlighted";
-        public const string BTN_STYLE1_NORMAL = "btn_style1_normal";
-        public const string BTN_STYLE1_PRESSED = "btn_style1_pressed";
+        public const string BTN_STY_DIS = "btn_sty_dis";
+        public const string BTN_STY_HIG = "btn_sty_hig";
+        public const string BTN_STY_NOR = "btn_sty_nor";
+        public const string BTN_STY_PRE = "btn_sty_pre";
     }
     public class Line
     {
@@ -54,7 +54,7 @@ namespace QAssetBundle
         public const string ICO_MP = "ico_mp";
         public const string ICO_SHAIZI = "ico_shaizi";
         public const string ICO_SKILLBG = "ico_skillbg";
-        public const string ICO_SMALLMAPARR = "ico_smallmaparr";
+        public const string ICO_SMALLMA = "ico_smallma";
         public const string ICO_STATUS = "ico_status";
         public const string ICO_TONGQIAN = "ico_tongqian";
         public const string ICO_YUANBAO = "ico_yuanbao";
@@ -96,9 +96,19 @@ namespace QAssetBundle
         public const string BundleName = "uigraphicmenupanel_prefab";
         public const string UIGRAPHICMENUPANEL = "uigraphicmenupanel";
     }
+    public class Uiserverdatasmenupanel_prefab
+    {
+        public const string BundleName = "uiserverdatasmenupanel_prefab";
+        public const string UISERVERDATASMENUPANEL = "uiserverdatasmenupanel";
+    }
     public class Uishowpanel_prefab
     {
         public const string BundleName = "uishowpanel_prefab";
         public const string UISHOWPANEL = "uishowpanel";
+    }
+    public class Uitestpanel_prefab
+    {
+        public const string BundleName = "uitestpanel_prefab";
+        public const string UITESTPANEL = "uitestpanel";
     }
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1552919223
+CRC: 2339071252
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a31f63809e3542b2650224496aaca7ef
+    Hash: e3cf0f80022cd338391db4fe676d4377
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 57a43fe6fa185e39002824cd20988a6d
+    Hash: b6d3ac2bfc6e819eebf1f2fa19c28649
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -22,7 +22,7 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
-  Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  Script: {fileID: -405508275, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
@@ -40,17 +40,25 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
+  Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -1184210157, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
   Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: f2165165193f0fb458322d09fff4c68e, type: 3}
+  Script: {fileID: 11500000, guid: d54ebc3650e1075498defbed5b2a6155, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 28b753f559a6fb548887e1bdcc3ab640, type: 3}
+  Script: {fileID: 11500000, guid: 9d7f1ff6cff9cb3489a417c93b64df08, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 3bee4e67f94a1e14da99556ded4b8c36, type: 3}
+  Script: {fileID: 11500000, guid: 3504c54801d5a4b42ae9af3be6f41921, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: feb73edb08b3f0644b6f0a4dfaad535b, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 4211833ca4e7a4984b2d973425a62933, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: a542db7e42f24e34e9d22ef75dcf3bef, type: 3}
+  Script: {fileID: 11500000, guid: 45d5150d136c76249b35794527d5a3bc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dbaf859e102c96c45acaa43d141175c1, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -62,5 +70,6 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 Assets:
-- Assets/Art/UIPrefab/UIGraphicMenuPanel.prefab
-Dependencies: []
+- Assets/Art/UIPrefab/UIServerDatasMenuPanel.prefab
+Dependencies:
+- E:/UnityProject/2DEditor-master/AssetBundles/Windows/texture

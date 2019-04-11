@@ -10,15 +10,18 @@ using QFramework;
 using System.IO;
 using TDE;
 using System.Linq;
+using System.Collections;
 
 namespace QFramework.TDE
 {
 	public partial class UIGraphicItem : UIElement
 	{
+        RectTransform rect;
         TSceneData model;
         List<string> imgListNmae;
         UIimg UIimg;
         RectTransform Viewport;
+        private Dictionary<string, UIimg> UIImgDict = new Dictionary<string, UIimg>();
 
         ResLoader loader = ResLoader.Allocate();
         private void Awake(){}
@@ -30,18 +33,28 @@ namespace QFramework.TDE
 
         public void Init(KeyValuePair<string, List<string>> kv,UIimg UIimg,RectTransform Viewport,TSceneData model)
         {
+            rect = transform as RectTransform;
             this.Viewport = Viewport;
             this.model = model;
             //自身及子对象事件注册等
             Image buttonImg = Button.GetComponent<Image>();
             //按钮注册事件
             Button.onClick.AddListener(() => {
-                if (EditorContent.IsActive()) {
-                    EditorContent.Hide(); buttonImg?.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 90))); }
-                else { EditorContent.Show(); buttonImg?.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 0))); } });
+                if (EditorContent.IsActive())
+                {
+                    EditorContent.Hide(); buttonImg?.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 90)));
+                    StartCoroutine(Global.UpdateLayout(rect));
+                }
+                else
+                {
+                    EditorContent.Show(); buttonImg?.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 0)));
+                    StartCoroutine(Global.UpdateLayout(rect));
+                }
+            });
 
             Text.text = kv.Key;
             imgListNmae = kv.Value;
+
 
             EditorContent.Show(); buttonImg?.LocalRotation(Quaternion.Euler(new Vector3(0, 0, 0)));
 
@@ -55,7 +68,7 @@ namespace QFramework.TDE
         //更新Item
         public void UpdataGraphicItem()
         {
-            //先清除所有img（先不考虑对象池
+            //先清除所有img（先不考虑对象池 //字典的移出目前都没有考虑
             EditorContent.transform.ApplySelfTo(self => { if(self.childCount> 0 )foreach (Transform item in self){Destroy(item.gameObject);}});
             //获取文件夹下所有png文件信息
             //FileInfo[] files = dir.GetFiles("*.png");
@@ -90,11 +103,62 @@ namespace QFramework.TDE
         //生成UIimg对象
         private void GenerateUIImg(Transform parent, UIimg UIimg, string spriteFullName)
         {
-             UIimg.Instantiate()
+            UIimg img = UIimg.Instantiate()
                 .ApplySelfTo(self => self.transform.SetParent(parent, false))
-                .ApplySelfTo(self => self.GetComponent<Image>().sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteFullName)))
-                .ApplySelfTo(self=> self.Init(spriteFullName, Viewport,model))
-                .Show();
+                .ApplySelfTo(self => self.Image.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteFullName)))
+                .ApplySelfTo(self => self.txt.text = spriteFullName)
+                .ApplySelfTo(self => self.Init(spriteFullName, Viewport, model))
+                .ApplySelfTo(self => self.Show());
+
+            UIImgDict.Add(spriteFullName, img);
         }
+
+
+        public bool  CheckUIimgName(string check)
+        {
+            bool show = false;
+            if (UIImgDict.IsNull() && UIImgDict.Count <= 0) return show;
+            UIImgDict.ForEach(item =>
+            {
+                if (!item.Key.Contains(check))
+                {
+                    item.Value.Hide();
+                }
+                else
+                {
+                    item.Value.Show();
+                    show = true;
+                    
+                }
+            });
+            if (show)
+            {
+                Show();
+                //强制刷新    
+                StartCoroutine(Global.UpdateLayout(rect));
+            }
+            else
+                Hide();
+            return show;       
+        }
+
+        private void SetUIImgActive(bool bo)
+        {
+            if (UIImgDict.IsNull() && UIImgDict.Count <= 0) return;
+            UIImgDict.ForEach(item => {
+                if (item.Value.IsNull()) return;
+                if (bo) item.Value.Show();
+                else if(!bo) item.Value.Hide();
+            });
+        }
+
+        public void ShowSelf2AllChild()
+        {
+            SetUIImgActive(true);
+            Show();
+        }
+
+
+        
     }
 }

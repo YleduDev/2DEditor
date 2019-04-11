@@ -21,7 +21,7 @@ public class CreateOrUpdataGraphicsMenmConfig{
 
         Dictionary<string, List<string>>GraphicsMenuConfig = new Dictionary<string, List<string>>();
 
-        string path = Application.dataPath+"/Res/" + fileName;
+        string path = Application.dataPath+"/Art/" + fileName;
 
         DirectoryInfo dir = new DirectoryInfo(path);
 
@@ -38,7 +38,7 @@ public class CreateOrUpdataGraphicsMenmConfig{
                 GraphicsMenuConfig.Add(i.Name, listStr);
             }
         }
-       File.WriteAllText(Application.dataPath + "/Res/Config/" + Global.GraphisMenuConfigPathName+".txt", GraphicsMenuConfig.ToJson());
+       File.WriteAllText(Application.dataPath + "/Art/Config/" + Global.GraphisMenuConfigPathName+".txt", GraphicsMenuConfig.ToJson());
     }
 #endif
 }

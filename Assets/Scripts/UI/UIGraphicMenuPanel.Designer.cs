@@ -41,6 +41,9 @@ namespace QFramework.TDE
         [SerializeField()]
         public Button UILocalEditorButton;
         
+        [SerializeField()]
+        public InputField UIGraphicMenu_InputField;
+        
         private UIGraphicMenuPanelData mPrivateData = null;
         
         public UIGraphicMenuPanelData mData
@@ -64,6 +67,7 @@ namespace QFramework.TDE
             UIGraphicControlContent = null;
             TitleImg = null;
             UILocalEditorButton = null;
+            UIGraphicMenu_InputField = null;
             mData = null;
         }
     }

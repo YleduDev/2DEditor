@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 893559434
+CRC: 3699484130
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5edfbd98e4dd7ccb7f05e9813979bde1
+    Hash: 757e751a71c3a903ba9d43ec869f88dc
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,11 +14,11 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Res/2DEditorGraphics/Face/Btn_Style1_Normal.png
-- Assets/Res/2DEditorGraphics/Face/Btn_Style1_Disabled.png
-- Assets/Res/2DEditorGraphics/Face/Btn_Close.png
-- Assets/Res/2DEditorGraphics/Face/Btn_Arrow_Down.png
-- Assets/Res/2DEditorGraphics/Face/Btn_Style1_Highlighted.png
-- Assets/Res/2DEditorGraphics/Face/Btn_Arrow_Disable.png
-- Assets/Res/2DEditorGraphics/Face/Btn_Style1_Pressed.png
+- Assets/Art/2DEditorGraphics/Face/Btn_Sty_Nor.png
+- Assets/Art/2DEditorGraphics/Face/Btn_Sty_Dis.png
+- Assets/Art/2DEditorGraphics/Face/Btn_Close.png
+- Assets/Art/2DEditorGraphics/Face/Btn_Arr_Down.png
+- Assets/Art/2DEditorGraphics/Face/Btn_Sty_Hig.png
+- Assets/Art/2DEditorGraphics/Face/Btn_Arr_Dab.png
+- Assets/Art/2DEditorGraphics/Face/Btn_Sty_Pre.png
 Dependencies: []

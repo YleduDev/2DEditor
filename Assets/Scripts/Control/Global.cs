@@ -4,6 +4,7 @@ using UnityEngine;
 using QFramework;
 using UniRx;
 using System;
+using UnityEngine.UI;
 
 namespace TDE
 {
@@ -103,10 +104,10 @@ namespace TDE
              State = (MessageState)Enum.Parse(typeof(MessageState), message.State);
             switch (State)
             {
-                case MessageState.NORMAL: Log.I("绿"); return new ColorSerializer( Color.green);
-                case MessageState.ERROR: Log.I("红"); return new ColorSerializer(Color.red);
-                case MessageState.WARNING: Log.I("黄"); return new ColorSerializer(Color.yellow);
-                default: Log.I("白"); return new ColorSerializer(Color.white);
+                case MessageState.NORMAL: return new ColorSerializer( Color.green);
+                case MessageState.ERROR: return new ColorSerializer(Color.red);
+                case MessageState.WARNING:  return new ColorSerializer(Color.yellow);
+                default: return new ColorSerializer(Color.white);
             }
         }
 
@@ -120,6 +121,17 @@ namespace TDE
             return loaclPoint.x > left && loaclPoint.x < right && loaclPoint.y > donw && loaclPoint.y < up;
         }
 
-
+     public static  IEnumerator UpdateLayout(RectTransform rect)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+            yield return new WaitForEndOfFrame();
+            float width = rect.rect.width;
+            while (rect.rect.width == 0)
+            {
+                Log.I(rect.rect.width);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 }

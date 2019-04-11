@@ -59,6 +59,7 @@ namespace TDE
         public ReactiveProperty<ColorSerializer> mainColor =new ReactiveProperty<ColorSerializer>(new ColorSerializer(Color.white));
         //渲染层级
         public int siblingIndex;
+      
         //框选
         public BoolReactiveProperty isChecking=new BoolReactiveProperty(false);
 

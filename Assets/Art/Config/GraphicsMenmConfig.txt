@@ -15,13 +15,13 @@
     "BG_013"
   ],
   "Face": [
-    "Btn_Arrow_Disable",
-    "Btn_Arrow_Down",
+    "Btn_Arr_Dab",
+    "Btn_Arr_Down",
     "Btn_Close",
-    "Btn_Style1_Disabled",
-    "Btn_Style1_Highlighted",
-    "Btn_Style1_Normal",
-    "Btn_Style1_Pressed"
+    "Btn_Sty_Dis",
+    "Btn_Sty_Hig",
+    "Btn_Sty_Nor",
+    "Btn_Sty_Pre"
   ],
   "Line": [
     "Ico_Arrows",
@@ -31,7 +31,7 @@
     "Ico_MP",
     "Ico_ShaiZi",
     "Ico_SkillBG",
-    "Ico_SmallMapArr",
+    "Ico_SmallMA",
     "Ico_Status",
     "Ico_TongQian",
     "Ico_YuanBao",

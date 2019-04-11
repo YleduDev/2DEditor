@@ -64,7 +64,7 @@ namespace TDE
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 TypeNameHandling = TypeNameHandling.All
             };
-            string json = PlayerPrefs.GetString("Test18", string.Empty);
+            string json = PlayerPrefs.GetString("Test19", string.Empty);
             if (json.IsNullOrEmpty()) return new TSceneData();
             else
             {
@@ -80,7 +80,7 @@ namespace TDE
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
                 TypeNameHandling = TypeNameHandling.All
             };
-            PlayerPrefs.SetString("Test18", JsonConvert.SerializeObject(this, Formatting.Indented, seting));
+            PlayerPrefs.SetString("Test19", JsonConvert.SerializeObject(this, Formatting.Indented, seting));
         }
 
         public void InitGlobalBindDataDict()
