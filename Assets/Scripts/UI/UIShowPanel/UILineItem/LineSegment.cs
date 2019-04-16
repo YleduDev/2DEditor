@@ -62,7 +62,9 @@ namespace QFramework.TDE
 
         public void ChangeSprite(T_Line model)
         {
-            segmentImage.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(  "Segment"+ model.px.Value.ToString()));
+            segmentImage.sprite = Global.GetSprite("Segment" + model.px.Value.ToString()) 
+                ? Global.GetSprite("Segment" + model.px.Value.ToString())
+                :Global.GetSprite(loader.LoadSync<Texture2D>("Segment"+ model.px.Value.ToString()));
             segmentImage.SetNativeSize();
         }
 

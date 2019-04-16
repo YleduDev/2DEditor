@@ -128,7 +128,7 @@ namespace XZL
                 Log.I("CreateHTTPRequest Error url is:" + url + "  parameter:" + pathData + "    errorMessage:" + e.Message);
                 if (response != null) response.Close();
                 if (request != null) request.Abort();
-                return null;
+                return null; 
             }
         }
         /// <summary>

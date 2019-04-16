@@ -8,6 +8,14 @@ namespace TDE
 {
     public class TSceneData
     {
+        #region 属性
+        public static JsonSerializerSettings seting = new JsonSerializerSettings
+      {
+            PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+            ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+            TypeNameHandling = TypeNameHandling.All
+      };
+
         public FloatReactiveProperty canvasWidth = new FloatReactiveProperty(1651);
         public FloatReactiveProperty canvasHeight = new FloatReactiveProperty(1444);
 
@@ -17,6 +25,9 @@ namespace TDE
 
         public ReactiveCollection<T_Text> TextDataList = new ReactiveCollection<T_Text>();
 
+        #endregion
+
+        #region 对属性集合的操作方法
         public void Add(T_Graphic model)
         {
             if (model.graphicType == GraphicType.Image)
@@ -55,52 +66,43 @@ namespace TDE
         {
             TextDataList.Remove(model);
         }
-        public static TSceneData Load()
+
+        #endregion
+         
+
+        public static TSceneData Load(string json)
         {
-            //
-            JsonSerializerSettings seting = new JsonSerializerSettings
-            {
-                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
-                TypeNameHandling = TypeNameHandling.All
-            };
-            string json = PlayerPrefs.GetString("Test19", string.Empty);
             if (json.IsNullOrEmpty()) return new TSceneData();
             else
             {
-                return JsonConvert.DeserializeObject<TSceneData>(json, seting);
+                TSceneData data= JsonConvert.DeserializeObject<TSceneData>(json, seting);
+                //初始化绑定数据
+                data.InitGlobalBindDataDict();
+                
+                return data;
             }
-        }
+        }     
 
-        public void Save()
-        {
-            JsonSerializerSettings seting = new JsonSerializerSettings
-            {
-                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
-                TypeNameHandling = TypeNameHandling.All
-            };
-            PlayerPrefs.SetString("Test19", JsonConvert.SerializeObject(this, Formatting.Indented, seting));
+        public string Save()
+        {        
+           return  JsonConvert.SerializeObject(this, Formatting.Indented, seting);
         }
-
-        public void InitGlobalBindDataDict()
+        //绑点数据初始化
+        private void InitGlobalBindDataDict()
         {
             foreach (var item in LineDataList)
             {
                 if (item.AssetNodeData != null && item.AssetNodeData.Value != null)
-                    //item.AssetNodeData.Value = null;
                     Global.AddBindData(item.AssetNodeData);
             }
             foreach (var item in ImageDataList)
             {
                 if (item.AssetNodeData != null && item.AssetNodeData.Value != null)
-                   // item.AssetNodeData.Value = null;
                  Global.AddBindData(item.AssetNodeData);
             }
             foreach (var item in TextDataList)
             {
                 if (item.AssetNodeData != null && item.AssetNodeData.Value != null)
-                   // item.AssetNodeData.Value = null;
                  Global.AddBindData(item.AssetNodeData);
             }
         }

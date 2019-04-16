@@ -56,7 +56,13 @@ namespace QFramework.TDE
                  //ÑÕÉ«
                  .ApplySelfTo(self => self.text.mainColor.Subscribe(color => image.color = Global.GetColorCS(color)))
                 
-                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => { image.sprite = Global.GetSprite(loader.LoadSync<Texture2D>(spriteName)); } ))
+                 .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => {
+                     Sprite sprite = Global.GetSprite(spriteName)
+                     ? Global.GetSprite(spriteName)
+                     :Global.GetSprite(loader.LoadSync<Texture2D>(spriteName));
+                     //sprite= sprite? sprite:
+                     image.sprite = sprite;
+                 }))
                  .ApplySelfTo(self => self.text.AssetNodeData.Subscribe(data => { if (data.IsNotNull()) self.text.mainColor.Value = Global.GetColorForState(data); }));
         }
 

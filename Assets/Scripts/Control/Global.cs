@@ -5,6 +5,7 @@ using QFramework;
 using UniRx;
 using System;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 namespace TDE
 {
@@ -32,6 +33,7 @@ namespace TDE
 #endif
         //所有图元配置文档
         public static string GraphisMenuConfigPathName = "GraphicsMenmConfig";
+        public static string CustomCinfigGraphicsPathName = "Graphics";
         //配置 文本文件命名中 包含的约定
         public static string TextItemContainName = "Text";
         //全局，表示当前选中的图元对象
@@ -75,19 +77,28 @@ namespace TDE
                 OnSelectedGraphic.Value = graphic;
             }
         }
+        
         //存储当前所有的Sprite
-        public static Dictionary<Texture2D, Sprite> sprites = new Dictionary<Texture2D, Sprite>();
+        public static Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
 
+        public static Sprite GetSprite(string spriteName)
+        {
+            if (sprites != null && sprites.ContainsKey(spriteName)) return sprites[spriteName];
+            return null;
+        }
         //获取Sprite
+        //注意：所有不一样的Texture2D的名称不能一致，不然获取的sprites可能不一样(第一个存入相同名称的sprite)
         public static Sprite GetSprite(Texture2D tex)
         {
             //int spriteKey;
-            if (sprites != null && sprites.ContainsKey(tex)) return sprites[tex];
+            if (!tex) return null;
+            if (sprites != null && sprites.ContainsKey(tex.name)) return sprites[tex.name];
             Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
             sprite.name = tex.name;
-            sprites.Add(tex, sprite);
+            sprites.Add(tex.name, sprite);
             return sprite;
         }
+
 
         public static Quaternion GetQuaternionForQS(QuaternionSerializer data)
         {
@@ -121,11 +132,14 @@ namespace TDE
             return loaclPoint.x > left && loaclPoint.x < right && loaclPoint.y > donw && loaclPoint.y < up;
         }
 
-     public static  IEnumerator UpdateLayout(RectTransform rect)
+        //该方法后续需要提取到特定类中
+        public static  IEnumerator UpdateLayout(RectTransform rect)
         {
+            //刷新
             LayoutRebuilder.ForceRebuildLayoutImmediate(rect);
             yield return new WaitForEndOfFrame();
             float width = rect.rect.width;
+            //防止一帧完成不了
             while (rect.rect.width == 0)
             {
                 Log.I(rect.rect.width);
@@ -133,5 +147,6 @@ namespace TDE
                 yield return new WaitForEndOfFrame();
             }
         }
+        
     }
 }

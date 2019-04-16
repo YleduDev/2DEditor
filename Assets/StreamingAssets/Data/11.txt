@@ -1,0 +1,1184 @@
+{
+  "$id": "1",
+  "$type": "TDE.TSceneData, Assembly-CSharp",
+  "canvasWidth": {
+    "$id": "2",
+    "$type": "UniRx.FloatReactiveProperty, UniRx",
+    "Value": 1651.0,
+    "HasValue": true
+  },
+  "canvasHeight": {
+    "$id": "3",
+    "$type": "UniRx.FloatReactiveProperty, UniRx",
+    "Value": 1444.0,
+    "HasValue": true
+  },
+  "LineDataList": {
+    "$type": "UniRx.ReactiveCollection`1[[TDE.T_Line, Assembly-CSharp]], UniRx",
+    "$values": [
+      {
+        "$id": "4",
+        "$type": "TDE.T_Line, Assembly-CSharp",
+        "localEndPos": {
+          "$id": "5",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": -648.965454,
+            "y": 585.663452
+          },
+          "HasValue": true
+        },
+        "localOriginPos": {
+          "$id": "6",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": 871.983948,
+            "y": 480.340637
+          },
+          "HasValue": true
+        },
+        "lineShapeType": {
+          "$id": "7",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.LineShapeType, Assembly-CSharp]], UniRx",
+          "Value": 0,
+          "HasValue": true
+        },
+        "lineBeginShapeType": {
+          "$id": "8",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.LineBeginShape, Assembly-CSharp]], UniRx",
+          "Value": 0,
+          "HasValue": true
+        },
+        "lineEndShapeType": {
+          "$id": "9",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.LineEndShape, Assembly-CSharp]], UniRx",
+          "Value": 1,
+          "HasValue": true
+        },
+        "px": {
+          "$id": "10",
+          "$type": "UniRx.IntReactiveProperty, UniRx",
+          "Value": 3,
+          "HasValue": true
+        },
+        "direction": 1524.5918,
+        "bindBeginImage": {
+          "$id": "11",
+          "$type": "TDE.T_Image, Assembly-CSharp",
+          "bindDatas": {
+            "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+            "$values": [
+              {
+                "$id": "12",
+                "$type": "TDE.BindData, Assembly-CSharp",
+                "line": {
+                  "$ref": "4"
+                },
+                "LinePointType": 0,
+                "LocalPointForImage": {
+                  "$id": "13",
+                  "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+                  "Value": {
+                    "x": 0.0,
+                    "y": 40.5
+                  },
+                  "HasValue": true
+                },
+                "width": 83.0,
+                "height": 81.0
+              },
+              {
+                "$id": "14",
+                "$type": "TDE.BindData, Assembly-CSharp",
+                "line": {
+                  "$id": "15",
+                  "$type": "TDE.T_Line, Assembly-CSharp",
+                  "localEndPos": {
+                    "$id": "16",
+                    "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+                    "Value": {
+                      "x": 169.7721,
+                      "y": 22.5870361
+                    },
+                    "HasValue": true
+                  },
+                  "localOriginPos": {
+                    "$id": "17",
+                    "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+                    "Value": {
+                      "x": 863.1674,
+                      "y": 123.77504
+                    },
+                    "HasValue": true
+                  },
+                  "lineShapeType": {
+                    "$id": "18",
+                    "$type": "UniRx.ReactiveProperty`1[[TDE.LineShapeType, Assembly-CSharp]], UniRx",
+                    "Value": 0,
+                    "HasValue": true
+                  },
+                  "lineBeginShapeType": {
+                    "$id": "19",
+                    "$type": "UniRx.ReactiveProperty`1[[TDE.LineBeginShape, Assembly-CSharp]], UniRx",
+                    "Value": 0,
+                    "HasValue": true
+                  },
+                  "lineEndShapeType": {
+                    "$id": "20",
+                    "$type": "UniRx.ReactiveProperty`1[[TDE.LineEndShape, Assembly-CSharp]], UniRx",
+                    "Value": 1,
+                    "HasValue": true
+                  },
+                  "px": {
+                    "$id": "21",
+                    "$type": "UniRx.IntReactiveProperty, UniRx",
+                    "Value": 3,
+                    "HasValue": true
+                  },
+                  "direction": 700.7397,
+                  "bindBeginImage": {
+                    "$ref": "11"
+                  },
+                  "bindEndImage": {
+                    "$id": "22",
+                    "$type": "TDE.T_Image, Assembly-CSharp",
+                    "bindDatas": {
+                      "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+                      "$values": [
+                        {
+                          "$id": "23",
+                          "$type": "TDE.BindData, Assembly-CSharp",
+                          "line": {
+                            "$ref": "15"
+                          },
+                          "LinePointType": 1,
+                          "LocalPointForImage": {
+                            "$id": "24",
+                            "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+                            "Value": {
+                              "x": 0.0,
+                              "y": 68.0
+                            },
+                            "HasValue": true
+                          },
+                          "width": 133.0,
+                          "height": 136.0
+                        }
+                      ]
+                    },
+                    "localPos": {
+                      "$id": "25",
+                      "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+                      "Value": {
+                        "x": 169.7721,
+                        "y": -45.4129639
+                      },
+                      "HasValue": true
+                    },
+                    "locaRotation": {
+                      "$id": "26",
+                      "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+                      "Value": {
+                        "$id": "27",
+                        "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0,
+                        "w": 0.0
+                      },
+                      "HasValue": true
+                    },
+                    "localScale": {
+                      "$id": "28",
+                      "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+                      "Value": {
+                        "x": 1.0,
+                        "y": 1.0,
+                        "z": 1.0
+                      },
+                      "HasValue": true
+                    },
+                    "widht": {
+                      "$id": "29",
+                      "$type": "UniRx.FloatReactiveProperty, UniRx",
+                      "Value": 133.0,
+                      "HasValue": true
+                    },
+                    "height": {
+                      "$id": "30",
+                      "$type": "UniRx.FloatReactiveProperty, UniRx",
+                      "Value": 136.0,
+                      "HasValue": true
+                    },
+                    "isSelected": {
+                      "$id": "31",
+                      "$type": "UniRx.BoolReactiveProperty, UniRx",
+                      "Value": false,
+                      "HasValue": true
+                    },
+                    "spritrsStr": {
+                      "$id": "32",
+                      "$type": "UniRx.StringReactiveProperty, UniRx",
+                      "Value": "BG_011",
+                      "HasValue": true
+                    },
+                    "mainColor": {
+                      "$id": "33",
+                      "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+                      "Value": {
+                        "$id": "34",
+                        "$type": "TDE.ColorSerializer, Assembly-CSharp",
+                        "r": 1.0,
+                        "g": 0.921568632,
+                        "b": 0.0156862754,
+                        "a": 1.0
+                      },
+                      "HasValue": true
+                    },
+                    "siblingIndex": 0,
+                    "isChecking": {
+                      "$id": "35",
+                      "$type": "UniRx.BoolReactiveProperty, UniRx",
+                      "Value": false,
+                      "HasValue": true
+                    },
+                    "graphicType": 0,
+                    "AssetNodeData": {
+                      "$id": "36",
+                      "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+                      "Value": {
+                        "$id": "37",
+                        "$type": "WebSocketMessage, Assembly-CSharp",
+                        "Id": "4",
+                        "Data": null,
+                        "State": "WARNING"
+                      },
+                      "HasValue": true
+                    }
+                  },
+                  "localPos": {
+                    "$id": "38",
+                    "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+                    "Value": {
+                      "x": 863.1674,
+                      "y": 123.77504
+                    },
+                    "HasValue": true
+                  },
+                  "locaRotation": {
+                    "$id": "39",
+                    "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+                    "Value": {
+                      "$id": "40",
+                      "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0,
+                      "w": 0.0
+                    },
+                    "HasValue": true
+                  },
+                  "localScale": {
+                    "$id": "41",
+                    "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+                    "Value": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    },
+                    "HasValue": true
+                  },
+                  "widht": {
+                    "$id": "42",
+                    "$type": "UniRx.FloatReactiveProperty, UniRx",
+                    "Value": 0.0,
+                    "HasValue": true
+                  },
+                  "height": {
+                    "$id": "43",
+                    "$type": "UniRx.FloatReactiveProperty, UniRx",
+                    "Value": 0.0,
+                    "HasValue": true
+                  },
+                  "isSelected": {
+                    "$id": "44",
+                    "$type": "UniRx.BoolReactiveProperty, UniRx",
+                    "Value": false,
+                    "HasValue": true
+                  },
+                  "spritrsStr": {
+                    "$id": "45",
+                    "$type": "UniRx.StringReactiveProperty, UniRx",
+                    "Value": null,
+                    "HasValue": true
+                  },
+                  "mainColor": {
+                    "$id": "46",
+                    "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+                    "Value": {
+                      "$id": "47",
+                      "$type": "TDE.ColorSerializer, Assembly-CSharp",
+                      "r": 0.0,
+                      "g": 0.0,
+                      "b": 0.0,
+                      "a": 1.0
+                    },
+                    "HasValue": true
+                  },
+                  "siblingIndex": 0,
+                  "isChecking": {
+                    "$id": "48",
+                    "$type": "UniRx.BoolReactiveProperty, UniRx",
+                    "Value": false,
+                    "HasValue": true
+                  },
+                  "graphicType": 2,
+                  "AssetNodeData": {
+                    "$id": "49",
+                    "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+                    "Value": null,
+                    "HasValue": true
+                  }
+                },
+                "LinePointType": 0,
+                "LocalPointForImage": {
+                  "$id": "50",
+                  "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+                  "Value": {
+                    "x": 0.0,
+                    "y": -40.5
+                  },
+                  "HasValue": true
+                },
+                "width": 83.0,
+                "height": 81.0
+              }
+            ]
+          },
+          "localPos": {
+            "$id": "51",
+            "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+            "Value": {
+              "x": 867.5757,
+              "y": 302.057831
+            },
+            "HasValue": true
+          },
+          "locaRotation": {
+            "$id": "52",
+            "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+            "Value": {
+              "$id": "53",
+              "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.0123602338,
+              "w": 0.999923646
+            },
+            "HasValue": true
+          },
+          "localScale": {
+            "$id": "54",
+            "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+            "Value": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "HasValue": true
+          },
+          "widht": {
+            "$id": "55",
+            "$type": "UniRx.FloatReactiveProperty, UniRx",
+            "Value": 619.0554,
+            "HasValue": true
+          },
+          "height": {
+            "$id": "56",
+            "$type": "UniRx.FloatReactiveProperty, UniRx",
+            "Value": 356.674561,
+            "HasValue": true
+          },
+          "isSelected": {
+            "$id": "57",
+            "$type": "UniRx.BoolReactiveProperty, UniRx",
+            "Value": false,
+            "HasValue": true
+          },
+          "spritrsStr": {
+            "$id": "58",
+            "$type": "UniRx.StringReactiveProperty, UniRx",
+            "Value": "BG_008 ",
+            "HasValue": true
+          },
+          "mainColor": {
+            "$id": "59",
+            "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+            "Value": {
+              "$id": "60",
+              "$type": "TDE.ColorSerializer, Assembly-CSharp",
+              "r": 1.0,
+              "g": 1.0,
+              "b": 1.0,
+              "a": 1.0
+            },
+            "HasValue": true
+          },
+          "siblingIndex": 0,
+          "isChecking": {
+            "$id": "61",
+            "$type": "UniRx.BoolReactiveProperty, UniRx",
+            "Value": false,
+            "HasValue": true
+          },
+          "graphicType": 0,
+          "AssetNodeData": {
+            "$id": "62",
+            "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+            "Value": null,
+            "HasValue": true
+          }
+        },
+        "bindEndImage": null,
+        "localPos": {
+          "$id": "63",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": 871.983948,
+            "y": 480.340637
+          },
+          "HasValue": true
+        },
+        "locaRotation": {
+          "$id": "64",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "65",
+            "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "HasValue": true
+        },
+        "localScale": {
+          "$id": "66",
+          "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+          "Value": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "HasValue": true
+        },
+        "widht": {
+          "$id": "67",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 0.0,
+          "HasValue": true
+        },
+        "height": {
+          "$id": "68",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 0.0,
+          "HasValue": true
+        },
+        "isSelected": {
+          "$id": "69",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": true,
+          "HasValue": true
+        },
+        "spritrsStr": {
+          "$id": "70",
+          "$type": "UniRx.StringReactiveProperty, UniRx",
+          "Value": null,
+          "HasValue": true
+        },
+        "mainColor": {
+          "$id": "71",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "72",
+            "$type": "TDE.ColorSerializer, Assembly-CSharp",
+            "r": 0.0,
+            "g": 0.0,
+            "b": 0.0,
+            "a": 1.0
+          },
+          "HasValue": true
+        },
+        "siblingIndex": 0,
+        "isChecking": {
+          "$id": "73",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "graphicType": 2,
+        "AssetNodeData": {
+          "$id": "74",
+          "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+          "Value": null,
+          "HasValue": true
+        }
+      },
+      {
+        "$ref": "15"
+      }
+    ]
+  },
+  "ImageDataList": {
+    "$type": "UniRx.ReactiveCollection`1[[TDE.T_Image, Assembly-CSharp]], UniRx",
+    "$values": [
+      {
+        "$id": "75",
+        "$type": "TDE.T_Image, Assembly-CSharp",
+        "bindDatas": {
+          "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+          "$values": []
+        },
+        "localPos": {
+          "$id": "76",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": -327.957184,
+            "y": 229.66748
+          },
+          "HasValue": true
+        },
+        "locaRotation": {
+          "$id": "77",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "78",
+            "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "HasValue": true
+        },
+        "localScale": {
+          "$id": "79",
+          "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+          "Value": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "HasValue": true
+        },
+        "widht": {
+          "$id": "80",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 81.03962,
+          "HasValue": true
+        },
+        "height": {
+          "$id": "81",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 108.910965,
+          "HasValue": true
+        },
+        "isSelected": {
+          "$id": "82",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "spritrsStr": {
+          "$id": "83",
+          "$type": "UniRx.StringReactiveProperty, UniRx",
+          "Value": "BG_006",
+          "HasValue": true
+        },
+        "mainColor": {
+          "$id": "84",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "85",
+            "$type": "TDE.ColorSerializer, Assembly-CSharp",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "HasValue": true
+        },
+        "siblingIndex": 0,
+        "isChecking": {
+          "$id": "86",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "graphicType": 0,
+        "AssetNodeData": {
+          "$id": "87",
+          "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+          "Value": null,
+          "HasValue": true
+        }
+      },
+      {
+        "$id": "88",
+        "$type": "TDE.T_Image, Assembly-CSharp",
+        "bindDatas": {
+          "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+          "$values": []
+        },
+        "localPos": {
+          "$id": "89",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": 346.678162,
+            "y": 572.5942
+          },
+          "HasValue": true
+        },
+        "locaRotation": {
+          "$id": "90",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "91",
+            "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "HasValue": true
+        },
+        "localScale": {
+          "$id": "92",
+          "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+          "Value": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "HasValue": true
+        },
+        "widht": {
+          "$id": "93",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 40.8567047,
+          "HasValue": true
+        },
+        "height": {
+          "$id": "94",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 36.54945,
+          "HasValue": true
+        },
+        "isSelected": {
+          "$id": "95",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "spritrsStr": {
+          "$id": "96",
+          "$type": "UniRx.StringReactiveProperty, UniRx",
+          "Value": "BG_003",
+          "HasValue": true
+        },
+        "mainColor": {
+          "$id": "97",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "98",
+            "$type": "TDE.ColorSerializer, Assembly-CSharp",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "HasValue": true
+        },
+        "siblingIndex": 0,
+        "isChecking": {
+          "$id": "99",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "graphicType": 0,
+        "AssetNodeData": {
+          "$id": "100",
+          "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+          "Value": null,
+          "HasValue": true
+        }
+      },
+      {
+        "$ref": "11"
+      },
+      {
+        "$ref": "22"
+      },
+      {
+        "$id": "101",
+        "$type": "TDE.T_Image, Assembly-CSharp",
+        "bindDatas": {
+          "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+          "$values": []
+        },
+        "localPos": {
+          "$id": "102",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": -525.3701,
+            "y": 497.974
+          },
+          "HasValue": true
+        },
+        "locaRotation": {
+          "$id": "103",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "104",
+            "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "HasValue": true
+        },
+        "localScale": {
+          "$id": "105",
+          "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+          "Value": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "HasValue": true
+        },
+        "widht": {
+          "$id": "106",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 82.0,
+          "HasValue": true
+        },
+        "height": {
+          "$id": "107",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 10.0,
+          "HasValue": true
+        },
+        "isSelected": {
+          "$id": "108",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "spritrsStr": {
+          "$id": "109",
+          "$type": "UniRx.StringReactiveProperty, UniRx",
+          "Value": "Ico_HP",
+          "HasValue": true
+        },
+        "mainColor": {
+          "$id": "110",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "111",
+            "$type": "TDE.ColorSerializer, Assembly-CSharp",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "HasValue": true
+        },
+        "siblingIndex": 0,
+        "isChecking": {
+          "$id": "112",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "graphicType": 0,
+        "AssetNodeData": {
+          "$id": "113",
+          "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+          "Value": null,
+          "HasValue": true
+        }
+      },
+      {
+        "$id": "114",
+        "$type": "TDE.T_Image, Assembly-CSharp",
+        "bindDatas": {
+          "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+          "$values": []
+        },
+        "localPos": {
+          "$id": "115",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": -54.7209778,
+            "y": 585.2467
+          },
+          "HasValue": true
+        },
+        "locaRotation": {
+          "$id": "116",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "117",
+            "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "HasValue": true
+        },
+        "localScale": {
+          "$id": "118",
+          "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+          "Value": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "HasValue": true
+        },
+        "widht": {
+          "$id": "119",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 120.0,
+          "HasValue": true
+        },
+        "height": {
+          "$id": "120",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 41.0,
+          "HasValue": true
+        },
+        "isSelected": {
+          "$id": "121",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "spritrsStr": {
+          "$id": "122",
+          "$type": "UniRx.StringReactiveProperty, UniRx",
+          "Value": "Btn_Sty_Nor",
+          "HasValue": true
+        },
+        "mainColor": {
+          "$id": "123",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "124",
+            "$type": "TDE.ColorSerializer, Assembly-CSharp",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "HasValue": true
+        },
+        "siblingIndex": 0,
+        "isChecking": {
+          "$id": "125",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "graphicType": 0,
+        "AssetNodeData": {
+          "$id": "126",
+          "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+          "Value": null,
+          "HasValue": true
+        }
+      },
+      {
+        "$id": "127",
+        "$type": "TDE.T_Image, Assembly-CSharp",
+        "bindDatas": {
+          "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+          "$values": []
+        },
+        "localPos": {
+          "$id": "128",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": -521.836731,
+            "y": 66.4554443
+          },
+          "HasValue": true
+        },
+        "locaRotation": {
+          "$id": "129",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "130",
+            "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "HasValue": true
+        },
+        "localScale": {
+          "$id": "131",
+          "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+          "Value": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "HasValue": true
+        },
+        "widht": {
+          "$id": "132",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 192.0,
+          "HasValue": true
+        },
+        "height": {
+          "$id": "133",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 48.0,
+          "HasValue": true
+        },
+        "isSelected": {
+          "$id": "134",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "spritrsStr": {
+          "$id": "135",
+          "$type": "UniRx.StringReactiveProperty, UniRx",
+          "Value": "E:\\UnityProject\\2DEditor-master\\Assets\\StreamingAssets\\Graphics\\CustomTest\\TitleBG_002.png",
+          "HasValue": true
+        },
+        "mainColor": {
+          "$id": "136",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "137",
+            "$type": "TDE.ColorSerializer, Assembly-CSharp",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "HasValue": true
+        },
+        "siblingIndex": 0,
+        "isChecking": {
+          "$id": "138",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "graphicType": 0,
+        "AssetNodeData": {
+          "$id": "139",
+          "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+          "Value": null,
+          "HasValue": true
+        }
+      },
+      {
+        "$id": "140",
+        "$type": "TDE.T_Image, Assembly-CSharp",
+        "bindDatas": {
+          "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+          "$values": []
+        },
+        "localPos": {
+          "$id": "141",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": -502.826752,
+            "y": -89.18799
+          },
+          "HasValue": true
+        },
+        "locaRotation": {
+          "$id": "142",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "143",
+            "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "HasValue": true
+        },
+        "localScale": {
+          "$id": "144",
+          "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+          "Value": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "HasValue": true
+        },
+        "widht": {
+          "$id": "145",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 192.0,
+          "HasValue": true
+        },
+        "height": {
+          "$id": "146",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 48.0,
+          "HasValue": true
+        },
+        "isSelected": {
+          "$id": "147",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "spritrsStr": {
+          "$id": "148",
+          "$type": "UniRx.StringReactiveProperty, UniRx",
+          "Value": "E:\\UnityProject\\2DEditor-master\\Assets\\StreamingAssets\\Graphics\\CustomTest\\TitleBG_001.png",
+          "HasValue": true
+        },
+        "mainColor": {
+          "$id": "149",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "150",
+            "$type": "TDE.ColorSerializer, Assembly-CSharp",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "HasValue": true
+        },
+        "siblingIndex": 0,
+        "isChecking": {
+          "$id": "151",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "graphicType": 0,
+        "AssetNodeData": {
+          "$id": "152",
+          "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+          "Value": null,
+          "HasValue": true
+        }
+      },
+      {
+        "$id": "153",
+        "$type": "TDE.T_Image, Assembly-CSharp",
+        "bindDatas": {
+          "$type": "UniRx.ReactiveCollection`1[[TDE.BindData, Assembly-CSharp]], UniRx",
+          "$values": []
+        },
+        "localPos": {
+          "$id": "154",
+          "$type": "UniRx.Vector2ReactiveProperty, UniRx",
+          "Value": {
+            "x": -151.143616,
+            "y": -116.514771
+          },
+          "HasValue": true
+        },
+        "locaRotation": {
+          "$id": "155",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.QuaternionSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "156",
+            "$type": "TDE.QuaternionSerializer, Assembly-CSharp",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 0.0
+          },
+          "HasValue": true
+        },
+        "localScale": {
+          "$id": "157",
+          "$type": "UniRx.Vector3ReactiveProperty, UniRx",
+          "Value": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "HasValue": true
+        },
+        "widht": {
+          "$id": "158",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 192.0,
+          "HasValue": true
+        },
+        "height": {
+          "$id": "159",
+          "$type": "UniRx.FloatReactiveProperty, UniRx",
+          "Value": 48.0,
+          "HasValue": true
+        },
+        "isSelected": {
+          "$id": "160",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "spritrsStr": {
+          "$id": "161",
+          "$type": "UniRx.StringReactiveProperty, UniRx",
+          "Value": "E:\\UnityProject\\2DEditor-master\\Assets\\StreamingAssets\\Graphics\\CustomTest\\TitleBG_002.png",
+          "HasValue": true
+        },
+        "mainColor": {
+          "$id": "162",
+          "$type": "UniRx.ReactiveProperty`1[[TDE.ColorSerializer, Assembly-CSharp]], UniRx",
+          "Value": {
+            "$id": "163",
+            "$type": "TDE.ColorSerializer, Assembly-CSharp",
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+          },
+          "HasValue": true
+        },
+        "siblingIndex": 0,
+        "isChecking": {
+          "$id": "164",
+          "$type": "UniRx.BoolReactiveProperty, UniRx",
+          "Value": false,
+          "HasValue": true
+        },
+        "graphicType": 0,
+        "AssetNodeData": {
+          "$id": "165",
+          "$type": "UniRx.ReactiveProperty`1[[WebSocketMessage, Assembly-CSharp]], UniRx",
+          "Value": null,
+          "HasValue": true
+        }
+      }
+    ]
+  },
+  "TextDataList": {
+    "$type": "UniRx.ReactiveCollection`1[[TDE.T_Text, Assembly-CSharp]], UniRx",
+    "$values": []
+  }
+}

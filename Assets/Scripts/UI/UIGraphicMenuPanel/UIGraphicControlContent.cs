@@ -33,12 +33,29 @@ namespace QFramework.TDE
         internal void GenerateUIGrrphicsItem(UIGraphicItem UIGraphicItem,UIimg UIimg,RectTransform Viewport, TSceneData model)
         {        
             this.model = model;
+            //默认客户端配置
             var text= loader.LoadSync<TextAsset>(Global.GraphisMenuConfigPathName);
             var dict = SerializeHelper.FromJson<Dictionary<string, List<string>>>(text.text);
             foreach (KeyValuePair<string, List<string>> kv in dict)
             {
                 UIGraphicItem GraphicItem = CreateGraphicItem(kv.Key, transform, UIGraphicItem);
                 GraphicItem.Init(kv, UIimg, Viewport, model);
+            }
+            string path = FilePath.StreamingAssetsPath + Global.CustomCinfigGraphicsPathName;
+
+            if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+            // 读取本地自定义配置
+            DirectoryInfo dir = new DirectoryInfo(path);
+
+            DirectoryInfo[] childDirs = dir.GetDirectories();
+
+            foreach (DirectoryInfo i in childDirs)
+            {
+                if (i.Parent.Name.Equals(Global.CustomCinfigGraphicsPathName))
+                {
+                    UIGraphicItem GraphicItem = CreateGraphicItem(i, transform, UIGraphicItem);
+                    GraphicItem.Init(i, UIimg, Viewport, model);
+                }
             }
         }
         //生成GraphicItem
@@ -64,6 +81,8 @@ namespace QFramework.TDE
             if (checkName.IsNullOrEmpty())
             {
                 ShowAllGraphicItem();
+                //强制刷新    
+                StartCoroutine(Global.UpdateLayout(rect));
             }
             // Not null epmey
             else
@@ -76,6 +95,7 @@ namespace QFramework.TDE
         void ShowAllGraphicItem()
         {
             UIGraphicItemDict.ForEach(item =>item.Value.ShowSelf2AllChild());
+
         }
         void CheckGranhicItem(string check)
         {

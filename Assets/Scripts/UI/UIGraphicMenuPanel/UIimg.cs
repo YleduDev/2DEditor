@@ -12,7 +12,7 @@ namespace QFramework.TDE
     public partial class UIimg : UIElement,IDragHandler,IBeginDragHandler,IEndDragHandler
 	{
         TSceneData model;
-        string spriteFullName;
+        string spriteKey;
         RectTransform rectGraphicView;
         RectTransform tParent;
         Vector2 localPoint;
@@ -34,14 +34,14 @@ namespace QFramework.TDE
             loader.Recycle2Cache();
             loader = null;
         }
-        internal void Init(string spriteFullName,RectTransform Viewport,TSceneData model)
+        internal void Init(string key,RectTransform Viewport,TSceneData model)
         {
-            this.spriteFullName = spriteFullName;
+            this.spriteKey = key;
             this.rectGraphicView = Viewport;
             this.model = model;
-            Sprite sprite= Global.GetSprite(loader.LoadSync<Texture2D>(spriteFullName));
+            Sprite sprite = Global.GetSprite(spriteKey);
             //graghic data Êý¾Ý
-            spritrsStr = new UniRx.StringReactiveProperty(spriteFullName);
+            spritrsStr = new UniRx.StringReactiveProperty(spriteKey);
             widht = new UniRx.FloatReactiveProperty(sprite.rect.width);
             height = new UniRx.FloatReactiveProperty(sprite.rect.height);        
         }
@@ -62,7 +62,7 @@ namespace QFramework.TDE
         public void OnBeginDrag(PointerEventData eventData)
         {
             UIGraphicMenuPanel.TitleImgActive.Value = true;
-            UIGraphicMenuPanel.TitleSprite.Value = Global.GetSprite(loader.LoadSync<Texture2D>(spriteFullName));
+            UIGraphicMenuPanel.TitleSprite.Value = Global.GetSprite(spriteKey);
             bo = false;
             generateLock = false;
             T_Graphic = null;

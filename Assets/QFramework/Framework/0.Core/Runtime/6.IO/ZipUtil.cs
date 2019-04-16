@@ -55,7 +55,7 @@ namespace QFramework
 
             //文件名称（默认同源文件名称相同）
             string ZipFileName = string.IsNullOrEmpty(ZipedFileName) ? ZipedFilePath + Path.DirectorySeparatorChar.ToString() + new FileInfo(FileToZip).Name.Substring(0, new FileInfo(FileToZip).Name.LastIndexOf('.')) + ".zip" : ZipedFilePath + Path.DirectorySeparatorChar.ToString() + ZipedFileName + ".zip";
-
+            Log.I(ZipFileName);
             using (System.IO.FileStream ZipFile = System.IO.File.Create(ZipFileName))
             {
                 using (ZipOutputStream ZipStream = new ZipOutputStream(ZipFile))

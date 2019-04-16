@@ -9,14 +9,14 @@ namespace TDE
     {
 
         string login = "login_id=admin&password=123456";
-        string loginURL = "http://192.168.1.17:8080/vibe-web/user/login";
-        string floorsUrl = "http://192.168.1.17:8080/vibe-web/asset/initAssetAllTree?flag=space&locationRoot=1";
-        string categoryUrl = "http://192.168.1.17:8080/vibe-web/getItemsTree?catalogId=2002";
-        string idUrl = "http://192.168.1.17:8080/vibe-web/asset/toDeviceEdit?id=";
+        string loginURL = "http://localhost:8080/vibe-web/user/login";
+        string floorsUrl = "http://localhost:8080/vibe-web/asset/initAssetAllTree?flag=space&locationRoot=1";
+        string categoryUrl = "http://localhost:8080/vibe-web/getItemsTree?catalogId=2002";
+        string idUrl = "http://localhost:8080/vibe-web/asset/toDeviceEdit?id=";
 
         Dictionary<string, AssetNode> assetPool = new Dictionary<string, AssetNode>();
 
-
+         
         public ServerData()
         {
             HTTPMgr.Instance.PostLogin(login, loginURL);
@@ -27,7 +27,6 @@ namespace TDE
             var floorsJson = HTTPMgr.Instance.CreateHTTPRequest(floorsUrl);
             List<SpaceTree> root = SerializeHelper.FromJson<List<SpaceTree>>(floorsJson);
             return root[0];
-
         }
 
         public List<SpaceTree> GetCategory()
