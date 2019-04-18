@@ -7,12 +7,16 @@ namespace TDE
 {
     public class ServerData
     {
-
+         
         string login = "login_id=admin&password=123456";
         string loginURL = "http://localhost:8080/vibe-web/user/login";
         string floorsUrl = "http://localhost:8080/vibe-web/asset/initAssetAllTree?flag=space&locationRoot=1";
         string categoryUrl = "http://localhost:8080/vibe-web/getItemsTree?catalogId=2002";
         string idUrl = "http://localhost:8080/vibe-web/asset/toDeviceEdit?id=";
+        string addOrUpdataSceneDataURL= "http://localhost:8080/vibe-web/twoDimension/upload";
+        string findAllSceneDataURL = "http://localhost:8080/vibe-web/twoDimension/findAllName";
+        string findOneSceneDataURL = "http://localhost:8080/vibe-web/twoDimension/findOneFilestr?name=";
+        string deleteSceneDataURL = "http://localhost:8080/vibe-web/twoDimension/deleteTwoDimensionEditor?name=";
 
         Dictionary<string, AssetNode> assetPool = new Dictionary<string, AssetNode>();
 
@@ -46,6 +50,19 @@ namespace TDE
             return asset;
         }
 
+        public List<string> GetAllScenes()
+        {
+            var json= HTTPMgr.Instance.CreateHTTPRequest(findAllSceneDataURL);
+            return SerializeHelper.FromJson<List<string>>(json);
+        }
+        public string GetScene(string name)
+        {
+            return HTTPMgr.Instance.CreateHTTPRequest(findOneSceneDataURL+name);
+        }
+        public void SceneAddOrUpdata(string jsonSer)
+        {
+            HTTPMgr.Instance.CreateHTTPRequest(jsonSer,addOrUpdataSceneDataURL);
+        }
     }
 
     [System.Serializable]

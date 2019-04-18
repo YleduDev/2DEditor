@@ -12,6 +12,7 @@ namespace QFramework.TDE
 {
     public partial class UITextItem : UIElement, IDragHandler, IBeginDragHandler, IPointerDownHandler
     {
+        TSceneData model;
         Vector2 offset;
         Vector2 localPoint;
         RectTransform parentRT;
@@ -20,8 +21,9 @@ namespace QFramework.TDE
         Image image;
         ResLoader loader = ResLoader.Allocate();
 
-        internal void Init(T_Graphic graphicItem)
+        internal void Init(TSceneData model, T_Graphic graphicItem)
         {
+            this.model = model;
             text = graphicItem as T_Text;
             parentRT = Global.textParent;
             EditorBoxInit(text);
@@ -57,10 +59,27 @@ namespace QFramework.TDE
                  .ApplySelfTo(self => self.text.mainColor.Subscribe(color => image.color = Global.GetColorCS(color)))
                 
                  .ApplySelfTo(self => self.text.spritrsStr.Subscribe(spriteName => {
-                     Sprite sprite = Global.GetSprite(spriteName)
-                     ? Global.GetSprite(spriteName)
-                     :Global.GetSprite(loader.LoadSync<Texture2D>(spriteName));
-                     //sprite= sprite? sprite:
+
+                     if (!self.text.lastSpritrsStr.IsNullOrEmpty() && model.textrueReferenceDict.ContainsKey(self.text.lastSpritrsStr))
+                     {
+                         model.textrueReferenceDict[spriteName] -= 1;
+                     }
+                     Sprite sprite = null;
+                     // 先查缓存
+                     if (model.textrueDict.ContainsKey(spriteName))
+                     {
+                         byte[] buffer = Base64Helper.ConvertBase64(model.textrueDict[spriteName]);
+                         Texture2D tex = new Texture2D(2, 2);
+                         tex.LoadImage(buffer);
+                         tex.Apply();
+                         tex.name = spriteName;
+                         sprite = Global.GetSprite(tex);
+
+                         model.textrueReferenceDict[spriteName] += 1;
+                     }
+                     //缓存没有查本地
+                     if (sprite.IsNull())
+                         sprite = Global.GetSprite(spriteName);
                      image.sprite = sprite;
                  }))
                  .ApplySelfTo(self => self.text.AssetNodeData.Subscribe(data => { if (data.IsNotNull()) self.text.mainColor.Value = Global.GetColorForState(data); }));

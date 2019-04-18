@@ -9,6 +9,14 @@ namespace TDE
     public class TSceneData
     {
         #region 属性
+
+        //存储引用图片的缓存
+        public  Dictionary<string, string> textrueDict = new Dictionary<string, string>();
+
+        //主要标记textrue data是否还有图片引用及引用个数
+        [JsonIgnore]
+        public Dictionary<string, int> textrueReferenceDict;
+
         public static JsonSerializerSettings seting = new JsonSerializerSettings
       {
             PreserveReferencesHandling = PreserveReferencesHandling.Objects,
@@ -28,14 +36,21 @@ namespace TDE
         #endregion
 
         #region 对属性集合的操作方法
-        public void Add(T_Graphic model)
+        public bool Add(T_Graphic model)
         {
             if (model.graphicType == GraphicType.Image)
-                ImageDataList.Add(model as T_Image);
+            {
+                ImageDataList.Add(model as T_Image); return true;
+            }
             if (model.graphicType == GraphicType.Line)
-                LineDataList.Add(model as T_Line);
+            {
+                LineDataList.Add(model as T_Line); return true;
+            }
             if (model.graphicType == GraphicType.Text)
-                TextDataList.Add(model as T_Text);
+            {
+                TextDataList.Add(model as T_Text); return true;
+            }
+            return false;
         }
 
         public void Remove(T_Graphic model)
@@ -60,11 +75,13 @@ namespace TDE
         }
         public void Remove(T_Image model)
         {
-            ImageDataList.Remove(model);
+            if (ImageDataList.Remove(model)&&textrueReferenceDict.ContainsKey(model.spritrsStr.Value))         
+                textrueReferenceDict[model.spritrsStr.Value] -= 1;
         }
         public void Remove(T_Text model)
         {
-            TextDataList.Remove(model);
+            if (TextDataList.Remove(model)&&textrueReferenceDict.ContainsKey(model.spritrsStr.Value))
+                textrueReferenceDict[model.spritrsStr.Value] -= 1;                    
         }
 
         #endregion
@@ -76,6 +93,8 @@ namespace TDE
             else
             {
                 TSceneData data= JsonConvert.DeserializeObject<TSceneData>(json, seting);
+                //初始化记存器
+                data.TextrueReferenceDictInit();
                 //初始化绑定数据
                 data.InitGlobalBindDataDict();
                 
@@ -85,8 +104,25 @@ namespace TDE
 
         public string Save()
         {        
+            //清除没有引用的图片 data
+            if(textrueReferenceDict!=null&& textrueReferenceDict.Count > 0)
+            {
+                textrueReferenceDict.ForEach(item => { if (item.Value<=0) textrueDict.Remove(item.Key); });
+            }
            return  JsonConvert.SerializeObject(this, Formatting.Indented, seting);
         }
+
+        //添加方法
+        public void AddTextrueData(string key,string value)
+        {
+            if (textrueDict.IsNotNull() && !textrueDict.ContainsKey(key))
+            {
+                textrueDict.Add(key, value);
+                if(textrueReferenceDict==null) textrueReferenceDict= new Dictionary<string, int>();
+                textrueReferenceDict.Add(key, 0);
+            }
+        }
+
         //绑点数据初始化
         private void InitGlobalBindDataDict()
         {
@@ -106,5 +142,16 @@ namespace TDE
                  Global.AddBindData(item.AssetNodeData);
             }
         }
+
+        //初始化记存器
+        private void TextrueReferenceDictInit()
+        {
+            if(textrueDict!=null&& textrueDict.Count > 0)
+            {
+                textrueReferenceDict = new Dictionary<string, int>();
+                textrueDict.ForEach(item => textrueReferenceDict.Add(item.Key, 0));
+            }
+        }
     }
+
 }

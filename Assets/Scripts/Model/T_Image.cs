@@ -22,7 +22,8 @@ namespace TDE
     {
         //绑点集合
         public ReactiveCollection<BindData>bindDatas=new ReactiveCollection<BindData>();
-
+       
+        //要存放到SceneData
         public void Add(BindData data)
         {
             bindDatas.Add(data);

@@ -40,11 +40,11 @@ namespace QFramework.TDE
                     T_Image image = graphicItem as T_Image;
                     UIImageItem
                         .ApplySelfTo(self =>self.Init(model, image))               
-                        .ApplySelfTo(self =>imageDict.Add(graphicItem, UIImageItem));break;
+                        .ApplySelfTo(self =>  imageDict.Add(graphicItem, UIImageItem));break;
                 case GraphicType.Text:
                     UITextItem UITextItem = UITItem.UITextItem.Instantiate();
                     UITextItem
-                        .ApplySelfTo(self =>self.Init(graphicItem))                     
+                        .ApplySelfTo(self =>self.Init(model,graphicItem))                     
                         .ApplySelfTo(self =>textDict.Add(graphicItem, UITextItem)); break;
                 case GraphicType.Line:
                     UILineItem UILineItem = UITItem.UILineItem.Instantiate();
@@ -93,11 +93,20 @@ namespace QFramework.TDE
             imageDict.Clear();
             textDict.Clear();
             lineDict.Clear();
+            ClearGraphicItem();
             this.UITItem = UITItem;
             model.LineDataList.Where(item=> item.IsNotNull()).ForEach(item => Add(item));
             model.ImageDataList.Where(item => item.IsNotNull()).ForEach(item => Add(item));
             model.TextDataList.Where(item => item.IsNotNull()).ForEach(item => Add(item));
         }
+        private void ClearGraphicItem()
+        {
+            Global.ClearChildForTransform(Global.imageParent);
+            Global.ClearChildForTransform(Global.LineParent);
+            Global.ClearChildForTransform(Global.textParent);
+        }
+
+        
 
         public void SetContentWidth(float width)
         {

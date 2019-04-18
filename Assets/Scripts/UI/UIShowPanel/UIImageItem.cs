@@ -67,10 +67,27 @@ namespace QFramework.TDE
                  .ApplySelfTo(self => self.Image.mainColor.Subscribe(color=>  UIimage.color = Global.GetColorCS(color)))
                  //Sprite
                  .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> {
-                     Sprite sprite= Global.GetSprite(spriteName)
-                     ? Global.GetSprite(spriteName)
-                     :Global.GetSprite(loader.LoadSync<Texture2D>(spriteName));
-                     //sprite= sprite? sprite:
+                     //上一次是否需要进入计数器
+                     if(!self.Image.lastSpritrsStr.IsNullOrEmpty()&& model.textrueReferenceDict.ContainsKey(self.Image.lastSpritrsStr))
+                     {
+                         model.textrueReferenceDict[spriteName] -= 1;
+                     }
+                     Sprite sprite=null;
+                     // 先查缓存
+                     if (model.textrueDict.ContainsKey(spriteName))
+                     {
+                         byte[] buffer = Base64Helper.ConvertBase64(model.textrueDict[spriteName]);
+                         Texture2D tex = new Texture2D(2, 2);
+                         tex.LoadImage(buffer);
+                         tex.Apply();
+                         tex.name = spriteName;
+                         sprite = Global.GetSprite(tex);
+
+                         model.textrueReferenceDict[spriteName] += 1;
+                     }
+                     //缓存没有查本地
+                     if(sprite.IsNull())
+                     sprite = Global.GetSprite(spriteName);                   
                      UIimage.sprite = sprite;
                  }))
                 // .ApplySelfTo(self => self.Image.ColorInit())

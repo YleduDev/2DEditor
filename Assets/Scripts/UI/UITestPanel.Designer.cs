@@ -24,6 +24,9 @@ namespace QFramework.TDE
         public const string NAME = "UITestPanel";
         
         [SerializeField()]
+        public UIDataToggle UIDataToggle;
+        
+        [SerializeField()]
         public Button Button;
         
         [SerializeField()]
@@ -34,6 +37,39 @@ namespace QFramework.TDE
         
         [SerializeField()]
         public Button ButtonNormal;
+        
+        [SerializeField()]
+        public Button ButtonReadScene;
+        
+        [SerializeField()]
+        public Button ButtonUpLoadScene;
+        
+        [SerializeField()]
+        public ScrollRect ScenesScrollView;
+        
+        [SerializeField()]
+        public ToggleGroup Content;
+        
+        [SerializeField()]
+        public Button ScenesScrollButton;
+        
+        [SerializeField()]
+        public Button ScenesScrollCloseButton;
+        
+        [SerializeField()]
+        public Image UIUPloadBG;
+        
+        [SerializeField()]
+        public Text UITextScnenName;
+        
+        [SerializeField()]
+        public InputField UIUPloadInputField;
+        
+        [SerializeField()]
+        public Button UIUPloadButton;
+        
+        [SerializeField()]
+        public Button UIUPloadCloseButton;
         
         private UITestPanelData mPrivateData = null;
         
@@ -52,10 +88,22 @@ namespace QFramework.TDE
         
         protected override void ClearUIComponents()
         {
+            UIDataToggle = null;
             Button = null;
             ButtonError = null;
             ButtonWarningg = null;
             ButtonNormal = null;
+            ButtonReadScene = null;
+            ButtonUpLoadScene = null;
+            ScenesScrollView = null;
+            Content = null;
+            ScenesScrollButton = null;
+            ScenesScrollCloseButton = null;
+            UIUPloadBG = null;
+            UITextScnenName = null;
+            UIUPloadInputField = null;
+            UIUPloadButton = null;
+            UIUPloadCloseButton = null;
             mData = null;
         }
     }

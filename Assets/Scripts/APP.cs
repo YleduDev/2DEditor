@@ -16,13 +16,12 @@ namespace TDE
     /// </summary>
     public class APP : MonoBehaviour
     {
-        TSceneData model;
         ServerData serverData;
         string path ;
         public void Awake()
         {
             //string json = PlayerPrefs.GetString("Test19");
-            //path = FilePath.StreamingAssetsPath + "Graphics/Data/11.txt";
+           // path = FilePath.StreamingAssetsPath + "Data/11.txt";
             // string json= File.ReadAllText(path);
             //FileMgr.Instance.GetZippathFile()
             //ZipUtil.ZipDirectory(FilePath.StreamingAssetsPath + "Graphics/Data", FilePath.StreamingAssetsPath +"Zip");
@@ -31,37 +30,37 @@ namespace TDE
             //string json = PlayerPrefs.GetString("Test19");
             serverData = new ServerData();
             string json = HTTPMgr.Instance.CreateHTTPRequest("http://localhost:8080/vibe-web/twoDimension/findOneFilestr?name=Test19");
-            //Log.I(json);
-            model = TSceneData.Load(json);
-            
-
-            //string jsonSer = string.Format("name={0}&josnStr={1}", "Test19", json);
-
+            //string json = File.ReadAllText(path);
+            //File.WriteAllText(path, json);
+            //json.Replace(" ", "+");
+            Global.currentSceneData.Value= TSceneData.Load("");
            // 
             #endregion
             ResMgr.Init();
             UIMgr.SetResolution(1920, 1080, 0);
-            UIMgr.OpenPanel<UIGraphicMenuPanel>(new UIGraphicMenuPanelData() { model = model });
-            UIMgr.OpenPanel<UIShowPanel>(new UIShowPanelData() { model=model});
-            UIMgr.OpenPanel<UITestPanel>(new UITestPanelData() {model= serverData });
+            UIMgr.OpenPanel<UIGraphicMenuPanel>();
+
+            Global.currentSceneData.Subscribe(data => { UIMgr.OpenPanel<UIShowPanel>(new UIShowPanelData() { model = data });Global.OnSelectedGraphic.Value = null; });
+
+            UIMgr.OpenPanel<UITestPanel>(new UITestPanelData() { model = serverData });
         }
 
         private void OnApplicationQuit()
         {
-            string json = model.Save();
-            // File.WriteAllText(path, json);
+            string json = Global.currentSceneData.Value.Save();
+            //File.WriteAllText(path, json);
             // PlayerPrefs.SetString("Test19", model.Save());
-            string jsonSer = string.Format("name={0}&josnStr={1}", "Test19", json);
-            HTTPMgr.Instance.CreateHTTPRequest(jsonSer, "http://localhost:8080/vibe-web/twoDimension/upload");
+            //string jsonSer = string.Format("name={0}&josnStr={1}", "Test19", json);
+            //HTTPMgr.Instance.CreateHTTPRequest(jsonSer, "http://localhost:8080/vibe-web/twoDimension/upload");
         }
 
         private void Update()
         {
-            if (Input.GetKey(KeyCode.Delete))
+            if (Input.GetKeyDown(KeyCode.Delete))
             {
                if (Global.OnSelectedGraphic.IsNotNull())
                 {
-                    model.Remove(Global.OnSelectedGraphic.Value);
+                    Global.currentSceneData.Value.Remove(Global.OnSelectedGraphic.Value);
                 }
             }
         }

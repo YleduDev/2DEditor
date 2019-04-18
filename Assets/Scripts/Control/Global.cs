@@ -11,6 +11,8 @@ namespace TDE
 {
     public class Global 
     {
+        public static ReactiveProperty< TSceneData> currentSceneData=new ReactiveProperty<TSceneData>();
+
         public static int LinePx = 3;
         //线段的起 末
         public static LineBeginShape beginShape = LineBeginShape.BeginLine;
@@ -64,6 +66,17 @@ namespace TDE
                 bindDataDict[data.Id].Value = data;
             }
         }
+
+        public static void CurrentSceneDataAddTextrueData(string key,string value)
+        {
+            currentSceneData.Value.AddTextrueData(key, value);
+        }
+
+        public static bool CurrentSceneDataAddGraphic(T_Graphic graphic)
+        {
+            return currentSceneData.Value.Add(graphic);
+        }
+
         /// <summary>
         /// ShowPanel 图元及面板点击事件
         /// </summary>
@@ -148,5 +161,14 @@ namespace TDE
             }
         }
         
+        public static void ClearChildForTransform(Transform tf)
+        {
+            if (tf.childCount > 0)
+                for (int i = 0; i < tf.childCount; i++)
+                {
+                    GameObject.Destroy(tf.GetChild(i).gameObject);
+                }
+        }
+
     }
 }

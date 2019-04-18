@@ -34,23 +34,27 @@ namespace QFramework.TDE
     
     public partial class UIShowPanel : QFramework.UIPanel
     {
-        
+        UITItem UITItem;
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
         {
            
         }       
         protected override void OnInit(QFramework.IUIData uiData)
         {
-            mData = uiData as UIShowPanelData ?? new UIShowPanelData();
-
-            UITItem UITItem = new UITItem(UITextItem, UIImageItem, UILineItem);
-
+            UITItem = new UITItem(UITextItem, UIImageItem, UILineItem);
             UIContent.Init();
+
+          //  ModelChangeInit(uiData);
+        }
+        
+        public void ModelChangeInit(QFramework.IUIData uiData)
+        {
+            mData = uiData as UIShowPanelData ?? new UIShowPanelData();
             UIContent.GenerateGraphicItem(mData.model, UITItem);
 
             //订阅 model添加
             mData.model.ImageDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
-            mData.model.ImageDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value);});
+            mData.model.ImageDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
 
             mData.model.LineDataList.ObserveAdd().Subscribe(item => { UIContent.Add(item.Value); });
             mData.model.LineDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
@@ -59,12 +63,13 @@ namespace QFramework.TDE
             mData.model.TextDataList.ObserveRemove().Subscribe(item => { UIContent.Remove(item.Value); });
 
             //订阅画布大小
-            mData.model.canvasWidth.Subscribe(f=> { UIContent.SetContentWidth(f);});
-            mData.model.canvasHeight.Subscribe(f => { UIContent.SetContentHeight(f);});
+            mData.model.canvasWidth.Subscribe(f => { UIContent.SetContentWidth(f); });
+            mData.model.canvasHeight.Subscribe(f => { UIContent.SetContentHeight(f); });
         }
-        
+
         protected override void OnOpen(QFramework.IUIData uiData)
         {
+            ModelChangeInit(uiData);
         }
         
         protected override void OnShow()

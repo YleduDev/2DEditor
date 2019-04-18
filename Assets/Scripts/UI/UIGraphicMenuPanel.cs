@@ -23,7 +23,7 @@ namespace QFramework.TDE
     //using System.Windows.Forms;
     public class UIGraphicMenuPanelData : QFramework.UIPanelData
     {
-        public TSceneData model;
+       // public TSceneData model;
     }
     
     public partial class UIGraphicMenuPanel : QFramework.UIPanel
@@ -42,7 +42,7 @@ namespace QFramework.TDE
         {
             mData = uiData as UIGraphicMenuPanelData ?? new UIGraphicMenuPanelData();
             rectGraphicView = UIGraphicsView.transform as RectTransform;
-            UIGraphicControlContent.GenerateUIGrrphicsItem(UIGraphicItem,UIimg, rectGraphicView, mData.model);
+            UIGraphicControlContent.GenerateUIGrrphicsItem(UIGraphicItem,UIimg, rectGraphicView);
 
             //¶©ÔÄtitleImgÏà¹ØÊôÐÔ
             TitleImgLocalPos.Subscribe(v2=> TitleImg.LocalPosition(v2));

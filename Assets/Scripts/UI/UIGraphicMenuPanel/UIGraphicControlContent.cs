@@ -13,7 +13,7 @@ namespace QFramework.TDE
 	public partial class UIGraphicControlContent : UIElement
 	{
         RectTransform rect;
-        TSceneData model;
+        //TSceneData model;
         ResLoader loader = ResLoader.Allocate();
         private Dictionary<string, UIGraphicItem> UIGraphicItemDict = new Dictionary<string, UIGraphicItem>();
 
@@ -30,16 +30,15 @@ namespace QFramework.TDE
             if (UIGraphicItemDict.ContainsKey(name)) if (bo) UIGraphicItemDict[name].Show();else UIGraphicItemDict[name].Hide();
         }
 
-        internal void GenerateUIGrrphicsItem(UIGraphicItem UIGraphicItem,UIimg UIimg,RectTransform Viewport, TSceneData model)
+        internal void GenerateUIGrrphicsItem(UIGraphicItem UIGraphicItem,UIimg UIimg,RectTransform Viewport)
         {        
-            this.model = model;
             //ƒ¨»œøÕªß∂À≈‰÷√
             var text= loader.LoadSync<TextAsset>(Global.GraphisMenuConfigPathName);
             var dict = SerializeHelper.FromJson<Dictionary<string, List<string>>>(text.text);
             foreach (KeyValuePair<string, List<string>> kv in dict)
             {
                 UIGraphicItem GraphicItem = CreateGraphicItem(kv.Key, transform, UIGraphicItem);
-                GraphicItem.Init(kv, UIimg, Viewport, model);
+                GraphicItem.Init(kv, UIimg, Viewport);
             }
             string path = FilePath.StreamingAssetsPath + Global.CustomCinfigGraphicsPathName;
 
@@ -54,7 +53,7 @@ namespace QFramework.TDE
                 if (i.Parent.Name.Equals(Global.CustomCinfigGraphicsPathName))
                 {
                     UIGraphicItem GraphicItem = CreateGraphicItem(i, transform, UIGraphicItem);
-                    GraphicItem.Init(i, UIimg, Viewport, model);
+                    GraphicItem.Init(i, UIimg, Viewport);
                 }
             }
         }

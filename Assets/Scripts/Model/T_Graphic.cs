@@ -54,6 +54,7 @@ namespace TDE
         //选中
         public BoolReactiveProperty isSelected=new BoolReactiveProperty(false);
 
+        public string lastSpritrsStr;
         public StringReactiveProperty spritrsStr=new StringReactiveProperty();
       
         public ReactiveProperty<ColorSerializer> mainColor =new ReactiveProperty<ColorSerializer>(new ColorSerializer(Color.white));

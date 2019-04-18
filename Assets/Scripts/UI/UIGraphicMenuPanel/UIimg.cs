@@ -11,21 +11,25 @@ namespace QFramework.TDE
 {
     public partial class UIimg : UIElement,IDragHandler,IBeginDragHandler,IEndDragHandler
 	{
-        TSceneData model;
         string spriteKey;
         RectTransform rectGraphicView;
         RectTransform tParent;
         Vector2 localPoint;
         Vector2 tLocalPoint;
+
+        //生成标识符
         bool bo;
         //生成锁
         bool generateLock = false;
 
-        FloatReactiveProperty widht;
-        FloatReactiveProperty height;
-        StringReactiveProperty spritrsStr;
+        float widht;
+        float height;
+        string spritrsStr;
 
         T_Graphic T_Graphic = null;
+        private string textrueData;
+        //是否是本地配置的图元
+        public bool isConfigImg = false;
 
         ResLoader loader = ResLoader.Allocate();
         private void Awake(){}
@@ -34,16 +38,21 @@ namespace QFramework.TDE
             loader.Recycle2Cache();
             loader = null;
         }
-        internal void Init(string key,RectTransform Viewport,TSceneData model)
+        internal void Init(string key,RectTransform Viewport)
         {
             this.spriteKey = key;
             this.rectGraphicView = Viewport;
-            this.model = model;
             Sprite sprite = Global.GetSprite(spriteKey);
             //graghic data 数据
-            spritrsStr = new UniRx.StringReactiveProperty(spriteKey);
-            widht = new UniRx.FloatReactiveProperty(sprite.rect.width);
-            height = new UniRx.FloatReactiveProperty(sprite.rect.height);        
+            spritrsStr = spriteKey;
+            widht = sprite.rect.width;
+            height =sprite.rect.height;        
+        }
+
+        public void SettextrueData(string data)
+        {
+            if (data != null && data.Length > 0) textrueData = data;
+           // Log.I(textrueData.Length);
         }
 
         float UIGraphicViewHeight = 0;
@@ -76,14 +85,19 @@ namespace QFramework.TDE
             if (!FilterLocalPosForUIGraphicVw(localPoint, out bo))
             {
                 //可以生成
-                if (bo&&!generateLock) { T_Graphic=GenerationGraohic(); model.Add(T_Graphic); generateLock = true; }
+                if (bo&&!generateLock)
+                {
+                    generateLock = true;
+                   T_Graphic =GenerationGraohic();
+                    Global.CurrentSceneDataAddGraphic(T_Graphic);
+                }
                 if (bo&&T_Graphic.IsNotNull())
                 {
-
                     if (T_Graphic.graphicType == GraphicType.Image) tParent = Global.imageParent;
                     else tParent = Global.textParent;
                     RectTransformUtility.ScreenPointToLocalPointInRectangle(tParent, eventData.position, eventData.pressEventCamera, out tLocalPoint);
-                    if (Global.GetLocalPointOnCanvas(tLocalPoint)) T_Graphic.localPos.Value = tLocalPoint;
+                    if (Global.GetLocalPointOnCanvas(tLocalPoint))
+                        T_Graphic.localPos.Value = tLocalPoint;
                 }
                 if (bo&&UIGraphicMenuPanel.TitleImgActive.Value) UIGraphicMenuPanel.TitleImgActive.Value = false;
                 return;
@@ -100,11 +114,19 @@ namespace QFramework.TDE
 
         private T_Graphic GenerationGraohic()
         {
-            if (spritrsStr.Value.Contains(Global.TextItemContainName))
+            //判断不是本地图片  //添加缓存
+            if (!textrueData.IsNullOrEmpty())
+               Global.CurrentSceneDataAddTextrueData(spritrsStr, textrueData);
+            //Text的约定
+            if (spritrsStr.Contains(Global.TextItemContainName))
             {
-                return new T_Text() { spritrsStr = spritrsStr, widht = widht, height = height };
+                return new T_Text() { spritrsStr = new StringReactiveProperty( spritrsStr), widht = new FloatReactiveProperty( widht), height = new FloatReactiveProperty( height) };
             }
-            return new T_Image() { spritrsStr = spritrsStr, widht = widht, height = height };
+            return new T_Image(){
+                spritrsStr =new StringReactiveProperty( spritrsStr),
+                widht = new FloatReactiveProperty( widht),
+                height = new FloatReactiveProperty( height),
+            };
         }
     }
 }
