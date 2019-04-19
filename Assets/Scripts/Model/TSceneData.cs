@@ -75,12 +75,12 @@ namespace TDE
         }
         public void Remove(T_Image model)
         {
-            if (ImageDataList.Remove(model)&&textrueReferenceDict.ContainsKey(model.spritrsStr.Value))         
+            if (ImageDataList.Remove(model)&&textrueReferenceDict.IsNotNull()&&textrueReferenceDict.ContainsKey(model.spritrsStr.Value))         
                 textrueReferenceDict[model.spritrsStr.Value] -= 1;
         }
         public void Remove(T_Text model)
         {
-            if (TextDataList.Remove(model)&&textrueReferenceDict.ContainsKey(model.spritrsStr.Value))
+            if (TextDataList.Remove(model) && textrueReferenceDict.IsNotNull()&&textrueReferenceDict.ContainsKey(model.spritrsStr.Value))
                 textrueReferenceDict[model.spritrsStr.Value] -= 1;                    
         }
 
