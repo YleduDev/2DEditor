@@ -11,54 +11,92 @@
 namespace QAssetBundle
 {
     
+    public class Aigei_com_t
+    {
+        public const string BundleName = "aigei_com_t";
+        public const string AIGEI_COM = "aigei_com";
+    }
     public class Config
     {
         public const string BundleName = "config";
         public const string GRAPHICSMENMCONFIG = "graphicsmenmconfig";
+        public const string WIDGETCONFIG = "widgetconfig";
+        public const string WIDGETPREFABCONFIG = "widgetprefabconfig";
     }
-    public class Draw
+    public class Icon
     {
-        public const string BundleName = "draw";
-        public const string BG_001 = "bg_001";
-        public const string BG_002 = "bg_002";
-        public const string BG_003 = "bg_003";
-        public const string BG_004 = "bg_004";
-        public const string BG_005 = "bg_005";
-        public const string BG_006 = "bg_006";
-        public const string BG_007 = "bg_007";
-        public const string BG_008  = "bg_008 ";
-        public const string BG_009 = "bg_009";
-        public const string BG_010_TEXT = "bg_010_text";
-        public const string BG_011 = "bg_011";
-        public const string BG_012 = "bg_012";
-        public const string BG_013 = "bg_013";
+        public const string BundleName = "icon";
+        public const string ARRAW = "arraw";
+        public const string BG_010 = "bg_010";
+        public const string CIRCLE = "circle";
+        public const string 上 = "上";
+        public const string 上下居中 = "上下居中";
+        public const string 上传 = "上传";
+        public const string 上移一层 = "上移一层";
+        public const string 下 = "下";
+        public const string 下移一层 = "下移一层";
+        public const string 两端对齐 = "两端对齐";
+        public const string 保存 = "保存";
+        public const string 关闭 = "关闭";
+        public const string 删除 = "删除";
+        public const string 前进一步 = "前进一步";
+        public const string 剪切 = "剪切";
+        public const string 取消组合 = "取消组合";
+        public const string 右对齐 = "右对齐";
+        public const string 后退一步 = "后退一步";
+        public const string 图元库功能 = "图元库功能";
+        public const string 填充颜色 = "填充颜色";
+        public const string 复制 = "复制";
+        public const string 对齐 = "对齐";
+        public const string 居上 = "居上";
+        public const string 居下 = "居下";
+        public const string 展开 = "展开";
+        public const string 左右居中 = "左右居中";
+        public const string 左对齐 = "左对齐";
+        public const string 帮助 = "帮助";
+        public const string 搜索 = "搜索";
+        public const string 收起 = "收起";
+        public const string 放大比例和添加页码 = "放大比例和添加页码";
+        public const string 文字倾斜 = "文字倾斜";
+        public const string 文字加粗 = "文字加粗";
+        public const string 文字横排 = "文字横排";
+        public const string 文字纵向 = "文字纵向";
+        public const string 文字颜色 = "文字颜色";
+        public const string 更改图元 = "更改图元";
+        public const string 最大化 = "最大化";
+        public const string 最小化 = "最小化";
+        public const string 正常比例 = "正常比例";
+        public const string 特殊符号 = "特殊符号";
+        public const string 粘贴 = "粘贴";
+        public const string 组合 = "组合";
+        public const string 缩小比例 = "缩小比例";
+        public const string 置于底层 = "置于底层";
+        public const string 置于顶层 = "置于顶层";
+        public const string 边框颜色 = "边框颜色";
+        public const string 还原 = "还原";
+        public const string 选择 = "选择";
+        public const string 链接数据 = "链接数据";
     }
-    public class Face
+    public class Image_y
     {
-        public const string BundleName = "face";
-        public const string BTN_ARR_DAB = "btn_arr_dab";
-        public const string BTN_ARR_DOWN = "btn_arr_down";
-        public const string BTN_CLOSE = "btn_close";
-        public const string BTN_STY_DIS = "btn_sty_dis";
-        public const string BTN_STY_HIG = "btn_sty_hig";
-        public const string BTN_STY_NOR = "btn_sty_nor";
-        public const string BTN_STY_PRE = "btn_sty_pre";
+        public const string BundleName = "image_y";
+        public const string IMAGE = "image";
+        public const string 动力用电 = "动力用电";
+        public const string 图元控件 = "图元控件";
+        public const string 照明用电 = "照明用电";
+        public const string 特殊用电 = "特殊用电";
+        public const string 空调用电 = "空调用电";
+        public const string 综合用电 = "综合用电";
+        public const string 虚表 = "虚表";
     }
-    public class Line
+    public class Mouse_icon
     {
-        public const string BundleName = "line";
-        public const string ICO_ARROWS = "ico_arrows";
-        public const string ICO_BLOOD = "ico_blood";
-        public const string ICO_HP = "ico_hp";
-        public const string ICO_HP_BG = "ico_hp_bg";
-        public const string ICO_MP = "ico_mp";
-        public const string ICO_SHAIZI = "ico_shaizi";
-        public const string ICO_SKILLBG = "ico_skillbg";
-        public const string ICO_SMALLMA = "ico_smallma";
-        public const string ICO_STATUS = "ico_status";
-        public const string ICO_TONGQIAN = "ico_tongqian";
-        public const string ICO_YUANBAO = "ico_yuanbao";
-        public const string ICO_YUANBG = "ico_yuanbg";
+        public const string BundleName = "mouse_icon";
+        public const string DIANJISHOUSHI = "dianjishoushi";
+        public const string ICON_ADD = "icon_add";
+        public const string SHOUZHI = "shouzhi";
+        public const string TUOZHUAI = "tuozhuai";
+        public const string TUOZHUAI1 = "tuozhuai1";
     }
     public class Test
     {
@@ -84,31 +122,26 @@ namespace QAssetBundle
         public const string ENDARROWS5 = "endarrows5";
         public const string ENDLINE5 = "endline5";
         public const string SEGMENT5 = "segment5";
-        public const string AIGEI_COM = "aigei_com";
-        public const string DIANJISHOUSHI = "dianjishoushi";
-        public const string ICON_ADD = "icon_add";
-        public const string SHOUZHI = "shouzhi";
-        public const string TUOZHUAI = "tuozhuai";
-        public const string TUOZHUAI1 = "tuozhuai1";
     }
-    public class Uigraphicmenupanel_prefab
+    public class Uiprefab
     {
-        public const string BundleName = "uigraphicmenupanel_prefab";
+        public const string BundleName = "uiprefab";
+        public const string UIATTRIBUTEPANEL = "uiattributepanel";
+        public const string UICANVASPANEL = "uicanvaspanel";
+        public const string UIFUNCTIONPANEL = "uifunctionpanel";
         public const string UIGRAPHICMENUPANEL = "uigraphicmenupanel";
-    }
-    public class Uiserverdatasmenupanel_prefab
-    {
-        public const string BundleName = "uiserverdatasmenupanel_prefab";
+        public const string UIGRAPHICMENUSCROLLVIEWPANEL = "uigraphicmenuscrollviewpanel";
+        public const string UILINKEDSERVERPANEL = "uilinkedserverpanel";
+        public const string UIOPERATEPANEL = "uioperatepanel";
+        public const string UISCENESSCROLLVIEWPANEL = "uiscenesscrollviewpanel";
         public const string UISERVERDATASMENUPANEL = "uiserverdatasmenupanel";
-    }
-    public class Uishowpanel_prefab
-    {
-        public const string BundleName = "uishowpanel_prefab";
         public const string UISHOWPANEL = "uishowpanel";
+        public const string UIUPLOADPANEL = "uiuploadpanel";
+        public const string UIWIDGET_ECG = "uiwidget_ecg";
     }
-    public class Uitestpanel_prefab
+    public class 控件
     {
-        public const string BundleName = "uitestpanel_prefab";
-        public const string UITESTPANEL = "uitestpanel";
+        public const string BundleName = "控件";
+        public const string 电计量控件 = "电计量控件";
     }
 }

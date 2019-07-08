@@ -445,6 +445,13 @@
       "readme": {
         "items": [
           {
+            "version": "v0.0.21",
+            "content": "支持 Unity 2019.1",
+            "author": "liangxie",
+            "date": "2019 年 07 月 03 日 10:31",
+            "VersionNumber": 21
+          },
+          {
             "version": "v0.0.20",
             "content": "* support 2018.3\n* API Doc Support",
             "author": "liangxie",
@@ -531,6 +538,25 @@
         ]
       },
       "PackageVersions": [
+        {
+          "Version": "v0.0.21",
+          "Type": 0,
+          "AccessRight": 0,
+          "DownloadUrl": "http://liangxiegame.com/media/Framework_v0.0.21.unitypackage",
+          "InstallPath": "Assets/QFramework/Framework",
+          "DocUrl": "http://qfdoc.liangxiegame.com/",
+          "Readme": {
+            "version": "v0.0.21",
+            "content": "支持 Unity 2019.1",
+            "author": "liangxie",
+            "date": "2019 年 07 月 03 日 10:31",
+            "VersionNumber": 21
+          },
+          "Id": "637",
+          "Name": "Framework",
+          "VersionNumber": 21,
+          "FileName": "Framework_v0.0.21.unitypackage"
+        },
         {
           "Version": "v0.0.20",
           "Type": 0,
@@ -779,13 +805,13 @@
           "FileName": "Framework_v0.0.1.unitypackage"
         }
       ],
-      "Version": "v0.0.20",
-      "DownloadUrl": "http://liangxiegame.com/media/Framework_v0.0.20.unitypackage",
+      "Version": "v0.0.21",
+      "DownloadUrl": "http://liangxiegame.com/media/Framework_v0.0.21.unitypackage",
       "InstallPath": "Assets/QFramework/Framework",
       "DocUrl": "http://qfdoc.liangxiegame.com/",
       "Type": 0,
       "AccessRight": 0,
-      "VersionNumber": 20,
+      "VersionNumber": 21,
       "Installed": true
     },
     {
@@ -2386,6 +2412,13 @@
       "readme": {
         "items": [
           {
+            "version": "v0.1.1",
+            "content": "repair demo",
+            "author": "vin129",
+            "date": "2019 年 04 月 23 日 16:15",
+            "VersionNumber": 101
+          },
+          {
             "version": "v0.1.0",
             "content": "Update Tolua\nBase available version\nAdd  LuaCodeGenerator",
             "author": "vin129",
@@ -2430,6 +2463,44 @@
         ]
       },
       "PackageVersions": [
+        {
+          "Version": "v0.1.1",
+          "Type": 0,
+          "AccessRight": 0,
+          "DownloadUrl": "http://liangxiegame.com/media/ScriptKit_v0.1.1.unitypackage",
+          "InstallPath": "Assets/QFramework/ScriptKit/",
+          "DocUrl": "http://liangxiegame.com",
+          "Readme": {
+            "version": "v0.1.1",
+            "content": "repair demo",
+            "author": "vin129",
+            "date": "2019 年 04 月 23 日 16:15",
+            "VersionNumber": 101
+          },
+          "Id": "631",
+          "Name": "ScriptKit",
+          "VersionNumber": 101,
+          "FileName": "ScriptKit_v0.1.1.unitypackage"
+        },
+        {
+          "Version": "v0.1.1",
+          "Type": 0,
+          "AccessRight": 0,
+          "DownloadUrl": "http://liangxiegame.com/media/ScriptKit_v0.1.1_6ReVlY5.unitypackage",
+          "InstallPath": "Assets/QFramework/ScriptKit/",
+          "DocUrl": "http://liangxiegame.com",
+          "Readme": {
+            "version": "v0.1.1",
+            "content": "repair demo",
+            "author": "vin129",
+            "date": "2019 年 04 月 27 日 19:41",
+            "VersionNumber": 101
+          },
+          "Id": "632",
+          "Name": "ScriptKit",
+          "VersionNumber": 101,
+          "FileName": "ScriptKit_v0.1.1.unitypackage"
+        },
         {
           "Version": "v0.1.0",
           "Type": 0,
@@ -2564,13 +2635,13 @@
           "FileName": "ScriptKit_v0.0.4.unitypackage"
         }
       ],
-      "Version": "v0.1.0",
-      "DownloadUrl": "http://liangxiegame.com/media/ScriptKit_v0.1.0.unitypackage",
+      "Version": "v0.1.1",
+      "DownloadUrl": "http://liangxiegame.com/media/ScriptKit_v0.1.1.unitypackage",
       "InstallPath": "Assets/QFramework/ScriptKit/",
       "DocUrl": "http://liangxiegame.com",
       "Type": 0,
       "AccessRight": 0,
-      "VersionNumber": 100,
+      "VersionNumber": 101,
       "Installed": false
     },
     {
@@ -5205,6 +5276,75 @@
       "AccessRight": 0,
       "VersionNumber": 5,
       "Installed": true
+    },
+    {
+      "Name": "UIWidgetsReduxPersist",
+      "readme": {
+        "items": [
+          {
+            "version": "v0.2.0",
+            "content": "open source",
+            "author": "liangxie",
+            "date": "2019 年 05 月 16 日 13:36",
+            "VersionNumber": 200
+          },
+          {
+            "version": "0.1.1",
+            "content": "初步提交",
+            "author": "liangxie",
+            "date": "2019 年 05 月 01 日 18:30",
+            "VersionNumber": 101
+          }
+        ]
+      },
+      "PackageVersions": [
+        {
+          "Version": "v0.2.0",
+          "Type": 0,
+          "AccessRight": 0,
+          "DownloadUrl": "http://liangxiegame.com/media/UIWidgetsReduxPersist_v0.2.0.unitypackage",
+          "InstallPath": "Assets/QFramework/UIWidgetsReduxPersist/",
+          "DocUrl": "http://liangxiegame.com",
+          "Readme": {
+            "version": "v0.2.0",
+            "content": "open source",
+            "author": "liangxie",
+            "date": "2019 年 05 月 16 日 13:36",
+            "VersionNumber": 200
+          },
+          "Id": "636",
+          "Name": "UIWidgetsReduxPersist",
+          "VersionNumber": 200,
+          "FileName": "UIWidgetsReduxPersist_v0.2.0.unitypackage"
+        },
+        {
+          "Version": "0.1.1",
+          "Type": 0,
+          "AccessRight": 0,
+          "DownloadUrl": "http://liangxiegame.com/media/UIWidgetsReduxPersist_0.1.1.unitypackage",
+          "InstallPath": "Assets/QFramework/UIWidgetsReduxPersist/",
+          "DocUrl": "http://liangxiegame.com",
+          "Readme": {
+            "version": "0.1.1",
+            "content": "初步提交",
+            "author": "liangxie",
+            "date": "2019 年 05 月 01 日 18:30",
+            "VersionNumber": 101
+          },
+          "Id": "635",
+          "Name": "UIWidgetsReduxPersist",
+          "VersionNumber": 101,
+          "FileName": "UIWidgetsReduxPersist_0.1.1.unitypackage"
+        }
+      ],
+      "Version": "v0.2.0",
+      "DownloadUrl": "http://liangxiegame.com/media/UIWidgetsReduxPersist_v0.2.0.unitypackage",
+      "InstallPath": "Assets/QFramework/UIWidgetsReduxPersist/",
+      "DocUrl": "http://liangxiegame.com",
+      "Type": 0,
+      "AccessRight": 0,
+      "VersionNumber": 200,
+      "Installed": false
     },
     {
       "Name": "Unfinity Games",

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 344016857
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 16d728e9b3640545029e290fb4f8c82c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Art/2DEditorGraphics/Face/Btn_Arr_Down.png
+- Assets/Art/2DEditorGraphics/Line/Ico_YuanBG.png
+- "Assets/Art/2DEditorGraphics/Draw/\u6587\u672C.png"
+- Assets/Art/2DEditorGraphics/Face/Btn_Arr_Dab.png
+Dependencies: []

@@ -147,7 +147,13 @@ namespace QFramework
         /// <returns></returns>
         public T LoadSync<T>(string assetName) where T : Object
         {
+#if UNITY_WEBGL
+            return WebGLAssetBundleMrg.Instance.GetObject(assetName) as T;
+#else
             return LoadSync(assetName) as T;
+#endif
+
+
         }
 
         /// <summary>

@@ -1,0 +1,67 @@
+ManifestFileVersion: 0
+CRC: 257386283
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 36a5033b93379c6069ad8acd41f434d8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Art/Icon/BG_010.png
+- "Assets/Art/Icon/\u53F3\u5BF9\u9F50.png"
+- "Assets/Art/Icon/\u5C45\u4E0B.png"
+- "Assets/Art/Icon/\u6587\u5B57\u503E\u659C.png"
+- "Assets/Art/Icon/\u653E\u5927\u6BD4\u4F8B\u548C\u6DFB\u52A0\u9875\u7801.png"
+- "Assets/Art/Icon/\u6587\u5B57\u989C\u8272.png"
+- "Assets/Art/Icon/\u6700\u5927\u5316.png"
+- "Assets/Art/Icon/\u4E0B\u79FB\u4E00\u5C42.png"
+- "Assets/Art/Icon/\u5BF9\u9F50.png"
+- "Assets/Art/Icon/\u5E2E\u52A9.png"
+- "Assets/Art/Icon/\u4FDD\u5B58.png"
+- "Assets/Art/Icon/\u7279\u6B8A\u7B26\u53F7.png"
+- "Assets/Art/Icon/\u540E\u9000\u4E00\u6B65.png"
+- "Assets/Art/Icon/\u6536\u8D77.png"
+- "Assets/Art/Icon/\u53D6\u6D88\u7EC4\u5408.png"
+- "Assets/Art/Icon/\u524D\u8FDB\u4E00\u6B65.png"
+- "Assets/Art/Icon/\u9009\u62E9.png"
+- "Assets/Art/Icon/\u590D\u5236.png"
+- "Assets/Art/Icon/\u641C\u7D22.png"
+- "Assets/Art/Icon/\u7F29\u5C0F\u6BD4\u4F8B.png"
+- "Assets/Art/Icon/\u66F4\u6539\u56FE\u5143.png"
+- "Assets/Art/Icon/\u5173\u95ED.png"
+- "Assets/Art/Icon/\u7EC4\u5408.png"
+- "Assets/Art/Icon/\u526A\u5207.png"
+- "Assets/Art/Icon/\u4E0A\u79FB\u4E00\u5C42.png"
+- "Assets/Art/Icon/\u4E0A\u4E0B\u5C45\u4E2D.png"
+- "Assets/Art/Icon/\u56FE\u5143\u5E93\u529F\u80FD.png"
+- "Assets/Art/Icon/\u4E0A\u4F20.png"
+- "Assets/Art/Icon/\u6587\u5B57\u6A2A\u6392.png"
+- "Assets/Art/Icon/\u6700\u5C0F\u5316.png"
+- "Assets/Art/Icon/\u94FE\u63A5\u6570\u636E.png"
+- "Assets/Art/Icon/\u6B63\u5E38\u6BD4\u4F8B.png"
+- "Assets/Art/Icon/\u4E0B.png"
+- "Assets/Art/Icon/\u5C45\u4E0A.png"
+- "Assets/Art/Icon/\u7F6E\u4E8E\u9876\u5C42.png"
+- Assets/Art/Icon/circle.png
+- Assets/Art/Icon/arraw.png
+- "Assets/Art/Icon/\u8FB9\u6846\u989C\u8272.png"
+- "Assets/Art/Icon/\u5DE6\u53F3\u5C45\u4E2D.png"
+- "Assets/Art/Icon/\u5DE6\u5BF9\u9F50.png"
+- "Assets/Art/Icon/\u5220\u9664.png"
+- "Assets/Art/Icon/\u6587\u5B57\u52A0\u7C97.png"
+- "Assets/Art/Icon/\u4E0A.png"
+- "Assets/Art/Icon/\u8FD8\u539F.png"
+- "Assets/Art/Icon/\u7C98\u8D34.png"
+- "Assets/Art/Icon/\u4E24\u7AEF\u5BF9\u9F50.png"
+- "Assets/Art/Icon/\u586B\u5145\u989C\u8272.png"
+- "Assets/Art/Icon/\u6587\u5B57\u7EB5\u5411.png"
+- "Assets/Art/Icon/\u5C55\u5F00.png"
+- "Assets/Art/Icon/\u7F6E\u4E8E\u5E95\u5C42.png"
+Dependencies: []

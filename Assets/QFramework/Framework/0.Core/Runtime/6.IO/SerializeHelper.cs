@@ -71,7 +71,7 @@ namespace QFramework
 				System.Runtime.Serialization.Formatters.Binary.BinaryFormatter bf =
 					new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 				var data = bf.Deserialize(stream);
-
+               
 				// TODO:这里没风险嘛?
 				return data;
 			}

@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 4068815652
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: texture
+      Dependencies: {}
+    Info_1:
+      Name: config
+      Dependencies: {}
+    Info_2:
+      Name: 2deditorgraphics
+      Dependencies: {}
+    Info_3:
+      Name: icon
+      Dependencies: {}
+    Info_4:
+      Name: uiprefab
+      Dependencies:
+        Dependency_0: texture
+        Dependency_1: icon
+        Dependency_2: mouse_icon
+        Dependency_3: image_y
+        Dependency_4: aigei_com_t
+    Info_5:
+      Name: mouse_icon
+      Dependencies: {}
+    Info_6:
+      Name: image_y
+      Dependencies: {}
+    Info_7:
+      Name: test
+      Dependencies: {}
+    Info_8:
+      Name: "\u63A7\u4EF6"
+      Dependencies: {}
+    Info_9:
+      Name: aigei_com_t
+      Dependencies: {}

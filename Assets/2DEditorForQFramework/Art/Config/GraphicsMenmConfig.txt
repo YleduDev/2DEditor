@@ -1,0 +1,16 @@
+﻿{
+  "Draw": [
+    "文本"
+  ],
+  "Face": [
+    "Btn_Arr_Dab",
+    "Btn_Arr_Down"
+  ],
+  "Line": [
+    "Ico_YuanBG"
+  ],
+  "Test": [
+    "TitleBG_001",
+    "TitleBG_002"
+  ]
+}
