@@ -295,7 +295,7 @@ namespace XZL
                 www.uploadHandler = new UploadHandlerRaw(bodyRaw);
                 www.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 www.downloadHandler = new DownloadHandlerBuffer();
-
+                www.timeout = 5;
                 yield return www.SendWebRequest();
 
                 if (www.isNetworkError || www.isHttpError)

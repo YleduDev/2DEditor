@@ -66,7 +66,7 @@ namespace TDE
         {
             try 
             {
-                string newURL=  PlayerPrefs.GetString("LastServerURL", HeadUrl);
+                string newURL = PlayerPrefs.GetString("LastServerURL", HeadUrl);
                 if (!newURL.Contains(port)) newURL = newURL + port;
                 HeadUrl = "http://" + newURL;
                 Log.I(HeadUrl + loginURL);
