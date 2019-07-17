@@ -162,9 +162,9 @@ namespace QFramework.TDE
             Global.textParent = TextParent as RectTransform;
             Global.imageParent = ImageParent as RectTransform;
 
-            imagePool = new SimpleObjectPool<UIImageItem>(() => UITItem.UIImageItem.Instantiate().Parent(ImageParent), item => item.Hide(), 20);
-            linePool = new SimpleObjectPool<UILineItem>(() => UITItem.UILineItem.Instantiate().Parent(LineParent), item => item.Hide(), 20);
-            textPool = new SimpleObjectPool<UITextItem>(() => UITItem.UITextItem.Instantiate().Parent(TextParent), item => item.Hide(), 20);
+            imagePool = new SimpleObjectPool<UIImageItem>(() => UITItem.UIImageItem.Instantiate().Parent(ImageParent), item => item.Hide());
+            linePool = new SimpleObjectPool<UILineItem>(() => UITItem.UILineItem.Instantiate().Parent(LineParent), item => item.Hide());
+            textPool = new SimpleObjectPool<UITextItem>(() => UITItem.UITextItem.Instantiate().Parent(TextParent), item => item.Hide());
 
         }
         protected override void OnBeforeDestroy(){

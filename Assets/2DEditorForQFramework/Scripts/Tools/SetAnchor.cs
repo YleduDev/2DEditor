@@ -10,7 +10,7 @@ using System.Reflection;
 public class SetAnchor  {
 #if UNITY_EDITOR
     [MenuItem("CONTEXT/RectTransform/SetAnchors")]
-#endif
+
     public static void SetAnchors(MenuCommand mc)
     {
         RectTransform trans = mc.context as RectTransform;
@@ -53,4 +53,5 @@ public class SetAnchor  {
         System.Object Res = GetSizeOfMainGameView.Invoke(null, null);
         return (Vector2)Res;
     }
+#endif
 }

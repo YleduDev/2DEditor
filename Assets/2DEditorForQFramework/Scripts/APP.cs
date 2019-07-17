@@ -43,15 +43,15 @@ namespace TDE
 #endif
         {
 #if UNITY_WEBGL
-            //web端的url是浏览器托管 所以获取url
-            string url = MyURL();
-            //获取浏览器点击默认场景名称
-            string fireText = GetText();
-            //连接
-            serverData = new ServerData(url);
-            yield return StartCoroutine(serverData.ie);
-            //serverData = new ServerData();
+            // web端的url是浏览器托管 所以获取url
+            //string url = MyURL();
+            ////获取浏览器点击默认场景名称
+            //string fireText = GetText();
+            ////连接
+            //serverData = new ServerData(url);
             //yield return StartCoroutine(serverData.ie);
+            serverData = new ServerData();
+            yield return StartCoroutine(serverData.ie);
             //获取web的资源加载
             yield return StartCoroutine(WebGLAssetBundleMrg.Instance.Load());
 #else
@@ -60,7 +60,7 @@ namespace TDE
             serverData = new ServerData();
             yield return StartCoroutine(serverData.ie);
 #endif
-            UIMgr.SetResolution(1920, 1080, 0);
+            UIMgr.SetResolution(1920, 1080, 0);      
 
             UIMgr.OpenPanel<UIGraphicMenuPanel>();
 #if UNITY_WEBGL
@@ -76,8 +76,8 @@ namespace TDE
             //协程 订阅 场景切换功能
             IEnumerator ie = ShowPanle();
             yield return  StartCoroutine(ie);
-            // UIMgr.OpenPanel<UITestPanel>(new UITestPanelData() { model = serverData });
-            //Global.currentSceneData.Value = TSceneData.Load(PlayerPrefs.GetString("OnDrawing", ""));
+
+
 #if UNITY_WEBGL
 #else
                UIMgr.OpenPanel<UIUPloadPanel>(new UIUPloadPanelData() { model = serverData }).Hide();
@@ -86,21 +86,15 @@ namespace TDE
                UIMgr.OpenPanel<UILinkedServerPanel>(new UILinkedServerPanelData() { ServerData = serverData }).Hide();
             //加载历史场景
                Global.currentSceneData.Value = TSceneData.Load( PlayerPrefs.GetString("OnDrawing", ""));
-
-
 #endif
 #if UNITY_WEBGL
-            
-            if (!fireText.IsNullOrEmpty())
-            {
-                ChangeScene(fireText);
-            }
+            // if (!fireText.IsNullOrEmpty())ChangeScene(fireText);
 #endif
         }
         //订阅
         IEnumerator ShowPanle()
         {
-            Global.currentSceneData.Skip(1).ObserveOnMainThread().Subscribe(data => StartCoroutine(TSceneChange(data)));
+            Global.currentSceneData.ObserveOnMainThread().Subscribe(data => StartCoroutine(TSceneChange(data)));
             yield return null;
         }
         //切换场景

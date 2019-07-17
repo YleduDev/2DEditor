@@ -42,7 +42,7 @@ namespace QFramework.TDE
         Vector2 graphicViewAnchoredPosition, graphicViewSizeDelta;
         protected override void ProcessMsg(int eventId, QFramework.QMsg msg)
         {
-           
+            
         }       
         protected override void OnInit(QFramework.IUIData uiData)
         {

@@ -52,7 +52,7 @@ namespace TDE
                     WebSocketInstance.Instance.InitWebSocket(url + "/vibe-web");
                 };
 #endif
-                ie= HTTPMgr.Instance.IELogin(HeadUrl + loginURL, act, loseAct);
+                ie = XZL.Network.NetWorkManager.Instance.IELogin(HeadUrl + loginURL, "admin", "123456", act, loseAct);
                 
                 PlayerPrefs.SetString("LastServerURL", url);
             }
@@ -66,16 +66,11 @@ namespace TDE
         {
             try 
             {
-                string newURL = PlayerPrefs.GetString("LastServerURL", HeadUrl);
+                string newURL=  PlayerPrefs.GetString("LastServerURL", HeadUrl);
                 if (!newURL.Contains(port)) newURL = newURL + port;
                 HeadUrl = "http://" + newURL;
                 Log.I(HeadUrl + loginURL);
-                ie = HTTPMgr.Instance.IELogin(HeadUrl + loginURL,()=>WebSocketInstance.Instance.InitWebSocket(HeadUrl.Replace("http://", "") + "/vibe-web"),null);
-                
-#if UNITY_WEBGL
-#else
-
-#endif
+                ie = XZL.Network.NetWorkManager.Instance.IELogin(HeadUrl + loginURL,"admin","123456",()=> WebSocketInstance.Instance.InitWebSocket(HeadUrl.Replace("http://", "") + "/vibe-web"),null);
             }
             catch (Exception e)
             {
@@ -83,27 +78,13 @@ namespace TDE
             }
         }
 
-        
-        //public SpaceTree GetFloors()
-        //{
-        //    //楼层
-        //    var floorsJson = HTTPMgr.Instance.CreateHTTPRequest(floorsUrl);
-        //    List<SpaceTree> root = SerializeHelper.FromJson<List<SpaceTree>>(floorsJson);
-        //    return root[0];
-        //}
-
-        //public List<SpaceTree> GetCategory()
-        //{
-        //    //类型
-        //    var categoryJson = HTTPMgr.Instance.CreateHTTPRequest(categoryUrl);
-        //    return SerializeHelper.FromJson<List<SpaceTree>>(categoryJson);
-        //}
+ 
 
         public static void GetAssetNodeForID(string id,Action<string> re)
         {
             try
             {
-                HTTPMgr.Instance.GetAssetForId(HeadUrl + idUrl + id, re);
+                XZL.HTTPMgr.Instance.GetAssetForId(HeadUrl + idUrl + id, re);
             }
             catch (Exception e)
             {
@@ -116,7 +97,7 @@ namespace TDE
         {
             try
             {
-                HTTPMgr.Instance.GetAssetForId(HeadUrl + queryAssetListUrl + id, re);
+                XZL.HTTPMgr.Instance.GetAssetForId(HeadUrl + queryAssetListUrl + id, re);
                 Log.I(HeadUrl + queryAssetListUrl + id);
             }
             catch (Exception e)
@@ -139,13 +120,13 @@ namespace TDE
             {
                 tUrl = HeadUrl + nameOrCaption + nameContent +content + captionContent + kingType + kind.ToString();
             }
-             HTTPMgr.Instance.GetAssetIdForHttp(tUrl, act);                        
+            XZL.HTTPMgr.Instance.GetAssetIdForHttp(tUrl, act);                        
         }
 
         public void GetAllScenes(Action<List<string>> action)
         {
 
-            HTTPMgr.Instance.FindAllScene(HeadUrl+findAllSceneDataURL, action);
+            XZL.HTTPMgr.Instance.FindAllScene(HeadUrl + findAllSceneDataURL, action);
             
          
         }
@@ -159,7 +140,7 @@ namespace TDE
                 re?.Invoke(sceneData);
                 return;
             }
-             HTTPMgr.Instance.FindOneScene(HeadUrl+findOneSceneDataURL + name, (json)=> {
+            XZL.HTTPMgr.Instance.FindOneScene(HeadUrl + findOneSceneDataURL + name, (json)=> {
                  if (!json.IsNullOrEmpty())
                  {
                      sceneData = TSceneData.Load(json);
@@ -174,7 +155,7 @@ namespace TDE
 
         public IEnumerator SceneAddOrUpdata(WWWForm jsonSer, Action<string> re)
         {                  
-           yield return  HTTPMgr.Instance.UpLoadSecne(HeadUrl+addOrUpdataSceneDataURL, jsonSer, re);
+           yield return XZL.HTTPMgr.Instance.UpLoadSecne(HeadUrl + addOrUpdataSceneDataURL, jsonSer, re);
         }
 
 

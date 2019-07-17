@@ -23,16 +23,16 @@
  * THE SOFTWARE.
  ****************************************************************************/
 
-using System.Runtime.InteropServices;
 
 namespace QFramework
 {
     using System;
     using System.Collections.Generic;
     using UnityEngine;
+    using XZL.ResKit;
     using Object = UnityEngine.Object;
-    
-    
+
+
     public class ResSearchRule : IPoolable,IPoolType
     {   
         public string AssetName { get;private set; }
@@ -152,8 +152,6 @@ namespace QFramework
 #else
             return LoadSync(assetName) as T;
 #endif
-
-
         }
 
         /// <summary>
