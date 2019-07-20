@@ -34,6 +34,13 @@ namespace QFramework.TDE
             parentRT = Global.textParent;
             EditorBoxInit(text);
             rect = transform as RectTransform;
+
+            if (text.sceneLoaded.IsNotNull()) text.sceneLoaded = null;
+            if (text.sceneSaveBefore.IsNotNull()) text.sceneSaveBefore = null;
+
+            text.sceneLoaded += OnSceneLoadEnd;
+            text.sceneSaveBefore += OnSceneBefore;
+
             this.transform.Parent(parentRT)
                 .Show()
                 .LocalPosition(graphicItem.localPos.Value)
@@ -41,7 +48,8 @@ namespace QFramework.TDE
                 .LocalRotation(Global.GetQuaternionForQS(graphicItem.locaRotation.Value))
                 .ApplySelfTo(self => image = GetComponent<Image>())
                 .ApplySelfTo(self => textPro = Text.GetComponent<TextMeshProUGUI>())
-                .ApplySelfTo(self => tmp_InputField = self.GetComponent<TMP_InputField>());
+                .ApplySelfTo(self => tmp_InputField = self.GetComponent<TMP_InputField>())
+               .SetAsLastSibling();
             //.ApplySelfTo(self => tmp_InputField.onValueChanged.AddListener(str=> text.content.Value=str));
             tmp_InputField?.onEndEdit.AddListener(str => this.text.content.Value = str);
             TextSubscribeInit();
@@ -57,7 +65,7 @@ namespace QFramework.TDE
                 else { if (self.UIEditorBox) self.UIEditorBox.Hide(); }
             }))
                 //移动
-                .ApplySelfTo(self => self.text.localPos.Subscribe(v2 => rect.LocalPosition(v2)))
+                .ApplySelfTo(self => self.text.localPos.Subscribe(v2 => self.LocalPosition(v2)))
                 //大小
                 .ApplySelfTo(self => self.text.localScale.Subscribe(v3 => rect.LocalScale(v3)))
                 //旋转
@@ -125,7 +133,28 @@ namespace QFramework.TDE
                          self.text.mainColor.Value = Global.GetColorForState(data);
                      }
                      else AssetNodeDataOnInit = true;
-                 }));
+                 }))
+                 .ApplySelfTo(self => self.text.siblingType.Subscribe(
+                     dataType =>
+                     {
+                         int index;
+                         switch (dataType)
+                         {
+                             case SiblingEditorType.None: break;
+                             case SiblingEditorType.UPOne:
+                                 index = self.rect.GetSiblingIndex() + 1; self.rect.SetSiblingIndex(index); self.text.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.DonwOne:
+                                 index = self.rect.GetSiblingIndex() - 1; self.rect.SetSiblingIndex(index); self.text.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.UpEnd:
+                                 self.rect.SetAsLastSibling(); self.text.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.DonwEnd:
+                                 self.rect.SetAsFirstSibling(); self.text.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                         }
+                     }));
         }
 
 
@@ -182,6 +211,16 @@ namespace QFramework.TDE
         protected override void OnBeforeDestroy(){
             loader.Recycle2Cache();
             loader = null;
+        }
+        public void OnSceneLoadEnd()
+        {
+            this.rect.SetSiblingIndex(this.text.localSiblingIndex);
+
+        }
+
+        public void OnSceneBefore()
+        {
+            this.text.localSiblingIndex = rect.GetSiblingIndex();   //this.rect.SetSiblingIndex();
         }
     }
 }

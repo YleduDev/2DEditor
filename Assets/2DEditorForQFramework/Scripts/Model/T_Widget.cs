@@ -5,13 +5,14 @@ using UnityEngine;
 using System;
 using UniRx;
 
+
     /// <summary>
     /// ¿Ø¼þ
     /// </summary>
     [System.Serializable]
     public class T_Widget : T_Image
     {
-
+       
         public string prefabName;
 
         public List<T_Line> LineDataList;
@@ -56,5 +57,6 @@ using UniRx;
             base.Destroy();
             BindDataEvent(data => Global.RemoveBindData(data));
         }
+
     }
 

@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-#if UNITY_WEBGL
-#else
-#endif
 using QFramework;
 using TDE;
 using UnityEngine;

@@ -41,10 +41,27 @@ namespace TDE
         Line,
         Widget
     }
-  
+  public enum SiblingEditorType
+    {
+        None,
+        UPOne,
+        DonwOne,
+        UpEnd,
+        DonwEnd
+    }
+
+   
+    public delegate void OnSceneLoaded();
+    
+    public delegate void OnSceneSaveBefore();
+
     public abstract class T_Graphic
-{
-        public BoolReactiveProperty trigger = new BoolReactiveProperty(false);
+    {
+        [JsonIgnore]
+        public OnSceneLoaded sceneLoaded;
+        [JsonIgnore]
+        public OnSceneSaveBefore sceneSaveBefore;
+        
 
         public Vector2ReactiveProperty  localPos=new Vector2ReactiveProperty();
         //Unity本身Quat对象序列化有误，需要封装一层
@@ -64,6 +81,11 @@ namespace TDE
         public ReactiveProperty<ColorSerializer> mainColor =new ReactiveProperty<ColorSerializer>(new ColorSerializer(Color.white));
         //渲染层级
         public IntReactiveProperty siblingIndex = new IntReactiveProperty();
+
+        //层级设置 枚举
+        public ReactiveProperty<SiblingEditorType> siblingType = new ReactiveProperty<SiblingEditorType>();
+
+        public int localSiblingIndex;
 
         //框选
         public BoolReactiveProperty isChecking=new BoolReactiveProperty(false);
@@ -98,17 +120,7 @@ namespace TDE
                 ColorInit();
             }
         }
-        //public void OnAfterDeserialize()
-        //{
-
-        //    Debug.Log("序列化开始");
-        //}
-
-        //public void OnBeforeSerialize()
-        //{
-        //    Debug.Log("反序列化结束后");
-        //    if (AssetNodeData != null && AssetNodeData.Value != null) Global.AddBindData(AssetNodeData.Value);
-        //}
+  
         public T_Graphic():base()
         {
 

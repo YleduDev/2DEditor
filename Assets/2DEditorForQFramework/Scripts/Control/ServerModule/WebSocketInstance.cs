@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_WEBGL
+#else
 using WebSocketSharp;
+#endif
 using UnityEngine;
 using QFramework;
 using Newtonsoft.Json;
 using UnityEngine.Networking;
 using TDE;
-
+#if UNITY_WEBGL
+#else
 public class WebSocketInstance : MonoSingleton<WebSocketInstance>
 {
     private static WebSocket upDateWebSocket;
@@ -70,6 +74,7 @@ public class WebSocketInstance : MonoSingleton<WebSocketInstance>
         upDateWebSocket?.Close();
     }
 }
+#endif
 public class WebSocketMessage
 {
     public string Id { set; get; }

@@ -19,7 +19,10 @@ namespace QFramework.TDE
     using UniRx;
     using global::TDE;
     using System.Runtime.InteropServices;
+#if UNITY_WEBGL
+#else
     using System.IO;
+#endif
     //using System.Windows.Forms;
     public class UIGraphicMenuPanelData : QFramework.UIPanelData
     {

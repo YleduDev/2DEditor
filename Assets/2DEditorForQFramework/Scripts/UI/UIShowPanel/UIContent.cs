@@ -29,12 +29,11 @@ namespace QFramework.TDE
         private TSceneData model;
 
         ResLoader loader = ResLoader.Allocate();
-        private void Awake()
-		{}
+        private void Awake(){}
              
         public void Add(T_Graphic graphicItem)
         {
-            if (graphicItem.IsNull()) return ; 
+            if (graphicItem.IsNull()) return ;
             switch (graphicItem.graphicType)
             {
                 case GraphicType.Image:
@@ -71,7 +70,6 @@ namespace QFramework.TDE
         internal void Remove(T_Graphic value)
         {
             if (value.IsNull())  return ;
-
             //½«Ñ¡ÖÐ×´Ì¬
             value.Destroy();
             switch (value.graphicType)
@@ -110,10 +108,10 @@ namespace QFramework.TDE
         public IEnumerator GenerateGraphicItem(TSceneData model)
         {
             this.model = model;
-            IEnumerator ie = ClearGraphicItem();
+            IEnumerator ie = ClearGraphicItem(); 
             yield return StartCoroutine(ie);
             AllGraphicClear(); 
-            model.LineDataList.Where(item => item.IsNotNull()).ForEach(item =>  Add(item));
+            model.LineDataList.Where(item => item.IsNotNull()).ForEach(item =>  Add(item));        
             yield return null;
             model.ImageDataList.Where(item => item.IsNotNull()).ForEach(item => Add(item));
             yield return null;
@@ -121,6 +119,7 @@ namespace QFramework.TDE
             yield return null;
             model.WidgetDataList.Where(item => item.IsNotNull()).ForEach(item => Add(item));
             yield return null;
+
         }
         private IEnumerator ClearGraphicItem()
         {
@@ -162,14 +161,17 @@ namespace QFramework.TDE
             Global.textParent = TextParent as RectTransform;
             Global.imageParent = ImageParent as RectTransform;
 
-            imagePool = new SimpleObjectPool<UIImageItem>(() => UITItem.UIImageItem.Instantiate().Parent(ImageParent), item => item.Hide());
-            linePool = new SimpleObjectPool<UILineItem>(() => UITItem.UILineItem.Instantiate().Parent(LineParent), item => item.Hide());
-            textPool = new SimpleObjectPool<UITextItem>(() => UITItem.UITextItem.Instantiate().Parent(TextParent), item => item.Hide());
-
+            imagePool = new SimpleObjectPool<UIImageItem>(() =>UITItem.UIImageItem.Instantiate().Parent(ImageParent), item => item.Hide(),20);
+            linePool = new SimpleObjectPool<UILineItem>(() => UITItem.UILineItem.Instantiate().Parent(LineParent), item => item.Hide(),20);
+            textPool = new SimpleObjectPool<UITextItem>(() => UITItem.UITextItem.Instantiate().Parent(TextParent), item => item.Hide(),20);
+          
         }
         protected override void OnBeforeDestroy(){
             loader.Recycle2Cache();
             loader = null;
         }
+
+     
+
     }
 }

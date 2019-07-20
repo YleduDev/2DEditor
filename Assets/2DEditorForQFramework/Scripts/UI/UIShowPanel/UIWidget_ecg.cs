@@ -28,7 +28,7 @@ namespace QFramework.TDE
             for (int i = 0; i < tTexts.Capacity; i++){tTexts.Add(new T_Text());}
 
           if(widget.ImageDataList==null)  widget.ImageDataList = tImages;
-            if (widget.TextDataList == null) widget.TextDataList = tTexts;
+          if (widget.TextDataList == null) widget.TextDataList = tTexts;
 
             SubscribeInit();
             //编辑面板初始化
@@ -199,21 +199,20 @@ namespace QFramework.TDE
             if (assetsList.IsNull() || assetsList.Count < 1) return;
             for (int i = 0; i < assetsList.Count; i++)
             {
-                //Log.I(assetsList[i].value);
                 if (assetsList[i].caption.Contains("A相电压"))
-                    tTexts[0].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });               
+                    widget.TextDataList[0].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });               
                 else if (assetsList[i].caption.Contains("A相电流"))
-                    tTexts[1].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                    widget.TextDataList[1].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
                 else if (assetsList[i].caption.Contains("B相电压"))
-                    tTexts[2].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                    widget.TextDataList[2].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
                 else if (assetsList[i].caption.Contains("B相电流"))
-                    tTexts[3].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state , Value = assetsList[i].value, });
+                    widget.TextDataList[3].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state , Value = assetsList[i].value, });
                 else if (assetsList[i].caption.Contains("C相电压"))
-                    tTexts[4].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                    widget.TextDataList[4].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
                 else if (assetsList[i].caption.Contains("C相电流"))
-                    tTexts[5].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });            
+                    widget.TextDataList[5].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });            
                 else if (assetsList[i].catalogId.Contains("1005"))
-                    tTexts[6].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                    widget.TextDataList[6].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
             }           
         }
         //待优化 设计方式不太理想

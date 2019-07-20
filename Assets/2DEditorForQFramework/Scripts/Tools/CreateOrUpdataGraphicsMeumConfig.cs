@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TDE;
+#if UNITY_EDITOR
 using System.IO;
+#endif
 using QFramework;
 using System.Linq;
 #if UNITY_EDITOR

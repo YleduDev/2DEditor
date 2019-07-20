@@ -51,12 +51,15 @@ namespace QFramework.TDE
             });
             bringToFrontBtn.onClick.AddListener(() =>
             {
-                BringToFrontBtnClick();
+                // BtnClickGlobal.AddRetreatSceneData();
+                if (Global.OnSelectedGraphic.Value == null) return;
+                Global.OnSelectedGraphic.Value.siblingType.Value = SiblingEditorType.UpEnd;
                 this.CloseItem();
             });
             atTheBottomBtn.onClick.AddListener(() =>
             {
-                BringToFrontBtnClick();
+                if (Global.OnSelectedGraphic.Value == null) return;
+                Global.OnSelectedGraphic.Value.siblingType.Value = SiblingEditorType.DonwEnd;
                 this.CloseItem();
             });
         }
@@ -95,47 +98,29 @@ namespace QFramework.TDE
 
         public void UpLayerBtnClick()
         {
-            BtnClickGlobal.AddRetreatSceneData();
-            UpOrDownLayer(1);
+           // BtnClickGlobal.AddRetreatSceneData();
+            if (Global.OnSelectedGraphic.Value == null) return;
+            Global.OnSelectedGraphic.Value.siblingType.Value = SiblingEditorType.UPOne;
         }
 
         public  void DownLayerBtnClick()
         {
-            BtnClickGlobal.AddRetreatSceneData();
-            UpOrDownLayer(-1);
+           // BtnClickGlobal.AddRetreatSceneData();
+            if (Global.OnSelectedGraphic.Value == null) return;
+            Global.OnSelectedGraphic.Value.siblingType.Value = SiblingEditorType.DonwOne;
         }
 
         public  void BringToFrontBtnClick()
         {
-            BtnClickGlobal.AddRetreatSceneData();
-            UpOrDownLayer(0,true);
+          
+
         }
 
         public  void AtTheBottomBtnClick()
         {
-            BtnClickGlobal.AddRetreatSceneData();
-            UpOrDownLayer(0,true,false);
-        }
+            //BtnClickGlobal.AddRetreatSceneData();
+            
 
-        public  void UpOrDownLayer(int offset = 0, bool isTopORBottom = false, bool isTop = true)
-        {
-            if (Global.OnSelectedGraphic.Value.IsNull()) return;
-            if (isTopORBottom)
-            {
-                if (isTop)
-                {
-                    Global.OnSelectedGraphic.Value.siblingIndex.Value = GetChildCount() - 1;
-                }
-                else
-                {
-                    Global.OnSelectedGraphic.Value.siblingIndex.Value = 0;
-                }
-            }
-            else
-            {
-                int temp = Global.OnSelectedGraphic.Value.siblingIndex.Value;
-                Global.OnSelectedGraphic.Value.siblingIndex.Value = Mathf.Clamp(temp + offset, 0, GetChildCount() - 1);
-            }
         }
 
         public  int GetChildCount()

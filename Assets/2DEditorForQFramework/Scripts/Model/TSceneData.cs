@@ -102,12 +102,8 @@ namespace TDE
             }
         }     
         public string Save()
-        {        
-            //去除 场景中图元数据没有引用的数据
-            if(textrueReferenceDict!=null&& textrueReferenceDict.Count > 0)
-            {
-                textrueReferenceDict.ForEach(item => { if (item.Value<=0) textrueDict.Remove(item.Key); });
-            }
+        {
+            OnSaveBefore();
             string data = JsonConvert.SerializeObject(this, Formatting.Indented, seting);
             //Log.I(data);
             return data;
@@ -118,8 +114,12 @@ namespace TDE
             if (textrueDict.IsNotNull() && !textrueDict.ContainsKey(key))
             {
                 textrueDict.Add(key, value);
-                if(textrueReferenceDict==null) textrueReferenceDict= new Dictionary<string, int>();
+                if (textrueReferenceDict == null) textrueReferenceDict = new Dictionary<string, int>();
                 textrueReferenceDict.Add(key, 0);
+            }
+            else if (textrueDict.IsNotNull() && textrueDict.ContainsKey(key))
+            {
+                textrueDict[key] = value;
             }
         }
 
@@ -157,22 +157,28 @@ namespace TDE
                 textrueDict.ForEach(item => textrueReferenceDict.Add(item.Key, 0));
             }
         }
-        #region slef
-        //触发器
-        public void OnTrriger()
+       void OnSaveBefore()
         {
-            //触发
-            LineDataList.Where(item => item.IsNotNull()).ForEach(item => item.trigger.Value = true);
-            ImageDataList.Where(item => item.IsNotNull()).ForEach(item => item.trigger.Value = true);
-            TextDataList.Where(item => item.IsNotNull()).ForEach(item => item.trigger.Value = true);
+            //去除 场景中图元数据没有引用的数据
+            if (textrueReferenceDict != null && textrueReferenceDict.Count > 0)
+            {
+                textrueReferenceDict.ForEach(item => { if (item.Value <= 0) textrueDict.Remove(item.Key); });
+            }
 
-            //返回未触发状态
-            LineDataList.Where(item => item.IsNotNull()).ForEach(item => item.trigger.Value = false);
-            ImageDataList.Where(item => item.IsNotNull()).ForEach(item => item.trigger.Value = false);
-            TextDataList.Where(item => item.IsNotNull()).ForEach(item => item.trigger.Value = false);
+            LineDataList.ForEach(item => item.sceneSaveBefore.Invoke());
+            ImageDataList.ForEach(item => item.sceneSaveBefore.Invoke());
+            TextDataList.ForEach(item => item.sceneSaveBefore.Invoke());
+            WidgetDataList.ForEach(item => item.sceneSaveBefore.Invoke());
+
         }
 
-        #endregion
+        public void OnSceneLoaded()
+        {
+            LineDataList.ForEach(item => item.sceneLoaded?.Invoke());
+            ImageDataList.ForEach(item => item.sceneLoaded?.Invoke());
+            TextDataList.ForEach(item => item.sceneLoaded?.Invoke());
+            WidgetDataList.ForEach(item => item.sceneLoaded?.Invoke());
+        }
     }
 
 }

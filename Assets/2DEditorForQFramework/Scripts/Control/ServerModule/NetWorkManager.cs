@@ -355,6 +355,7 @@ namespace XZL.Network
                 }
                 else
                 {
+                    //Debug.Log(www.downloadHandler.text);
                     re?.Invoke((T)(object)www.downloadHandler.text);
                 }
             }
@@ -399,6 +400,7 @@ namespace XZL.Network
                 else
                 {
                     //DevelopEngine.Console.Log(www.downloadHandler.text);
+                   // Debug.Log(www.downloadHandler.text);
                     re?.Invoke((T)(object)www.downloadHandler.text);
                 }
             }

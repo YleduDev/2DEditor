@@ -34,10 +34,6 @@ namespace TDE
         string deleteSceneDataURL = "/vibe-web/twoDimension/deleteTwoDimensionEditor?name=";
 
        public System.Collections.IEnumerator ie;
-
-        Dictionary<string, AssetNode> assetPool = new Dictionary<string, AssetNode>();
-
-        Dictionary<string, TSceneData> sceneDatasDict = new Dictionary<string, TSceneData>();
          
         public ServerData(string url,Action act=null,Action loseAct=null)
         {
@@ -64,13 +60,19 @@ namespace TDE
         }
         public ServerData()
         {
-            try 
+            try
             {
-                string newURL=  PlayerPrefs.GetString("LastServerURL", HeadUrl);
+                string newURL = PlayerPrefs.GetString("LastServerURL", HeadUrl);
                 if (!newURL.Contains(port)) newURL = newURL + port;
                 HeadUrl = "http://" + newURL;
                 Log.I(HeadUrl + loginURL);
-                ie = XZL.Network.NetWorkManager.Instance.IELogin(HeadUrl + loginURL,"admin","123456",()=> WebSocketInstance.Instance.InitWebSocket(HeadUrl.Replace("http://", "") + "/vibe-web"),null);
+                ie = XZL.Network.NetWorkManager.Instance.IELogin(HeadUrl + loginURL, "admin", "123456",
+#if UNITY_WEBGL
+                    null
+#else
+                      () => WebSocketInstance.Instance.InitWebSocket(HeadUrl.Replace("http://", "") + "/vibe-web")
+#endif
+                    , null);
             }
             catch (Exception e)
             {
@@ -78,7 +80,6 @@ namespace TDE
             }
         }
 
- 
 
         public static void GetAssetNodeForID(string id,Action<string> re)
         {
@@ -134,18 +135,10 @@ namespace TDE
         {
             TSceneData sceneData;
 
-            if (sceneDatasDict.ContainsKey(name))
-            {
-                sceneData = sceneDatasDict[name];
-                re?.Invoke(sceneData);
-                return;
-            }
             XZL.HTTPMgr.Instance.FindOneScene(HeadUrl + findOneSceneDataURL + name, (json)=> {
                  if (!json.IsNullOrEmpty())
                  {
                      sceneData = TSceneData.Load(json);
-
-                     sceneDatasDict.Add(name, sceneData);
 
                      re?.Invoke(sceneData);
                  }

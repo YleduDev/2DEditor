@@ -29,7 +29,6 @@ namespace QFramework
     using System;
     using System.Collections.Generic;
     using UnityEngine;
-    using XZL.ResKit;
     using Object = UnityEngine.Object;
 
 

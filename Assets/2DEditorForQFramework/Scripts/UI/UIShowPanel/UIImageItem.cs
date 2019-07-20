@@ -31,12 +31,19 @@ namespace QFramework.TDE
             this.model = model;
             parentRT = Global.imageParent;
             rect = transform as RectTransform;
+            
+            if (Image.sceneLoaded.IsNotNull()) Image.sceneLoaded = null;
+            if (Image.sceneSaveBefore.IsNotNull()) Image.sceneSaveBefore = null;
+            Image.sceneLoaded += OnSceneLoadEnd;
+            Image.sceneSaveBefore += OnSceneBefore;
+
             this.transform.Parent(parentRT)
                 .Show()
                 .LocalPosition(Image.localPos.Value)
                 .LocalScale(Image.localScale.Value)
                 .LocalRotation(Global.GetQuaternionForQS(Image.locaRotation.Value))
-                .ApplySelfTo(self => {UIimage = self.GetComponent<Image>(); });
+                .ApplySelfTo(self => { UIimage = self.GetComponent<Image>(); })
+               .SetAsLastSibling();
             //编辑面板初始化
             EditorBoxInit(Image);
             //划线工具初始化
@@ -50,12 +57,12 @@ namespace QFramework.TDE
             //点击选中
             this.ApplySelfTo(self => self.Image.isSelected.Subscribe(on =>
             {
-                if (on) {  self.UIEditorBox?.Show(); self.UILineSwitch?.Show(); }
-                else {  self.UIEditorBox.gameObject.Hide(); self.UILineSwitch?.Hide(); }
+                if (on) { self.UIEditorBox?.Show(); self.UILineSwitch?.Show(); }
+                else { self.UIEditorBox.gameObject.Hide(); self.UILineSwitch?.Hide(); }
             }))
                 //移动
                 .ApplySelfTo(self => self.Image.localPos.Subscribe(
-                 v2 => { self.Image.TransformChange(); self.LocalPosition(v2);}))
+                 v2 => { self.Image.TransformChange(); self.LocalPosition(v2 ); }))
                 //大小
                 .ApplySelfTo(self => self.Image.localScale.Subscribe(
                  v3 => rect.LocalScale(v3)))
@@ -68,22 +75,23 @@ namespace QFramework.TDE
                 //kuan
                 .ApplySelfTo(self => self.Image.widht.Subscribe(
                  f => { self.Image.TransformChange(); self.rect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, f); }))
-                //颜色
-                 .ApplySelfTo(self => self.Image.mainColor.Subscribe(color=>  UIimage.color = Global.GetColorCS(color)))
+                 //颜色
+                 .ApplySelfTo(self => self.Image.mainColor.Subscribe(color => UIimage.color = Global.GetColorCS(color)))
                  //Sprite
-                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName=> {
-                    // Log.I(spriteName);
+                 .ApplySelfTo(self => self.Image.spritrsStr.Subscribe(spriteName =>
+                 {
+                     // Log.I(spriteName);
                      //上一次是否需要进入计数器
-                     if (!self.Image.spritrsStr.Value.Equals(spriteName)&& model.textrueDict.ContainsKey(self.Image.spritrsStr.Value))
+                     if (!self.Image.spritrsStr.Value.Equals(spriteName) && model.textrueDict.ContainsKey(self.Image.spritrsStr.Value))
                      {
                          model.textrueReferenceDict[self.Image.spritrsStr.Value] -= 1;
                      }
-                     Sprite sprite= Global.GetSprite(spriteName);
-                     
+                     Sprite sprite = Global.GetSprite(spriteName);
+
                      // 先查缓存
-                     if (sprite.IsNull() && model.textrueDict.ContainsKey(spriteName) )
+                     if (sprite.IsNull() && model.textrueDict.ContainsKey(spriteName))
                      {
-                         byte[] buffer =Base64Helper.ConvertBase64(model.textrueDict[spriteName]);
+                         byte[] buffer = Base64Helper.ConvertBase64(model.textrueDict[spriteName]);
                          Texture2D tex = new Texture2D(2, 2);
                          tex.LoadImage(buffer);
                          tex.Apply();
@@ -91,14 +99,17 @@ namespace QFramework.TDE
                          sprite = Global.GetSprite(tex);
 
                          model.textrueReferenceDict[spriteName] += 1;
-                     }else if(!sprite.IsNull() && model.textrueDict.ContainsKey(spriteName)) model.textrueReferenceDict[spriteName] += 1;
+                     }
+                     else if (!sprite.IsNull() && model.textrueDict.ContainsKey(spriteName)) model.textrueReferenceDict[spriteName] += 1;
                      //缓存没有查本地                                        
-                     UIimage.sprite = sprite;                   
+                     UIimage.sprite = sprite;
                  }))
-                // .ApplySelfTo(self => self.Image.ColorInit())
+                 // .ApplySelfTo(self => self.Image.ColorInit())
                  //.ApplySelfTo(self => self.Image.AssetNodeData = new ReactiveProperty<WebSocketMessage>())
-                 .ApplySelfTo(self => self.Image.AssetNodeData.Subscribe(data => {
-                     if (data.IsNotNull()) {
+                 .ApplySelfTo(self => self.Image.AssetNodeData.Subscribe(data =>
+                 {
+                     if (data.IsNotNull())
+                     {
 
                          if (!AssetNodeDataOnInit)
                          {
@@ -119,8 +130,29 @@ namespace QFramework.TDE
                          }
                          self.Image.mainColor.Value = Global.GetColorForState(data);
                      }
-                     else AssetNodeDataOnInit=true;
-                 }));
+                     else AssetNodeDataOnInit = true;
+                 }))
+                 .ApplySelfTo(self => self.Image.siblingType.Subscribe(
+                     dataType =>
+                     {
+                         int index;
+                         switch (dataType)
+                         {
+                             case SiblingEditorType.None:break;
+                             case SiblingEditorType.UPOne:
+                                 index = self.rect.GetSiblingIndex() + 1; self.rect.SetSiblingIndex(index); self.Image.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.DonwOne:
+                                 index = self.rect.GetSiblingIndex() - 1; self.rect.SetSiblingIndex(index); self.Image.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.UpEnd:
+                                 self.rect.SetAsLastSibling(); self.Image.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.DonwEnd:
+                                 self.rect.SetAsFirstSibling(); self.Image.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                         }
+                     }));
         }
         
         //待优化 设计方式不太理想
@@ -177,6 +209,18 @@ namespace QFramework.TDE
             Global.OnClick(Image);
         }
         #endregion
+
+        public void OnSceneLoadEnd()
+        {
+            this.rect.SetSiblingIndex(this.Image.localSiblingIndex);
+        
+        }
+
+        public void OnSceneBefore()
+        {
+            this.Image.localSiblingIndex = rect.GetSiblingIndex();   //this.rect.SetSiblingIndex();
+    
+        }
 
         private void Awake(){}
 

@@ -102,7 +102,7 @@ namespace QFramework.TDE
             });
             quitBtn.onClick.AddListener(() =>
             {
-
+                Application.Quit();
             });
         }
 

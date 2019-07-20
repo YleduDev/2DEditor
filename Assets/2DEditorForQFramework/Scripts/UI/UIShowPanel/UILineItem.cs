@@ -27,12 +27,20 @@ namespace QFramework.TDE
             line = graphicItem as T_Line;
             rect = transform as RectTransform;
             parent =Global.LineParent;
+
+            if (line.sceneLoaded.IsNotNull()) line.sceneLoaded = null;
+            if (line.sceneSaveBefore.IsNotNull()) line.sceneSaveBefore = null;
+
+            line.sceneLoaded += OnSceneLoadEnd;
+            line.sceneSaveBefore += OnSceneBefore;
+
             this.transform.Parent(parent)
                .Show()
                .LocalPosition(line.localPos.Value)
                .LocalScale(line.localScale.Value)
                .LocalRotation(Global.GetQuaternionForQS(line.locaRotation.Value))
-               .ApplySelfTo(self=> UIImages = GetComponentsInChildren<Image>());
+               .ApplySelfTo(self => UIImages = GetComponentsInChildren<Image>())
+               .SetAsLastSibling();
 
             LineHead.Init(line,parent);
             LineEnd.Init(line, parent);
@@ -47,7 +55,7 @@ namespace QFramework.TDE
             //点击选中
             this.ApplySelfTo(self => self.line.isSelected.Subscribe(on => { }))
                 //移动
-                .ApplySelfTo(self => self.line.localPos.Subscribe(v2 => rect.LocalPosition(v2)))
+                .ApplySelfTo(self => self.line.localPos.Subscribe(v2 => self.LocalPosition(v2)))
                 //大小
                 .ApplySelfTo(self => self.line.localScale.Subscribe(v3 => rect.LocalScale(v3)))
                  //旋转
@@ -94,7 +102,28 @@ namespace QFramework.TDE
 
                         self.line.mainColor.Value = Global.GetColorForState(data);
                     }
-                    else { self.line.ColorInit(); AssetNodeDataOnInit = true; } }));
+                    else { self.line.ColorInit(); AssetNodeDataOnInit = true; } }))
+                    .ApplySelfTo(self => self.line.siblingType.Subscribe(
+                     dataType =>
+                     {
+                         int index;
+                         switch (dataType)
+                         {
+                             case SiblingEditorType.None: break;
+                             case SiblingEditorType.UPOne:
+                                 index = self.rect.GetSiblingIndex() + 1; self.rect.SetSiblingIndex(index); self.line.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.DonwOne:
+                                 index = self.rect.GetSiblingIndex() - 1; self.rect.SetSiblingIndex(index); self.line.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.UpEnd:
+                                 self.rect.SetAsLastSibling(); self.line.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                             case SiblingEditorType.DonwEnd:
+                                 self.rect.SetAsFirstSibling(); self.line.siblingType.Value = SiblingEditorType.None;
+                                 break;
+                         }
+                     }));
 
         }
 
@@ -146,6 +175,17 @@ namespace QFramework.TDE
         public void OnPointerDown(PointerEventData eventData)
         {
             Global.OnClick(line);
+        }
+
+        public void OnSceneLoadEnd()
+        {
+            this.rect.SetSiblingIndex(this.line.localSiblingIndex);
+
+        }
+
+        public void OnSceneBefore()
+        {
+            this.line.localSiblingIndex = rect.GetSiblingIndex();   //this.rect.SetSiblingIndex();
         }
 
         private void Awake(){}

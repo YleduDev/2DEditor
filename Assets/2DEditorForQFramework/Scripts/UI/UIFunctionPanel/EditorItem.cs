@@ -61,7 +61,7 @@ namespace QFramework.TDE
             });
             arrangeBtn.onClick.AddListener(() =>
             {
-                ArrangeContent.Show();
+                if (ArrangeContent.isActiveAndEnabled) ArrangeContent.Hide();else ArrangeContent.Show();
             });
         }
 

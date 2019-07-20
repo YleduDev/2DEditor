@@ -100,8 +100,8 @@ namespace TDE
         /// </summary>
         /// <param name="graphic"></param>
         public static void OnClick(T_Graphic graphic = null)
-        {            
-            if (graphic.IsNotNull() && graphic.Equals(OnSelectedGraphic)) return;
+        {
+            if (graphic.IsNotNull() && graphic.Equals(OnSelectedGraphic))  return; 
             if (OnSelectedGraphic.Value.IsNotNull()) OnSelectedGraphic.Value.isSelected.Value = false;             
              OnSelectedGraphic.Value = graphic;
             if (graphic != null) graphic.isSelected.Value = true;
@@ -156,10 +156,10 @@ namespace TDE
         //获取点位是否在画布内，ture->在画布内
         public static bool GetLocalPointOnCanvas(Vector2 loaclPoint)
         {
-            float left = -currentCanvasWidth.Value * 0.5f;
-            float right = currentCanvasWidth.Value * 0.5f;
-            float up = currentCanvasheight.Value * 0.5f;
-            float donw = -currentCanvasheight.Value * 0.5f;
+            float left = 0;
+            float right = currentCanvasWidth.Value ;
+            float up =0;
+            float donw = -currentCanvasheight.Value ;
             return loaclPoint.x > left && loaclPoint.x < right && loaclPoint.y > donw && loaclPoint.y < up;
         }
 

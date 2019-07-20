@@ -66,13 +66,18 @@ namespace QFramework.TDE
         
         public IEnumerator ModelChangeInit(TSceneData SceneData)
         {
-
+            UIContent.SetContentWidth(SceneData.canvasWidth.Value);
+            UIContent.SetContentHeight(SceneData.canvasHeight.Value);
             //订阅画布大小
             SceneData.canvasWidth.Subscribe(f => { UIContent.SetContentWidth(f); });
             SceneData.canvasHeight.Subscribe(f => { UIContent.SetContentHeight(f); });
             
-            IEnumerator ie = UIContent.GenerateGraphicItem(SceneData);
+            IEnumerator ie = UIContent.GenerateGraphicItem(SceneData); 
+
             yield return StartCoroutine(ie);
+
+            //
+            SceneData.OnSceneLoaded();
 
             //订阅 model添加
             SceneData.ImageDataList.ObserveAdd().Skip(0).Subscribe(item => UIContent.Add(item.Value));

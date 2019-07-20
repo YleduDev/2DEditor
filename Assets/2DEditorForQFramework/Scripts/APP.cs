@@ -43,15 +43,15 @@ namespace TDE
 #endif
         {
 #if UNITY_WEBGL
-            // web端的url是浏览器托管 所以获取url
-            //string url = MyURL();
-            ////获取浏览器点击默认场景名称
-            //string fireText = GetText();
-            ////连接
-            //serverData = new ServerData(url);
-            //yield return StartCoroutine(serverData.ie);
-            serverData = new ServerData();
+            //web端的url是浏览器托管 所以获取url
+            string url = MyURL();
+            //获取浏览器点击默认场景名称
+            string fireText = GetText();
+            //连接
+            serverData = new ServerData(url);
             yield return StartCoroutine(serverData.ie);
+            //serverData = new ServerData();
+            //yield return StartCoroutine(serverData.ie);
             //获取web的资源加载
             yield return StartCoroutine(WebGLAssetBundleMrg.Instance.Load());
 #else
@@ -72,7 +72,8 @@ namespace TDE
 
 #endif
             showPanel = UIMgr.OpenPanel<UIShowPanel>();
-
+            //加载历史场景
+            Global.currentSceneData.Value = TSceneData.Load(PlayerPrefs.GetString("OnDrawing", ""));
             //协程 订阅 场景切换功能
             IEnumerator ie = ShowPanle();
             yield return  StartCoroutine(ie);
@@ -84,11 +85,10 @@ namespace TDE
                UIMgr.OpenPanel<UIScenesScrollViewPanel>(new UIScenesScrollViewPanelData() { model = serverData }).Hide();
                UIMgr.OpenPanel<UIServerDatasMenuPanel>(new UIServerDatasMenuPanelData() { ServerData = serverData }).Hide();
                UIMgr.OpenPanel<UILinkedServerPanel>(new UILinkedServerPanelData() { ServerData = serverData }).Hide();
-            //加载历史场景
-               Global.currentSceneData.Value = TSceneData.Load( PlayerPrefs.GetString("OnDrawing", ""));
+           
 #endif
 #if UNITY_WEBGL
-            // if (!fireText.IsNullOrEmpty())ChangeScene(fireText);
+             if (!fireText.IsNullOrEmpty())ChangeScene(fireText);
 #endif
         }
         //订阅
@@ -115,14 +115,20 @@ namespace TDE
         }
 
         private void Update()
-        {           
-            if (Input.GetKey(KeyCode.Delete))
+        {
+            if (Input.GetKeyUp(KeyCode.Delete))
             {
-               if (Global.OnSelectedGraphic.IsNotNull()&& Global.OnSelectedGraphic.Value.IsNotNull())
+                if (Global.OnSelectedGraphic.IsNotNull() && Global.OnSelectedGraphic.Value.IsNotNull())
                 {
                     Global.currentSceneData.Value.Remove(Global.OnSelectedGraphic.Value);
                 }
             }
+            //if (Input.GetKeyUp(KeyCode.Space))
+            //{
+            //    Global.currentSceneData.Value.WidgetDataList.ForEach(item => item.localPos.Value += new Vector2(.5f * Global.currentCanvasWidth.Value, .5f * -Global.currentCanvasheight.Value));
+            //    Global.currentSceneData.Value.ImageDataList.ForEach(item => item.localPos.Value += new Vector2(.5f * Global.currentCanvasWidth.Value, .5f * -Global.currentCanvasheight.Value));
+            //}
+
         }
 #if UNITY_WEBGL
         private void OnDestroy()
