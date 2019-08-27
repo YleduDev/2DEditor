@@ -46,7 +46,7 @@ namespace QFramework.TDE
             if (!InputField.text.IsNullOrEmpty())
             {
                 mData.ServerData = new ServerData(InputField.text, () => {
-                    Debug.Log("chenggong");
+                    //Debug.Log("chenggong");
                     UIManager.Instance.HideUI<UILinkedServerPanel>();
                 }, () => {
                     Tile.Show();

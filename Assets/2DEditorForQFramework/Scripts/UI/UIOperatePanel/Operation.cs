@@ -31,7 +31,7 @@ namespace QFramework.TDE
             {
                 if (count == 0)
                 {
-                    Debug.Log("count=>Forward");
+                   // Debug.Log("count=>Forward");
                     forwardBtn.interactable = false;
                 }
                 else
@@ -44,7 +44,7 @@ namespace QFramework.TDE
             {
                 if (count == 0)
                 {
-                    Debug.Log("count=>Retreat");
+                   // Debug.Log("count=>Retreat");
                     retreatBtn.interactable = false;
                     restoreBtn.interactable = false;
                 }
@@ -74,7 +74,7 @@ namespace QFramework.TDE
 
         public void ForwardBtnClick()
         {
-            Debug.Log("Forward");
+            //Debug.Log("Forward");
             BtnClickGlobal.GetForwardSceneData();
         }
 
@@ -85,7 +85,7 @@ namespace QFramework.TDE
 
         public void RetreatBtnClick()
         {
-            Debug.Log("Retreat");
+            //Debug.Log("Retreat");
             BtnClickGlobal.GetRetreatSceneData();
         }
 

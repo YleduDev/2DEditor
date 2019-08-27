@@ -164,7 +164,7 @@ public class PictureMgrForWindows : Singleton<PictureMgrForWindows> {
         originalTex.Apply();
         if (!iSLoad)
         {
-            Debug.Log("Texture存在但生成Texture失败");
+            Log.I("Texture存在但生成Texture失败");
         }
         
         originalTex.name = name;

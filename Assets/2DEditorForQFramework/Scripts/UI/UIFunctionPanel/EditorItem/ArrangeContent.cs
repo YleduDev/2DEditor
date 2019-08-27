@@ -93,7 +93,7 @@ namespace QFramework.TDE
 
         public static void AlignBtnClick()
         {
-            Debug.Log("Current=>" + Global.OnSelectedGraphic.Value.siblingIndex.Value);
+           // Debug.Log("Current=>" + Global.OnSelectedGraphic.Value.siblingIndex.Value);
         }
 
         public void UpLayerBtnClick()

@@ -97,9 +97,9 @@ namespace QFramework.TDE
             
             specificFontBtn.onClick.AddListener(() =>
             {
-                Debug.Log((Global.OnSelectedGraphic.Value as T_Text).fontStyle);
-                Debug.Log((Global.OnSelectedGraphic.Value as T_Text).paragraphHorizontalAlignMentType);
-                Debug.Log((Global.OnSelectedGraphic.Value as T_Text).paragraphVerticalAlignmentType);
+                //Debug.Log((Global.OnSelectedGraphic.Value as T_Text).fontStyle);
+                //Debug.Log((Global.OnSelectedGraphic.Value as T_Text).paragraphHorizontalAlignMentType);
+                //Debug.Log((Global.OnSelectedGraphic.Value as T_Text).paragraphVerticalAlignmentType);
             });
         }
 

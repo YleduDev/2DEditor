@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2781954078
+CRC: 963427840
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c6f8f73da5b75a541a4be6a1f6509993
+    Hash: 823a1d0d4503114d4a2aff85b1394c8e
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,8 +14,8 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Art/2DEditorGraphics/Face/Btn_Arr_Down.png
-- Assets/Art/2DEditorGraphics/Line/Ico_YuanBG.png
-- "Assets/Art/2DEditorGraphics/Draw/\u6587\u672C.png"
-- Assets/Art/2DEditorGraphics/Face/Btn_Arr_Dab.png
+- Assets/2DEditorForQFramework/Art/2DEditorGraphics/Face/Btn_Arr_Down.png
+- Assets/2DEditorForQFramework/Art/2DEditorGraphics/Line/Ico_YuanBG.png
+- "Assets/2DEditorForQFramework/Art/2DEditorGraphics/Draw/\u6587\u672C.png"
+- Assets/2DEditorForQFramework/Art/2DEditorGraphics/Face/Btn_Arr_Dab.png
 Dependencies: []

@@ -72,7 +72,7 @@ namespace XZL.Network
         #endregion
 
         private string contentType = "application/x-www-form-urlencoded";
-        private int timeout = 5;
+        private int timeout = 30;
 
         public void SetTimeout(int value)
         {
@@ -351,11 +351,12 @@ namespace XZL.Network
                 {
                     //DevelopEngine.Console.Log(url);
                     //DevelopEngine.Console.Log(www.error);
+                    //Debug.Log(url + "    " + www.error);
                     loseRe?.Invoke((T)(object)www.responseCode);
                 }
                 else
                 {
-                    //Debug.Log(www.downloadHandler.text);
+                    //Debug.Log(url+"+++++" +www.downloadHandler.text);
                     re?.Invoke((T)(object)www.downloadHandler.text);
                 }
             }
@@ -395,12 +396,13 @@ namespace XZL.Network
                 {
                     //DevelopEngine.Console.Log(www.url);
                     //DevelopEngine.Console.Log(www.error);
+                    //Debug.Log(url + "   " + www.error);
                     loseRe?.Invoke((T)(object)www.responseCode);
                 }
                 else
                 {
                     //DevelopEngine.Console.Log(www.downloadHandler.text);
-                   // Debug.Log(www.downloadHandler.text);
+                    //Debug.Log(www.downloadHandler.text);
                     re?.Invoke((T)(object)www.downloadHandler.text);
                 }
             }

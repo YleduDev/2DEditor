@@ -57,7 +57,7 @@ namespace QFramework.TDE
             UIConfirmButton.onClick.AddListener(() => {
                 if (Global.OnSelectedGraphic.Value.IsNotNull() && Message.Value.IsNotNull())
                 { 
-                    Global.OnSelectedGraphic.Value.SetAssetNodeData( new WebSocketMessage() { Id =Message.Value .Id,State= Message.Value .State,Data= Message.Value .Data, Value = Message.Value.Value });
+                    Global.OnSelectedGraphic.Value.SetAssetNodeData( new WebSocketMessage() { Path= Message.Value.Path, Id =Message.Value .Id,State= Message.Value .State,Data= Message.Value .Data, Value = Message.Value.Value });
                    UIManager.Instance.HideUI<UIServerDatasMenuPanel>();
                 }
             } );

@@ -47,6 +47,7 @@ namespace QFramework.TDE
             LineSegment.Init(line, parent);
 
             LineSubscribeInit();
+            AssetNodeDataOnInit = true;
         }
 
         //Model²ã ¶©ÔÄ
@@ -84,7 +85,7 @@ namespace QFramework.TDE
                     {
                         if (!AssetNodeDataOnInit)
                         {
-                            ServerData.GetAssetNodeForID(data.Id, (str) =>
+                            ServerData.GetAssetNodeForID(data.Path, (str) =>
                             {
                                 if (!string.IsNullOrEmpty(str))
                                 {
@@ -92,17 +93,17 @@ namespace QFramework.TDE
                                     if (asset.IsNull()) { data = null; self.line.ColorInit(); }
                                     else
                                     {
+                                        data.Id = asset.id;
                                         data.Data = asset.valueStr;
                                         data.State = asset.state;
                                     }
                                 }
                             });
-                            AssetNodeDataOnInit = true;
                         }
 
                         self.line.mainColor.Value = Global.GetColorForState(data);
                     }
-                    else { self.line.ColorInit(); AssetNodeDataOnInit = true; } }))
+                    else { self.line.ColorInit(); } }))
                     .ApplySelfTo(self => self.line.siblingType.Subscribe(
                      dataType =>
                      {

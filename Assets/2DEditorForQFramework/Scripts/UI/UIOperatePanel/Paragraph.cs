@@ -83,7 +83,7 @@ namespace QFramework.TDE
             BtnClickGlobal.AddRetreatSceneData();
 
             (Global.OnSelectedGraphic.Value as T_Text).paragraphVerticalAlignmentType.Value = verticalType;
-            Debug.Log(verticalType);
+           // Debug.Log(verticalType);
         }
 
         public  void SetParagraphHorizontalAlignmentType(ParagraphHorizontalType horizontalType)
@@ -93,7 +93,7 @@ namespace QFramework.TDE
             BtnClickGlobal.AddRetreatSceneData();
 
             (Global.OnSelectedGraphic.Value as T_Text).paragraphHorizontalAlignMentType.Value = horizontalType;
-            Debug.Log(horizontalType);
+            //Debug.Log(horizontalType);
         }
 
         protected override void OnBeforeDestroy()

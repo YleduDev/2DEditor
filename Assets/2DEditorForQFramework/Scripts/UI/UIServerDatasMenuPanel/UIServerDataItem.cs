@@ -24,14 +24,17 @@ namespace QFramework.TDE
             ToggleGroup group = transform.parent.GetComponent<ToggleGroup>();
             if (toggle) toggle.group = group;
              toggle?.onValueChanged.AddListener(ob => {
-                 Message.Value = ob ? new WebSocketMessage()
+                 if(ob)
+                 Message.Value = new WebSocketMessage()
                  {
                      Id = assetNode.Value.id,
+                     Path= assetNode.Value.fullName,
                      State = assetNode.Value.state,
                      Data = assetNode.Value.valueStr,
                      Value= assetNode.Value.value
-                 } : null;
+                 };
                  toggle.targetGraphic.color = ob ? new Color(0,0,255,155): Color.white;
+                 //Debug.Log(Message.Value.Path);
              });
         }
 

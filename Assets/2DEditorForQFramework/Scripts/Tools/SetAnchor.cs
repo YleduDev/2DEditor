@@ -21,7 +21,7 @@ public class SetAnchor  {
         }
         catch (Exception ex)
         {
-            Debug.Log("不能在Canvas上操作！"+ex);
+            //Debug.Log("不能在Canvas上操作！"+ex);
             return;
         }
         float w = parent.rect.width;

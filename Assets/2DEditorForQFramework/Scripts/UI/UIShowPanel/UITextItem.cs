@@ -53,6 +53,7 @@ namespace QFramework.TDE
             //.ApplySelfTo(self => tmp_InputField.onValueChanged.AddListener(str=> text.content.Value=str));
             tmp_InputField?.onEndEdit.AddListener(str => this.text.content.Value = str);
             TextSubscribeInit();
+            AssetNodeDataOnInit = true;
         }
 
         //事件订阅处理
@@ -109,7 +110,7 @@ namespace QFramework.TDE
                      {
                          if (!AssetNodeDataOnInit)
                          {
-                             ServerData.GetAssetNodeForID(data.Id, (str) =>
+                             ServerData.GetAssetNodeForID(data.Path, (str) =>
                              {
                                  if (!string.IsNullOrEmpty(str))
                                  {
@@ -117,6 +118,7 @@ namespace QFramework.TDE
                                      if (asset.IsNull()) { data = null; self.text.ColorInit(); }
                                      else
                                      {
+                                         data.Id = asset.id;
                                          data.Data = asset.value;
                                          //Debug.Log(asset.valueStr);
                                          data.State = asset.state;
@@ -127,12 +129,10 @@ namespace QFramework.TDE
                                  self.text.content.Value = data.Value;
                                  self.text.mainColor.Value = Global.GetColorForState(data);
                              });
-                             AssetNodeDataOnInit = true;
                          }
                          self.text.content.Value = data.Value;
                          self.text.mainColor.Value = Global.GetColorForState(data);
                      }
-                     else AssetNodeDataOnInit = true;
                  }))
                  .ApplySelfTo(self => self.text.siblingType.Subscribe(
                      dataType =>

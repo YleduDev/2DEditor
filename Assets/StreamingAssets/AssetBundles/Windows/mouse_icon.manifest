@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2874963087
+CRC: 563185745
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 69db4945fbf384927d110c523c99f7f4
+    Hash: 6560638a9e322fe092f201e5cfa6084c
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,9 +14,9 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Art/mouse_icon/shouzhi.png
-- Assets/Art/mouse_icon/dianjishoushi.png
-- Assets/Art/mouse_icon/tuozhuai.png
-- Assets/Art/mouse_icon/tuozhuai1.png
-- Assets/Art/mouse_icon/icon_add.png
+- Assets/2DEditorForQFramework/Art/mouse_icon/shouzhi.png
+- Assets/2DEditorForQFramework/Art/mouse_icon/dianjishoushi.png
+- Assets/2DEditorForQFramework/Art/mouse_icon/tuozhuai.png
+- Assets/2DEditorForQFramework/Art/mouse_icon/tuozhuai1.png
+- Assets/2DEditorForQFramework/Art/mouse_icon/icon_add.png
 Dependencies: []

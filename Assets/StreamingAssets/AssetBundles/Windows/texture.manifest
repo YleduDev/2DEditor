@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1107936648
+CRC: 2070257717
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 35a669a7b2b46a777d8ada57bc10dcc5
+    Hash: 5c40ecdb64046e4b98616acd806df5e0
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,19 +14,19 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Art/Texture/1/BeginLine1.png
-- Assets/Art/Texture/3/EndArrows3.png
-- Assets/Art/Texture/1/EndArrows1.png
-- Assets/Art/Texture/3/Segment3.png
-- Assets/Art/Texture/5/BeginLine5.png
-- Assets/Art/Texture/5/BeginArrows5.png
-- Assets/Art/Texture/5/EndLine5.png
-- Assets/Art/Texture/5/Segment5.png
-- Assets/Art/Texture/3/BeginLine3.png
-- Assets/Art/Texture/5/EndArrows5.png
-- Assets/Art/Texture/1/Segment1.png
-- Assets/Art/Texture/3/EndLine3.png
-- Assets/Art/Texture/3/BeginArrows3.png
-- Assets/Art/Texture/1/BeginArrows1.png
-- Assets/Art/Texture/1/EndLine1.png
+- Assets/2DEditorForQFramework/Art/Texture/1/BeginLine1.png
+- Assets/2DEditorForQFramework/Art/Texture/3/EndArrows3.png
+- Assets/2DEditorForQFramework/Art/Texture/1/EndArrows1.png
+- Assets/2DEditorForQFramework/Art/Texture/3/Segment3.png
+- Assets/2DEditorForQFramework/Art/Texture/5/BeginLine5.png
+- Assets/2DEditorForQFramework/Art/Texture/5/BeginArrows5.png
+- Assets/2DEditorForQFramework/Art/Texture/5/EndLine5.png
+- Assets/2DEditorForQFramework/Art/Texture/5/Segment5.png
+- Assets/2DEditorForQFramework/Art/Texture/3/BeginLine3.png
+- Assets/2DEditorForQFramework/Art/Texture/5/EndArrows5.png
+- Assets/2DEditorForQFramework/Art/Texture/1/Segment1.png
+- Assets/2DEditorForQFramework/Art/Texture/3/EndLine3.png
+- Assets/2DEditorForQFramework/Art/Texture/3/BeginArrows3.png
+- Assets/2DEditorForQFramework/Art/Texture/1/BeginArrows1.png
+- Assets/2DEditorForQFramework/Art/Texture/1/EndLine1.png
 Dependencies: []

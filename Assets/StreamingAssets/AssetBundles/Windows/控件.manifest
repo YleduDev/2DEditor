@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1668771302
+CRC: 4273949291
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 99d30495515a61c393be1aead9122f39
+    Hash: 3455c19403d645711e0c075b0ec47133
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,5 +14,5 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- "Assets/Art/Widget/\u7535\u8BA1\u91CF\u63A7\u4EF6.png"
+- "Assets/2DEditorForQFramework/Art/Widget/\u7535\u8BA1\u91CF\u63A7\u4EF6.png"
 Dependencies: []

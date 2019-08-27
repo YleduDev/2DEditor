@@ -44,6 +44,9 @@ namespace QFramework.TDE
                //生成 id产物 
                for (int i = 0; i < assets.Count; i++)
                {
+                   //Debug.Log(assets[i].fullName);
+                   //Debug.Log(assets[i].id);
+
                    UIServerDataItem UIServerDataItem = uiServerDataItemPool.Allocate()
                  .ApplySelfTo(self => self.transform.SetParent(transform, false))
                  .ApplySelfTo(self => self.assetNode.Value = assets[i])

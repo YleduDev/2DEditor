@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1517847182
+CRC: 2756285687
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c7ac1f8be1f8c0e96e0291b50e5fce0b
+    Hash: d86762e12f87af5c739916fa85bb3977
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,12 +14,12 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- "Assets/Art/Image_y/\u7A7A\u8C03\u7528\u7535.png"
-- "Assets/Art/Image_y/\u7167\u660E\u7528\u7535.png"
-- "Assets/Art/Image_y/\u865A\u8868.png"
-- "Assets/Art/Image_y/\u7EFC\u5408\u7528\u7535.png"
-- "Assets/Art/Image_y/\u56FE\u5143\u63A7\u4EF6.png"
-- "Assets/Art/Image_y/\u52A8\u529B\u7528\u7535.png"
-- Assets/Art/Image_y/image.jpg
-- "Assets/Art/Image_y/\u7279\u6B8A\u7528\u7535.png"
+- "Assets/2DEditorForQFramework/Art/Image_y/\u7A7A\u8C03\u7528\u7535.png"
+- "Assets/2DEditorForQFramework/Art/Image_y/\u7167\u660E\u7528\u7535.png"
+- "Assets/2DEditorForQFramework/Art/Image_y/\u865A\u8868.png"
+- "Assets/2DEditorForQFramework/Art/Image_y/\u7EFC\u5408\u7528\u7535.png"
+- "Assets/2DEditorForQFramework/Art/Image_y/\u56FE\u5143\u63A7\u4EF6.png"
+- "Assets/2DEditorForQFramework/Art/Image_y/\u52A8\u529B\u7528\u7535.png"
+- Assets/2DEditorForQFramework/Art/Image_y/image.jpg
+- "Assets/2DEditorForQFramework/Art/Image_y/\u7279\u6B8A\u7528\u7535.png"
 Dependencies: []

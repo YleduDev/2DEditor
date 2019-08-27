@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3459881898
+CRC: 1089169722
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f33603567648b5c1ff788f0c4ea6994e
+    Hash: 101cec7287c27621c8d15c8a54089fa2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 88f3b4a644d0f4e7abb38826efa31bab
@@ -212,21 +212,21 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 Assets:
-- Assets/Art/UIPrefab/UILinkedServerPanel.prefab
-- Assets/Art/UIPrefab/UIOperatePanel.prefab
-- Assets/Art/UIPrefab/UIServerDatasMenuPanel.prefab
-- Assets/Art/UIPrefab/UIWidget_ecg.prefab
-- Assets/Art/UIPrefab/UIUPloadPanel.prefab
-- Assets/Art/UIPrefab/UIScenesScrollViewPanel.prefab
-- Assets/Art/UIPrefab/UIGraphicMenuScrollViewPanel.prefab
-- Assets/Art/UIPrefab/UIShowPanel.prefab
-- Assets/Art/UIPrefab/UICanvasPanel.prefab
-- Assets/Art/UIPrefab/UIFunctionPanel.prefab
-- Assets/Art/UIPrefab/UIGraphicMenuPanel.prefab
-- Assets/Art/UIPrefab/UIAttributePanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UILinkedServerPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIOperatePanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIServerDatasMenuPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIWidget_ecg.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIUPloadPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIScenesScrollViewPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIGraphicMenuScrollViewPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIShowPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UICanvasPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIFunctionPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIGraphicMenuPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIAttributePanel.prefab
 Dependencies:
-- E:/UnityProject/2DEditorTest-master/AssetBundles/WebGL/texture
-- E:/UnityProject/2DEditorTest-master/AssetBundles/WebGL/icon
-- E:/UnityProject/2DEditorTest-master/AssetBundles/WebGL/mouse_icon
-- E:/UnityProject/2DEditorTest-master/AssetBundles/WebGL/image_y
-- E:/UnityProject/2DEditorTest-master/AssetBundles/WebGL/aigei_com_t
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/WebGL/texture
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/WebGL/icon
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/WebGL/mouse_icon
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/WebGL/image_y
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/WebGL/aigei_com_t

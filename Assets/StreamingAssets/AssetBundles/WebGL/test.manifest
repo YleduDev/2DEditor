@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2446485793
+CRC: 4152520752
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e6cbc8d2682545d3f1ad26217b3a1a64
+    Hash: db047be1c953df4b5dac803de76e36c4
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,6 +14,6 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Art/2DEditorGraphics/Test/TitleBG_002.png
-- Assets/Art/2DEditorGraphics/Test/TitleBG_001.png
+- Assets/2DEditorForQFramework/Art/2DEditorGraphics/Test/TitleBG_002.png
+- Assets/2DEditorForQFramework/Art/2DEditorGraphics/Test/TitleBG_001.png
 Dependencies: []

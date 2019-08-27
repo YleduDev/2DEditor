@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 265810488
+CRC: 1472885307
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 628e5a174e74d9cd9650c99e3d882374
+    Hash: 6b46e2e408468c4bbc41153865489aa2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 88f3b4a644d0f4e7abb38826efa31bab
@@ -212,21 +212,21 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 Assets:
-- Assets/Art/UIPrefab/UILinkedServerPanel.prefab
-- Assets/Art/UIPrefab/UIOperatePanel.prefab
-- Assets/Art/UIPrefab/UIServerDatasMenuPanel.prefab
-- Assets/Art/UIPrefab/UIWidget_ecg.prefab
-- Assets/Art/UIPrefab/UIUPloadPanel.prefab
-- Assets/Art/UIPrefab/UIScenesScrollViewPanel.prefab
-- Assets/Art/UIPrefab/UIGraphicMenuScrollViewPanel.prefab
-- Assets/Art/UIPrefab/UIShowPanel.prefab
-- Assets/Art/UIPrefab/UICanvasPanel.prefab
-- Assets/Art/UIPrefab/UIFunctionPanel.prefab
-- Assets/Art/UIPrefab/UIGraphicMenuPanel.prefab
-- Assets/Art/UIPrefab/UIAttributePanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UILinkedServerPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIOperatePanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIServerDatasMenuPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIWidget_ecg.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIUPloadPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIScenesScrollViewPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIGraphicMenuScrollViewPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIShowPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UICanvasPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIFunctionPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIGraphicMenuPanel.prefab
+- Assets/2DEditorForQFramework/Art/UIPrefab/UIAttributePanel.prefab
 Dependencies:
-- E:/UnityProject/2DEditorTest-master/AssetBundles/Windows/texture
-- E:/UnityProject/2DEditorTest-master/AssetBundles/Windows/icon
-- E:/UnityProject/2DEditorTest-master/AssetBundles/Windows/mouse_icon
-- E:/UnityProject/2DEditorTest-master/AssetBundles/Windows/image_y
-- E:/UnityProject/2DEditorTest-master/AssetBundles/Windows/aigei_com_t
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/Windows/texture
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/Windows/icon
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/Windows/mouse_icon
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/Windows/image_y
+- E:/Vibe/code/client/2DEditorForXZL-master/AssetBundles/Windows/aigei_com_t

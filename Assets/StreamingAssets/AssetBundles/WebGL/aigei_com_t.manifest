@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1257674453
+CRC: 3606652894
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e871eb689fdbca2974ee153ddff153f2
+    Hash: cc4286c4d8abc4a9dd9f612d1c3b2280
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -14,5 +14,5 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Art/aigei_com_t/aigei_com.png
+- Assets/2DEditorForQFramework/Art/aigei_com_t/aigei_com.png
 Dependencies: []

@@ -33,6 +33,8 @@ namespace QFramework.TDE
             SubscribeInit();
             //编辑面板初始化
             EditorBoxInit(widget);
+
+            AssetNodeDataOnInit = true;
         }
         //  值订阅
         protected override  void SubscribeInit()
@@ -51,14 +53,16 @@ namespace QFramework.TDE
                     //todo
                 }
             }))
-             .ApplySelfTo(self => self.widget.TextDataList[0].content.ObserveOnMainThread().Subscribe(str => { if (A_voltage) A_voltage.text = str; }))
+            //这种留 2 位小数的方法 迭代比较差（不适用 不是float 的报错）
+            //不过这种 组件 属于特殊需求个别 组件 比较具有 单一性
+             .ApplySelfTo(self => self.widget.TextDataList[0].content.ObserveOnMainThread().Subscribe(str => { if (A_voltage && str.IsNotNullAndEmpty()) A_voltage.text = CheckStr(str); else A_voltage.text = ""; }))
             .ApplySelfTo(self => self.widget.TextDataList[0].AssetNodeData.Subscribe(data => {
                 if (data.IsNotNull())
                 {
                     OnAssetNodeInit(data, mes => self.widget.TextDataList[0].content.Value = mes.Value);                   
                 }
             }))
-            .ApplySelfTo(self => self.widget.TextDataList[1].content.ObserveOnMainThread().Subscribe(str => { if (A_electric) A_electric.text = str; }))
+            .ApplySelfTo(self => self.widget.TextDataList[1].content.ObserveOnMainThread().Subscribe(str => { if (A_electric && str.IsNotNullAndEmpty()) A_electric.text = CheckStr(str); else A_electric.text = ""; }))
             .ApplySelfTo(self => self.widget.TextDataList[1].AssetNodeData.Subscribe(data => {
                 if (data.IsNotNull())
                 {
@@ -66,7 +70,7 @@ namespace QFramework.TDE
                     //todo
                 }
             }))
-            .ApplySelfTo(self => self.widget.TextDataList[2].content.ObserveOnMainThread().Subscribe(str => { if (B_voltage) B_voltage.text = str; }))
+            .ApplySelfTo(self => self.widget.TextDataList[2].content.ObserveOnMainThread().Subscribe(str => { if (B_voltage && str.IsNotNullAndEmpty()) B_voltage.text = CheckStr(str); else B_voltage.text = ""; }))
             .ApplySelfTo(self => self.widget.TextDataList[2].AssetNodeData.Subscribe(data => {
                 if (data.IsNotNull())
                 {
@@ -74,7 +78,7 @@ namespace QFramework.TDE
                     //todo                  
                 }
             }))
-             .ApplySelfTo(self => self.widget.TextDataList[3].content.ObserveOnMainThread().Subscribe(str => { if (B_electric) B_electric.text = str; }))
+             .ApplySelfTo(self => self.widget.TextDataList[3].content.ObserveOnMainThread().Subscribe(str => { if (B_electric && str.IsNotNullAndEmpty()) B_electric.text = CheckStr(str); else B_electric.text = ""; }))
             .ApplySelfTo(self => self.widget.TextDataList[3].AssetNodeData.Subscribe(data => {
                 if (data.IsNotNull())
                 {
@@ -82,7 +86,7 @@ namespace QFramework.TDE
                     //todo
                 }
             }))
-             .ApplySelfTo(self => self.widget.TextDataList[4].content.ObserveOnMainThread().Subscribe(str => { if (C_voltage) C_voltage.text = str; }))
+             .ApplySelfTo(self => self.widget.TextDataList[4].content.ObserveOnMainThread().Subscribe(str => { if (C_voltage && str.IsNotNullAndEmpty()) C_voltage.text = CheckStr(str); else C_voltage.text = ""; }))
             .ApplySelfTo(self => self.widget.TextDataList[4].AssetNodeData.Subscribe(data => {
                 if (data.IsNotNull())
                 {
@@ -90,14 +94,17 @@ namespace QFramework.TDE
                     //todo
                 }
             }))
-            .ApplySelfTo(self => self.widget.TextDataList[5].content.ObserveOnMainThread().Subscribe(str=> { if (C_electric) C_electric.text = str; }))
+            .ApplySelfTo(self => self.widget.TextDataList[5].content.ObserveOnMainThread().Subscribe(str=> { if (C_electric && str.IsNotNullAndEmpty()) C_electric.text = CheckStr(str); else C_electric.text = ""; }))
             .ApplySelfTo(self => self.widget.TextDataList[5].AssetNodeData.Subscribe(data => {
+                
                 if (data.IsNotNull())
                 {
                     OnAssetNodeInit(data, mes => self.widget.TextDataList[5].content.Value = mes.Value);                                      
                 }
             }))
-            .ApplySelfTo(self => self.widget.TextDataList[6].content.ObserveOnMainThread().Subscribe(str => { if (ElectricCurrenttTxt) ElectricCurrenttTxt.text = str; }))
+            .ApplySelfTo(self => self.widget.TextDataList[6].content.ObserveOnMainThread().Subscribe(str => { if (ElectricCurrenttTxt && str.IsNotNullAndEmpty()) ElectricCurrenttTxt.text = CheckStr(str);
+                else ElectricCurrenttTxt.text ="";
+            }))
             .ApplySelfTo(self => self.widget.TextDataList[6].AssetNodeData.Subscribe(data => {
                 if (data.IsNotNull())
                 {
@@ -110,7 +117,7 @@ namespace QFramework.TDE
                 {
                     if (!AssetNodeDataOnInit)
                     {
-                        ServerData.GetAssetNodeForID(data.Id, (str) =>
+                        ServerData.GetAssetNodeForID(data.Path, (str) =>
                         {
                             if (!string.IsNullOrEmpty(str))
                             {
@@ -120,6 +127,7 @@ namespace QFramework.TDE
                                     if (asset.IsNull()) { data = null; self.widget.ColorInit(); }
                                     else
                                     {
+                                        data.Id = asset.id;
                                         data.Data = asset.value;
                                         data.State = asset.state;
                                         data.Value = asset.value;
@@ -134,17 +142,17 @@ namespace QFramework.TDE
                                 
                             }
                         });
-                        AssetNodeDataOnInit = true;
                     }
                     else
                     {
-                        ServerData.GetAssetNodeForID(data.Id, (str) =>
+                        ServerData.GetAssetNodeForID(data.Path, (str) =>
                         {
+                           // Debug.Log("Bind + "+data.Path);
                             if (!string.IsNullOrEmpty(str))
                             {
                                 //AssetNode asset = SerializeHelper.FromJson<AssetNode>(str);
                                 //ecgTitle.text = asset.name;
-                                ServerData.GetAssetNodesForDeviceId(data.Id, (va) =>
+                                ServerData.GetAssetNodesForDeviceId(data.Path, (va) =>
                                 {
                                     if (!string.IsNullOrEmpty(va))
                                     {
@@ -164,14 +172,13 @@ namespace QFramework.TDE
                         });
                     }
                 }
-                else AssetNodeDataOnInit = true;
             }));
         }
         private void OnAssetNodeInit(WebSocketMessage data,Action<WebSocketMessage> act=null)
         {
             if (!AssetNodeDataOnInit)
             {
-                ServerData.GetAssetNodeForID(data.Id, (str) =>
+                ServerData.GetAssetNodeForID(data.Path, (str) =>
                 {
                     if (!string.IsNullOrEmpty(str))
                     {
@@ -179,6 +186,7 @@ namespace QFramework.TDE
                         {
                             AssetNode asset = SerializeHelper.FromJson<AssetNode>(str);
                             data.Data = asset.value;
+                            data.Id = asset.id;
                             data.State = asset.state;
                             data.Value = asset.value;
                             act?.Invoke(data);
@@ -193,6 +201,14 @@ namespace QFramework.TDE
             }else act?.Invoke(data);
         }
 
+        private string CheckStr(string str)
+        {
+            if (str.IndexOf('.') == -1) return str;
+            int index= str.IndexOf('.') + 3;
+            if (str.Length-1 < index) index--;
+            return str.Substring(0, index);
+        }
+
         //子物体绑定
         private void BindChild(List<AssetNode> assetsList)
         {
@@ -200,19 +216,28 @@ namespace QFramework.TDE
             for (int i = 0; i < assetsList.Count; i++)
             {
                 if (assetsList[i].caption.Contains("A相电压"))
-                    widget.TextDataList[0].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });               
+                    widget.TextDataList[0].SetAssetNodeData(new WebSocketMessage() { Path = assetsList[i].fullName, Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
                 else if (assetsList[i].caption.Contains("A相电流"))
-                    widget.TextDataList[1].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                    widget.TextDataList[1].SetAssetNodeData(new WebSocketMessage() { Path = assetsList[i].fullName, Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
                 else if (assetsList[i].caption.Contains("B相电压"))
-                    widget.TextDataList[2].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                    widget.TextDataList[2].SetAssetNodeData(new WebSocketMessage() { Path = assetsList[i].fullName, Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
                 else if (assetsList[i].caption.Contains("B相电流"))
-                    widget.TextDataList[3].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state , Value = assetsList[i].value, });
+                {
+                    //Debug.Log("B相电流:" + assetsList[i].value);
+                    widget.TextDataList[3].SetAssetNodeData(new WebSocketMessage() { Path = assetsList[i].fullName, Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                }
                 else if (assetsList[i].caption.Contains("C相电压"))
-                    widget.TextDataList[4].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                    widget.TextDataList[4].SetAssetNodeData(new WebSocketMessage() { Path = assetsList[i].fullName, Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
                 else if (assetsList[i].caption.Contains("C相电流"))
-                    widget.TextDataList[5].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });            
+                {
+                  //  Debug.Log("C相电流:" + assetsList[i].id+ assetsList[i].value);
+                    widget.TextDataList[5].SetAssetNodeData(new WebSocketMessage() { Path = assetsList[i].fullName, Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                }
                 else if (assetsList[i].catalogId.Contains("1005"))
-                    widget.TextDataList[6].SetAssetNodeData(new WebSocketMessage() { Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                {
+                    //Debug.Log("1005:"+assetsList[i].value);
+                    widget.TextDataList[6].SetAssetNodeData(new WebSocketMessage() { Path = assetsList[i].fullName, Data = assetsList[i].value, Id = assetsList[i].id, State = assetsList[i].state, Value = assetsList[i].value, });
+                }
             }           
         }
         //待优化 设计方式不太理想

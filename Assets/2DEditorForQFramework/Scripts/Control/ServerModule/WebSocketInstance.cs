@@ -23,14 +23,15 @@ public class WebSocketInstance : MonoSingleton<WebSocketInstance>
         // ipUrl 192.168.1.201:8080/vibe-web
         upDateWebSocket?.Close();
         upDateWebSocket = new WebSocket("ws://" + ipUrl + "/websocket");
-        Debug.Log("ws://" + ipUrl + "/websocket");
+        //Debug.Log("ws://" + ipUrl + "/websocket");
         upDateWebSocket.OnMessage += UpDateWebSocket_OnMessage;
         upDateWebSocket.OnOpen += (sender, e) => { Debug.Log("WebSocket IS OPEN"); };
 
         upDateWebSocket.OnError += (sender, e) =>
         {
+           // Debug.Log(e.Message);
             upDateWebSocket.Close();
-            Debug.LogFormat("<color=red>WebSocket IS ERROR</color>");
+            //Debug.LogFormat("<color=red>WebSocket IS ERROR</color>");
             InitWebSocket(ipUrl);
             upDateWebSocket.Send(1 + "," + 0 + "|1");
         };
@@ -44,8 +45,17 @@ public class WebSocketInstance : MonoSingleton<WebSocketInstance>
     {
         //Debug.Log("收到推送消息" + e.Data);
         //Log.I(e.Data);
-        WebSocketMessage message= JsonConvert.DeserializeObject<WebSocketMessage>(e.Data);
-       if (message != null) Global.UpdataBindData(message);
+        try
+        {
+            WebSocketMessage message = JsonConvert.DeserializeObject<WebSocketMessage>(e.Data);
+
+            if (message != null) Global.UpdataBindData(message);
+        }
+        catch (System.Exception)
+        {
+           
+        }
+       
     }
 
     
@@ -59,7 +69,7 @@ public class WebSocketInstance : MonoSingleton<WebSocketInstance>
 
         upDateWebSocket.Send(spaceId + "," + catalog + "|1");
 
-        Debug.Log(spaceId + "," + catalog + "|1");
+        //Debug.Log(spaceId + "," + catalog + "|1");
 
         lastSpaceId = spaceId;
         lastCatalog = catalog;
@@ -78,7 +88,10 @@ public class WebSocketInstance : MonoSingleton<WebSocketInstance>
 public class WebSocketMessage
 {
     public string Id { set; get; }
+    public string Path { set; get; }
     public string Data { set; get; }//valueStr
     public string State { set; get; }
     public string Value { set; get; }
+
+
 }

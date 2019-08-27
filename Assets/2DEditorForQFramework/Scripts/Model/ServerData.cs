@@ -20,8 +20,8 @@ namespace TDE
         //Asset
         string floorsUrl = "/vibe-web/asset/initAssetAllTree?flag=space&locationRoot=1";
         string categoryUrl = "/vibe-web/getItemsTree?catalogId=2002";
-        static string idUrl = "/vibe-web/asset/toDeviceEdit?id=";
-        static string queryAssetListUrl = "/vibe-web/asset/queryAssetAddEnergyDeviceType/";
+        static string idUrl = "/vibe-web/asset/toDeviceEdit?fullName=";
+        static string queryAssetListUrl = "/vibe-web/asset/queryAssetAddEnergyDeviceType?fullName=";
 
         string nameOrCaption = "/vibe-web/asset/toAssetLikeNameAndCaption?";
         string nameContent = "name=";
@@ -136,13 +136,10 @@ namespace TDE
             TSceneData sceneData;
 
             XZL.HTTPMgr.Instance.FindOneScene(HeadUrl + findOneSceneDataURL + name, (json)=> {
-                 if (!json.IsNullOrEmpty())
-                 {
+             
                      sceneData = TSceneData.Load(json);
 
                      re?.Invoke(sceneData);
-                 }
-
              });
         }
 

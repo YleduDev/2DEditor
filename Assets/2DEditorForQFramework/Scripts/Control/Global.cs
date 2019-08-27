@@ -59,25 +59,28 @@ namespace TDE
 
         public static void AddBindData(ReactiveProperty<WebSocketMessage> data)
         {
-            if (data.Value!=null&&!bindDataDict.ContainsKey(data.Value.Id))
+            //if (data.Value.Id.Equals("2464")) Debug.Log(bindDataDict.ContainsKey(data.Value.Id) + "   2222222222222    " + data.Value.Value);
+            if (data.Value!=null&&!bindDataDict.ContainsKey(data.Value.Path))
             {
                // Log.I("绑点数据:"+ data.Value.Id);
-                bindDataDict.Add(data.Value.Id,  data);
+                bindDataDict.Add(data.Value.Path,  data);
             }
         }
         public static void RemoveBindData(ReactiveProperty<WebSocketMessage> data)
         {
-            if (data.Value != null && bindDataDict.ContainsKey(data.Value.Id))
+            //if (data.Value.Id.Equals("2464")) Debug.Log(bindDataDict.ContainsKey(data.Value.Id) + "   1111111111111   " + data.Value.Value);
+            if (data.Value != null && bindDataDict.ContainsKey(data.Value.Path))
             {
-                bindDataDict.Remove(data.Value.Id);
+                bindDataDict.Remove(data.Value.Path);
             }
         }
 
         public static void UpdataBindData(WebSocketMessage data)
-        {
-            if (data != null && bindDataDict.ContainsKey(data.Id))
+        {           
+            if (data != null && bindDataDict.ContainsKey(data.Path))
             {
-                bindDataDict[data.Id].Value = data;
+               // if (data.Id.Equals("2464")) Debug.Log(bindDataDict.ContainsKey(data.Id) + "   33333333333333333" + "   " + data.Value);
+                bindDataDict[data.Path].Value = data;
             }
         }
 

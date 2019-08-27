@@ -49,6 +49,7 @@ namespace QFramework.TDE
             //划线工具初始化
             UILineSwitch.Init(model, Image);
             ImageSubscribeInit();
+            AssetNodeDataOnInit = true;
         }
 
         // Model 值订阅
@@ -113,7 +114,7 @@ namespace QFramework.TDE
 
                          if (!AssetNodeDataOnInit)
                          {
-                             ServerData.GetAssetNodeForID(data.Id, (str) =>
+                             ServerData.GetAssetNodeForID(data.Path, (str) =>
                              {
                                  if (!string.IsNullOrEmpty(str))
                                  {
@@ -121,16 +122,15 @@ namespace QFramework.TDE
                                      if (asset.IsNull()) { data = null; self.Image.ColorInit(); }
                                      else
                                      {
+                                         data.Id = asset.id;
                                          data.Data = asset.valueStr;
                                          data.State = asset.state;
                                      }
                                  }
                              });
-                             AssetNodeDataOnInit = true;
                          }
                          self.Image.mainColor.Value = Global.GetColorForState(data);
                      }
-                     else AssetNodeDataOnInit = true;
                  }))
                  .ApplySelfTo(self => self.Image.siblingType.Subscribe(
                      dataType =>

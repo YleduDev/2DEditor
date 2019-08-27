@@ -108,7 +108,7 @@ namespace QFramework.TDE
 
             if (LocalDialog.GetOpenFileName(ofn))
             {
-                Debug.Log("Selected file with full path: {0}" + ofn.file);
+                //Debug.Log("Selected file with full path: {0}" + ofn.file);
             }
             //此处更改了大部分答案的协程方法，在这里是采用unity的videoplayer.url方法播放视频；
             //
